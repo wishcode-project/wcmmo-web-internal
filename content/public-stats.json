@@ -1,0 +1,46 @@
+{
+  "updatedAt": "2026-09-28T23:04:17+07:00",
+  "specs": {
+    "done": 3,
+    "total": 23
+  },
+  "foundation": {
+    "done": 3,
+    "total": 3
+  },
+  "phases": [
+    {
+      "n": 0,
+      "specsDone": 0,
+      "specsTotal": 1
+    },
+    {
+      "n": 1,
+      "specsDone": 0,
+      "specsTotal": 13
+    },
+    {
+      "n": 2,
+      "specsDone": 0,
+      "specsTotal": 8
+    },
+    {
+      "n": 3,
+      "specsDone": 0,
+      "specsTotal": 3
+    },
+    {
+      "n": 4,
+      "specsDone": 0,
+      "specsTotal": 0
+    }
+  ],
+  "prototypes": {
+    "done": 0,
+    "total": 8
+  },
+  "decisions": {
+    "locked": 19,
+    "total": 61
+  }
+}

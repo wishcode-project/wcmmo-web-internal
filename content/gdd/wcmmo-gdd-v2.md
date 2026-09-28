@@ -1,0 +1,332 @@
+# WC-MMO — Game Design Document v2 (final)
+
+> Version: 2.0 · Date: 2026-09-28 · Server: Purpur 26.2 · Supersedes: [v1](wcmmo-gdd-v1.md)
+>
+> This is the **design**: what the game should feel like and why. Build from the contracts in `../docs/NNN-*.md`,
+> not from this file. Those contracts cite this file by section and decision ID.
+> When a decision changes, update this file first, then the specs that cite it.
+
+## What changed from v1
+
+| Area | v1 | v2 |
+|---|---|---|
+| Character identity | 3 classes (Warrior, Wizard, Archer) | **Classless**: 1 **Bloodline** + 2–4 **Runes** |
+| Weapons | locked per class | **Weapon freedom**: any weapon, gated by stats |
+| Stats | damage scaling + gear gates | **Gateway only**: stats decide what you can equip |
+| Raw power | stats + gear | **Enhancement** is the main source of AP/DP |
+| Cooldown/cast speed | AGI | **Weapon Mastery** (MMOCore profession per weapon) |
+| Unique weapon skills | per class | unlocked by **Mastery**, only castable with that weapon in hand |
+| Bar swap | proposed `Shift+F` | **`Shift + Right Click`** (decided) |
+| Story instances | proposed | **MythicDungeons** (decided) |
+| Furniture | shop | **NPC shop or crafted** (decided) |
+
+## How to use this document
+
+- Sections 1–9 are the game. Sections 10–12 are coming soon.
+- Every choice is a decision `D-xx`. Where your v2 text answers one, it is `DECIDED`. The rest stay `OPEN` with my recommendation.
+  Fill in **Your call** and I will update the specs that cite it.
+- ⚠️ marks a **technical risk** that has to be proven in a proof-of-concept (PoC) first.
+- Numbers marked *proposed* are starting points for tuning.
+
+## 0. Vision
+
+| | |
+|---|---|
+| Genre | Classless action MMORPG on Minecraft. Inspired by **Black Desert Online** (combat states, AP/DP zones, regional story, stationary farming, lifeskills), **MU Online** (stat-gated gear, enhancement), **Wynncraft** (stat allocation, identified gear) and **One Piece Devil Fruits** (Bloodlines) |
+| Pillars | 1. Build freedom: Bloodline × Runes × any weapon · 2. Skill-based combat (Frontguard / I-frame / Super Armour) · 3. Compartmentalised progression, no stat bloat · 4. Soloable story, social endgame · 5. Cozy Lifezone housing |
+| Target | ~200 concurrent players on one production server (spec 001) |
+
+### Progression compartments (the core rule of v2)
+
+| System | Purpose | Gives | Never gives |
+|---|---|---|---|
+| Level & stats (STR, AGI, INT, DEX, DEF) | **Gateway** | the right to equip gear | raw damage (see D-30) |
+| Enhancement (+1…+15, I…V) | **Raw power** | AP / DP | skills |
+| Weapon Mastery | **Combat fluidity** | unique weapon skills, lower cooldowns and cast times | AP / DP |
+| Skill slots (10 active) | **Tactical limit** | choice of what to bring | — |
+| Bloodline | **Identity** | playstyle mechanics that evolve by stage | flat stat piles |
+| Runes | **Fine-tuning** | small passive bonuses (HP, stamina regen, CDR…) | new mechanics |
+
+### Core loops
+
+```txt
+Combat:    story/quests → zone farming (AP/DP gated) → drops (identify) → enhance (AP/DP) → next zone / dungeon / world boss
+           using a weapon → Mastery → unique skills + faster casting
+           levelling → stat points → heavier gear, Bloodline stages
+Lifeskill: Lifezone gathering (low–mid) → cooking/alchemy → consumables (buffs) → combat
+           open-world rare resources (high) ─┘          └→ crafted furniture (Nexo) → housing
+```
+
+### Plugin stack for the game
+
+| Need | Plugin | Status |
+|---|---|---|
+| Stats/attributes, resources (mana/stamina), professions incl. Weapon Mastery | MMOCore | planned (D-00) |
+| Items, stats, elements, upgrades, identify | MMOItems + MythicLib | planned |
+| Mobs, bosses, spawners, Bloodline effect scripts | MythicMobs | planned |
+| Math from player data in MythicMobs (Mastery CDR) | PlaceholderAPI | **new** |
+| Mob models, FPV animation | ModelEngine | planned |
+| Custom items/blocks/furniture, resource pack | Nexo | planned |
+| Accessory and Rune slots | MMOInventory | proposed (D-09) |
+| Instances (story bosses, dungeons) | MythicDungeons | **decided** (D-14) |
+| Quest dialogue UI | BetonQuest | proposed (D-15) |
+| Permissions | LuckPerms | planned |
+| Combat states, AP/DP soft cap, bar swap, Bloodline ownership/extraction, Lifezone | **`wcmmo-plugins` (Kotlin)** | new repo (D-25) |
+
+| ID | Decision | Options | Recommendation | Your call | Status |
+|---|---|---|---|---|---|
+| D-00 | Are Nexo, MythicMobs, ModelEngine, MMOCore, MMOItems bought and final? | yes / partly | Confirm before Phase 0 | All owned (+ MythicLib, MMOProfiles, LuckPerms, DiscordSRV). **MythicDungeons not owned**; MMOInventory unconfirmed | DECIDED |
+| D-43 | Multiple characters per account (MMOProfiles, owned) | yes / no | Not needed for the vertical slice. If yes later: each profile has its own Bloodline, stats and Mastery; Lifezone house shared or per profile must be decided | Planned, **not at start** | DECIDED (later) |
+| D-25 | Build custom mechanics in our own Kotlin plugin? | Skript / Kotlin / configs only | **Kotlin plugin.** Frontguard, I-frame, Super Armour, the AP/DP soft cap, bar swap and Bloodline ownership are not native to any plugin above | Yes, written by Tatoo (head dev) in `wcmmo-plugins` | DECIDED |
+| D-27 | Player-facing language | Thai / English / both | Both: English IDs, Thai + English display text | Tool: **Triton** (owned). Languages still to confirm | PARTLY |
+| D-38 | Repo layout | 5 repos (server, plugins, content, world, infra) / 3 repos | Owner prefers **3**: `wcmmo` (real server incl. MMO content configs), `wcmmo-specs`, `wcmmo-plugins` (source per plugin + starter build). Needs team confirmation; if kept, `wcmmo/.gitignore` must stop ignoring the MMO plugin folders | owner: 3 repos (team to confirm) | OPEN |
+| D-39 | HUD / UI tool | MythicHUD (owned) / UltimateUI (owned) | **MythicHUD** for the always-on HUD (HP, Mana, Stamina, skill bars) via MMOCore + PlaceholderAPI; **UltimateUI** only for special screens. ⚠️ Many plugins ship pack assets: pick **one pack owner** that merges the rest (T7) | MythicHUD = always-on HUD (HP, Mana, Stamina, skill bars, cooldowns). **UltimateUI = every other custom UI**: shops, quest list, menus and screens MythicHUD can't do | DECIDED |
+| D-40 | Items / furniture / pack owner | MMOItems + Nexo / MMOItems + MythicCrucible (owned) | MMOItems for all RPG gear; **one** of Nexo or Crucible for furniture, blocks and the merged resource pack | **Nexo** owns furniture, custom blocks and the merged resource pack. MMOItems owns all gear. Crucible optional (Mythic-skill utility items only, if ever needed) | DECIDED |
+| D-41 | Cosmetics | CosmeticsCore / ItemSkins (both owned) | CosmeticsCore for wearables, ItemSkins for weapon skins if it keeps MMOItems data | | OPEN |
+| D-42 | Side content | BattlePass / LuxCollect (both owned) | Add after the vertical slice; BattlePass never carries the main story | | OPEN |
+
+---
+
+## 1. Core vitality & survival
+
+- **Primary resources:** Health Points (HP) and Mana, for standard combat and spellcasting.
+- **Stamina system:** replaces the vanilla hunger bar. It limits physical actions like continuous dashing and is the casting cost of certain physical skills.
+- **Food & consumables:** food is not used for survival (no hunger management). It acts like potions: healing and status buffs.
+
+| Resource | Used by | Regen | Proposed base |
+|---|---|---|---|
+| HP | everyone | out-of-combat regen + consumables | *proposed* 100 + level/DEF gear |
+| Mana | spellcasting skills | constant regen | *proposed* 100, 2/s |
+| Stamina | dash, physical skills | fast regen when not spending | *proposed* 100, 10/s after 1 s idle |
+
+| ID | Decision | Options | Recommendation | Your call | Status |
+|---|---|---|---|---|---|
+| D-01 | How is Stamina shown? | food bar re-used / action bar / boss bar | Food bar re-used as the gauge (hunger frozen) if MMOCore supports it; otherwise action bar. ⚠️ PoC | | OPEN |
+| D-02 | How does food heal? | instant / over time | Heal-over-time + cooldown groups (all meals share one cooldown) | | OPEN |
+| D-03a | Does sprinting cost stamina? | yes / no | No: only dash & skills | | OPEN |
+
+---
+
+## 2. Classless system, Bloodlines & Runes
+
+The rigid class system is removed. Players build their character freely and mix weapons. Their **Bloodline** and **Runes** shape the build.
+
+### Main Bloodline (1 slot)
+
+- The core identity/playstyle of the character, conceptually like a Devil Fruit.
+- **Hard-bound:** cannot be swapped freely. Removing or changing it needs a special **extraction item**.
+- **Bloodline evolution (stages):** Bloodlines grow with the player and change *mechanics*, not just raw stats. Handled with MythicMobs conditional triggers.
+
+*Example: Berserker Bloodline*
+
+| Stage | Unlock | Name | Effect |
+|---|---|---|---|
+| 1 | on bind | Adrenaline | +20 % attack speed while HP < 30 % |
+| 2 | Lv. 20 | Pain is Power | taking damage restores Stamina |
+| 3 | Lv. 40 | Unstoppable | charge skills gain Super Armour |
+| 4 | Lv. 60 | Blood Rage | active skill: sacrifice HP to reset cooldowns |
+| 5 | Awakened | Death Defying | a fatal blow leaves HP at 1 + 3 s I-frame |
+
+### Passive Runes (2–4 slots)
+
+- Freely equipped and swapped.
+- Fine-tune builds (e.g. +Max HP, +Stamina regen, cooldown reduction), so two players with the same Bloodline can play different roles (Tank vs DPS).
+
+| ID | Decision | Options | Recommendation | Your call | Status |
+|---|---|---|---|---|---|
+| D-31 | Bloodlines at launch | 1 / 3 / 5 | **4**, one per play pattern: Berserker (melee risk/reward), plus e.g. a guardian (tank), an arcane (caster) and a hunter (ranged/mobility). Names/themes are yours | | OPEN |
+| D-32 | How a new player gets their first Bloodline | choose at start / tutorial quest / random drop | Choose 1 of the launch Bloodlines at the end of the tutorial chapter (after trying each briefly) | | OPEN |
+| D-33 | Extraction item | source, cost, what happens to stage progress | Rare item (boss drop or high-cost NPC trade). **Stage progress is kept per Bloodline**, so switching back does not reset it | | OPEN |
+| D-34 | Stage requirements | level only / level + quest | Stages 2–4 = player level (20/40/60). Stage 5 Awakened = level 60 + an awakening quest/solo dungeon | | OPEN |
+| D-35 | Rune slots 2 → 4 | level / quest / enhancement | 2 at start, 3rd at Lv. 30, 4th from a mid-game quest | | OPEN |
+| D-35b | Rune rules | duplicates, rarity, source | No duplicate rune IDs equipped. Tiers I–III, dropped + crafted (Alchemy). Swap freely out of combat | | OPEN |
+| D-37 | Bloodline implementation | MythicMobs triggers only / Kotlin + MythicMobs | ⚠️ Kotlin owns binding, stage and extraction (player data). MythicMobs skills are the *effects*, triggered by our plugin's events (on-damaged, low-HP, fatal-blow). PoC with Berserker stages 1–5 | | OPEN |
+
+---
+
+## 3. Weapon freedom & compartmentalised progression
+
+To prevent stat bloat, progression is strictly split. Each system has one job:
+
+1. **Levelling & stats (STR, AGI, INT, DEX, DEF) = the gateway.** Stats decide what gear a player can equip. A player cannot equip a heavy Greatsword without meeting its strict STR requirement.
+2. **Equipment enhancement = raw power.** Weapon and armour enhancement (+1 to +15, then I–V) is the main source of damage (AP) and defence (DP).
+3. **Weapon Expertise (Mastery) = combat fluidity.** Using a weapon raises its Mastery (MMOCore professions). High Mastery unlocks unique weapon skills and, through PlaceholderAPI math in MythicMobs, lowers skill cooldowns or cast times.
+4. **Skill slots & casting logic = tactical limit.**
+   - Players equip only **10 active skills**, split into two 5-slot bars swapped with **`Shift + Right Click`**.
+   - **Weapon-specific casting cap:** a slotted unique weapon skill (e.g. Hammer's *Ground Smash*) fails to cast if the player is holding a different weapon type (e.g. a Sword).
+
+| ID | Decision | Options | Recommendation | Your call | Status |
+|---|---|---|---|---|---|
+| D-03 | Bar swap input | `Shift+RMB` / `Shift+F` | **`Shift + Right Click`** (your call). ⚠️ PoC must prove it doesn't clash with bows, food, blocks **or FPV weapons whose right click is an attack** (Draconic pack). `Shift+F` fallback is blocked for dual weapons (they use F/off-hand); a third fallback is needed (e.g. sneak + hotbar scroll) | Shift+RMB | DECIDED |
+| D-04 | Weapon type list | — | *proposed* 8: Sword, Greatsword, Hammer, Spear (melee) · Bow, Crossbow (ranged) · Staff, Tome (magic). Vertical slice: Sword, Hammer, Bow, Staff | | OPEN |
+| D-04b | Switching weapons | free / restricted | Free: weapon freedom. Only stat requirements gate | free | DECIDED |
+| D-04c | Where general (non-weapon) skills come from | skill tree / Bloodline / trainers | General skills (dash, block, etc.) from level-based trainer NPCs. Unique weapon skills from Mastery (D-36) | | OPEN |
+| D-08 | Gear gating | stats only / stats + level floor | Stats are the gate (your call). Level floor stays OPEN as D-08b | stats | DECIDED |
+| D-08b | Also require a minimum level? | yes / no | Yes, a soft floor (e.g. tier level) against twinking with borrowed stats gear | | OPEN |
+| D-07 | Stat points per level & level cap | — | Level cap ≥ 60 (Bloodline stage 4 is Lv. 60). *proposed* cap 60 in Phase 1, 2 points/level | | OPEN |
+| D-07b | Respec | free / item / gold | Paid respec item (economy sink) | | OPEN |
+| D-30 | Do stats give any combat bonus besides gating? | none / small utility | **Small utility only** (e.g. DEF → max HP, AGI → max Stamina, INT → max Mana). No damage from stats, so AP stays the only damage source | | OPEN |
+| D-36 | Mastery details | XP source, cap, unlocks, CDR | XP from hits on mobs (not players). Cap 50 per weapon. Unique skills at 10/25/40. CDR = Mastery × 0.4 %, **cap 20 %** | | OPEN |
+| D-36b | Weapon swap exploit | — | Mastery CDR applies only to that weapon's skills. General skills use the held weapon's Mastery | | OPEN |
+
+---
+
+## 4. Combat & mechanics
+
+- **BDO mechanics:** **Frontguard** (frontal block), **I-frame** (invincibility frames) and **Super Armour** (immune to crowd control/stagger).
+- **FPV animation:** souls-like first-person combat animations using MC models and ModelEngine.
+
+| Attacker ↓ / Defender state → | Normal | Frontguard (hit from front) | Super Armour | I-frame |
+|---|---|---|---|---|
+| Normal hit | damage | blocked (chip) | damage, no CC | miss |
+| CC skill | damage + CC | blocked | damage, **no CC** | miss |
+| Guard/armour-break skill | damage | guard broken + damage | damage **+ CC** | miss |
+
+Bloodlines plug into this: Berserker *Unstoppable* grants Super Armour, *Death Defying* grants I-frame.
+
+| ID | Decision | Options | Recommendation | Your call | Status |
+|---|---|---|---|---|---|
+| D-05 | FPV animation approach | ModelEngine view model / animated item models / display entities | **ModelEngine view model** (`pv=true`), proven possible by the bought Draconic Dual Sword FPV pack (spec 010). Test it first; other approaches only if it fails | start with Draconic pack | OPEN (testing) |
+| D-44 | Weapon trigger layer for FPV weapons | MythicCrucible items (as the pack does) / MMOItems + our plugin | PoC with Crucible as shipped. Long-term: **MMOItems weapon + our plugin** handles hold/unheld/click triggers and calls the same MythicMobs skills, so one item has both MMOItems stats and FPV animation | | OPEN |
+| D-06b | Frontguard on hit | 0 / chip / stamina drain | Chip 20 % + stamina drain; guard breaks at 0 stamina | | OPEN |
+| D-06c | PvP in v2 | none / arenas / open world | Arenas only until guild design (§11) | | OPEN |
+| D-06d | Which weapons break guard / Super Armour | — | Hammer and Greatsword heavy skills break both | | OPEN |
+
+---
+
+## 5. Equipment system
+
+- **Armour:** Helmet, Chestplate, Leggings, Boots (4 slots).
+- **Accessories (BDO style):** 1 Necklace, 1 Earring, 1 Ring, 1 Belt.
+- **Item system:** "Identify" for random gear options (Wynncraft style). Fallback: crafting / NPC quest rewards. Gear can carry elemental attributes.
+
+| ID | Decision | Options | Recommendation | Your call | Status |
+|---|---|---|---|---|---|
+| D-09 | Accessory (and Rune) slots plugin | MMOInventory / custom GUI | MMOInventory: one GUI for 4 accessories + 2–4 Runes | MMOInventory (owned) | DECIDED |
+| D-10 | Identify system | identify / fixed | Identify, with crafting/quest fallback (your call). ⚠️ PoC MMOItems unidentified items | identify | DECIDED |
+| D-11 | Element list | MythicLib built-in / custom | MythicLib built-in elements (verify list in PoC) | | OPEN |
+| D-12 | Enhancement max & fail rules | V / X; destroy / downgrade / pity | Max V, pity stacks, **no item destruction** | | OPEN |
+| D-12b | Armour uses the same ladder as weapons | yes / no | yes (your text: "Weapon and Armour enhancements") | yes | DECIDED |
+| D-12c | Enhancement materials | — | One stone per category (weapon / armour / accessory) from zone drops | | OPEN |
+| D-12d | Are accessories still enhanced (I–V)? | yes / no | v1 had it, v2 does not mention it. Recommend **yes, I–V**, as the late-game AP/DP source | | OPEN |
+
+---
+
+## 6. Farming zones, monster tiers, bosses & dungeons
+
+- **AP/DP soft caps:** monster zones are gated by Attack Power and Defense Power.
+  - *Low AP:* players deal severely reduced damage (e.g. 10–20 %).
+  - *Over-capped AP:* excess damage is diminished, to protect the low-level zone economy.
+- **Farming styles:**
+  - **Loop farming (rotation):** traditional open-world zones for mobile clearing.
+  - **Stationary farming (Dehkia's Lantern style):** interactable totems spawn continuous waves of High-tier mobs for a set time, run by MythicMobs spawners.
+- **Bosses & dungeons:** solo/party instanced dungeons and World Bosses. World Boss loot is given by **damage contribution (threat table)**, not last hit.
+
+| Tier | Recommended AP / DP (*proposed*) | Level band |
+|---|---|---|
+| Low | 50 / 60 | 1–20 |
+| Mid | 120 / 150 | 20–40 |
+| High | 200 / 260 | 40–60 |
+
+| ID | Decision | Options | Recommendation | Your call | Status |
+|---|---|---|---|---|---|
+| D-13 | AP/DP rule | hard / soft cap | Soft cap (your call) | soft | DECIDED |
+| D-13b | AP/DP source | gear / gear + stats | Gear + enhancement (your call: "enhancement = raw power") | gear+enh | DECIDED |
+| D-16 | Totem activation | free / item cost / cooldown | Consumable item, 10 min, one per spot | | OPEN |
+| D-16b | Totem implementation | MythicMobs spawners (+ plugin) | MythicMobs spawners (your call) + Kotlin for spot ownership/timer | spawners | DECIDED |
+| D-17 | World boss loot | last hit / contribution | Damage contribution / threat table (your call) | contribution | DECIDED |
+| D-17b | World boss schedule | fixed / random | Fixed times, 2×/day | | OPEN |
+| D-18 | Party size | 3 / 4 / 5 | 4. Roles now come from Bloodline + Runes + weapon, not class | | OPEN |
+
+---
+
+## 7. Quests & story
+
+- **Progression:** chapter- and region-based story (BDO style).
+- **Solo experience:** 100 % of main story quests are soloable, using instanced bosses (**MythicDungeons**) and immersive UI dialogue.
+
+| ID | Decision | Options | Recommendation | Your call | Status |
+|---|---|---|---|---|---|
+| D-14 | Instance plugin | MythicDungeons (to buy) / own instances in wcmmo-core | MythicDungeons (your call). **Not owned yet**: buy before the first solo dungeon/story boss. Building instances ourselves is possible but costs weeks | MythicDungeons, to buy | DECIDED |
+| D-15 | Quest stack | quest engine + LuxDialogues (owned) | LuxDialogues for dialogue + a quest engine (BetonQuest candidate) for objectives and rewards | | OPEN |
+| D-15b | Chapters in Phase 1 | 1 / 2 / 3 | 1 (tutorial + Bloodline choice + first region) | | OPEN |
+
+---
+
+## 8. Lifezone & housing (Heartopia style)
+
+- **Instanced shared worlds:** housing and lifeskills live in separate "Lifezone" instances.
+- **Instance capacity:** hard cap of **20 players (20 housing plots)**. When full, a "World Full" prompt blocks entry.
+- **Dynamic plot allocation (technical logic):**
+  - Houses and furniture are saved as **schematic data**.
+  - On entering a new Lifezone, the system pastes the schematic onto an empty plot **asynchronously with FastAsyncWorldEdit (FAWE)**, so the server doesn't lag.
+- **Furniture:** made with **Nexo** custom blocks, sold by NPCs or crafted.
+
+| ID | Decision | Options | Recommendation | Your call | Status |
+|---|---|---|---|---|---|
+| D-19 | Lifezone topology | worlds on main server / servers behind Velocity | ⚠️ Start as worlds on the main server; keep data ready for a Velocity split | In-server, own plugin (use MMOCore data where it helps); proxy later | DECIDED |
+| D-20 | Plot size | 24 / 32 / 48 | *proposed* 32×32×32 | | OPEN |
+| D-20b | When the house is saved | on leave / every edit | On leave + every 10 min | | OPEN |
+| D-20c | When the plot is pasted | on owner arrival | Paste on arrival, clear on leave | | OPEN |
+| D-21 | Party entering a full zone | strict / offer another | Strict block + "open a new Lifezone for our party" | | OPEN |
+| D-21b | Visiting houses | no / friends / public | Only while the owner is in the same Lifezone | | OPEN |
+| D-23 | Furniture source | shop / shop + craft | NPC shop or crafted (your call) | both | DECIDED |
+| ⚠️ | Nexo furniture inside schematics | — | Must be proven: furniture is entities + data; FAWE must copy them intact | | PoC |
+
+---
+
+## 9. Lifeskills & economy
+
+- **Core professions:** Mining, Gathering, Fishing, Cooking, Alchemy (MMOCore).
+- **Resource tier separation:**
+  - **Lifezone (low–mid tier):** 100 % safe zones for casual farming.
+  - **MMO open world (high tier):** rare resources are hidden in dangerous monster zones, so crafters venture out or hire combat escorts.
+
+| ID | Decision | Options | Recommendation | Your call | Status |
+|---|---|---|---|---|---|
+| D-22 | Lifeskill list | 5 | Mining, Gathering, Fishing, Cooking, Alchemy (your call). Weapon Mastery also uses MMOCore professions, but those are combat professions, not lifeskills | 5 | DECIDED |
+| D-26 | High-tier resources in PvP? | PvE / PvP | PvE only until guild/node war design | | OPEN |
+
+---
+
+## 10. Economy & trade: coming soon
+
+Placeholder. To decide: currency provider (CMI / MMOCore / Vault), player market (auction house vs player shops), gold sinks (enhancement, respec, extraction item, identify, furniture), bound items.
+
+## 11. Guild & node war: coming soon
+
+Placeholder. To decide: guild plugin vs custom, node ownership, war schedule, PvP rules.
+
+## 12. Pets & mounts: coming soon
+
+Placeholder. To decide: ModelEngine mounts, pet buffs vs cosmetic, loot pickup.
+
+---
+
+## Phase plan
+
+| Phase | Goal | Specs |
+|---|---|---|
+| **0: PoC** | Prove risky tech: FPV animation (D-05), combat states, `Shift+RMB` bar swap (D-03), Bloodline hooks (D-37), identify (D-10), Mastery CDR via PlaceholderAPI (D-36), Lifezone schematic + Nexo furniture | 004 |
+| **1: Vertical slice** | Tutorial + 1 region, **Berserker Bloodline stages 1–3**, 2 Runes, 4 weapons (Sword, Hammer, Bow, Staff) with Mastery to 25, stats gating, basic gear, 1 solo dungeon | 005–012, 014, 016, 021–023 |
+| **2: Core MMO** | All launch Bloodlines to stage 5, all weapons, enhancement to V, Mid/High zones, stationary farming, world boss, party dungeon | 013–017, 021–023 |
+| **3: Lifezone** | Instances, housing migration, lifeskills, furniture | 018–020 |
+| **4: Social** | Economy, guilds & node war, pets & mounts | §10–12 (not specced) |
+
+## Decision log
+
+| Date | ID | Decision | By |
+|---|---|---|---|
+| 2026-09-28 | D-03 | Bar swap on `Shift + Right Click` | owner (GDD v2) |
+| 2026-09-28 | D-04b, D-08 | Classless weapon freedom, gated by stats | owner (GDD v2) |
+| 2026-09-28 | D-10, D-12b, D-13, D-13b | Identify with fallback; armour uses the weapon ladder; AP/DP soft cap from gear + enhancement | owner (GDD v2) |
+| 2026-09-28 | D-14, D-16b, D-17, D-22, D-23 | MythicDungeons; totem spawners; contribution loot; 5 lifeskills; furniture shop + craft | owner (GDD v2) |
+| 2026-09-28 | — | Classes removed; Bloodlines + Runes + Weapon Mastery added | owner (GDD v2) |
+| 2026-09-28 | D-25 | Custom plugin work by Tatoo in `wcmmo-plugins` | owner |
+| 2026-09-28 | D-19 | Lifezones in-server via own plugin, proxy-ready | owner |
+| 2026-09-28 | D-27 (tool) | Translations via Triton | owner |
+| 2026-09-28 | D-00 | Core paid plugins owned; MythicDungeons still to buy | owner |
+| 2026-09-28 | D-40 | Nexo = furniture, blocks, resource pack; MMOItems = gear; Crucible optional | owner |
+| 2026-09-28 | D-09, D-43 | MMOInventory owned; MMOProfiles later, not at start | owner |
+| 2026-09-28 | D-05 | FPV testing starts with the bought Draconic Dual Sword FPV pack | owner |
+| 2026-09-28 | D-39 | MythicHUD = always-on HUD; UltimateUI = shops, quest list, other custom UI | owner |

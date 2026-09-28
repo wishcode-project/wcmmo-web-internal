@@ -1,0 +1,122 @@
+{
+  "syncedAt": "2026-09-28T17:20:28.025Z",
+  "head": "14a3978",
+  "branch": "main",
+  "commits": [
+    {
+      "sha": "14a3978",
+      "date": "2026-09-28T23:04:17+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: add AI context file, refresh team brief, decide HUD/UI split",
+      "insertions": 389,
+      "deletions": 47,
+      "files": 8
+    },
+    {
+      "sha": "f52a0e6",
+      "date": "2026-09-28T22:55:03+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(gdd): record owner answers, open questions and team brief",
+      "insertions": 403,
+      "deletions": 13,
+      "files": 9
+    },
+    {
+      "sha": "380a141",
+      "date": "2026-09-28T22:55:03+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(plugins): add plugin guide, owned plugins and FPV pack findings",
+      "insertions": 216,
+      "deletions": 11,
+      "files": 4
+    },
+    {
+      "sha": "86b4baa",
+      "date": "2026-09-28T21:19:03+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(specs): align specs with GDD v2, add Bloodlines, Runes, Mastery",
+      "insertions": 417,
+      "deletions": 171,
+      "files": 24
+    },
+    {
+      "sha": "e35da46",
+      "date": "2026-09-28T21:19:03+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(gdd): add final GDD v2 (classless), supersede v1",
+      "insertions": 319,
+      "deletions": 0,
+      "files": 2
+    },
+    {
+      "sha": "7c607b8",
+      "date": "2026-09-25T08:10:28+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(specs): draft specs 004-020 from GDD v1",
+      "insertions": 1267,
+      "deletions": 13,
+      "files": 21
+    },
+    {
+      "sha": "6ed7250",
+      "date": "2026-09-25T08:10:28+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(gdd): add game design document v1",
+      "insertions": 326,
+      "deletions": 0,
+      "files": 1
+    },
+    {
+      "sha": "a748f07",
+      "date": "2026-09-25T00:46:05+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "first setup",
+      "insertions": 664,
+      "deletions": 1,
+      "files": 10
+    },
+    {
+      "sha": "137d08a",
+      "date": "2026-09-25T00:28:45+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "Initial commit",
+      "insertions": 1,
+      "deletions": 0,
+      "files": 1
+    }
+  ],
+  "fileDates": {
+    "docs/000-template.md": "2026-09-25T00:46:05+07:00",
+    "docs/001-server-baseline.md": "2026-09-28T22:55:03+07:00",
+    "docs/002-plugin-stack.md": "2026-09-25T00:46:05+07:00",
+    "docs/003-void-overworld.md": "2026-09-25T00:46:05+07:00",
+    "docs/004-roadmap-phase-plan.md": "2026-09-28T22:55:03+07:00",
+    "docs/005-vitality-resources.md": "2026-09-28T21:19:03+07:00",
+    "docs/006-attributes-stat-gating.md": "2026-09-28T21:19:03+07:00",
+    "docs/007-classes-skill-bars.md": "2026-09-28T21:19:03+07:00",
+    "docs/008-weapon-types-exclusive-skills.md": "2026-09-28T21:19:03+07:00",
+    "docs/009-combat-states.md": "2026-09-28T21:19:03+07:00",
+    "docs/010-fpv-animation-poc.md": "2026-09-28T22:55:03+07:00",
+    "docs/011-equipment-accessories.md": "2026-09-28T21:19:03+07:00",
+    "docs/012-item-generation-identify-elements.md": "2026-09-28T21:19:03+07:00",
+    "docs/013-enhancement.md": "2026-09-28T21:19:03+07:00",
+    "docs/014-zones-ap-dp-soft-cap.md": "2026-09-28T21:19:03+07:00",
+    "docs/015-monster-tiers-farming.md": "2026-09-28T21:19:03+07:00",
+    "docs/016-quest-story-framework.md": "2026-09-28T21:19:03+07:00",
+    "docs/017-bosses-dungeons.md": "2026-09-28T21:19:03+07:00",
+    "docs/018-lifezone-housing.md": "2026-09-28T21:19:03+07:00",
+    "docs/019-lifeskills-resources.md": "2026-09-28T21:19:03+07:00",
+    "docs/020-furniture-nexo.md": "2026-09-28T21:19:03+07:00",
+    "docs/021-bloodlines.md": "2026-09-28T21:19:03+07:00",
+    "docs/022-runes.md": "2026-09-28T21:19:03+07:00",
+    "docs/023-weapon-mastery.md": "2026-09-28T21:19:03+07:00",
+    "docs/README.md": "2026-09-28T23:04:17+07:00",
+    "docs/plugins.md": "2026-09-28T23:04:17+07:00",
+    "docs/adr/0001-purpur-java25-zgc.md": "2026-09-25T00:46:05+07:00",
+    "docs/adr/0002-spec-first-workflow.md": "2026-09-25T00:46:05+07:00",
+    "gdd/owner-questions.md": "2026-09-28T23:04:17+07:00",
+    "gdd/team-brief-2026-09-28.md": "2026-09-28T23:04:17+07:00",
+    "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",
+    "gdd/wcmmo-gdd-v2.md": "2026-09-28T23:04:17+07:00"
+  }
+}

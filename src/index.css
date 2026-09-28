@@ -1,0 +1,242 @@
+@import 'tailwindcss';
+
+/* Palette follows wynncraft.com's "journey" theme: parchment panels, dark bark borders,
+   leaf-green primary, gold highlights on a near-black night sky. */
+@theme {
+  /* Bai Jamjuree (as on store.amorycraft.com): bold, readable, has Thai glyphs */
+  --font-display: 'Bai Jamjuree', 'Noto Sans Thai', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Bai Jamjuree', 'Noto Sans Thai', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Ubuntu Mono', ui-monospace, monospace;
+
+  --color-night: #12110e;
+  --color-ink: #171613;
+  --color-slate: #1f1c17;
+  --color-slate-2: #29251f;
+  --color-slate-line: #3a342b;
+
+  --color-paper: #c9b68b;
+  --color-paper-light: #d8c595;
+  --color-paper-lighter: #e8d9ad;
+  --color-paper-dark: #baa87f;
+  --color-paper-deep: #a4966f;
+  --color-paper-text: #3a2a1e;
+  --color-paper-muted: #6f5c4f;
+
+  --color-bark: #604c39;
+  --color-bark-dark: #412624;
+  --color-rope: #624e3c;
+
+  --color-leaf: #88cc42;
+  --color-leaf-light: #a5e962;
+  --color-leaf-dark: #495a51;
+  --color-gold: #ffc94b;
+  --color-cream: #fff7cf;
+  --color-parch-ink: #e8dcc0;
+  --color-parch-dim: #a89a80;
+
+  /* status colours (validated for CVD on the slate surface; always shown with a label) */
+  --color-st-done: #8fd14f;
+  --color-st-open: #c9722e;
+  --color-st-partly: #4a9fd8;
+  --color-st-ready: #d6c35a;
+  --color-st-fail: #c94b3f;
+  --color-st-none: #7d705c;
+}
+
+@layer base {
+  /* headline weight by default; font-normal / font-medium utilities still override it */
+  .font-display {
+    font-weight: 700;
+  }
+  html {
+    color-scheme: dark;
+    overflow-x: clip;
+  }
+  body {
+    @apply bg-night font-sans text-parch-ink antialiased;
+    background-image:
+      radial-gradient(1200px 500px at 50% -120px, rgb(136 204 66 / 0.10), transparent 70%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' shape-rendering='crispEdges'%3E%3Crect width='8' height='8' fill='%2312110e'/%3E%3Crect x='0' y='0' width='1' height='1' fill='%231a1814'/%3E%3Crect x='4' y='4' width='1' height='1' fill='%23161411'/%3E%3C/svg%3E");
+    min-height: 100dvh;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  /* letter-spacing splits Thai vowel and tone marks from their consonants */
+  :lang(th) [class*='tracking-'] {
+    letter-spacing: 0 !important;
+  }
+  ::selection {
+    background: var(--color-leaf);
+    color: var(--color-night);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Parchment panel with stepped (pixel) corners and a bark frame. */
+  .paper {
+    --notch: 6px;
+    position: relative;
+    color: var(--color-paper-text);
+    background-color: var(--color-paper);
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .38 0 0 0 0 .30 0 0 0 0 .22 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E"),
+      linear-gradient(180deg, var(--color-paper-light), var(--color-paper) 40%, var(--color-paper-dark));
+    box-shadow:
+      inset 0 0 0 3px var(--color-bark),
+      inset 0 0 0 5px rgb(255 247 207 / 0.35),
+      inset 0 -10px 24px rgb(96 76 57 / 0.25);
+    clip-path: polygon(
+      0 var(--notch), var(--notch) var(--notch), var(--notch) 0,
+      calc(100% - var(--notch)) 0, calc(100% - var(--notch)) var(--notch), 100% var(--notch),
+      100% calc(100% - var(--notch)), calc(100% - var(--notch)) calc(100% - var(--notch)), calc(100% - var(--notch)) 100%,
+      var(--notch) 100%, var(--notch) calc(100% - var(--notch)), 0 calc(100% - var(--notch))
+    );
+  }
+  .paper::before {
+    /* fills the notches so the frame looks stepped rather than cut */
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(var(--color-bark), var(--color-bark)) left var(--notch) top var(--notch) / 3px 3px no-repeat,
+      linear-gradient(var(--color-bark), var(--color-bark)) right var(--notch) top var(--notch) / 3px 3px no-repeat,
+      linear-gradient(var(--color-bark), var(--color-bark)) left var(--notch) bottom var(--notch) / 3px 3px no-repeat,
+      linear-gradient(var(--color-bark), var(--color-bark)) right var(--notch) bottom var(--notch) / 3px 3px no-repeat;
+  }
+
+  /* Dark slate panel, used behind charts and data. */
+  .slate {
+    position: relative;
+    background: linear-gradient(180deg, var(--color-slate-2), var(--color-slate));
+    border: 2px solid var(--color-bark-dark);
+    box-shadow:
+      inset 0 0 0 1px var(--color-bark),
+      0 4px 0 0 rgb(0 0 0 / 0.45);
+  }
+
+  .wood {
+    background:
+      repeating-linear-gradient(90deg, rgb(0 0 0 / 0.07) 0 2px, transparent 2px 22px),
+      linear-gradient(180deg, #4d3527, var(--color-bark-dark));
+    box-shadow: inset 0 -3px 0 #2a1816, inset 0 2px 0 rgb(255 255 255 / 0.08);
+  }
+
+  /* Minecraft-ish chunky button */
+  .btn {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 font-display text-sm font-semibold select-none;
+    color: var(--color-cream);
+    background: var(--color-bark);
+    box-shadow:
+      inset 0 2px 0 rgb(255 255 255 / 0.15),
+      inset 0 -3px 0 rgb(0 0 0 / 0.35),
+      0 0 0 2px var(--color-bark-dark);
+    transition: filter 0.12s, transform 0.12s;
+  }
+  .btn:hover {
+    filter: brightness(1.15);
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+  .btn[aria-pressed='true'],
+  .btn-leaf {
+    color: #10200a;
+    background: var(--color-leaf);
+    box-shadow:
+      inset 0 2px 0 rgb(255 255 255 / 0.3),
+      inset 0 -3px 0 #4f7d22,
+      0 0 0 2px #2b3f18;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 px-1.5 py-px text-[11px] font-medium leading-5 whitespace-nowrap;
+    border: 1px solid currentColor;
+  }
+
+  .pixel-divider {
+    height: 6px;
+    background:
+      linear-gradient(90deg, var(--color-bark) 50%, transparent 0) 0 0 / 12px 3px repeat-x,
+      linear-gradient(90deg, transparent 50%, var(--color-bark) 0) 0 3px / 12px 3px repeat-x;
+  }
+
+  .bar-track {
+    height: 10px;
+    background: rgb(0 0 0 / 0.35);
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.5);
+  }
+  .paper .bar-track {
+    background: rgb(65 38 36 / 0.25);
+    box-shadow: inset 0 0 0 1px var(--color-bark);
+  }
+  .bar-fill {
+    height: 100%;
+    background: linear-gradient(180deg, var(--color-leaf-light), var(--color-leaf) 50%, #6aa332);
+    box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.25);
+  }
+
+  /* Rendered spec markdown on parchment */
+  .prose-paper {
+    @apply text-[15px] leading-relaxed;
+    color: var(--color-paper-text);
+  }
+  .prose-paper h1 { @apply mb-4 text-2xl text-bark-dark sm:text-3xl; }
+  .prose-paper h2 { @apply mt-9 mb-3 border-b-2 border-bark/40 pb-1 text-xl text-bark-dark; }
+  .prose-paper h3 { @apply mt-6 mb-2 text-lg text-bark-dark; }
+  .prose-paper h4 { @apply mt-4 mb-2 font-bold; }
+  .prose-paper p { @apply my-3; }
+  .prose-paper ul { @apply my-3 list-disc pl-6; }
+  .prose-paper ol { @apply my-3 list-decimal pl-6; }
+  .prose-paper li { @apply my-1; }
+  .prose-paper li:has(> input[type='checkbox']) { @apply list-none -ml-5; }
+  .prose-paper input[type='checkbox'] { @apply mr-2 align-middle accent-[#495a51]; }
+  .prose-paper a { @apply font-medium text-[#2f5a17] underline decoration-2 underline-offset-2 hover:text-[#1d3a0c]; }
+  .prose-paper strong { @apply text-bark-dark; }
+  .prose-paper blockquote { @apply my-4 border-l-4 border-bark bg-paper-dark/60 px-4 py-2 text-paper-muted; }
+  .prose-paper code { @apply bg-bark-dark/10 px-1 py-px font-mono text-[0.92em] text-[#5a2a18]; }
+  .prose-paper pre { @apply my-4 overflow-x-auto bg-ink p-4 text-parch-ink; box-shadow: inset 0 0 0 2px var(--color-bark); }
+  .prose-paper pre code { @apply bg-transparent p-0 text-parch-ink; }
+  .prose-paper hr { @apply my-8 border-0; height: 6px; background: linear-gradient(90deg, var(--color-bark) 50%, transparent 0) 0 0 / 12px 3px repeat-x; }
+  .prose-paper .table-wrap { @apply my-4 overflow-x-auto; }
+  .prose-paper table { @apply w-full min-w-[560px] border-collapse text-sm; }
+  .prose-paper th { @apply bg-bark px-3 py-2 text-left font-display font-normal text-cream; }
+  .prose-paper td { @apply border-b border-bark/30 px-3 py-2 align-top; }
+  .prose-paper tbody tr:nth-child(even) td { @apply bg-paper-light/50; }
+  .prose-paper tbody tr:hover td { @apply bg-paper-lighter/60; }
+}
+
+/* React Flow on the slate */
+.react-flow__attribution {
+  background: transparent !important;
+}
+.react-flow__attribution a {
+  color: var(--color-parch-dim) !important;
+}
+.react-flow__controls-button {
+  background: var(--color-slate-2) !important;
+  border-color: var(--color-bark) !important;
+  fill: var(--color-parch-ink) !important;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 0.15; }
+}
+.twinkle {
+  animation: twinkle 4s steps(4) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
