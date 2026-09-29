@@ -1,41 +1,52 @@
 ---
 chapter: 0
 title: The Awakening
-summary: You wake in a place you have never seen. Something here has been waiting for you.
+summary: You wake in a land that should not exist. Something here wants to know who you are.
 ---
 
 You open your eyes.
 
-Stone under your back. Warm light through tall arches. Voices somewhere nearby, and the smell of incense. Nothing here is familiar, and yet everyone seems to know you were coming.
+Broken stone hangs in the sky around you. Walls, stairs, whole towers drift in silence, as if the world was torn apart and forgot to fall. Wherever this is, it is not the world you know.
 
-Someone speaks to you. They tell you about the power that runs through this world: the **Bloodlines**, old currents of strength that live in some people and sleep in others. A Bloodline is not a skill you learn. It is something you *are*.
+A voice speaks. You can't tell where it comes from.
+
+> "How you came here does not matter.
+> What matters is this: who are you, really?"
+
+## Learning to move again
+
+Your body feels new. You learn to walk on the floating stones, to jump the gaps, to strike, to guard. And the whole time, you have the feeling that something is watching how you move.
+
+The voice tells you about the power that runs through this world: the **Bloodlines**. A Bloodline is not a skill you learn. It is something you *are*.
 
 > "You do not choose the Bloodline. The Bloodline chooses you."
 
 ## The Trials
 
-Before anything is decided, you are tested. Nobody tells you what the right answer is.
-
-Some face danger head-on and take the blows. Some keep their distance and strike from afar. Some slip past without a sound. And when a sealed gate blocks the way, some break the wall, some find the hidden lever, some climb over the roof.
-
-Every choice is watched.
+Before anything is decided, you are tested. Nobody tells you what the right answer is. Every step you take, every choice you make, is remembered.
 
 ## The Selection
 
-At the heart of the shrine stands a great stone. When you step before it, it answers. A Bloodline rises to meet you and says:
+At the heart of this strange land stands a great stone. When you step before it, it answers.
 
-> "This is who we see within you."
+> "I see it now...
+> The Bloodline in tune with you is..."
 
-You may accept it. Or, once, you may refuse and walk your own path.
+You may accept your fate. Or you may refuse the prophecy and walk your own path.
 
-## And then
+## The fall
 
-Light.
+Then the land begins to break.
 
-The ground shakes. Somewhere, something cracks.
+Stone by stone, the floating world comes apart, like a dream at the moment you wake. The ground vanishes. You fall.
 
-And everything goes dark.
+Water closes over you. It is dark, and cold, and very quiet.
+
+Far away, voices.
+
+> "Hey! They're still breathing!"
+> "Help me pull them out!"
 
 ---
 
-*Chapter 1 continues the story.*
+*The story continues in Chapter 1.*
