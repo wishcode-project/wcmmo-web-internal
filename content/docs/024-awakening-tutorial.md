@@ -121,7 +121,7 @@ Disable the module → new players get the manual selection GUI directly. Awaken
 
 ## Acceptance criteria
 
-- [ ] D-31 (MIND/FREEDOM Bloodlines designed), D-45, D-46 decided.
+- [ ] D-31 (MIND/FREEDOM Bloodlines designed), D-45 decided. (D-46 decided 2026-09-29.)
 - [ ] All 9 tests pass on the dev box.
 - [ ] Map team has built the tutorial world with the regions above.
 

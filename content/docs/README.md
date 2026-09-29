@@ -166,6 +166,8 @@ Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:s
 |---|---|---|---|
 | `wcmmo_item_respec_scroll` | MMOItems | 006 | |
 | `wcmmo_item_bloodline_extractor` | MMOItems | 021 | removes Bloodline, progress kept |
+| `wcmmo_item_bloodline_extractor_store` | MMOItems | 021 | store version, resets progress to stage 1 |
+| `wcmmo_item_bloodline_seal_<stage>` | MMOItems | 021 | stage unlock materials (names TBD) |
 | `wcmmo_item_tutorial_blade`, `wcmmo_item_tutorial_scroll` | MMOItems | 024 | tutorial kit |
 | `wcmmo_item_identify_scroll` | MMOItems | 012 | |
 | `wcmmo_item_stone_weapon`, `_armour`, `_accessory` | MMOItems | 013 | enhancement materials |

@@ -42,9 +42,9 @@
 
 | Setting | Value |
 |---|---|
-| Mastery cap | 50 |
-| Unique skill unlocks | 10 / 25 / 40 (spec 008) |
-| CDR per level / cap | 0.4 % / 20 % at 50 |
+| Mastery cap | **test build: 30** · final: 50 or 100 (to discuss, D-36) |
+| Unique skill unlocks | **test build: 5 / 15 / 25** · final: 10 / 25 / 40 if cap 50 |
+| CDR per level / cap | cap 20 %; per-level rate follows the final cap (0.4 % at cap 50) |
 | Time to Mastery 25 (target) | ~6 h of active fighting in level-appropriate zones |
 
 ## Commands & permissions

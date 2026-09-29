@@ -38,7 +38,9 @@ State keys: `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:superarmour`, `wcmmo:armo
 |---|---|
 | Dash I-frame | 6 ticks (0.3 s) |
 | Sword short I-frame (on specific skills) | 4 ticks |
-| Frontguard chip damage | 20 % |
+| Frontguard chip damage | 20 % (D-06b) |
+| Guard-break skill per weapon | 1, long cooldown (D-06d) |
+| Hammer / Greatsword normal hit vs guard | stamina drain ×2 (D-06d) |
 | Frontguard stamina drain per blocked hit | 10 |
 | Guard-break stagger | 20 ticks |
 
@@ -71,4 +73,4 @@ Disable module via config flag `combat.enabled: false`.
 
 ## Open questions
 
-- D-06c PvP scope.
+- none. D-06c: arenas only now; later open-world PvP outside safe zones between players Lv 25+.

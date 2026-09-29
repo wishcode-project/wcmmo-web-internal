@@ -30,7 +30,7 @@
 |---|---|
 | Level cap (Phase 1) | 60 (Bloodline stage 4 = Lv. 60, spec 021) |
 | Points per level | 2 (118 total at 60) |
-| Gate | stat requirements (+ level floor if D-08b) |
+| Gate | stat requirements + soft level floor per tier (D-08b) |
 
 Utility bonuses per point (only if D-30 = "small utility"):
 
@@ -78,7 +78,7 @@ Changing points-per-level changes player data: DB backup before deploying to pro
 
 ## Acceptance criteria
 
-- [ ] D-07, D-07b, D-08b, D-30 decided.
+- [x] D-07, D-07b, D-08b, D-30 decided (2026-09-29). Respec item sources: NPC shop or quest reward.
 - [ ] Test 4 proves stats add no damage.
 
 ## Open questions

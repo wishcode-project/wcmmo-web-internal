@@ -29,10 +29,11 @@
 
 | Rule | Value |
 |---|---|
-| World boss loot eligibility | ≥ 1 % of total damage (or ≥ 1 % healing/shielding) |
-| Top damage bonus | top 10 get 1 bonus roll |
-| Schedule | 2× daily at fixed Thai peak times |
-| Party size | 4 (D-18); roles come from Bloodline + Runes + weapon |
+| World boss loot eligibility | hit the boss at least once **or** within 32 blocks when it dies → random loot roll (D-17) |
+| MVP bonus | top 1 / 2 / 3 damage → bigger reward tiers; everyone else a base tier |
+| Schedule | 2× daily at fixed Thai peak times + admin summon (`/wcmmo boss spawn`) (D-17b) |
+| Party dungeon size | 2–5 players (D-18); roles come from Bloodline + Runes + weapon |
+| Solo dungeon | solo only |
 | Solo dungeon lockout | none; entry ticket item |
 | Party dungeon lockout | 1 reward/day |
 

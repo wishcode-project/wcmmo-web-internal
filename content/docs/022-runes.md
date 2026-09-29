@@ -17,7 +17,7 @@
 
 ## Rules
 
-1. Slots: 2 at start, 3rd at Lv. 30, 4th from a quest (D-35).
+1. Slots: 2 at start, 3rd at Lv. 30, 4th at Lv. 50 (D-35, by level only).
 2. Same rune ID cannot be slotted twice (different tiers of the same rune count as the same ID).
 3. Swap freely out of combat (5 s).
 4. Runes give **small passive** bonuses only; no new mechanics (mechanics belong to Bloodlines).

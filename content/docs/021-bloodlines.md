@@ -21,7 +21,11 @@
 
 1. Exactly **1** Bloodline slot. First bind happens in **The Awakening** tutorial (spec 024, D-32): chosen by hidden affinity, one-time Reject → manual pick of the 3 base Bloodlines. After the tutorial, only the extractor can change it.
 2. Stage = highest stage whose requirement is met (D-34). Stages never go down with level (levels don't go down).
-3. **Extraction:** consuming `wcmmo_item_bloodline_extractor` removes the current Bloodline. Progress is **kept per Bloodline** (D-33), so re-binding the same one later restores its stage.
+3. **Extraction (D-33):** two variants.
+   - `wcmmo_item_bloodline_extractor` (in-game: boss drop or very expensive NPC purchase): progress **kept** per Bloodline, so re-binding later restores its stage.
+   - `wcmmo_item_bloodline_extractor_store` (store/cash): progress of the removed Bloodline **resets** to stage 1.
+   Early game: only the in-game variant.
+4. **Stage unlock (D-34):** reaching the level is not enough; each stage also needs unlock materials from dungeons or lifeskills.
 4. Triggers the plugin provides to MythicMobs effects:
 
 | Trigger | Fired when |
@@ -39,7 +43,9 @@
 |---|---|
 | `wcmmo_bloodline_berserker` | Bloodline (vertical slice) |
 | 3 more launch Bloodlines | D-31, IDs registered when designed |
-| `wcmmo_item_bloodline_extractor` | consumable |
+| `wcmmo_item_bloodline_extractor` | consumable, in-game, keeps progress |
+| `wcmmo_item_bloodline_extractor_store` | consumable, store, resets progress |
+| `wcmmo_item_bloodline_seal_<stage>` | stage unlock materials (names TBD) |
 | `wcmmo_skill_blood_rage` | Berserker stage-4 active skill (slottable) |
 | `wcmmo_v1_bloodline_player` | DB: `player_uuid`, `active_bloodline`, `updated_at` |
 | `wcmmo_v1_bloodline_progress` | DB: `player_uuid`, `bloodline_id`, `stage`, `awakened` |

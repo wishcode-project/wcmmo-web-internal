@@ -37,13 +37,15 @@
 | Action | Stamina cost |
 |---|---|
 | Dash (`wcmmo_skill_dash`) | 25 |
-| Sprint | 0 (D-03a) |
+| Sprint | small drain, *proposed* 3/s (D-03a) |
 | Frontguard hold | 5/s + per-block drain (009) |
 
 | Consumable | Effect | Duration | Cooldown group | Cooldown |
 |---|---|---|---|---|
 | Bread (starter meal) | +40 HP over time | 8 s | meal | 20 s |
 | Minor HP potion | +25 % HP instant | — | potion | 15 s |
+
+Food = heal over time + buffs; potions = instant heal. Food and potions use separate cooldown groups (D-02).
 
 ## Commands & permissions
 
@@ -57,7 +59,7 @@ Regen ticks handled by MMOCore; the vitality module must not schedule per-player
 
 | # | Step | Expected |
 |---|---|---|
-| 1 | Sprint and jump for 5 min | food bar unchanged / shows stamina per D-01 |
+| 1 | Sprint and jump for 5 min | hunger stays full and hidden; stamina drains slowly on the MythicHUD bar (D-01, D-03a) |
 | 2 | Dash 5× in a row | 4 succeed, 5th blocked "Not enough stamina" |
 | 3 | Eat bread twice | second blocked by meal cooldown; potion still usable |
 
@@ -67,9 +69,9 @@ Revert content + plugin module; no player data change beyond MMOCore resource va
 
 ## Acceptance criteria
 
-- [ ] D-01, D-02, D-03a decided.
+- [x] D-01, D-02, D-03a decided (2026-09-29).
 - [ ] PoC-6 (004) PASS.
 
 ## Open questions
 
-- D-01 display method.
+- none (D-01: MythicHUD bar; hunger locked full and hidden).

@@ -26,6 +26,7 @@
 | MMOInventory (D-09) | owned | GDD v2 §5 |
 | MMOProfiles (D-43) | planned, not at start | GDD v2 §0 |
 | Plugin versions | all bought → always the latest build; record the version at install | `../docs/plugins.md` |
+| Decision session (2026-09-29) | 29 decisions settled: vitality, stats, combat, weapons, Bloodline/Rune rules, gear, world, extras. D-36 test values only | GDD v2 decision log |
 | Skript vs Kotlin (D-47) | Skript for prototypes, tutorial/quest glue, tools; Kotlin for hot paths + player data. Until the D-25 review, Skript covers the hot paths too | `../docs/plugins.md` §3.8 |
 | First Bloodline (D-32) | **The Awakening** tutorial (team design): hidden BODY/MIND/FREEDOM affinity, Encounter, one-time Reject | `awakening-tutorial.md`, spec 024 |
 | Base Bloodlines (D-31, part) | 3 base Bloodlines = BODY / MIND / FREEDOM | GDD v2 §2 |
@@ -69,16 +70,16 @@ Full list with docs and overlaps: [`../docs/plugins.md`](../docs/plugins.md). Ow
 | # | Question | Decision |
 |---|---|---|
 | M1 | The **MIND** and **FREEDOM** Bloodlines: names, playstyle, 5 stages each. Is Berserker the BODY one? | D-31 |
-| M2 | ~~How the first Bloodline is chosen~~ (answered: The Awakening). Still: extractor source & cost; what stage 5 needs | D-33, D-34 |
-| M13 | Awakening edge cases: scoring gaps, 3-way / zero ties, one solution per puzzle (review notes R1–R3) | D-46 |
+| M2 | Exact extractor prices and the stage unlock materials per stage (rules decided: D-33, D-34) | D-33, D-34 |
 | M14 | Name clash: tutorial "The Awakening" vs stage 5 "Awakened"; rename one? | R14 |
-| M3 | Final weapon list (8 proposed) and 3 unique skills per weapon; where general skills come from | D-04, D-04c |
-| M4 | Rune list, how slots 3–4 unlock, where runes come from | D-35, D-35b |
+| M3 | 3 unique skills per weapon (names + effects); list of 8 weapons is decided | D-04 |
+| M4 | Rune list (which runes exist); slot unlocks and rules are decided | D-35b |
+| M16 | Final Mastery cap: 50 or 100 (test build uses 30) | D-36 |
 | M5 | World map: cities, regions, Low/Mid/High zones | — |
 | M6 | Chapter 1 story outline | D-15b |
 | M7 | Death penalty (XP loss? item loss? respawn point?) | new |
-| M8 | Level cap and levelling speed | D-07 |
-| M9 | Party system: size, XP and loot share | D-18 |
+| M8 | Levelling speed (XP curve); cap 60 is decided | D-07 |
+| M9 | Party XP and loot sharing; size 2–5 is decided | D-18 |
 | M10 | HUD layout: where HP / Mana / Stamina / skill bars / cooldowns show (MythicHUD) | D-01 |
 | M11 | VIP / store: what can be sold without pay-to-win | new |
 | M12 | Which languages Triton must serve (Thai + English?) | D-27 |

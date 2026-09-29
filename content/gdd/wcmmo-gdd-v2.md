@@ -84,8 +84,8 @@ Lifeskill: Lifezone gathering (low–mid) → cooking/alchemy → consumables (b
 | D-38 | Repo layout | 5 repos (server, plugins, content, world, infra) / 3 repos | Owner prefers **3**: `wcmmo` (real server incl. MMO content configs), `wcmmo-specs`, `wcmmo-plugins` (source per plugin + starter build). Needs team confirmation; if kept, `wcmmo/.gitignore` must stop ignoring the MMO plugin folders | owner: 3 repos (team to confirm) | OPEN |
 | D-39 | HUD / UI tool | MythicHUD (owned) / UltimateUI (owned) | **MythicHUD** for the always-on HUD (HP, Mana, Stamina, skill bars) via MMOCore + PlaceholderAPI; **UltimateUI** only for special screens. ⚠️ Many plugins ship pack assets: pick **one pack owner** that merges the rest (T7) | MythicHUD = always-on HUD (HP, Mana, Stamina, skill bars, cooldowns). **UltimateUI = every other custom UI**: shops, quest list, menus and screens MythicHUD can't do | DECIDED |
 | D-40 | Items / furniture / pack owner | MMOItems + Nexo / MMOItems + MythicCrucible (owned) | MMOItems for all RPG gear; **one** of Nexo or Crucible for furniture, blocks and the merged resource pack | **Nexo** owns furniture, custom blocks and the merged resource pack. MMOItems owns all gear. Crucible optional (Mythic-skill utility items only, if ever needed) | DECIDED |
-| D-41 | Cosmetics | CosmeticsCore / ItemSkins (both owned) | CosmeticsCore for wearables, ItemSkins for weapon skins if it keeps MMOItems data | | OPEN |
-| D-42 | Side content | BattlePass / LuxCollect (both owned) | Add after the vertical slice; BattlePass never carries the main story | | OPEN |
+| D-41 | Cosmetics | CosmeticsCore / ItemSkins (both owned) | CosmeticsCore for wearables, ItemSkins for weapon skins if it keeps MMOItems data | CosmeticsCore = wearables; ItemSkins = weapon skins (test it keeps MMOItems data) | DECIDED |
+| D-42 | Side content | BattlePass / LuxCollect (both owned) | Add after the vertical slice; BattlePass never carries the main story | After the vertical slice | DECIDED |
 
 ---
 
@@ -103,9 +103,9 @@ Lifeskill: Lifezone gathering (low–mid) → cooking/alchemy → consumables (b
 
 | ID | Decision | Options | Recommendation | Your call | Status |
 |---|---|---|---|---|---|
-| D-01 | How is Stamina shown? | food bar re-used / action bar / boss bar | Food bar re-used as the gauge (hunger frozen) if MMOCore supports it; otherwise action bar. ⚠️ PoC | | OPEN |
-| D-02 | How does food heal? | instant / over time | Heal-over-time + cooldown groups (all meals share one cooldown) | | OPEN |
-| D-03a | Does sprinting cost stamina? | yes / no | No: only dash & skills | | OPEN |
+| D-01 | How is Stamina shown? | food bar re-used / action bar / boss bar | Food bar re-used as the gauge (hunger frozen) if MMOCore supports it; otherwise action bar. ⚠️ PoC | Stamina shown as a **MythicHUD** bar next to HP/Mana; vanilla hunger locked full and hidden | DECIDED |
+| D-02 | How does food heal? | instant / over time | Heal-over-time + cooldown groups (all meals share one cooldown) | **Both:** food = heal over time + buffs; potions = instant heal. Separate cooldown groups for food and potions | DECIDED |
+| D-03a | Does sprinting cost stamina? | yes / no | No: only dash & skills | **Yes, a little:** sprinting drains a small amount of stamina; dash and some skills cost more | DECIDED |
 
 ---
 
@@ -138,13 +138,13 @@ The rigid class system is removed. Players build their character freely and mix 
 |---|---|---|---|---|---|
 | D-31 | Bloodlines at launch | 1 / 3 / 5 | **4**, one per play pattern: Berserker (melee risk/reward), plus e.g. a guardian (tank), an arcane (caster) and a hunter (ranged/mobility). Names/themes are yours | **3 base Bloodlines**, one per tutorial affinity: `BODY` (melee/tank), `MIND` (magic/tactics), `FREEDOM` (agility/ranger). Proposed: Berserker = BODY; MIND and FREEDOM Bloodlines still to design (M1) | PARTLY |
 | D-32 | How a new player gets their first Bloodline | choose at start / tutorial quest / random drop | Choose 1 of the launch Bloodlines at the end of the tutorial chapter (after trying each briefly) | **The Awakening / Bloodline Trial** (team design): hidden BODY/MIND/FREEDOM affinity tracked in the tutorial picks the Bloodline; tie → Encounter; one-time Reject → manual pick of the 3 base Bloodlines. See [awakening-tutorial.md](awakening-tutorial.md) | DECIDED |
-| D-33 | Extraction item | source, cost, what happens to stage progress | Rare item (boss drop or high-cost NPC trade). **Stage progress is kept per Bloodline**, so switching back does not reset it | | OPEN |
-| D-34 | Stage requirements | level only / level + quest | Stages 2–4 = player level (20/40/60). Stage 5 Awakened = level 60 + an awakening quest/solo dungeon | | OPEN |
-| D-35 | Rune slots 2 → 4 | level / quest / enhancement | 2 at start, 3rd at Lv. 30, 4th from a mid-game quest | | OPEN |
-| D-35b | Rune rules | duplicates, rarity, source | No duplicate rune IDs equipped. Tiers I–III, dropped + crafted (Alchemy). Swap freely out of combat | | OPEN |
+| D-33 | Extraction item | source, cost, what happens to stage progress | Rare item (boss drop or high-cost NPC trade). **Stage progress is kept per Bloodline**, so switching back does not reset it | **Two extractor variants:** in-game (boss drop or very expensive NPC purchase) **keeps** stage progress; store/cash version **resets** to stage 1. Early game: in-game version first | DECIDED |
+| D-34 | Stage requirements | level only / level + quest | Stages 2–4 = player level (20/40/60). Stage 5 Awakened = level 60 + an awakening quest/solo dungeon | Every stage needs the **level** (20/40/60, Awakened) **and** unlock materials, from dungeons or lifeskills | DECIDED |
+| D-35 | Rune slots 2 → 4 | level / quest / enhancement | 2 at start, 3rd at Lv. 30, 4th from a mid-game quest | By level only: 2 slots at start, 3rd at Lv 30, 4th at Lv 50 | DECIDED |
+| D-35b | Rune rules | duplicates, rarity, source | No duplicate rune IDs equipped. Tiers I–III, dropped + crafted (Alchemy). Swap freely out of combat | No duplicate rune IDs; tiers I–III; drop + Alchemy craft; swap out of combat | DECIDED |
 | D-37 | Bloodline implementation | MythicMobs triggers only / Kotlin + MythicMobs | ⚠️ Kotlin owns binding, stage and extraction (player data). MythicMobs skills are the *effects*, triggered by our plugin's events (on-damaged, low-HP, fatal-blow). PoC with Berserker stages 1–5 | | OPEN |
 | D-45 | Tutorial instance tech | MythicDungeons (not owned) / own instance module in wcmmo-core | Own small per-player instance module (reused by Lifezone code), unless the team buys MythicDungeons (TM5) | | OPEN |
-| D-46 | Trial scoring edge cases | — | Gap ≥ 4 = clear winner, ≤ 2 = Encounter (all steps are +2); 3-way tie or 0/0/0 → 3 entities; puzzle counts only the first solution, each combat trigger once. See review notes R1–R3 | | OPEN |
+| D-46 | Trial scoring edge cases | — | Gap ≥ 4 = clear winner, ≤ 2 = Encounter (all steps are +2); 3-way tie or 0/0/0 → 3 entities; puzzle counts only the first solution, each combat trigger once. See review notes R1–R3 | As review notes R1–R3: gap ≥ 4 = clear winner, ≤ 2 = Encounter; 3-way tie or 0/0/0 → 3 spirits; gate counts first solution only; each combat trigger once | DECIDED |
 
 ---
 
@@ -172,16 +172,16 @@ To prevent stat bloat, progression is strictly split. Each system has one job:
 | ID | Decision | Options | Recommendation | Your call | Status |
 |---|---|---|---|---|---|
 | D-03 | Bar swap input | `Shift+RMB` / `Shift+F` | **`Shift + Right Click`** (your call). ⚠️ PoC must prove it doesn't clash with bows, food, blocks **or FPV weapons whose right click is an attack** (Draconic pack). `Shift+F` fallback is blocked for dual weapons (they use F/off-hand); a third fallback is needed (e.g. sneak + hotbar scroll) | Shift+RMB | DECIDED |
-| D-04 | Weapon type list | — | *proposed* 8: Sword, Greatsword, Hammer, Spear (melee) · Bow, Crossbow (ranged) · Staff, Tome (magic). Vertical slice: Sword, Hammer, Bow, Staff | | OPEN |
+| D-04 | Weapon type list | — | *proposed* 8: Sword, Greatsword, Hammer, Spear (melee) · Bow, Crossbow (ranged) · Staff, Tome (magic). Vertical slice: Sword, Hammer, Bow, Staff | 8 weapon types; vertical slice uses Sword, Hammer, Bow, Staff | DECIDED |
 | D-04b | Switching weapons | free / restricted | Free: weapon freedom. Only stat requirements gate | free | DECIDED |
-| D-04c | Where general (non-weapon) skills come from | skill tree / Bloodline / trainers | General skills (dash, block, etc.) from level-based trainer NPCs. Unique weapon skills from Mastery (D-36) | | OPEN |
+| D-04c | Where general (non-weapon) skills come from | skill tree / Bloodline / trainers | General skills (dash, block, etc.) from level-based trainer NPCs. Unique weapon skills from Mastery (D-36) | Basic skills (dash, guard, backstep) learned in the tutorial; more general skills from level-ups and city NPCs along the main quest | DECIDED |
 | D-08 | Gear gating | stats only / stats + level floor | Stats are the gate (your call). Level floor stays OPEN as D-08b | stats | DECIDED |
-| D-08b | Also require a minimum level? | yes / no | Yes, a soft floor (e.g. tier level) against twinking with borrowed stats gear | | OPEN |
-| D-07 | Stat points per level & level cap | — | Level cap ≥ 60 (Bloodline stage 4 is Lv. 60). *proposed* cap 60 in Phase 1, 2 points/level | | OPEN |
-| D-07b | Respec | free / item / gold | Paid respec item (economy sink) | | OPEN |
-| D-30 | Do stats give any combat bonus besides gating? | none / small utility | **Small utility only** (e.g. DEF → max HP, AGI → max Stamina, INT → max Mana). No damage from stats, so AP stays the only damage source | | OPEN |
-| D-36 | Mastery details | XP source, cap, unlocks, CDR | XP from hits on mobs (not players). Cap 50 per weapon. Unique skills at 10/25/40. CDR = Mastery × 0.4 %, **cap 20 %** | | OPEN |
-| D-36b | Weapon swap exploit | — | Mastery CDR applies only to that weapon's skills. General skills use the held weapon's Mastery | | OPEN |
+| D-08b | Also require a minimum level? | yes / no | Yes, a soft floor (e.g. tier level) against twinking with borrowed stats gear | Yes, a soft level floor per gear tier | DECIDED |
+| D-07 | Stat points per level & level cap | — | Level cap ≥ 60 (Bloodline stage 4 is Lv. 60). *proposed* cap 60 in Phase 1, 2 points/level | Level cap 60, 2 points per level | DECIDED |
+| D-07b | Respec | free / item / gold | Paid respec item (economy sink) | Paid respec item (gold sink). Sources: NPC shop or quest reward | DECIDED |
+| D-30 | Do stats give any combat bonus besides gating? | none / small utility | **Small utility only** (e.g. DEF → max HP, AGI → max Stamina, INT → max Mana). No damage from stats, so AP stays the only damage source | Small utility only (DEF→HP, AGI→Stamina, INT→Mana); never damage | DECIDED |
+| D-36 | Mastery details | XP source, cap, unlocks, CDR | XP from hits on mobs (not players). Cap 50 per weapon. Unique skills at 10/25/40. CDR = Mastery × 0.4 %, **cap 20 %** | **Test values:** cap 30, unique skills at 5 / 15 / 25. XP from mobs only; CDR cap 20 %. **Final cap (50 or 100) to discuss later** | PARTLY |
+| D-36b | Weapon swap exploit | — | Mastery CDR applies only to that weapon's skills. General skills use the held weapon's Mastery | Mastery CDR = that weapon's skills + general skills based on the weapon held | DECIDED |
 
 ---
 
@@ -202,9 +202,9 @@ Bloodlines plug into this: Berserker *Unstoppable* grants Super Armour, *Death D
 |---|---|---|---|---|---|
 | D-05 | FPV animation approach | ModelEngine view model / animated item models / display entities | **ModelEngine view model** (`pv=true`), proven possible by the bought Draconic Dual Sword FPV pack (spec 010). Test it first; other approaches only if it fails | start with Draconic pack | OPEN (testing) |
 | D-44 | Weapon trigger layer for FPV weapons | MythicCrucible items (as the pack does) / MMOItems + our plugin | PoC with Crucible as shipped. Long-term: **MMOItems weapon + our plugin** handles hold/unheld/click triggers and calls the same MythicMobs skills, so one item has both MMOItems stats and FPV animation | | OPEN |
-| D-06b | Frontguard on hit | 0 / chip / stamina drain | Chip 20 % + stamina drain; guard breaks at 0 stamina | | OPEN |
-| D-06c | PvP in v2 | none / arenas / open world | Arenas only until guild design (§11) | | OPEN |
-| D-06d | Which weapons break guard / Super Armour | — | Hammer and Greatsword heavy skills break both | | OPEN |
+| D-06b | Frontguard on hit | 0 / chip / stamina drain | Chip 20 % + stamina drain; guard breaks at 0 stamina | Chip 20 % + stamina drain per blocked hit; guard breaks at 0 stamina (1 s stagger) | DECIDED |
+| D-06c | PvP in v2 | none / arenas / open world | Arenas only until guild design (§11) | **Now:** arenas only. **Later (after guild design):** open-world PvP outside safe zones, only between players **Lv 25+** | DECIDED |
+| D-06d | Which weapons break guard / Super Armour | — | Hammer and Greatsword heavy skills break both | **Hybrid:** every weapon has 1 guard-break skill (breaks Frontguard only, long cooldown). **Hammer + Greatsword**: all heavy skills break Frontguard **and** Super Armour, and their normal hits drain guard stamina ×2 | DECIDED |
 
 ---
 
@@ -218,11 +218,11 @@ Bloodlines plug into this: Berserker *Unstoppable* grants Super Armour, *Death D
 |---|---|---|---|---|---|
 | D-09 | Accessory (and Rune) slots plugin | MMOInventory / custom GUI | MMOInventory: one GUI for 4 accessories + 2–4 Runes | MMOInventory (owned) | DECIDED |
 | D-10 | Identify system | identify / fixed | Identify, with crafting/quest fallback (your call). ⚠️ PoC MMOItems unidentified items | identify | DECIDED |
-| D-11 | Element list | MythicLib built-in / custom | MythicLib built-in elements (verify list in PoC) | | OPEN |
-| D-12 | Enhancement max & fail rules | V / X; destroy / downgrade / pity | Max V, pity stacks, **no item destruction** | | OPEN |
+| D-11 | Element list | MythicLib built-in / custom | MythicLib built-in elements (verify list in PoC) | MythicLib built-in elements **for now**. Reminder: maybe custom lore elements later | DECIDED |
+| D-12 | Enhancement max & fail rules | V / X; destroy / downgrade / pity | Max V, pity stacks, **no item destruction** | Max V, pity stacks, items never destroyed | DECIDED |
 | D-12b | Armour uses the same ladder as weapons | yes / no | yes (your text: "Weapon and Armour enhancements") | yes | DECIDED |
-| D-12c | Enhancement materials | — | One stone per category (weapon / armour / accessory) from zone drops | | OPEN |
-| D-12d | Are accessories still enhanced (I–V)? | yes / no | v1 had it, v2 does not mention it. Recommend **yes, I–V**, as the late-game AP/DP source | | OPEN |
+| D-12c | Enhancement materials | — | One stone per category (weapon / armour / accessory) from zone drops | One stone per category (weapon / armour / accessory), zone drops | DECIDED |
+| D-12d | Are accessories still enhanced (I–V)? | yes / no | v1 had it, v2 does not mention it. Recommend **yes, I–V**, as the late-game AP/DP source | Yes, accessories enhance I–V | DECIDED |
 
 ---
 
@@ -246,11 +246,11 @@ Bloodlines plug into this: Berserker *Unstoppable* grants Super Armour, *Death D
 |---|---|---|---|---|---|
 | D-13 | AP/DP rule | hard / soft cap | Soft cap (your call) | soft | DECIDED |
 | D-13b | AP/DP source | gear / gear + stats | Gear + enhancement (your call: "enhancement = raw power") | gear+enh | DECIDED |
-| D-16 | Totem activation | free / item cost / cooldown | Consumable item, 10 min, one per spot | | OPEN |
+| D-16 | Totem activation | free / item cost / cooldown | Consumable item, 10 min, one per spot | Consumable totem item, 10 min, one totem per spot, solo or party | DECIDED |
 | D-16b | Totem implementation | MythicMobs spawners (+ plugin) | MythicMobs spawners (your call) + Kotlin for spot ownership/timer | spawners | DECIDED |
-| D-17 | World boss loot | last hit / contribution | Damage contribution / threat table (your call) | contribution | DECIDED |
-| D-17b | World boss schedule | fixed / random | Fixed times, 2×/day | | OPEN |
-| D-18 | Party size | 3 / 4 / 5 | 4. Roles now come from Bloodline + Runes + weapon, not class | | OPEN |
+| D-17 | World boss loot | last hit / contribution | Damage contribution / threat table (your call) | Contribution, not last hit: anyone who hit the boss or is nearby when it dies gets a random loot roll; **MVP top 1–3 damage** get bigger rewards, the rest tiered below | DECIDED |
+| D-17b | World boss schedule | fixed / random | Fixed times, 2×/day | 2 fixed times per day + admins can summon extra | DECIDED |
+| D-18 | Party size | 3 / 4 / 5 | 4. Roles now come from Bloodline + Runes + weapon, not class | Party dungeons: 2–5 players. Solo dungeons: solo only | DECIDED |
 
 ---
 
@@ -263,7 +263,7 @@ Bloodlines plug into this: Berserker *Unstoppable* grants Super Armour, *Death D
 |---|---|---|---|---|---|
 | D-14 | Instance plugin | MythicDungeons (to buy) / own instances in wcmmo-core | MythicDungeons (your call). **Not owned yet**: buy before the first solo dungeon/story boss. Building instances ourselves is possible but costs weeks | MythicDungeons, to buy | DECIDED |
 | D-15 | Quest stack | quest engine + LuxDialogues (owned) | LuxDialogues for dialogue + a quest engine (BetonQuest candidate) for objectives and rewards | | OPEN |
-| D-15b | Chapters in Phase 1 | 1 / 2 / 3 | 1 (tutorial + Bloodline choice + first region) | | OPEN |
+| D-15b | Chapters in Phase 1 | 1 / 2 / 3 | 1 (tutorial + Bloodline choice + first region) | 1 chapter in Phase 1 | DECIDED |
 
 ---
 
@@ -299,7 +299,7 @@ Bloodlines plug into this: Berserker *Unstoppable* grants Super Armour, *Death D
 | ID | Decision | Options | Recommendation | Your call | Status |
 |---|---|---|---|---|---|
 | D-22 | Lifeskill list | 5 | Mining, Gathering, Fishing, Cooking, Alchemy (your call). Weapon Mastery also uses MMOCore professions, but those are combat professions, not lifeskills | 5 | DECIDED |
-| D-26 | High-tier resources in PvP? | PvE / PvP | PvE only until guild/node war design | | OPEN |
+| D-26 | High-tier resources in PvP? | PvE / PvP | PvE only until guild/node war design | PvE only for now; later follows the D-06c PvP rule | DECIDED |
 
 ---
 
@@ -344,6 +344,7 @@ Placeholder. To decide: ModelEngine mounts, pet buffs vs cosmetic, loot pickup.
 | 2026-09-28 | D-09, D-43 | MMOInventory owned; MMOProfiles later, not at start | owner |
 | 2026-09-28 | D-05 | FPV testing starts with the bought Draconic Dual Sword FPV pack | owner |
 | 2026-09-28 | D-39 | MythicHUD = always-on HUD; UltimateUI = shops, quest list, other custom UI | owner |
+| 2026-09-29 | D-01, D-02, D-03a, D-04, D-04c, D-06b, D-06c, D-06d, D-07, D-07b, D-08b, D-11, D-12, D-12c, D-12d, D-15b, D-16, D-17b, D-18, D-26, D-30, D-33, D-34, D-35, D-35b, D-36b, D-41, D-42, D-46 | Decision session: 29 decided, D-36 partly (test values), D-17 loot refined | owner |
 | 2026-09-29 | D-47 | Skript for prototypes, tutorial/quest glue, tools; Kotlin for hot paths and player data | owner |
 | 2026-09-29 | D-32, D-31 (part) | The Awakening tutorial picks the first Bloodline; 3 base Bloodlines = BODY / MIND / FREEDOM | team design |
 | 2026-09-29 | D-19 | Lifezone will be our own plugin; talk about it after the combat/MMO core is mostly finished | owner |

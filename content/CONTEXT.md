@@ -225,20 +225,30 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 
 ## 8. Decisions
 
-**DECIDED:** D-00 (paid plugins owned, except MythicDungeons) · D-03 (Shift+RMB bar swap) · D-04b (free weapon switching) · D-08 (stats gate gear) · D-09 (MMOInventory) · D-10 (Identify + fallback) · D-12b (armour uses weapon ladder) · D-13 (AP/DP soft cap) · D-13b (AP/DP from gear + enhancement) · D-14 (MythicDungeons, but not bought yet) · D-16b (totems via MythicMobs spawners) · D-17 (world boss loot by contribution) · D-19 (Lifezone in-server, own plugin) · D-22 (5 lifeskills) · D-23 (furniture: NPC shop or crafted) · D-25 (revised 2026-09-29: Skript + vendor plugins first; own Kotlin plugin decided per system after Phase 0) · D-32 (The Awakening tutorial picks the first Bloodline) · D-47 (Skript for prototypes/glue/tools; for now also the hot paths, pending the D-25 review) · D-39 (MythicHUD = HUD, UltimateUI = shops/quest list/other UI) · D-40 (MMOItems = gear, Nexo = furniture/blocks/pack) · D-43 (multiple profiles later) · D-27 partly (Triton; languages open) · D-05 testing (Draconic FPV pack).
+**DECIDED (50 of 64):**
+
+| Area | Decided |
+|---|---|
+| Project & plugins | D-00 paid plugins owned (not MythicDungeons) · D-09 MMOInventory · D-14 MythicDungeons (not bought) · D-25 Skript + vendor plugins first, own Kotlin plugin per system after Phase 0 · D-39 MythicHUD = HUD, UltimateUI = other UI · D-40 MMOItems = gear, Nexo = furniture/blocks/pack · D-41 CosmeticsCore wearables, ItemSkins weapon skins · D-42 BattlePass/LuxCollect after the slice · D-43 profiles later · D-47 Skript vs Kotlin |
+| Vitality | D-01 stamina on a MythicHUD bar, hunger hidden · D-02 food = heal over time + buffs, potions = instant · D-03a sprint drains a little stamina |
+| Stats | D-07 cap 60, 2 points/level · D-07b paid respec item (NPC shop or quest) · D-08 stats gate gear · D-08b soft level floor · D-30 small utility bonuses only |
+| Combat | D-03 Shift+RMB bar swap · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
+| Weapons | D-04 8 weapons, slice uses 4 · D-04b free switching · D-04c basic skills in tutorial, more from level-ups + city NPCs · D-36b Mastery CDR for that weapon's skills + general skills by held weapon |
+| Bloodlines & Runes | D-32 The Awakening picks the first Bloodline · D-33 in-game extractor keeps progress, store extractor resets · D-34 each stage = level + unlock materials · D-35 rune slots 2 → Lv30 → Lv50 · D-35b no duplicate runes, tiers I–III · D-46 Awakening scoring edge cases |
+| Gear | D-10 Identify + fallback · D-11 MythicLib elements for now · D-12 max V, pity, never destroyed · D-12b armour same ladder · D-12c one stone per category · D-12d accessories I–V · D-13/D-13b AP/DP soft cap from gear + enhancement |
+| World | D-15b 1 chapter in Phase 1 · D-16 totem item, 10 min · D-16b totems via MythicMobs spawners · D-17 world boss loot: hit or nearby → random roll, MVP top 1–3 more · D-17b 2×/day + admin summon · D-18 party dungeons 2–5, solo dungeons solo · D-19 Lifezone own plugin, after the core · D-22 5 lifeskills · D-23 furniture shop or craft · D-26 PvE only for now |
+
+**PARTLY / TESTING:** D-27 (Triton; languages open) · D-31 (3 base Bloodlines BODY/MIND/FREEDOM; MIND + FREEDOM not designed) · D-36 (test build: Mastery cap 30, unlocks 5/15/25; final cap 50 or 100 open) · D-05 (FPV: testing the Draconic pack).
 
 **OPEN (ideas welcome):**
 
 | Area | Decisions |
 |---|---|
-| Vitality | D-01 stamina display · D-02 food healing · D-03a sprint cost |
-| Bloodlines & Runes | D-31 MIND/FREEDOM Bloodlines (BODY = Berserker?) · D-45 tutorial instance tech · D-46 trial scoring edge cases · D-33 extraction item · D-34 stage requirements · D-35 rune slot unlocks · D-35b rune rules · D-37 implementation |
-| Weapons & stats | D-04 weapon list · D-04c general skill source · D-07 points/level & cap · D-07b respec · D-08b level floor · D-30 tiny stat bonuses? · D-36 Mastery details · D-36b weapon swap exploit · D-44 FPV weapon trigger layer |
-| Combat | D-06b Frontguard chip · D-06c PvP scope · D-06d guard breakers |
-| Gear | D-11 elements · D-12 enhancement fail rules · D-12c materials · D-12d accessory enhancement |
-| World | D-15 quest engine · D-15b chapters · D-16 totem cost · D-17b world boss times · D-18 party size · D-26 PvP resources |
-| Lifezone | D-20 plot size · D-20b save timing · D-20c paste timing · D-21 full-zone parties · D-21b visiting |
-| Project | D-27 languages · D-38 repo layout · D-41 cosmetics · D-42 side content |
+| Bloodlines | D-31 MIND + FREEDOM Bloodline designs · D-37 implementation (Skript-first now) · D-45 tutorial instance tech |
+| Combat / weapons | D-44 FPV weapon trigger layer (Crucible vs MMOItems + script) |
+| World | D-15 quest engine to pair with LuxDialogues |
+| Lifezone (later) | D-20 plot size · D-20b save timing · D-20c paste timing · D-21 full-zone parties · D-21b visiting |
+| Project | D-38 repo layout |
 
 ---
 
