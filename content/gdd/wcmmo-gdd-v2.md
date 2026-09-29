@@ -145,6 +145,7 @@ The rigid class system is removed. Players build their character freely and mix 
 | D-37 | Bloodline implementation | MythicMobs triggers only / Kotlin + MythicMobs | ⚠️ Kotlin owns binding, stage and extraction (player data). MythicMobs skills are the *effects*, triggered by our plugin's events (on-damaged, low-HP, fatal-blow). PoC with Berserker stages 1–5 | | OPEN |
 | D-45 | Tutorial instance tech | MythicDungeons (not owned) / own instance module in wcmmo-core | Own small per-player instance module (reused by Lifezone code), unless the team buys MythicDungeons (TM5) | | OPEN |
 | D-46 | Trial scoring edge cases | — | Gap ≥ 4 = clear winner, ≤ 2 = Encounter (all steps are +2); 3-way tie or 0/0/0 → 3 entities; puzzle counts only the first solution, each combat trigger once. See review notes R1–R3 | As review notes R1–R3: gap ≥ 4 = clear winner, ≤ 2 = Encounter; 3-way tie or 0/0/0 → 3 spirits; gate counts first solution only; each combat trigger once | DECIDED |
+| D-48 | Bloodline names & trial themes | Concept art: **Heart / Bone / Muscle** + value trials (compassion / endurance / determination) · Spec 024: hidden BODY / MIND / FREEDOM from playstyle triggers | Keep one system: e.g. art names + playstyle triggers inside. See lore bible L10 | team to discuss | OPEN |
 
 ---
 

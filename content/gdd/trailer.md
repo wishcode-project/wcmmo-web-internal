@@ -19,13 +19,13 @@
 | # | Time | Shot | Text / sound |
 |---|---|---|---|
 | 1 | 0–5 s | Black. Heartbeat. Eyes open in first person | — |
-| 2 | 5–15 s | The shrine: alive, people moving, sunlight, a voice speaking of the power in this world | Voice: the world's power, the Bloodlines |
-| 3 | 15–30 s | The trials, fast cuts: brawling, a ranged kill from afar, sneaking past sleeping mobs; the gate: breaking the wall / pulling the lever / leaping over the roof | Title card: **"You do not choose the Bloodline."** |
+| 2 | 5–15 s | A realm of floating ruins between worlds; a voice: *"How you got here doesn't matter... who are you, really?"* | Voice: the world's power, the Bloodlines |
+| 3 | 15–30 s | The trials, fast cuts (content follows D-48: value trials or playstyle trials) | Title card: **"You do not choose the Bloodline."** |
 | 4 | 30–40 s | The great Selection Stone lights up. Three spirits argue (the Encounter) | **"The Bloodline chooses you."** |
-| 5 | 40–45 s | **The event**: blinding light, the ground shakes, the stone cracks. Cut to black | Silence, then a single crack |
-| 6 | 45–55 s | Eyes open again. Dense forest, moss, buried stones. The same first-person angle as shot 1 | Birds, wind |
+| 5 | 40–45 s | **The event**: the realm breaks apart like a dream, the stone cracks, the player falls and sinks into dark water | Silence, a crack, then muffled voices: *"They're still breathing!"* |
+| 6 | 45–55 s | Eyes open on a forest stream bank, villagers pulling the player out. Moss, roots, buried stones | Birds, water |
 | 7 | 55–62 s | A hand picks up a small stone. Tooltip: **`???`**, *an ancient stone with some kind of pattern carved into it* | — |
-| 8 | 62–72 s | A villager finds the player. The first village. Quick combat in first person (Draconic swords) | Villager: "I've never seen a mark like this..." |
+| 8 | 62–72 s | The riverside village, first sight of the walled city, the gate. Quick combat in first person (Draconic swords) | Villager: "I've never seen a mark like this..." |
 | 9 | 72–80 s | A spirit creature watching from the trees (only a glimpse, friendly) | — |
 | 10 | 80–90 s | Logo **WC-MMO** + "Who are you?" + Discord / server info | **"Who are you?"** |
 
@@ -33,16 +33,17 @@
 
 | Allowed | Not allowed |
 |---|---|
-| The living shrine, the trials, the Stone choosing | Any hint that shot 2 and shot 6 are **the same place** in different times (no side-by-side, no matching camera move, no "centuries later" text) |
+| The floating realm, the trials, the Stone choosing | Any hint that shot 2 and shot 6 are **the same place** in different times (no side-by-side, no matching camera move, no "centuries later" text) |
 | The event (light, quake, crack) with no explanation | The broken stone base, the hollow matching the stone |
-| Waking in the forest, the `???` stone, the villager | The companion speaking, or any boss footage from the end of Chapter 1 |
+| Waking on the stream bank, the `???` stone, the villagers, the city gate | The companion speaking, or any boss footage from the end of Chapter 1 |
 | A short glimpse of the companion | Lines like "I am you", or anything about uniting Bloodlines |
 
 ## What must exist before recording
 
 | Need | From |
 |---|---|
-| Tutorial shrine + present forest built from the same terrain | Map team (lore bible §7) |
+| Floating tutorial realm + present forest/stream built from the same landmarks | Map team (lore bible §7) |
+| Riverside village + first city gate | Map team (lore bible §10) |
 | The Awakening flow playable, at least the trials and the Stone scene | spec 024 (Skript prototype is fine) |
 | First-person combat footage | spec 010 (Draconic pack test) |
 | Stone item with `???` name + tooltip | Content (lore bible §6) |

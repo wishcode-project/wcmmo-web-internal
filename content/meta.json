@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-09-29T17:11:26.565Z",
-  "head": "81eb7ae",
+  "syncedAt": "2026-09-29T17:25:12.584Z",
+  "head": "acdba2d",
   "branch": "main",
   "commits": [
+    {
+      "sha": "acdba2d",
+      "date": "2026-09-30T00:24:58+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(story): lore bible v2 from the Chapter 0/1 and first-city boards",
+      "insertions": 76,
+      "deletions": 35,
+      "files": 5
+    },
     {
       "sha": "81eb7ae",
       "date": "2026-09-30T00:11:13+07:00",
@@ -191,17 +200,17 @@
     "docs/021-bloodlines.md": "2026-09-29T23:09:01+07:00",
     "docs/022-runes.md": "2026-09-29T23:09:01+07:00",
     "docs/023-weapon-mastery.md": "2026-09-29T23:09:01+07:00",
-    "docs/024-awakening-tutorial.md": "2026-09-30T00:11:13+07:00",
+    "docs/024-awakening-tutorial.md": "2026-09-30T00:24:58+07:00",
     "docs/README.md": "2026-09-29T23:09:01+07:00",
     "docs/plugins.md": "2026-09-29T21:21:22+07:00",
     "docs/adr/0001-purpur-java25-zgc.md": "2026-09-25T00:46:05+07:00",
     "docs/adr/0002-spec-first-workflow.md": "2026-09-25T00:46:05+07:00",
     "gdd/awakening-tutorial.md": "2026-09-29T20:54:26+07:00",
-    "gdd/lore-bible.md": "2026-09-30T00:11:13+07:00",
+    "gdd/lore-bible.md": "2026-09-30T00:24:58+07:00",
     "gdd/owner-questions.md": "2026-09-29T23:09:01+07:00",
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
-    "gdd/trailer.md": "2026-09-30T00:11:13+07:00",
+    "gdd/trailer.md": "2026-09-30T00:24:58+07:00",
     "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",
-    "gdd/wcmmo-gdd-v2.md": "2026-09-30T00:11:13+07:00"
+    "gdd/wcmmo-gdd-v2.md": "2026-09-30T00:24:58+07:00"
   }
 }

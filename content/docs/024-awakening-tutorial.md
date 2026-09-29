@@ -127,7 +127,8 @@ Disable the module → new players get the manual selection GUI directly. Awaken
 
 ## Open questions
 
-- Story (lore bible §4): the tutorial is **the past**; it ends with an unexplained event and the **Selection Stone shattering**, then the player wakes in Chapter 1. Add this final scene to the flow. The story team wants **3–4 trials** (this spec has 2): lore bible L2.
+- Story (lore bible §4): the tutorial *looks* like a realm of floating ruins between worlds but is secretly **the past**. After Accept/Reject the realm collapses, the **Selection Stone shatters**, the player sinks into water and hears voices; Chapter 1 starts on a forest stream bank. Add this end sequence to the flow. Reject leaves a "trace" on the player (lore L6/L10).
+- **Trials and Bloodline names are open (D-48):** the concept art has Heart / Bone / Muscle and value trials (compassion / endurance / determination); this spec has BODY / MIND / FREEDOM playstyle triggers. The story team also wants 3–4 trials (this spec has 2, L2).
 
 - D-45: instance tech (MythicDungeons vs own module).
 - Tutorial named "The Awakening" while Bloodline stage 5 is "Awakened": rename one to avoid confusion?
