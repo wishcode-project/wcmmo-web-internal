@@ -104,10 +104,14 @@ Point the sync at another checkout with `SPECS_DIR=/path/to/wcmmo-specs npm run 
 
 ## Update the live site
 
+**Automatic.** Every push to `wcmmo-specs` `main` runs the GitHub Action `wcmmo-specs/.github/workflows/sync-website.yml`: it runs this repo's `scripts/sync-specs.mjs`, commits `content/` as `github-actions[bot]` ("chore: sync specs @ <sha>") and pushes, and Vercel deploys that commit. Live about 1–2 minutes after the specs push.
+
+Setup, once: a fine-grained GitHub token with access to **only** `wishcode-project/wcmmo-web-internal`, permission **Contents: Read and write**, saved as the Actions secret `WEB_REPO_TOKEN` in `wcmmo-specs` (Settings → Secrets and variables → Actions). Without it the Action skips with a warning. You can also run it by hand from the Actions tab ("Run workflow").
+
+Because the bot commits `content/`, **`git pull` before you push** changes to this repo, and don't commit `content/` by hand any more (a local `npm run dev` rewrites it; `git checkout content` throws that away). Manual fallback if the Action is broken:
+
 ```bash
-npm run sync                  # pull the latest specs into content/
-git add content && git commit -m "chore: sync specs @ <sha>"
-git push                      # Vercel redeploys
+npm run sync && git add content && git commit -m "chore: sync specs @ <sha>" && git push
 ```
 
 ## Deploy on Vercel
