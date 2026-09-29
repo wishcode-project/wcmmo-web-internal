@@ -63,6 +63,24 @@ Markdown body. Links to site pages like [the roadmap](/roadmap) work.
 
 Add the Thai version as `YYYY-MM-DD-slug.th.md` with the same front matter keys.
 
+## Writing a lore chapter
+
+The public **Lore** page (`/lore`) shows the story chapter by chapter. Add `src/site/lore/NN-slug.md`:
+
+```md
+---
+chapter: 2
+title: Chapter title
+summary: One sentence for the chapter card.
+---
+
+Markdown body.
+```
+
+Add the Thai version as `NN-slug.th.md`. Chapters are sorted by `chapter`; `0` shows as "Chapter 0 · Prologue".
+
+**Lore chapters are public: no spoilers.** The full story canon is `gdd/lore-bible.md` in `wcmmo-specs` (team only). Write the public chapter from what a player sees, never copy from the bible. `scripts/check-bundle.mjs` fails the build if the bible's `TEAM ONLY` marker ever reaches a public file.
+
 The server address and Discord link are `serverIp` / `discordUrl` in `src/site/config.ts` (`null` shows "Opening soon" / hides the button).
 
 Stack: Vite 6 + React 19 + TypeScript + Tailwind CSS v4, Recharts for charts, React Flow for the graph, react-markdown for rendering the specs.

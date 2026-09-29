@@ -39,6 +39,7 @@ export function PublicLayout() {
     { to: '/', label: t.nav.home, end: true },
     { to: '/features', label: t.nav.features },
     { to: '/roadmap', label: t.nav.roadmap },
+    { to: '/lore', label: t.nav.lore },
     { to: '/devlog', label: t.nav.devlog },
   ]
 

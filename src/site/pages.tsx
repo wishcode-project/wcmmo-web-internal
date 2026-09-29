@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useDict, useLang } from '../shared/i18n'
 import { fmtDate } from '../shared/time'
 import { comingLater, features, ui } from './config'
-import { postText, posts, stageProgress, stats } from './content'
+import { chapterText, chapters, postText, posts, stageProgress, stats } from './content'
 import { PixelIcon } from './PixelIcon'
 import { PostCard, SectionHeading, StageCard } from './parts'
 
@@ -127,6 +127,91 @@ export function DevlogPost() {
         {newer && (
           <Link to={`/devlog/${newer.slug}`} className="btn max-w-[48%]">
             <span className="min-w-0 truncate">{postText(newer, lang).title} ▶</span>
+          </Link>
+        )}
+      </nav>
+    </div>
+  )
+}
+
+const chapterLabel = (n: number, t: { lore: { chapter: (n: number) => string; prologue: string } }) =>
+  n === 0 ? `${t.lore.chapter(0)} · ${t.lore.prologue}` : t.lore.chapter(n)
+
+const mdLinks = {
+  a: ({ href = '', children }: { href?: string; children?: React.ReactNode }) =>
+    href.startsWith('/') ? (
+      <Link to={href}>{children}</Link>
+    ) : (
+      <a href={href} target="_blank" rel="noreferrer">
+        {children}
+      </a>
+    ),
+}
+
+export function Lore() {
+  const t = useDict(ui)
+  const { lang } = useLang()
+  return (
+    <Page>
+      <SectionHeading kicker={t.lore.kicker} title={t.lore.title}>
+        {t.lore.intro}
+      </SectionHeading>
+      <ol className="mx-auto flex max-w-3xl flex-col gap-5">
+        {chapters.map((c) => {
+          const text = chapterText(c, lang)
+          return (
+            <li key={c.slug}>
+              <Link to={`/lore/${c.slug}`} className="paper block p-6 transition hover:-translate-y-0.5 sm:p-8">
+                <span className="font-display text-xs tracking-widest text-bark uppercase">★ {chapterLabel(c.n, t)}</span>
+                <h2 className="mt-1 text-2xl text-bark-dark sm:text-3xl">{text.title}</h2>
+                <p className="mt-2 text-paper-muted">{text.summary}</p>
+                <span className="mt-4 inline-block font-display text-leaf">{t.lore.read} ▶</span>
+              </Link>
+            </li>
+          )
+        })}
+      </ol>
+    </Page>
+  )
+}
+
+export function LoreChapter() {
+  const t = useDict(ui)
+  const { lang } = useLang()
+  const { slug } = useParams()
+  const chapter = chapters.find((c) => c.slug === slug)
+  if (!chapter) return <PublicNotFound />
+  const text = chapterText(chapter, lang)
+  const idx = chapters.indexOf(chapter)
+  const prev = chapters[idx - 1]
+  const next = chapters[idx + 1]
+  return (
+    <div className="mx-auto max-w-3xl px-4 pt-12 sm:pt-16">
+      <Link to="/lore" className="text-sm text-parch-dim hover:text-leaf">
+        ◀ {t.lore.all}
+      </Link>
+      {lang === 'th' && !chapter.th && <p className="mt-3 border-l-4 border-gold bg-gold/10 px-3 py-2 text-sm text-cream">{t.lore.englishOnly}</p>}
+      <article className="paper mt-4 p-6 sm:p-10" lang={lang === 'th' && chapter.th ? 'th' : 'en'}>
+        <span className="chip border-bark/60 font-display text-bark">{chapterLabel(chapter.n, t)}</span>
+        <h1 className="mt-3 text-3xl text-bark-dark sm:text-4xl">{text.title}</h1>
+        <div className="pixel-divider my-5 opacity-60" />
+        <div className="prose-paper">
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdLinks}>
+            {text.body}
+          </ReactMarkdown>
+        </div>
+      </article>
+      <nav className="mt-6 flex justify-between gap-4" aria-label={t.lore.more}>
+        {prev ? (
+          <Link to={`/lore/${prev.slug}`} className="btn max-w-[48%]">
+            <span className="min-w-0 truncate">◀ {chapterText(prev, lang).title}</span>
+          </Link>
+        ) : (
+          <span />
+        )}
+        {next && (
+          <Link to={`/lore/${next.slug}`} className="btn max-w-[48%]">
+            <span className="min-w-0 truncate">{chapterText(next, lang).title} ▶</span>
           </Link>
         )}
       </nav>

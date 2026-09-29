@@ -5,7 +5,7 @@ import './index.css'
 import { TeamGate } from './auth/TeamGate'
 import { LangProvider } from './shared/i18n'
 import { Home } from './site/Home'
-import { Devlog, DevlogPost, Features, PublicNotFound, PublicRoadmap } from './site/pages'
+import { Devlog, DevlogPost, Features, Lore, LoreChapter, PublicNotFound, PublicRoadmap } from './site/pages'
 import { PublicLayout } from './site/PublicLayout'
 
 // Public player site at /, team spec tracker behind a login at /team.
@@ -18,6 +18,8 @@ const router = createBrowserRouter([
       { path: '/', element: <Home /> },
       { path: '/features', element: <Features /> },
       { path: '/roadmap', element: <PublicRoadmap /> },
+      { path: '/lore', element: <Lore /> },
+      { path: '/lore/:slug', element: <LoreChapter /> },
       { path: '/devlog', element: <Devlog /> },
       { path: '/devlog/:slug', element: <DevlogPost /> },
       { path: '*', element: <PublicNotFound /> },

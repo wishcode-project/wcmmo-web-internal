@@ -10,7 +10,8 @@ const assets = join(dist, 'assets')
 const publicFiles = [join(dist, 'index.html'), ...readdirSync(assets).filter((f) => f.endsWith('.js')).map((f) => join(assets, f))]
 
 // Strings that appear in the specs but never in public copy.
-const markers = ['FIRE mode', 'wcmmo_bloodline', 'wcmmo_item_', 'owner-questions', 'Implementation log', 'MythicMobs']
+// 'TEAM ONLY' marks spoiler sections of gdd/lore-bible.md: if it ever shows up here, story spoilers leaked.
+const markers = ['FIRE mode', 'wcmmo_bloodline', 'wcmmo_item_', 'owner-questions', 'Implementation log', 'MythicMobs', 'TEAM ONLY']
 
 const problems = []
 for (const file of publicFiles) {

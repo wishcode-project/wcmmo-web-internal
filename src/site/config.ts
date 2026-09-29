@@ -247,7 +247,7 @@ export const stages: Stage[] = [
 
 /** UI strings for the public site. */
 export const ui: Dict<{
-  nav: { home: string; features: string; roadmap: string; devlog: string; team: string }
+  nav: { home: string; features: string; roadmap: string; lore: string; devlog: string; team: string }
   menu: string
   skip: string
   explore: string
@@ -276,12 +276,13 @@ export const ui: Dict<{
   units: { systems: string; prototypes: string }
   designLater: string
   devlog: { kicker: string; latest: string; title: string; intro: string; readMore: string; all: string; more: string; englishOnly: string }
+  lore: { kicker: string; title: string; intro: string; chapter: (n: number) => string; prologue: string; read: string; all: string; englishOnly: string; more: string }
   later: { kicker: string; title: string }
   featuresPage: { kicker: string; title: string; intro: string; horizon: (list: string) => string }
   notFound: { title: string; body: string; back: string }
 }> = {
   en: {
-    nav: { home: 'Home', features: 'Features', roadmap: 'Roadmap', devlog: 'Devlog', team: 'Team' },
+    nav: { home: 'Home', features: 'Features', roadmap: 'Roadmap', lore: 'Lore', devlog: 'Devlog', team: 'Team' },
     menu: 'Menu',
     skip: 'Skip to content',
     explore: 'Explore',
@@ -327,6 +328,17 @@ export const ui: Dict<{
       more: 'More posts',
       englishOnly: '',
     },
+    lore: {
+      kicker: 'Lore',
+      title: 'The story so far',
+      intro: 'The world of WC-MMO, one chapter at a time. New chapters arrive as the world opens.',
+      chapter: (n) => `Chapter ${n}`,
+      prologue: 'Prologue',
+      read: 'Read the chapter',
+      all: 'All chapters',
+      englishOnly: '',
+      more: 'More chapters',
+    },
     later: { kicker: 'Coming later', title: 'The world keeps growing' },
     featuresPage: {
       kicker: 'Features',
@@ -337,7 +349,7 @@ export const ui: Dict<{
     notFound: { title: 'You wandered off the map', body: "This page doesn't exist (yet).", back: 'Back to town' },
   },
   th: {
-    nav: { home: 'หน้าแรก', features: 'ฟีเจอร์', roadmap: 'โรดแมป', devlog: 'บันทึกการพัฒนา', team: 'ทีมงาน' },
+    nav: { home: 'หน้าแรก', features: 'ฟีเจอร์', roadmap: 'โรดแมป', lore: 'ตำนาน', devlog: 'บันทึกการพัฒนา', team: 'ทีมงาน' },
     menu: 'เมนู',
     skip: 'ข้ามไปยังเนื้อหา',
     explore: 'สำรวจ',
@@ -382,6 +394,17 @@ export const ui: Dict<{
       all: 'โพสต์ทั้งหมด',
       more: 'โพสต์อื่น',
       englishOnly: 'โพสต์นี้ยังไม่มีฉบับภาษาไทย',
+    },
+    lore: {
+      kicker: 'ตำนาน',
+      title: 'เรื่องราวที่ผ่านมา',
+      intro: 'โลกของ WC-MMO ทีละบท บทใหม่จะตามมาเมื่อโลกเปิดกว้างขึ้น',
+      chapter: (n) => `บทที่ ${n}`,
+      prologue: 'บทนำ',
+      read: 'อ่านบทนี้',
+      all: 'ทุกบท',
+      englishOnly: 'บทนี้ยังไม่มีฉบับภาษาไทย',
+      more: 'บทอื่น',
     },
     later: { kicker: 'เร็ว ๆ นี้', title: 'โลกที่เติบโตไม่หยุด' },
     featuresPage: {
