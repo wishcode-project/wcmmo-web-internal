@@ -37,6 +37,14 @@ const counts = {
 }
 cpSync(join(specsDir, 'CONTEXT.md'), join(out, 'CONTEXT.md'))
 
+// Concept boards (story art). Team pages show them whole; vite.config.ts routes anything under
+// content/ into the login-protected assets/team/. Public crops come from scripts/crop-boards.py.
+const boardsDir = join(specsDir, 'gdd', 'boards')
+if (existsSync(boardsDir)) {
+  mkdirSync(join(out, 'boards'), { recursive: true })
+  for (const name of readdirSync(boardsDir).filter((n) => /\.(png|jpe?g|webp)$/i.test(n))) cpSync(join(boardsDir, name), join(out, 'boards', name))
+}
+
 const git = (...args) => {
   try {
     return execFileSync('git', ['-C', specsDir, ...args], { encoding: 'utf8' }).trim()

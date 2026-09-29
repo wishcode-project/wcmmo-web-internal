@@ -161,6 +161,7 @@ const en = {
     groups: { Design: 'Design', Brief: 'Brief', Registry: 'Registry', ADR: 'Architecture decisions' },
     specsLive: (n: number) => `${n} specs live under`,
     note: (n: string) => `This document is ${n}.`,
+    boards: 'Concept boards',
   },
   notFound: { title: 'This path leads into the void', body: 'The page or spec isn’t in the synced specs repo.', back: 'Back to the Codex' },
 }
@@ -325,7 +326,9 @@ const th: Strings = {
     intro: 'เอกสารดีไซน์ บรีฟ ทะเบียน และ ADR แสดงผลจากรีโปสเปก',
     groups: { Design: 'ดีไซน์', Brief: 'บรีฟ', Registry: 'ทะเบียน', ADR: 'การตัดสินใจด้านสถาปัตยกรรม' },
     specsLive: (n: number) => `สเปกทั้ง ${n} ไฟล์อยู่ที่หน้า`,
-    note: (n: string) => `เอกสารนี้ ${n === 'superseded by v2' ? 'ถูกแทนที่ด้วย v2 แล้ว' : n}`,
+    note: (n: string) =>
+      `เอกสารนี้${({ 'superseded by v2': 'ถูกแทนที่ด้วย v2 แล้ว', 'full spoilers, team only': 'มีสปอยล์เต็ม สำหรับทีมเท่านั้น' } as Record<string, string>)[n] ?? n}`,
+    boards: 'บอร์ดคอนเซ็ปต์',
   },
   notFound: { title: 'ทางนี้พาไปสู่ความว่างเปล่า', body: 'ไม่พบหน้าหรือสเปกนี้ในรีโปสเปกที่ซิงก์มา', back: 'กลับไปที่ Codex' },
 }

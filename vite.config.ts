@@ -62,6 +62,8 @@ export default defineConfig(({ mode }) => {
           },
           // private chunks go under /assets/team/, which middleware.ts only serves after login
           chunkFileNames: (chunk) => (chunk.moduleIds.some(isPrivate) ? 'assets/team/[name]-[hash].js' : 'assets/[name]-[hash].js'),
+          // files imported from content/ (concept boards) are team-only too
+          assetFileNames: (asset) => (asset.originalFileNames.some((f) => f.includes('content/')) ? 'assets/team/[name]-[hash][extname]' : 'assets/[name]-[hash][extname]'),
         },
       },
     },

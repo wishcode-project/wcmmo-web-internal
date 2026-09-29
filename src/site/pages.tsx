@@ -1,7 +1,8 @@
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown, { defaultUrlTransform } from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { Link, useParams } from 'react-router-dom'
 import { useDict, useLang } from '../shared/i18n'
+import { storyImage } from '../shared/story'
 import { fmtDate } from '../shared/time'
 import { comingLater, features, ui } from './config'
 import { chapterText, chapters, postText, posts, stageProgress, stats } from './content'
@@ -137,7 +138,21 @@ export function DevlogPost() {
 const chapterLabel = (n: number, t: { lore: { chapter: (n: number) => string; prologue: string } }) =>
   n === 0 ? `${t.lore.chapter(0)} · ${t.lore.prologue}` : t.lore.chapter(n)
 
+// react-markdown drops unknown URL schemes; let our own `story:<id>` picture refs through.
+const keepStoryUrls = (url: string) => (url.startsWith('story:') ? url : defaultUrlTransform(url))
+
 const mdLinks = {
+  // ![caption](story:ch0-1) → framed picture with its caption. Spans, not <figure>: markdown puts
+  // images inside a <p>, and a paragraph of several pictures becomes a grid (see .story-fig in CSS).
+  img: ({ src, alt }: { src?: string; alt?: string }) => {
+    const url = storyImage(src) ?? src
+    return (
+      <span className="story-fig">
+        <img src={url} alt={alt ?? ''} loading="lazy" />
+        {alt && <span className="story-cap">{alt}</span>}
+      </span>
+    )
+  },
   a: ({ href = '', children }: { href?: string; children?: React.ReactNode }) =>
     href.startsWith('/') ? (
       <Link to={href}>{children}</Link>
@@ -161,11 +176,16 @@ export function Lore() {
           const text = chapterText(c, lang)
           return (
             <li key={c.slug}>
-              <Link to={`/lore/${c.slug}`} className="paper block p-6 transition hover:-translate-y-0.5 sm:p-8">
+              <Link to={`/lore/${c.slug}`} className="paper group block overflow-hidden transition hover:-translate-y-0.5">
+                {storyImage(c.cover) && (
+                  <img src={storyImage(c.cover)} alt="" loading="lazy" className="aspect-[21/9] w-full object-cover shadow-[inset_0_-3px_0_var(--color-bark)] transition-transform duration-500 group-hover:scale-[1.02]" />
+                )}
+                <span className="block p-6 sm:p-8">
                 <span className="font-display text-xs tracking-widest text-bark uppercase">★ {chapterLabel(c.n, t)}</span>
                 <h2 className="mt-1 text-2xl text-bark-dark sm:text-3xl">{text.title}</h2>
                 <p className="mt-2 text-paper-muted">{text.summary}</p>
-                <span className="mt-4 inline-block font-display text-leaf">{t.lore.read} ▶</span>
+                <span className="mt-4 inline-block font-display text-[#2f5a17]">{t.lore.read} ▶</span>
+                </span>
               </Link>
             </li>
           )
@@ -191,14 +211,17 @@ export function LoreChapter() {
         ◀ {t.lore.all}
       </Link>
       {lang === 'th' && !chapter.th && <p className="mt-3 border-l-4 border-gold bg-gold/10 px-3 py-2 text-sm text-cream">{t.lore.englishOnly}</p>}
-      <article className="paper mt-4 p-6 sm:p-10" lang={lang === 'th' && chapter.th ? 'th' : 'en'}>
+      <article className="paper mt-4 overflow-hidden" lang={lang === 'th' && chapter.th ? 'th' : 'en'}>
+        {storyImage(chapter.cover) && <img src={storyImage(chapter.cover)} alt="" className="aspect-[21/9] w-full object-cover shadow-[inset_0_-3px_0_var(--color-bark)]" />}
+        <div className="p-6 sm:p-10">
         <span className="chip border-bark/60 font-display text-bark">{chapterLabel(chapter.n, t)}</span>
         <h1 className="mt-3 text-3xl text-bark-dark sm:text-4xl">{text.title}</h1>
         <div className="pixel-divider my-5 opacity-60" />
         <div className="prose-paper">
-          <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdLinks}>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdLinks} urlTransform={keepStoryUrls}>
             {text.body}
           </ReactMarkdown>
+        </div>
         </div>
       </article>
       <nav className="mt-6 flex justify-between gap-4" aria-label={t.lore.more}>

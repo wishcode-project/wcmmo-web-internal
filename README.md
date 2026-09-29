@@ -72,12 +72,19 @@ The public **Lore** page (`/lore`) shows the story chapter by chapter. Add `src/
 chapter: 2
 title: Chapter title
 summary: One sentence for the chapter card.
+cover: ch1-1
 ---
 
 Markdown body.
+
+![Caption under the picture](story:ch1-3)
+
+![Two pictures](story:ch1-6) ![on one line become a grid](story:ch1-7)
 ```
 
 Add the Thai version as `NN-slug.th.md`. Chapters are sorted by `chapter`; `0` shows as "Chapter 0 · Prologue".
+
+**Story pictures** (`story:<id>`, and `cover:`) are cut from the concept boards in `wcmmo-specs/gdd/boards/`: `python3 scripts/crop-boards.py` writes them to `src/shared/story/<id>.webp` (needs Pillow). Every file in that folder is **public**, so only cut panels without spoilers or placeholder names; the box for each panel is in the script. The full boards stay team-only: they sync to `content/boards/` and appear on the lore bible page in the team Library, served from the login-protected `assets/team/`.
 
 **Lore chapters are public: no spoilers.** The full story canon is `gdd/lore-bible.md` in `wcmmo-specs` (team only). Write the public chapter from what a player sees, never copy from the bible. `scripts/check-bundle.mjs` fails the build if the bible's `TEAM ONLY` marker ever reaches a public file.
 

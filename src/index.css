@@ -206,6 +206,19 @@
   .prose-paper pre code { @apply bg-transparent p-0 text-parch-ink; }
   .prose-paper hr { @apply my-8 border-0; height: 6px; background: linear-gradient(90deg, var(--color-bark) 50%, transparent 0) 0 0 / 12px 3px repeat-x; }
   .prose-paper .table-wrap { @apply my-4 overflow-x-auto; }
+
+  /* story pictures in lore chapters: framed like a map inset, caption underneath */
+  .prose-paper .story-fig { @apply my-2 block; }
+  .prose-paper .story-fig img {
+    @apply block h-auto max-h-[26rem] w-full object-cover;
+    box-shadow: 0 0 0 3px var(--color-bark), 0 5px 0 3px rgb(0 0 0 / 0.25);
+    image-rendering: auto;
+  }
+  .prose-paper .story-cap { @apply mt-2 block text-center text-sm text-paper-muted italic; }
+  /* several pictures in one paragraph → grid (2 per row, 1 on phones) */
+  .prose-paper p:has(> .story-fig + .story-fig) { @apply grid gap-4 sm:grid-cols-2; }
+  .prose-paper p:has(> .story-fig + .story-fig) .story-fig { @apply my-0; }
+  .prose-paper p:has(> .story-fig + .story-fig) .story-fig img { @apply aspect-video; }
   .prose-paper table { @apply w-full min-w-[560px] border-collapse text-sm; }
   .prose-paper th { @apply bg-bark px-3 py-2 text-left font-display font-normal text-cream; }
   .prose-paper td { @apply border-b border-bark/30 px-3 py-2 align-top; }

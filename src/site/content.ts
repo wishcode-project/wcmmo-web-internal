@@ -70,6 +70,8 @@ interface ChapterText {
 
 export interface Chapter {
   slug: string
+  /** `cover: <story image id>` in the front matter */
+  cover?: string
   /** Chapter number from the front matter (0 = prologue) */
   n: number
   en: ChapterText
@@ -96,9 +98,9 @@ export const chapters: Chapter[] = (() => {
       }),
     )
     const text: ChapterText = { title: fields.title ?? 'Untitled', summary: fields.summary ?? '', body: fm ? md.slice(fm[0].length) : md }
-    return { slug: th ? file.slice(0, -3) : file, th, n: Number(fields.chapter ?? 0), text }
+    return { slug: th ? file.slice(0, -3) : file, th, n: Number(fields.chapter ?? 0), cover: fields.cover || undefined, text }
   })
-  for (const e of entries.filter((x) => !x.th)) bySlug.set(e.slug, { slug: e.slug, n: e.n, en: e.text })
+  for (const e of entries.filter((x) => !x.th)) bySlug.set(e.slug, { slug: e.slug, n: e.n, cover: e.cover, en: e.text })
   for (const e of entries.filter((x) => x.th)) {
     const chapter = bySlug.get(e.slug)
     if (chapter) chapter.th = e.text

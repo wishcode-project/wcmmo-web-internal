@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { Markdown } from '../components/Markdown'
 import { PageHeader } from '../components/ui'
-import { docs, files, meta, specs } from '../lib/data'
+import { boards, docs, files, meta, specs } from '../lib/data'
 import { useDict } from '../../shared/i18n'
 import { timeAgo } from '../../shared/time'
 import { strings } from '../strings'
@@ -79,6 +79,19 @@ export function ReadDoc() {
       </nav>
       {doc?.note && <p className="mb-4 border-l-4 border-st-fail bg-st-fail/15 px-4 py-2 text-sm text-cream">{t.library.note(doc.note)}</p>}
       {t.englishSource && <p className="mb-4 text-sm text-parch-dim">{t.englishSource}</p>}
+      {path === 'gdd/lore-bible.md' && Object.keys(boards).length > 0 && (
+        <section className="mb-6">
+          <h2 className="mb-3 text-xl text-gold">{t.library.boards}</h2>
+          <div className="grid gap-4 md:grid-cols-3">
+            {Object.entries(boards).map(([p, url]) => (
+              <a key={p} href={url} target="_blank" rel="noreferrer" className="slate block overflow-hidden hover:brightness-110">
+                <img src={url} alt={p} loading="lazy" className="aspect-video w-full object-cover" />
+                <span className="block px-3 py-2 font-mono text-xs text-parch-dim">{p.replace('gdd/boards/', '')}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
       <article className="paper p-5 sm:p-10" lang="en">
         <Markdown source={source} basePath={path} />
       </article>

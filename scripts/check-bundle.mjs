@@ -11,13 +11,22 @@ const publicFiles = [join(dist, 'index.html'), ...readdirSync(assets).filter((f)
 
 // Strings that appear in the specs but never in public copy.
 // 'TEAM ONLY' marks spoiler sections of gdd/lore-bible.md: if it ever shows up here, story spoilers leaked.
-const markers = ['FIRE mode', 'wcmmo_bloodline', 'wcmmo_item_', 'owner-questions', 'Implementation log', 'MythicMobs', 'TEAM ONLY']
+const markers = [
+  'FIRE mode', 'wcmmo_bloodline', 'wcmmo_item_', 'owner-questions', 'Implementation log', 'MythicMobs', 'TEAM ONLY',
+  // lore bible spoilers: the public Lore page has its own spoiler-free text
+  'past self', 'ข้าคือเจ้า', 'unite every Bloodline', 'Siamcraft', 'stone base', 'soul fragment',
+]
 
 const problems = []
 for (const file of publicFiles) {
   const src = readFileSync(file, 'utf8')
   if (/from\s*"\.\/team\//.test(src)) problems.push(`${file}: static import of a team chunk`)
   for (const m of markers) if (src.includes(m)) problems.push(`${file}: contains private text "${m}"`)
+}
+
+// concept boards and anything else copied from content/ must stay under assets/team/
+for (const f of readdirSync(assets)) {
+  if (/^(chapter-0-tutorial|chapter-1-part-1|first-city)-/.test(f)) problems.push(`${join(assets, f)}: concept board outside assets/team/`)
 }
 
 if (problems.length) {

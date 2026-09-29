@@ -22,6 +22,14 @@ export interface Commit {
   files: number
 }
 
+/** Concept boards synced from wcmmo-specs/gdd/boards/, by repo path (`gdd/boards/x.png`). Team-only assets. */
+export const boards: Record<string, string> = Object.fromEntries(
+  Object.entries(import.meta.glob('/content/boards/*', { query: '?url', import: 'default', eager: true }) as Record<string, string>).map(([k, v]) => [
+    k.replace(/^\/content\//, 'gdd/'),
+    v,
+  ]),
+)
+
 export const meta = metaJson as {
   syncedAt: string
   head: string
@@ -424,6 +432,8 @@ const docTitle = (md: string, fallback: string) => plain(/^#\s+(.*)$/m.exec(md)?
 export const docs: Doc[] = [
   { path: 'gdd/wcmmo-gdd-v2.md', group: 'Design' as const },
   { path: 'gdd/awakening-tutorial.md', group: 'Design' as const },
+  { path: 'gdd/lore-bible.md', group: 'Design' as const, note: 'full spoilers, team only' },
+  { path: 'gdd/trailer.md', group: 'Design' as const },
   { path: 'CONTEXT.md', group: 'Brief' as const },
   { path: 'gdd/team-brief-2026-09-28.md', group: 'Brief' as const },
   { path: 'gdd/owner-questions.md', group: 'Design' as const },

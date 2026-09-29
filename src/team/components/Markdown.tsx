@@ -1,7 +1,7 @@
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { Link } from 'react-router-dom'
-import { routeFor } from '../lib/data'
+import { boards, routeFor } from '../lib/data'
 
 const slugify = (s: string) =>
   s
@@ -23,13 +23,15 @@ function resolveHref(href: string, basePath: string): { to?: string; href?: stri
   if (/^[a-z]+:/i.test(href)) return { href }
   if (href.startsWith('#')) return { href }
   const [path, hash] = href.split('#')
-  if (!path.endsWith('.md')) return { href }
   const parts = basePath.split('/').slice(0, -1)
   for (const seg of path.split('/')) {
     if (seg === '..') parts.pop()
     else if (seg !== '.') parts.push(seg)
   }
-  return { to: routeFor(parts.join('/')) + (hash ? `#${hash}` : '') }
+  const target = parts.join('/')
+  if (boards[target]) return { href: boards[target] } // a concept board image
+  if (!path.endsWith('.md')) return { href }
+  return { to: routeFor(target) + (hash ? `#${hash}` : '') }
 }
 
 export function Markdown({ source, basePath }: { source: string; basePath: string }) {
