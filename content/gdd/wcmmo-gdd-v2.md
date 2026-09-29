@@ -134,15 +134,27 @@ The rigid class system is removed. Players build their character freely and mix 
 
 | ID | Decision | Options | Recommendation | Your call | Status |
 |---|---|---|---|---|---|
-| D-31 | Bloodlines at launch | 1 / 3 / 5 | **4**, one per play pattern: Berserker (melee risk/reward), plus e.g. a guardian (tank), an arcane (caster) and a hunter (ranged/mobility). Names/themes are yours | | OPEN |
-| D-32 | How a new player gets their first Bloodline | choose at start / tutorial quest / random drop | Choose 1 of the launch Bloodlines at the end of the tutorial chapter (after trying each briefly) | | OPEN |
+| D-31 | Bloodlines at launch | 1 / 3 / 5 | **4**, one per play pattern: Berserker (melee risk/reward), plus e.g. a guardian (tank), an arcane (caster) and a hunter (ranged/mobility). Names/themes are yours | **3 base Bloodlines**, one per tutorial affinity: `BODY` (melee/tank), `MIND` (magic/tactics), `FREEDOM` (agility/ranger). Proposed: Berserker = BODY; MIND and FREEDOM Bloodlines still to design (M1) | PARTLY |
+| D-32 | How a new player gets their first Bloodline | choose at start / tutorial quest / random drop | Choose 1 of the launch Bloodlines at the end of the tutorial chapter (after trying each briefly) | **The Awakening / Bloodline Trial** (team design): hidden BODY/MIND/FREEDOM affinity tracked in the tutorial picks the Bloodline; tie → Encounter; one-time Reject → manual pick of the 3 base Bloodlines. See [awakening-tutorial.md](awakening-tutorial.md) | DECIDED |
 | D-33 | Extraction item | source, cost, what happens to stage progress | Rare item (boss drop or high-cost NPC trade). **Stage progress is kept per Bloodline**, so switching back does not reset it | | OPEN |
 | D-34 | Stage requirements | level only / level + quest | Stages 2–4 = player level (20/40/60). Stage 5 Awakened = level 60 + an awakening quest/solo dungeon | | OPEN |
 | D-35 | Rune slots 2 → 4 | level / quest / enhancement | 2 at start, 3rd at Lv. 30, 4th from a mid-game quest | | OPEN |
 | D-35b | Rune rules | duplicates, rarity, source | No duplicate rune IDs equipped. Tiers I–III, dropped + crafted (Alchemy). Swap freely out of combat | | OPEN |
 | D-37 | Bloodline implementation | MythicMobs triggers only / Kotlin + MythicMobs | ⚠️ Kotlin owns binding, stage and extraction (player data). MythicMobs skills are the *effects*, triggered by our plugin's events (on-damaged, low-HP, fatal-blow). PoC with Berserker stages 1–5 | | OPEN |
+| D-45 | Tutorial instance tech | MythicDungeons (not owned) / own instance module in wcmmo-core | Own small per-player instance module (reused by Lifezone code), unless the team buys MythicDungeons (TM5) | | OPEN |
+| D-46 | Trial scoring edge cases | — | Gap ≥ 4 = clear winner, ≤ 2 = Encounter (all steps are +2); 3-way tie or 0/0/0 → 3 entities; puzzle counts only the first solution, each combat trigger once. See review notes R1–R3 | | OPEN |
 
 ---
+
+### The Awakening (tutorial & first Bloodline)
+
+Full team design + review notes: [awakening-tutorial.md](awakening-tutorial.md) · contract: spec 024.
+
+- *"You do not choose the Bloodline. The Bloodline chooses you."* No class dropdown.
+- The tutorial secretly scores 3 affinities from what the player does: **BODY** (brawl, break the wall), **MIND** (ranged scrolls, hidden lever), **FREEDOM** (sneak past, parkour over the roof). Each trigger = +2.
+- Clear lead → that Bloodline is chosen. Close scores → **Bloodline Encounter**: the tied Bloodlines appear, argue, the player walks to one.
+- **Reveal → Accept / Reject.** Reject is allowed **once** and opens a manual pick of the 3 base Bloodlines.
+- Leaving the tutorial locks it in; later changes need the Extraction Item (D-33).
 
 ## 3. Weapon freedom & compartmentalised progression
 
@@ -330,3 +342,4 @@ Placeholder. To decide: ModelEngine mounts, pet buffs vs cosmetic, loot pickup.
 | 2026-09-28 | D-09, D-43 | MMOInventory owned; MMOProfiles later, not at start | owner |
 | 2026-09-28 | D-05 | FPV testing starts with the bought Draconic Dual Sword FPV pack | owner |
 | 2026-09-28 | D-39 | MythicHUD = always-on HUD; UltimateUI = shops, quest list, other custom UI | owner |
+| 2026-09-29 | D-32, D-31 (part) | The Awakening tutorial picks the first Bloodline; 3 base Bloodlines = BODY / MIND / FREEDOM | team design |

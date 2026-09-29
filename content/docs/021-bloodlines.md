@@ -19,7 +19,7 @@
 
 ## Rules
 
-1. Exactly **1** Bloodline slot. First bind per D-32.
+1. Exactly **1** Bloodline slot. First bind happens in **The Awakening** tutorial (spec 024, D-32): chosen by hidden affinity, one-time Reject → manual pick of the 3 base Bloodlines. After the tutorial, only the extractor can change it.
 2. Stage = highest stage whose requirement is met (D-34). Stages never go down with level (levels don't go down).
 3. **Extraction:** consuming `wcmmo_item_bloodline_extractor` removes the current Bloodline. Progress is **kept per Bloodline** (D-33), so re-binding the same one later restores its stage.
 4. Triggers the plugin provides to MythicMobs effects:

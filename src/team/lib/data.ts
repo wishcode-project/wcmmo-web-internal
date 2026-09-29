@@ -423,6 +423,7 @@ const docTitle = (md: string, fallback: string) => plain(/^#\s+(.*)$/m.exec(md)?
 
 export const docs: Doc[] = [
   { path: 'gdd/wcmmo-gdd-v2.md', group: 'Design' as const },
+  { path: 'gdd/awakening-tutorial.md', group: 'Design' as const },
   { path: 'CONTEXT.md', group: 'Brief' as const },
   { path: 'gdd/team-brief-2026-09-28.md', group: 'Brief' as const },
   { path: 'gdd/owner-questions.md', group: 'Design' as const },

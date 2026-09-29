@@ -30,8 +30,8 @@
 
 | # | Quest | Type | Reward |
 |---|---|---|---|
-| 1 | Arrival (tutorial) | try each launch Bloodline briefly | starter weapon of choice |
-| 1b | Choose your Bloodline | dialogue choice (D-32) | Bloodline bound (spec 021) |
+| 0 | The Awakening (tutorial) | Bloodline Trial: hidden affinity scoring, Encounter, Reveal, Accept/Reject (**spec 024**) | Bloodline bound (spec 021) + tutorial kit |
+| 1 | Arrival | leave the shrine, reach the first city | starter weapon of choice |
 | 2 | First blood | kill 10 Low mobs | XP, gear |
 | 3 | The lost scout | explore + dialogue choice | XP |
 | 4 | Boss: <name> | instanced solo boss | chapter reward |

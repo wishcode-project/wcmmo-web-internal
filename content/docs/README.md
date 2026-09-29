@@ -32,6 +32,7 @@ as the spec that introduces it.** Specs link back here instead of redefining any
 | 021 | [Bloodlines](021-bloodlines.md) | DRAFT | plugins, content | validate |
 | 022 | [Passive Runes](022-runes.md) | DRAFT | content | validate |
 | 023 | [Weapon Mastery](023-weapon-mastery.md) | DRAFT | content, wcmmo | validate |
+| 024 | [The Awakening: tutorial & Bloodline Trial](024-awakening-tutorial.md) | DRAFT | plugins, content, wcmmo | validate |
 
 Design intent lives in [`../gdd/wcmmo-gdd-v2.md`](../gdd/wcmmo-gdd-v2.md) (v1 is superseded); decisions `D-xx` are tracked there.
 Coming soon (GDD v2 §10–12, not specced): economy & trade, guild & node war, pets & mounts.
@@ -128,7 +129,8 @@ No classes (GDD v2). Identity = 1 Bloodline + 2–4 Runes.
 
 | ID | Kind | Spec | Notes |
 |---|---|---|---|
-| `wcmmo_bloodline_berserker` | Bloodline | 021 | vertical slice; 3 more launch Bloodlines pending D-31 |
+| `wcmmo_bloodline_berserker` | Bloodline | 021 | BODY affinity (proposed); MIND and FREEDOM Bloodlines pending D-31 |
+| `BODY`, `MIND`, `FREEDOM` | tutorial affinities, placeholders `%wcmmo_affinity_<name>%` | 024 | |
 | `wcmmo_rune_vitality`, `_second_wind`, `_haste`, `_bulwark`, `_focus`, `_bloodthirst` | Rune (tiers I–III) | 022 | examples |
 
 ### Weapon & item types
@@ -162,6 +164,7 @@ Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:s
 |---|---|---|---|
 | `wcmmo_item_respec_scroll` | MMOItems | 006 | |
 | `wcmmo_item_bloodline_extractor` | MMOItems | 021 | removes Bloodline, progress kept |
+| `wcmmo_item_tutorial_blade`, `wcmmo_item_tutorial_scroll` | MMOItems | 024 | tutorial kit |
 | `wcmmo_item_identify_scroll` | MMOItems | 012 | |
 | `wcmmo_item_stone_weapon`, `_armour`, `_accessory` | MMOItems | 013 | enhancement materials |
 | `wcmmo_item_totem_low`, `_mid`, `_high` | MMOItems | 015 | stationary farming cost |
@@ -173,6 +176,8 @@ Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:s
 |---|---|---|---|
 | `wcmmo_mob_<zone>_<name>` | MythicMobs | 015 | pattern; concrete mobs per zone spec |
 | `wcmmo_mob_boss_world_01` | MythicMobs | 017 | |
+| `wcmmo_mob_tutorial_brawler`, `_target`, `_sleeper` | MythicMobs | 024 | trial mobs |
+| `wcmmo_mob_spirit_body`, `_mind`, `_freedom` | MythicMobs + ModelEngine | 024 | Encounter / Reveal entities |
 | `wcmmo_dungeon_solo_01`, `wcmmo_dungeon_party_01` | MythicDungeons | 017 | |
 
 ### Professions
@@ -223,6 +228,8 @@ Target LuckPerms layout (not live yet — CMI ranks are placeholders until LuckP
 | `wcmmo.admin.boss` | admin | 017 | |
 | `wcmmo.bloodline.use` | default | 021 | `/bloodline` |
 | `wcmmo.admin.bloodline` | admin | 021 | |
+| `wcmmo.admin.awakening` | admin | 024 | reset / debug |
+| `wcmmo.awakening.skip` | admin, testers | 024 | skip tutorial |
 | `wcmmo.admin.lifezone` | admin | 018 | |
 
 ## Commands
@@ -246,6 +253,7 @@ Our own commands and any CMI alias we add. Stock plugin commands are not listed.
 | `wcmmo` → `minecraft:the_nether` | vanilla | unused so far | 003 |
 | `wcmmo` → `minecraft:the_end` | vanilla | unused so far | 003 |
 | `wcmmo_lifezone_<n>` | template copy | Lifezone instance, 20 plots | 018 |
+| `wcmmo_tutorial` | template copy per player | The Awakening tutorial instance | 024 |
 
 Minecraft 26.x keeps every dimension inside the level folder (`wcmmo/dimensions/<namespace>/<key>/`).
 
@@ -256,6 +264,7 @@ Minecraft 26.x keeps every dimension inside the level folder (`wcmmo/dimensions/
 | `wcmmo__zone_<tier>_<nn>` | wcmmo | `wcmmo-zone` (tier, AP, DP) | 014 |
 | `wcmmo__totem_<zone>_<n>` | wcmmo | totem spot | 015 |
 | `wcmmo_lifezone_<n>__plot_<01-20>` | lifezone | owner-only build | 018 |
+| `wcmmo_tutorial__trial_action`, `__sleeping_zone`, `__trial_gate`, `__roof_bypass`, `__sanctum` | tutorial | trial triggers | 024 |
 
 ## Database tables
 
@@ -265,6 +274,7 @@ Pattern `wcmmo_v1_<area>_<name>` (singular, snake_case). Owner module in bracket
 |---|---|---|
 | `wcmmo_v1_lifezone_house` | wcmmo-core `lifezone` | 018 |
 | `wcmmo_v1_bloodline_player`, `wcmmo_v1_bloodline_progress` | wcmmo-core `bloodline` | 021 |
+| `wcmmo_v1_awakening_state`, `wcmmo_v1_awakening_log` | wcmmo-core `awakening` | 024 |
 
 ## Shared conventions
 

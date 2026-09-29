@@ -1,6 +1,6 @@
 # WC-MMO — Project context for AI assistants
 
-> **Snapshot:** 2026-09-28 · **Maintainer:** Tatoo (owner, head dev) · **Source of truth:** the private `wcmmo-specs` repo
+> **Snapshot:** 2026-09-29 · **Maintainer:** Tatoo (owner, head dev) · **Source of truth:** the private `wcmmo-specs` repo
 >
 > Paste or upload this whole file into your AI assistant (Claude, ChatGPT, …) before asking it about WC-MMO.
 > It is self-contained: the AI does not need repo access to understand the project.
@@ -93,6 +93,8 @@ The owner wants only these 3 repos; the team still has to confirm (D-38).
 
 - **Runes (2–4 slots)**: free to swap; small passives; turn the same Bloodline into Tank or DPS. No duplicate rune IDs. Total cooldown reduction from all sources capped at 30 % (proposed).
 - Implementation (proposed): our Kotlin plugin owns Bloodline data + triggers; MythicMobs skills are the effects.
+- **How the first Bloodline is chosen: The Awakening** (DECIDED, team design). *"You do not choose the Bloodline. The Bloodline chooses you."* The tutorial secretly scores three affinities from what the player does: **BODY** (brawl, break the cracked wall), **MIND** (ranged scroll kills, hidden lever), **FREEDOM** (sneak past sleeping mobs, parkour over the roof), each +2. Clear lead → that Bloodline; close scores → a **Bloodline Encounter** where the tied Bloodlines argue and the player walks to one. Reveal → **Accept** or **Reject once** (then a manual pick of the 3 base Bloodlines). Leaving the tutorial locks it; later changes need the Extraction Item.
+- **3 base Bloodlines** = BODY / MIND / FREEDOM. Berserker is proposed as BODY; MIND and FREEDOM are not designed yet.
 
 ### 4.3 Weapons, stats, mastery, skills
 - **Stats gate gear** (e.g. heavy Greatsword needs high STR). Proposed: level cap 60, 2 points/level.
@@ -178,6 +180,7 @@ Economy & trade · Guild & node war · Pets & mounts · death penalty · party s
 | 021 | Bloodlines | DRAFT |
 | 022 | Passive Runes | DRAFT |
 | 023 | Weapon Mastery | DRAFT |
+| 024 | The Awakening: tutorial & Bloodline Trial | DRAFT |
 
 Other files: `docs/README.md` (registries of all IDs), `docs/plugins.md` (plugin guide), `gdd/owner-questions.md` (pending questions), `docs/adr/` (architecture decisions).
 
@@ -220,14 +223,14 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 
 ## 8. Decisions
 
-**DECIDED:** D-00 (paid plugins owned, except MythicDungeons) · D-03 (Shift+RMB bar swap) · D-04b (free weapon switching) · D-08 (stats gate gear) · D-09 (MMOInventory) · D-10 (Identify + fallback) · D-12b (armour uses weapon ladder) · D-13 (AP/DP soft cap) · D-13b (AP/DP from gear + enhancement) · D-14 (MythicDungeons, but not bought yet) · D-16b (totems via MythicMobs spawners) · D-17 (world boss loot by contribution) · D-19 (Lifezone in-server, own plugin) · D-22 (5 lifeskills) · D-23 (furniture: NPC shop or crafted) · D-25 (Tatoo writes the Kotlin plugin) · D-39 (MythicHUD = HUD, UltimateUI = shops/quest list/other UI) · D-40 (MMOItems = gear, Nexo = furniture/blocks/pack) · D-43 (multiple profiles later) · D-27 partly (Triton; languages open) · D-05 testing (Draconic FPV pack).
+**DECIDED:** D-00 (paid plugins owned, except MythicDungeons) · D-03 (Shift+RMB bar swap) · D-04b (free weapon switching) · D-08 (stats gate gear) · D-09 (MMOInventory) · D-10 (Identify + fallback) · D-12b (armour uses weapon ladder) · D-13 (AP/DP soft cap) · D-13b (AP/DP from gear + enhancement) · D-14 (MythicDungeons, but not bought yet) · D-16b (totems via MythicMobs spawners) · D-17 (world boss loot by contribution) · D-19 (Lifezone in-server, own plugin) · D-22 (5 lifeskills) · D-23 (furniture: NPC shop or crafted) · D-25 (Tatoo writes the Kotlin plugin) · D-32 (The Awakening tutorial picks the first Bloodline) · D-39 (MythicHUD = HUD, UltimateUI = shops/quest list/other UI) · D-40 (MMOItems = gear, Nexo = furniture/blocks/pack) · D-43 (multiple profiles later) · D-27 partly (Triton; languages open) · D-05 testing (Draconic FPV pack).
 
 **OPEN (ideas welcome):**
 
 | Area | Decisions |
 |---|---|
 | Vitality | D-01 stamina display · D-02 food healing · D-03a sprint cost |
-| Bloodlines & Runes | D-31 which launch Bloodlines · D-32 first choice · D-33 extraction item · D-34 stage requirements · D-35 rune slot unlocks · D-35b rune rules · D-37 implementation |
+| Bloodlines & Runes | D-31 MIND/FREEDOM Bloodlines (BODY = Berserker?) · D-45 tutorial instance tech · D-46 trial scoring edge cases · D-33 extraction item · D-34 stage requirements · D-35 rune slot unlocks · D-35b rune rules · D-37 implementation |
 | Weapons & stats | D-04 weapon list · D-04c general skill source · D-07 points/level & cap · D-07b respec · D-08b level floor · D-30 tiny stat bonuses? · D-36 Mastery details · D-36b weapon swap exploit · D-44 FPV weapon trigger layer |
 | Combat | D-06b Frontguard chip · D-06c PvP scope · D-06d guard breakers |
 | Gear | D-11 elements · D-12 enhancement fail rules · D-12c materials · D-12d accessory enhancement |
@@ -269,7 +272,7 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 | TM4 | VPS provider, CPU/cores, budget |
 | TM5 | Buy MythicDungeons or build instances ourselves |
 | TM6 | Quest engine to pair with LuxDialogues (after plugin setup, with the first trailer in mind) |
-| M1–M4 | 3 more Bloodlines · first-Bloodline choice & extractor · weapon list + 3 unique skills each · rune list |
+| M1–M4 | MIND + FREEDOM Bloodlines · extractor · weapon list + 3 unique skills each · rune list |
 | M5–M6 | World map (cities, regions, zones) · Chapter 1 story |
 | M7–M12 | Death penalty · level cap/speed · party system · HUD layout · VIP/store rules · Triton languages |
 | T2–T8 | Tech: bar-swap fallback · Bloodline hook design · Mastery math · Identify test owner · Nexo furniture in schematics · FPV weapons long-term (Crucible vs MMOItems + plugin) |

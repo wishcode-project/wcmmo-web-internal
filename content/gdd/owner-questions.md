@@ -26,6 +26,8 @@
 | MMOInventory (D-09) | owned | GDD v2 §5 |
 | MMOProfiles (D-43) | planned, not at start | GDD v2 §0 |
 | Plugin versions | all bought → always the latest build; record the version at install | `../docs/plugins.md` |
+| First Bloodline (D-32) | **The Awakening** tutorial (team design): hidden BODY/MIND/FREEDOM affinity, Encounter, one-time Reject | `awakening-tutorial.md`, spec 024 |
+| Base Bloodlines (D-31, part) | 3 base Bloodlines = BODY / MIND / FREEDOM | GDD v2 §2 |
 | FPV test (D-05) | start with the bought **Draconic Dual Sword FPV** pack (`~/Downloads/draconic_dual_sword_FPV`) | spec 010 |
 
 ## Pending: plugins (D-00)
@@ -65,8 +67,10 @@ Full list with docs and overlaps: [`../docs/plugins.md`](../docs/plugins.md). Ow
 
 | # | Question | Decision |
 |---|---|---|
-| M1 | The 3 other launch Bloodlines: names, playstyle, 5 stages each | D-31 |
-| M2 | How the first Bloodline is chosen; extractor source & cost; what Awakened needs | D-32, D-33, D-34 |
+| M1 | The **MIND** and **FREEDOM** Bloodlines: names, playstyle, 5 stages each. Is Berserker the BODY one? | D-31 |
+| M2 | ~~How the first Bloodline is chosen~~ (answered: The Awakening). Still: extractor source & cost; what stage 5 needs | D-33, D-34 |
+| M13 | Awakening edge cases: scoring gaps, 3-way / zero ties, one solution per puzzle (review notes R1–R3) | D-46 |
+| M14 | Name clash: tutorial "The Awakening" vs stage 5 "Awakened"; rename one? | R14 |
 | M3 | Final weapon list (8 proposed) and 3 unique skills per weapon; where general skills come from | D-04, D-04c |
 | M4 | Rune list, how slots 3–4 unlock, where runes come from | D-35, D-35b |
 | M5 | World map: cities, regions, Low/Mid/High zones | — |
