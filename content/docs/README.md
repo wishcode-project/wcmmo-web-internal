@@ -75,7 +75,7 @@ Full per-plugin guide (docs, dependencies, setup, overlaps): [plugins.md](plugin
 | ModelEngine | — owned | paid | wcmmo-content | custom mob models | — |
 | DiscordSRV | — owned | free | wcmmo | chat bridge (token in `.env`) | — |
 | MMOInventory | — owned (D-09) | paid | wcmmo-content | accessory + Rune slots | 011, 022 |
-| PlaceholderAPI | — planned | free | wcmmo | placeholders for Mastery math in MythicMobs | 023 |
+| PlaceholderAPI | — prepared | free | wcmmo | placeholders for Mastery math in MythicMobs | 023 |
 | Triton | — owned | paid | wcmmo | per-player translations (D-27) | — |
 | UltimateUI | — owned | paid | wcmmo | shops, quest list, custom UI (D-39) | — |
 | MythicHUD | — owned | paid | wcmmo | always-on HUD (D-39) | 005, 007 |
@@ -89,9 +89,11 @@ Full per-plugin guide (docs, dependencies, setup, overlaps): [plugins.md](plugin
 | Order | 2.6.9 owned, parked | paid | wcmmo | buy orders (GDD §10) | — |
 | BotSentry | 9.9.1-THANATOS owned | paid | wcmmo | anti-bot / anti-VPN | — |
 | PacketEvents | — free | free | wcmmo | library (ItemSkins) | — |
+| ProtocolLib | — prepared | free | wcmmo | packet library (dependency for several plugins) | — |
+| Skript + SkBee + skript-reflect + skript-placeholders | — owned | free | wcmmo | custom scripting: prototypes, tutorial/quest glue, admin tools, and for now the custom mechanics too (D-25, D-47) | 024 |
 | BetonQuest | — proposed (D-15) | free | wcmmo-content | quests, dialogue | 016 |
 | MythicDungeons | — **to buy** (D-14, not owned) | paid | wcmmo-content | instanced bosses/dungeons | 016, 017 |
-| wcmmo-core (ours) | — planned (D-25) | own | wcmmo-plugins | vitality, skillbar, combat, bloodline, enhance, zones, totem, loot, lifezone modules | 005, 007, 009, 013–015, 017, 018, 021 |
+| wcmmo-core (ours) | — **deferred** (D-25): per-system review after Phase 0 | own | wcmmo-plugins | vitality, skillbar, combat, bloodline, enhance, zones, totem, loot, lifezone modules | 005, 007, 009, 013–015, 017, 018, 021 |
 | Velocity | — maybe (D-19) | free | wcmmo-infra | proxy for multi-server Lifezones | 018 |
 
 Paid jars are never committed; each dev downloads with their own licence.

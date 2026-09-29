@@ -1,8 +1,17 @@
-# WC-MMO — Team brief (2026-09-28)
+# WC-MMO — Team brief (2026-09-29)
 
-**Date:** 2026-09-28  ·  **From:** Tatoo (owner, head dev)  ·  **Source of truth:** `wcmmo-specs` repo: `gdd/wcmmo-gdd-v2.md` (design), `docs/` (specs), `gdd/owner-questions.md` (open questions)
+**Date:** 2026-09-29  ·  **From:** Tatoo (owner, head dev)  ·  **Source of truth:** `wcmmo-specs` repo: `gdd/wcmmo-gdd-v2.md` (design), `docs/` (specs), `gdd/owner-questions.md` (open questions)
 
 Purpose: everyone on the team sees the same picture: what the game is, what is already decided, how we work, and which questions we still need to answer.
+
+## 0. What's new since 2026-09-28
+
+- **The Awakening** (team design): the tutorial secretly scores BODY / MIND / FREEDOM from how you play and the Bloodline chooses you. Tie → Bloodline Encounter; one-time Reject → manual pick. New spec 024.
+- **3 base Bloodlines** = BODY / MIND / FREEDOM. Berserker proposed as BODY; MIND and FREEDOM still to design.
+- **HUD / UI split decided:** MythicHUD = always-on HUD; UltimateUI = shops, quest list, every other custom UI.
+- **Skript vs Kotlin decided:** Skript (+ SkBee, skript-reflect, skript-placeholders) for prototypes, tutorial/quest glue, staff tools. Kotlin for combat, player data, bar swap, Lifezone.
+- **Libraries prepared:** ProtocolLib, PacketEvents, PlaceholderAPI, Vault.
+- **For your AI assistant:** `CONTEXT.md` in the repo explains the whole project in one file.
 
 ## 1. The game in one page
 
@@ -10,7 +19,8 @@ A **classless action MMORPG** on Minecraft (Purpur 26.2) for **100–200 players
 
 | System | What it does |
 |---|---|
-| Bloodline (1 slot) | Core identity. Evolves in 5 stages (Lv 1 / 20 / 40 / 60 / Awakened) and changes mechanics, not just stats. Changing it needs a rare extraction item. Example: Berserker. |
+| The Awakening (tutorial) | No class menu: the tutorial watches how you fight and solve a puzzle (BODY / MIND / FREEDOM) and the matching Bloodline chooses you. Accept, or Reject once and pick manually. |
+| Bloodline (1 slot) | 3 base Bloodlines (BODY / MIND / FREEDOM). Core identity. Evolves in 5 stages (Lv 1 / 20 / 40 / 60 / Awakened) and changes mechanics, not just stats. Changing it needs a rare extraction item. Example: Berserker. |
 | Runes (2–4 slots) | Small passive bonuses (HP, stamina regen, cooldown). Swap freely. Turn the same Bloodline into a tank or a DPS. |
 | Stats: STR AGI INT DEX DEF | The gateway: decide which weapons and armour you can equip. Stats do not add damage. |
 | Enhancement | +1 to +15, then I to V. The main source of raw power (AP / DP). |
@@ -67,7 +77,9 @@ Rules for everyone: no secrets, paid plugin jars or player data in git; every ne
 | Lifeskills | Mining, Gathering, Fishing, Cooking, Alchemy |
 | Furniture | Nexo, sold by NPCs or crafted |
 | Lifezone | Inside the main server with our own plugin; proxy later if needed |
-| Custom plugin | Written by Tatoo in wcmmo-plugins |
+| First Bloodline | Chosen by The Awakening tutorial; one-time Reject; 3 base Bloodlines = BODY / MIND / FREEDOM |
+| HUD / UI | MythicHUD = always-on HUD; UltimateUI = shops, quest list, other custom UI |
+| Custom code | Kotlin plugin by Tatoo (wcmmo-plugins) for combat, player data, bar swap, Lifezone. Skript for prototypes, tutorial/quest glue, staff tools |
 | Translations | Triton (owned) |
 | Paid plugins | All owned: MMOCore, MMOItems, MythicLib, MMOInventory, MMOProfiles (later), MythicMobs, ModelEngine, Nexo, MythicCrucible, MythicHUD, UltimateUI, Triton + more. **Not owned: MythicDungeons** |
 | Items & resource pack | MMOItems = all gear. Nexo = furniture, custom blocks and the one merged resource pack |
@@ -80,7 +92,7 @@ Rules for everyone: no secrets, paid plugin jars or player data in git; every ne
 | Phase | Goal |
 |---|---|
 | 0: Tests (PoC) | Prove the risky tech first: first-person animation, combat states, Shift+RMB swap, Bloodline hooks, Mastery cooldown maths, Identify, Lifezone house save/paste with Nexo furniture |
-| 1: Vertical slice | Tutorial + 1 region, Berserker stages 1–3, 2 Rune slots, 4 weapons (Sword, Hammer, Bow, Staff) with Mastery, stat gating, 1 solo dungeon |
+| 1: Vertical slice | The Awakening tutorial + 1 region, Berserker stages 1–3, 2 Rune slots, 4 weapons (Sword, Hammer, Bow, Staff) with Mastery, stat gating, 1 solo dungeon |
 | 2: Core MMO | All launch Bloodlines to stage 5, all weapons, enhancement to V, Mid/High zones, totems, world boss, party dungeon |
 | 3: Lifezone | Housing instances, lifeskills, furniture |
 | 4: Social | Economy, guilds & node war, pets & mounts |
@@ -97,7 +109,7 @@ Rules for everyone: no secrets, paid plugin jars or player data in git; every ne
 | TM2 | Who does map, resources, models? Assign the 2–5 team members |
 | TM3 | Is 2–3 weeks for the vertical slice realistic? What do we cut if not? |
 | TM4 | VPS: provider, CPU / core count, monthly budget |
-| TM5 | Buy MythicDungeons, or build instances ourselves (costs weeks)? |
+| TM5 | Buy MythicDungeons, or build our own instance module? Needed for story bosses, dungeons **and the per-player Awakening tutorial** |
 | TM6 | Which quest engine pairs with LuxDialogues (after plugin setup, with the first trailer in mind) |
 
 ### 6.2 Plugins: what we have and where each fits
@@ -111,7 +123,10 @@ Rules for everyone: no secrets, paid plugin jars or player data in git; every ne
 | Models, first-person animation | ModelEngine | owned |
 | FPV weapon item triggers (test) | MythicCrucible | owned |
 | Furniture, blocks, merged resource pack | Nexo | owned |
-| HUD (HP, Mana, Stamina, skill bars) | MythicHUD (+ UltimateUI for special screens) | owned |
+| Always-on HUD (HP, Mana, Stamina, skill bars) | MythicHUD | owned |
+| Shops, quest list, other custom UI | UltimateUI | owned |
+| Scripting (prototypes, glue, tools) | Skript + SkBee, skript-reflect, skript-placeholders | owned |
+| Libraries | ProtocolLib, PacketEvents, PlaceholderAPI, Vault | prepared |
 | Dialogue / quests | LuxDialogues + quest engine (TBD) | LuxDialogues owned |
 | Cosmetics / store | CosmeticsCore, ItemSkins | owned |
 | Side content | BattlePass, LuxCollect | owned, after slice |
@@ -137,8 +152,10 @@ Full per-plugin guide with docs links: `docs/plugins.md`. Watch-outs: LuxCollect
 
 | # | Question |
 |---|---|
-| M1 | The 3 other launch Bloodlines: names, playstyles, 5 stages each (only Berserker exists) |
-| M2 | How the first Bloodline is chosen; extraction item source/cost; what Awakened needs |
+| M1 | The MIND and FREEDOM Bloodlines: names, playstyles, 5 stages each. Is Berserker the BODY one? |
+| M2 | Extraction item source/cost; what Bloodline stage 5 needs |
+| M13 | Awakening edge cases: 3-way tie and 0/0/0 (show 3 spirits?), only the first puzzle solution counts |
+| M14 | Name clash: tutorial "The Awakening" vs Bloodline stage 5 "Awakened". Rename one? |
 | M3 | Final weapon list (8 proposed) and 3 unique skills per weapon; where general skills come from |
 | M4 | Rune list; how Rune slots 3–4 unlock; where Runes come from |
 | M5 | World map: cities, regions, Low / Mid / High zones |
@@ -157,6 +174,7 @@ Stat points per level and respec · whether stats give tiny bonuses · Frontguar
 ## 7. Next steps
 
 - **Team:** meeting on 6.1; assign roles; everyone reads `gdd/wcmmo-gdd-v2.md`. Give `CONTEXT.md` to your AI assistant so it knows the project.
-- **Tatoo:** install FIRE in wcmmo, install plugins in the order of `docs/plugins.md`, run the Draconic FPV test (spec 010), create wcmmo-plugins, answer 6.3.
+- **Tatoo:** install FIRE in wcmmo, install plugins in the order of `docs/plugins.md` (libraries first), run the Draconic FPV test (spec 010), prototype The Awakening triggers in Skript for the trailer (spec 024), create wcmmo-plugins, answer 6.3.
+- **Map team:** build the tutorial shrine (Trial of Action, sleeping-mob zone, gate with cracked wall / hidden lever / roof route, Sanctum) with the regions listed in spec 024.
 - **Tatoo + OmAm:** answer 6.4, starting with M1 (Bloodlines) and M6 (Chapter 1 story).
 - **OmAm (suggested):** track answers and dates in `gdd/owner-questions.md` so the picture stays the same for everyone.

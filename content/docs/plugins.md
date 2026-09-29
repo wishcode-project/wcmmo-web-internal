@@ -18,7 +18,7 @@ Only link official pages (the store page, the wiki, GitHub). Never use leak site
 |---|---|---|---|---|---|---|
 | Purpur | server | installed | 26.2 | ✅ | server software | 001 |
 | CMI + CMILib | essentials | installed | ? | ❓ | homes, warps, kits, chat, tab, economy | 002 |
-| Vault | bridge | installed | ? | ❓ | economy/permission API | 002 |
+| Vault | bridge | installed, prepared | ? | ❓ | economy/permission API | 002 |
 | WorldGuard | world | installed | ? | ❓ | regions, zone flags, plots | 002, 014, 018 |
 | FastAsyncWorldEdit | world | installed | ? | ❓ | building, house paste | 002, 018 |
 | Multiverse-Core | world | installed | ? | ❓ | worlds, Lifezone worlds | 002, 003, 018 |
@@ -46,11 +46,16 @@ Only link official pages (the store page, the wiki, GitHub). Never use leak site
 | **Order** | economy | **parked** (GDD §10) | 2.6.9 | ❓ | player buy orders (design coming soon) | — |
 | **BotSentry** | security | **owned** | 9.9.1-THANATOS | ❓ | anti-bot / anti-VPN | — |
 | Triton | language | owned | ? | ❓ | Thai/English per player (D-27) | — |
-| PlaceholderAPI | bridge | free | ? | ❓ | Mastery maths, HUD values | 023 |
+| PlaceholderAPI | bridge | **prepared** (free) | ? | ❓ | Mastery maths, HUD values, Skript placeholders | 023 |
 | LuckPerms | permissions | **owned** (free) | ? | ❓ | permission groups | README |
 | PacketEvents | library | free | ? | ❓ | required by ItemSkins | — |
+| **ProtocolLib** | library | **prepared** (free) | ? | ❓ check (often needs a dev build on new MC versions) | packet library that many plugins depend on | — |
 | DiscordSRV | social | **owned** (free), later | ? | ❓ | Discord chat bridge | — |
-| wcmmo-core | ours | to write | — | — | combat states, bar swap, Bloodlines, AP/DP, Lifezone… | many |
+| **Skript** | scripting | **owned** (free) | ? | ❓ | quick custom logic: prototypes, tutorial/quest glue, admin tools (D-47) | 024 |
+| **SkBee** | Skript addon | **owned** (free) | ? | ❓ | NBT, boss bars, scoreboards, structures, more syntax for Skript | — |
+| **skript-reflect** | Skript addon | **owned** (free) | ? | ❓ | call Java/Paper/plugin APIs from Skript | — |
+| **skript-placeholders** | Skript addon | **owned** (free) | ? | ❓ | read and register PlaceholderAPI placeholders from Skript | — |
+| wcmmo-core | ours | **deferred** (D-25): Skript first, per-system review after Phase 0 | — | — | candidates: combat states, bar swap, Bloodlines, AP/DP, Lifezone… | many |
 
 ## 2. Overlaps: decide one owner per job
 
@@ -129,21 +134,49 @@ Several plugins do the same job. Two plugins owning one job means double config,
 
 ### 3.7 Language, security, bridges
 
-| | Triton | BotSentry | PlaceholderAPI | LuckPerms | PacketEvents |
-|---|---|---|---|---|---|
-| Status | owned | **owned** 9.9.1-THANATOS | free | free | free |
-| Docs | [triton.rexcantor64.com](https://triton.rexcantor64.com/) · [GitHub](https://github.com/tritonmc/Triton) | [BuiltByBit](https://builtbybit.com/resources/botsentry-most-powerful-antibot.8682/) | [wiki.placeholderapi.com](https://wiki.placeholderapi.com/) | [luckperms.net/wiki](https://luckperms.net/wiki) | [docs.packetevents.com](https://docs.packetevents.com/) (check) |
-| Used for | Thai/English per player | anti-bot, anti-VPN, bad-packet protection | placeholders for HUD and Mastery maths | groups in README | library for ItemSkins |
-| Watch out | check it translates MMOItems/Nexo lore and MythicHUD text | best on a proxy; fine on one server for now. Test that it doesn't slow down legit joins | — | replaces CMI ranks for permissions | keep one version shared by all plugins that need it |
+| | Triton | BotSentry | PlaceholderAPI | LuckPerms | PacketEvents | ProtocolLib |
+|---|---|---|---|---|---|---|
+| Status | owned | **owned** 9.9.1-THANATOS | **prepared** | free | free | **prepared** (free) |
+| Docs | [triton.rexcantor64.com](https://triton.rexcantor64.com/) · [GitHub](https://github.com/tritonmc/Triton) | [BuiltByBit](https://builtbybit.com/resources/botsentry-most-powerful-antibot.8682/) | [wiki.placeholderapi.com](https://wiki.placeholderapi.com/) | [luckperms.net/wiki](https://luckperms.net/wiki) | [docs.packetevents.com](https://docs.packetevents.com/) (check) | [GitHub](https://github.com/dmulloy2/ProtocolLib) · [SpigotMC](https://www.spigotmc.org/resources/protocollib.1997/) |
+| Used for | Thai/English per player | anti-bot, anti-VPN, bad-packet protection | placeholders for HUD and Mastery maths | groups in README | library for ItemSkins | packet library required by several plugins |
+| Watch out | check it translates MMOItems/Nexo lore and MythicHUD text | best on a proxy; fine on one server for now. Test that it doesn't slow down legit joins | — | replaces CMI ranks for permissions | keep one version shared by all plugins that need it | on a brand-new MC version it often needs a **dev build**; check 26.2 support first. Some plugins want ProtocolLib, others PacketEvents: keep both if needed, one version each |
+
+### 3.8 Skript (custom scripting)
+
+| | Skript | SkBee | skript-reflect | skript-placeholders |
+|---|---|---|---|---|
+| Status | **owned** (free) | **owned** | **owned** | **owned** |
+| Docs | [docs.skriptlang.org](https://docs.skriptlang.org/) · [GitHub](https://github.com/SkriptLang/Skript) | [wiki](https://github.com/ShaneBeee/SkBee/wiki) | [GitHub](https://github.com/SkriptLang/skript-reflect) (docs linked there) | [GitHub](https://github.com/APickledWalrus/skript-placeholders) |
+| Used for | fast custom logic without compiling | extra syntax: NBT, boss bars, scoreboards, structures | reach any Java / Paper / plugin API from a script | use `%mmocore_…%` etc. in scripts, or publish script values as placeholders |
+| Needs | — | Skript | Skript | Skript, PlaceholderAPI |
+| Watch out | slower than Kotlin: measure hot paths (every hit, every tick) with `/spark` | — | powerful but fragile: breaks when plugin APIs change; prefer Kotlin for anything big once we have our own plugin | — |
+
+**Skript first (D-25 revised, D-47, 2026-09-29):** we do **not** start `wcmmo-plugins` yet. Every system is built with the bought plugins + Skript for now, including the ones in the right-hand column. After Phase 0 the team reviews each system and decides: move it into our own Kotlin plugin, or keep it on vendor plugins / Skript because that is easier to implement and maintain. The right-hand column is the list of **candidates** for that review, not a rule.
+
+| Skript is the long-term home for | Candidates to move to Kotlin later (review with `/spark` data) |
+|---|---|
+| Prototypes to test an idea in minutes | Combat states, damage rules, AP/DP soft cap (run on every hit) |
+| Tutorial / trailer glue: Awakening trigger checks, region events, cutscene steps (spec 024 first version) | Bloodline data, extraction, stages (player data, spec 021) |
+| Quest & dialogue glue between LuxDialogues, MythicMobs, rewards | Skill bar swap (input handling, spec 007) |
+| Admin / staff tools, small commands, event announcements | Lifezone instances + house save/paste (spec 018) |
+| One-off events and seasonal content | Anything a spec marks `validate` for performance |
+
+**Script rules**
+- Scripts live in `wcmmo/plugins/Skript/scripts/`, tracked in git, named `wcmmo_<area>_<name>.sk` (e.g. `wcmmo_awakening_triggers.sk`).
+- **Never track** `plugins/Skript/variables.csv*`: it holds player data. Add it to `wcmmo/.gitignore` when Skript is installed.
+- Every script's header says which spec it belongs to. A script that grows past ~300 lines or runs every tick goes on the list for the D-25 review.
+- Player data kept in Skript variables (Bloodline, stage, Mastery…) uses the registered IDs (`wcmmo_bloodline_berserker`…) so it can be migrated if the system later moves to our own plugin.
+- Script variables that other plugins need are exposed with skript-placeholders as `%wcmmo_<name>%`, never read straight from `variables.csv`.
 
 ## 4. Install order on the dev server
 
-1. Libraries/bridges: PlaceholderAPI, LuckPerms, PacketEvents.
+1. Libraries/bridges: ProtocolLib, PacketEvents, PlaceholderAPI, Vault, LuckPerms.
 2. RPG core: MythicLib → MMOCore → MMOItems → MMOInventory.
 3. Mythic: MythicMobs → ModelEngine → MythicCrucible (for the FPV test) → MythicHUD → MythicDungeons (if bought).
 4. Nexo (pack owner, D-40). Set up the pack merge (T7) **before** adding cosmetics. MythicCrucible: skip unless needed.
 5. Quests: quest engine → LuxDialogues.
 6. Triton, UltimateUI, BotSentry.
+6b. Skript → SkBee → skript-reflect → skript-placeholders (after PlaceholderAPI). Add `plugins/Skript/variables.csv*` to `.gitignore` first.
 7. Later: CosmeticsCore, ItemSkins, BattlePass, LuxCollect. Parked: Guilds, Order.
 
 After each step: boot, check `/plugins` is all green, stop, commit the generated configs (where they are tracked depends on D-38).

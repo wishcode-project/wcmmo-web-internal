@@ -28,6 +28,7 @@ first join → tutorial instance (per player)
 | Repo | File / module | What |
 |---|---|---|
 | wcmmo-plugins | `awakening` module | instance lifecycle, affinity scoring, trial state, judgment, reveal/reject, logging, placeholders |
+| wcmmo | `plugins/Skript/scripts/wcmmo_awakening_*.sk` (optional first version) | trigger checks and cutscene steps can be prototyped in Skript for the trailer, then moved to Kotlin (D-47) |
 | wcmmo-plugins | instance support (D-45) | per-player copy of the tutorial world/region (shared with Lifezone code), or MythicDungeons if bought |
 | wcmmo | `wcmmo_tutorial` template world + WorldGuard regions below | built by the map team |
 | wcmmo-content | MythicMobs | trial mobs (brawlers, ranged targets, sleeping mobs), Encounter/Reveal entities (ModelEngine models) |

@@ -372,7 +372,7 @@ const statusKey = (s: string): Plugin['statusKey'] => {
   const t = plain(s).toLowerCase()
   if (t.startsWith('installed')) return 'installed'
   if (t.startsWith('to buy')) return 'to buy'
-  if (t.startsWith('parked')) return 'parked'
+  if (t.startsWith('parked') || t.startsWith('deferred')) return 'parked'
   if (t.startsWith('undecided')) return 'undecided'
   if (t.startsWith('to write')) return 'to write'
   if (t.startsWith('owned')) return 'owned'

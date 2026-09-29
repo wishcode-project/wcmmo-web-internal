@@ -71,13 +71,15 @@ Lifeskill: Lifezone gathering (low–mid) → cooking/alchemy → consumables (b
 | Instances (story bosses, dungeons) | MythicDungeons | **decided** (D-14) |
 | Quest dialogue UI | BetonQuest | proposed (D-15) |
 | Permissions | LuckPerms | planned |
-| Combat states, AP/DP soft cap, bar swap, Bloodline ownership/extraction, Lifezone | **`wcmmo-plugins` (Kotlin)** | new repo (D-25) |
+| Quick custom logic, prototypes, tutorial/quest glue | Skript + SkBee, skript-reflect, skript-placeholders | owned |
+| Combat states, AP/DP soft cap, bar swap, Bloodline ownership/extraction, Lifezone | **Skript + vendor plugins first**; our own `wcmmo-plugins` (Kotlin) only where a system proves it needs it | deferred (D-25, D-47) |
 
 | ID | Decision | Options | Recommendation | Your call | Status |
 |---|---|---|---|---|---|
 | D-00 | Are Nexo, MythicMobs, ModelEngine, MMOCore, MMOItems bought and final? | yes / partly | Confirm before Phase 0 | All owned (+ MythicLib, MMOProfiles, LuckPerms, DiscordSRV). **MythicDungeons not owned**; MMOInventory unconfirmed | DECIDED |
 | D-43 | Multiple characters per account (MMOProfiles, owned) | yes / no | Not needed for the vertical slice. If yes later: each profile has its own Bloodline, stats and Mastery; Lifezone house shared or per profile must be decided | Planned, **not at start** | DECIDED (later) |
-| D-25 | Build custom mechanics in our own Kotlin plugin? | Skript / Kotlin / configs only | **Kotlin plugin.** Frontguard, I-frame, Super Armour, the AP/DP soft cap, bar swap and Bloodline ownership are not native to any plugin above | Yes, written by Tatoo (head dev) in `wcmmo-plugins` | DECIDED |
+| D-25 | Build custom mechanics in our own Kotlin plugin? | Skript / Kotlin / configs only | **Kotlin plugin.** Frontguard, I-frame, Super Armour, the AP/DP soft cap, bar swap and Bloodline ownership are not native to any plugin above | **Revised 2026-09-29: not yet.** Finish the bought-plugin setup, build mechanics with vendor plugins + Skript first. After Phase 0, decide per system what moves into our own plugin (`wcmmo-plugins`, written by Tatoo) and what stays vendor/Skript, based on ease of implementation, maintenance and `/spark` results. `wcmmo-plugins` is not created until then | DECIDED |
+| D-47 | Skript vs Kotlin: who does what | Skript for everything / Kotlin for everything / split | **Split:** Skript (owned) for prototypes, tutorial/trailer glue, quest glue, admin tools, one-off events. Kotlin for hot paths and player data (combat, AP/DP, Bloodline data, bar swap, Lifezone). Scripts tracked in git, `variables.csv` never. See `docs/plugins.md` §3.8 | Split as proposed: Skript for prototypes/glue/tools, Kotlin for hot paths + player data. **Revised 2026-09-29 (D-25):** until the per-system review, Skript also covers the hot-path and player-data systems; the Kotlin column in `docs/plugins.md` §3.8 is now the list of *candidates* to port | DECIDED |
 | D-27 | Player-facing language | Thai / English / both | Both: English IDs, Thai + English display text | Tool: **Triton** (owned). Languages still to confirm | PARTLY |
 | D-38 | Repo layout | 5 repos (server, plugins, content, world, infra) / 3 repos | Owner prefers **3**: `wcmmo` (real server incl. MMO content configs), `wcmmo-specs`, `wcmmo-plugins` (source per plugin + starter build). Needs team confirmation; if kept, `wcmmo/.gitignore` must stop ignoring the MMO plugin folders | owner: 3 repos (team to confirm) | OPEN |
 | D-39 | HUD / UI tool | MythicHUD (owned) / UltimateUI (owned) | **MythicHUD** for the always-on HUD (HP, Mana, Stamina, skill bars) via MMOCore + PlaceholderAPI; **UltimateUI** only for special screens. ⚠️ Many plugins ship pack assets: pick **one pack owner** that merges the rest (T7) | MythicHUD = always-on HUD (HP, Mana, Stamina, skill bars, cooldowns). **UltimateUI = every other custom UI**: shops, quest list, menus and screens MythicHUD can't do | DECIDED |
@@ -320,7 +322,7 @@ Placeholder. To decide: ModelEngine mounts, pet buffs vs cosmetic, loot pickup.
 | Phase | Goal | Specs |
 |---|---|---|
 | **0: PoC** | Prove risky tech: FPV animation (D-05), combat states, `Shift+RMB` bar swap (D-03), Bloodline hooks (D-37), identify (D-10), Mastery CDR via PlaceholderAPI (D-36), Lifezone schematic + Nexo furniture | 004 |
-| **1: Vertical slice** | Tutorial + 1 region, **Berserker Bloodline stages 1–3**, 2 Runes, 4 weapons (Sword, Hammer, Bow, Staff) with Mastery to 25, stats gating, basic gear, 1 solo dungeon | 005–012, 014, 016, 021–023 |
+| **1: Vertical slice** | Tutorial + 1 region, **Berserker Bloodline stages 1–3**, 2 Runes, 4 weapons (Sword, Hammer, Bow, Staff) with Mastery to 25, stats gating, basic gear, 1 solo dungeon | 005–012, 014, 016, 021–024 |
 | **2: Core MMO** | All launch Bloodlines to stage 5, all weapons, enhancement to V, Mid/High zones, stationary farming, world boss, party dungeon | 013–017, 021–023 |
 | **3: Lifezone** | Instances, housing migration, lifeskills, furniture | 018–020 |
 | **4: Social** | Economy, guilds & node war, pets & mounts | §10–12 (not specced) |
@@ -342,4 +344,6 @@ Placeholder. To decide: ModelEngine mounts, pet buffs vs cosmetic, loot pickup.
 | 2026-09-28 | D-09, D-43 | MMOInventory owned; MMOProfiles later, not at start | owner |
 | 2026-09-28 | D-05 | FPV testing starts with the bought Draconic Dual Sword FPV pack | owner |
 | 2026-09-28 | D-39 | MythicHUD = always-on HUD; UltimateUI = shops, quest list, other custom UI | owner |
+| 2026-09-29 | D-47 | Skript for prototypes, tutorial/quest glue, tools; Kotlin for hot paths and player data | owner |
 | 2026-09-29 | D-32, D-31 (part) | The Awakening tutorial picks the first Bloodline; 3 base Bloodlines = BODY / MIND / FREEDOM | team design |
+| 2026-09-29 | D-25, D-47 (revised) | Skript + vendor plugins first; `wcmmo-plugins` deferred until a per-system review after Phase 0 (own plugin vs vendor/Skript) | owner |

@@ -17,7 +17,7 @@ You are helping a small team (2–7 people) build **WC-MMO**, a classless action
 3. **Respect the progression compartments (section 3).** Stats never add damage; enhancement is the only raw-power source; Mastery gives speed/unlocks, not AP/DP; Runes are small passives; Bloodlines change mechanics.
 4. **Use the project's IDs and naming** (section 9) in any config, YAML, item, skill or permission you write.
 5. **Spec-first workflow.** Design → decision in the GDD → spec `docs/NNN-*.md` → build → test → ship (section 2). If asked to "just build it", still say which spec it belongs to.
-6. **Minecraft server context:** Purpur 26.2, Java 25, Paper-API plugins. Target 100–200 concurrent players, performance budget **MSPT ≤ 40**. Prefer config/plugin solutions; custom code goes in the team's own Kotlin plugin.
+6. **Minecraft server context:** Purpur 26.2, Java 25, Paper-API plugins. Target 100–200 concurrent players, performance budget **MSPT ≤ 40**. Prefer config/plugin solutions. Custom code: **Skript** (with SkBee, skript-reflect, skript-placeholders) on top of the bought plugins, **for everything for now** (DECIDED, D-25 revised 2026-09-29). There is no Kotlin plugin yet: after Phase 0 the team decides per system whether to move it into their own plugin or keep it on vendor plugins/Skript. Don't suggest creating `wcmmo-plugins` before that review; do mention when a script looks heavy enough (every hit/tick) to be a candidate.
 7. **Never** put secrets, paid plugin jars, or player data (UUIDs, IPs) in answers meant for git. Never link leak sites for plugins.
 8. Reply in the language the user writes in (team is Thai; docs are English).
 
@@ -43,7 +43,7 @@ You are helping a small team (2–7 people) build **WC-MMO**, a classless action
 |---|---|---|
 | `wcmmo` (private) | the real server: configs, scripts. Paid assets may live here (private) | exists |
 | `wcmmo-specs` (private) | design doc (GDD), specs, registries, plugin guide, open questions | exists |
-| `wcmmo-plugins` | source of our own Kotlin plugin(s) + starter build per plugin | to create |
+| `wcmmo-plugins` | source of our own Kotlin plugin(s) + starter build per plugin | **deferred** until the per-system review after Phase 0 (D-25) |
 
 The owner wants only these 3 repos; the team still has to confirm (D-38).
 
@@ -92,7 +92,7 @@ The owner wants only these 3 repos; the team still has to confirm (D-38).
 | 5 | Awakened | Death Defying | a fatal blow leaves 1 HP + 3 s I-frame |
 
 - **Runes (2–4 slots)**: free to swap; small passives; turn the same Bloodline into Tank or DPS. No duplicate rune IDs. Total cooldown reduction from all sources capped at 30 % (proposed).
-- Implementation (proposed): our Kotlin plugin owns Bloodline data + triggers; MythicMobs skills are the effects.
+- Implementation (for now): Skript holds Bloodline data + triggers (using the registered IDs), MythicMobs skills are the effects. Whether this later moves to our own plugin is part of the per-system review (D-25).
 - **How the first Bloodline is chosen: The Awakening** (DECIDED, team design). *"You do not choose the Bloodline. The Bloodline chooses you."* The tutorial secretly scores three affinities from what the player does: **BODY** (brawl, break the cracked wall), **MIND** (ranged scroll kills, hidden lever), **FREEDOM** (sneak past sleeping mobs, parkour over the roof), each +2. Clear lead → that Bloodline; close scores → a **Bloodline Encounter** where the tied Bloodlines argue and the player walks to one. Reveal → **Accept** or **Reject once** (then a manual pick of the 3 base Bloodlines). Leaving the tutorial locks it; later changes need the Extraction Item.
 - **3 base Bloodlines** = BODY / MIND / FREEDOM. Berserker is proposed as BODY; MIND and FREEDOM are not designed yet.
 
@@ -212,10 +212,12 @@ Other files: `docs/README.md` (registries of all IDs), `docs/plugins.md` (plugin
 | Parked until designed | Guilds, Order (buy orders) |
 | Security | BotSentry |
 | Math/placeholders | PlaceholderAPI |
+| Libraries | ProtocolLib, PacketEvents, Vault |
 | Profiling | spark |
 | Discord bridge | DiscordSRV (later) |
+| Custom logic (all of it, for now) | Skript + SkBee, skript-reflect, skript-placeholders: prototypes, tutorial/quest glue, admin tools, and the custom mechanics below until the review |
 | Instances | **MythicDungeons: NOT owned** (team to discuss) |
-| Our own code | `wcmmo-core` (Kotlin): combat states, bar swap, Bloodlines, AP/DP soft cap, enhancement ladder, totems, loot, Lifezone |
+| Our own code | **Deferred (D-25).** Candidates for a later Kotlin plugin (`wcmmo-core`): combat states, bar swap, Bloodlines, AP/DP soft cap, enhancement ladder, totems, loot, Lifezone. Decided per system after Phase 0 |
 
 Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; ItemSkins must not strip MMOItems data; every plugin's resource-pack assets merge into Nexo.
 
@@ -223,7 +225,7 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 
 ## 8. Decisions
 
-**DECIDED:** D-00 (paid plugins owned, except MythicDungeons) · D-03 (Shift+RMB bar swap) · D-04b (free weapon switching) · D-08 (stats gate gear) · D-09 (MMOInventory) · D-10 (Identify + fallback) · D-12b (armour uses weapon ladder) · D-13 (AP/DP soft cap) · D-13b (AP/DP from gear + enhancement) · D-14 (MythicDungeons, but not bought yet) · D-16b (totems via MythicMobs spawners) · D-17 (world boss loot by contribution) · D-19 (Lifezone in-server, own plugin) · D-22 (5 lifeskills) · D-23 (furniture: NPC shop or crafted) · D-25 (Tatoo writes the Kotlin plugin) · D-32 (The Awakening tutorial picks the first Bloodline) · D-39 (MythicHUD = HUD, UltimateUI = shops/quest list/other UI) · D-40 (MMOItems = gear, Nexo = furniture/blocks/pack) · D-43 (multiple profiles later) · D-27 partly (Triton; languages open) · D-05 testing (Draconic FPV pack).
+**DECIDED:** D-00 (paid plugins owned, except MythicDungeons) · D-03 (Shift+RMB bar swap) · D-04b (free weapon switching) · D-08 (stats gate gear) · D-09 (MMOInventory) · D-10 (Identify + fallback) · D-12b (armour uses weapon ladder) · D-13 (AP/DP soft cap) · D-13b (AP/DP from gear + enhancement) · D-14 (MythicDungeons, but not bought yet) · D-16b (totems via MythicMobs spawners) · D-17 (world boss loot by contribution) · D-19 (Lifezone in-server, own plugin) · D-22 (5 lifeskills) · D-23 (furniture: NPC shop or crafted) · D-25 (revised 2026-09-29: Skript + vendor plugins first; own Kotlin plugin decided per system after Phase 0) · D-32 (The Awakening tutorial picks the first Bloodline) · D-47 (Skript for prototypes/glue/tools; for now also the hot paths, pending the D-25 review) · D-39 (MythicHUD = HUD, UltimateUI = shops/quest list/other UI) · D-40 (MMOItems = gear, Nexo = furniture/blocks/pack) · D-43 (multiple profiles later) · D-27 partly (Triton; languages open) · D-05 testing (Draconic FPV pack).
 
 **OPEN (ideas welcome):**
 
@@ -266,7 +268,7 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 
 | # | Question |
 |---|---|
-| TM1 | Confirm 3 repos (wcmmo, wcmmo-specs, wcmmo-plugins) |
+| TM1 | Confirm 3 repos (wcmmo, wcmmo-specs, and later wcmmo-plugins if the D-25 review needs it) |
 | TM2 | Who does map, resources, models |
 | TM3 | Is 2–3 weeks realistic? What to cut? |
 | TM4 | VPS provider, CPU/cores, budget |

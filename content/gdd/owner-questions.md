@@ -15,7 +15,7 @@
 
 | Topic | Answer | Recorded in |
 |---|---|---|
-| Custom plugin (D-25) | Tatoo writes it | GDD v2 §0 |
+| Custom plugin (D-25) | ~~Tatoo writes it~~ **Revised 2026-09-29:** finish the bought-plugin setup, use vendor plugins + Skript first. After Phase 0, decide per system: own Kotlin plugin (`wcmmo-plugins`, by Tatoo) or keep vendor/Skript for easier implementation and maintenance | GDD v2 §0, spec 004 |
 | Repos (D-38) | Owner wants 3: `wcmmo`, `wcmmo-specs`, `wcmmo-plugins`. **Team still to confirm** | GDD v2 §0 |
 | Plugins owned (D-00) | MMOCore, MMOItems, MythicLib, MMOProfiles, MythicMobs, ModelEngine, Nexo, LuckPerms, DiscordSRV + the list in `../docs/plugins.md`. **Not owned: MythicDungeons** | GDD v2 §0 |
 | Language tool (D-27) | Triton (bought). Which languages: still open | GDD v2 §0 |
@@ -26,6 +26,7 @@
 | MMOInventory (D-09) | owned | GDD v2 §5 |
 | MMOProfiles (D-43) | planned, not at start | GDD v2 §0 |
 | Plugin versions | all bought → always the latest build; record the version at install | `../docs/plugins.md` |
+| Skript vs Kotlin (D-47) | Skript for prototypes, tutorial/quest glue, tools; Kotlin for hot paths + player data. Until the D-25 review, Skript covers the hot paths too | `../docs/plugins.md` §3.8 |
 | First Bloodline (D-32) | **The Awakening** tutorial (team design): hidden BODY/MIND/FREEDOM affinity, Encounter, one-time Reject | `awakening-tutorial.md`, spec 024 |
 | Base Bloodlines (D-31, part) | 3 base Bloodlines = BODY / MIND / FREEDOM | GDD v2 §2 |
 | FPV test (D-05) | start with the bought **Draconic Dual Sword FPV** pack (`~/Downloads/draconic_dual_sword_FPV`) | spec 010 |
