@@ -256,6 +256,8 @@ Bloodlines plug into this: Berserker *Unstoppable* grants Super Armour, *Death D
 
 ## 7. Quests & story
 
+> **Story canon (spoilers, team only):** [lore-bible.md](lore-bible.md): Chapter 0 (tutorial = the past) and Chapter 1, the reveal ladder, the `???` stone, map landmark rules. First trailer plan: [trailer.md](trailer.md).
+
 - **Progression:** chapter- and region-based story (BDO style).
 - **Solo experience:** 100 % of main story quests are soloable, using instanced bosses (**MythicDungeons**) and immersive UI dialogue.
 

@@ -26,7 +26,9 @@
 | Side quest | `wcmmo/side/<region>/<quest>` |
 | NPC | `wcmmo_npc_<name>` |
 
-## Chapter 1 outline (placeholder — story team writes)
+## Chapter 1 outline
+
+Story beats now live in [lore-bible.md](../gdd/lore-bible.md) §5 (1.1–1.10): wake in the forest, the `???` stone, the villager, the spirit companion, the broken stone base, the companion boss. The table below is the quest skeleton and will be rewritten from those beats.
 
 | # | Quest | Type | Reward |
 |---|---|---|---|

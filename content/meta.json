@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-09-29T16:24:51.126Z",
-  "head": "9f91b08",
+  "syncedAt": "2026-09-29T17:11:26.565Z",
+  "head": "81eb7ae",
   "branch": "main",
   "commits": [
+    {
+      "sha": "81eb7ae",
+      "date": "2026-09-30T00:11:13+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(story): add lore bible (Chapter 0-1) and first trailer plan",
+      "insertions": 203,
+      "deletions": 1,
+      "files": 7
+    },
     {
       "sha": "9f91b08",
       "date": "2026-09-29T23:09:01+07:00",
@@ -174,7 +183,7 @@
     "docs/013-enhancement.md": "2026-09-28T21:19:03+07:00",
     "docs/014-zones-ap-dp-soft-cap.md": "2026-09-28T21:19:03+07:00",
     "docs/015-monster-tiers-farming.md": "2026-09-28T21:19:03+07:00",
-    "docs/016-quest-story-framework.md": "2026-09-29T20:54:26+07:00",
+    "docs/016-quest-story-framework.md": "2026-09-30T00:11:13+07:00",
     "docs/017-bosses-dungeons.md": "2026-09-29T23:09:01+07:00",
     "docs/018-lifezone-housing.md": "2026-09-29T21:21:22+07:00",
     "docs/019-lifeskills-resources.md": "2026-09-28T21:19:03+07:00",
@@ -182,15 +191,17 @@
     "docs/021-bloodlines.md": "2026-09-29T23:09:01+07:00",
     "docs/022-runes.md": "2026-09-29T23:09:01+07:00",
     "docs/023-weapon-mastery.md": "2026-09-29T23:09:01+07:00",
-    "docs/024-awakening-tutorial.md": "2026-09-29T23:09:01+07:00",
+    "docs/024-awakening-tutorial.md": "2026-09-30T00:11:13+07:00",
     "docs/README.md": "2026-09-29T23:09:01+07:00",
     "docs/plugins.md": "2026-09-29T21:21:22+07:00",
     "docs/adr/0001-purpur-java25-zgc.md": "2026-09-25T00:46:05+07:00",
     "docs/adr/0002-spec-first-workflow.md": "2026-09-25T00:46:05+07:00",
     "gdd/awakening-tutorial.md": "2026-09-29T20:54:26+07:00",
+    "gdd/lore-bible.md": "2026-09-30T00:11:13+07:00",
     "gdd/owner-questions.md": "2026-09-29T23:09:01+07:00",
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
+    "gdd/trailer.md": "2026-09-30T00:11:13+07:00",
     "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",
-    "gdd/wcmmo-gdd-v2.md": "2026-09-29T23:09:01+07:00"
+    "gdd/wcmmo-gdd-v2.md": "2026-09-30T00:11:13+07:00"
   }
 }

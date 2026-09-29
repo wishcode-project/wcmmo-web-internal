@@ -124,6 +124,7 @@ The owner wants only these 3 repos; the team still has to confirm (D-38).
 - **Solo and party instanced dungeons**; **world bosses** with loot by **damage contribution**, not last hit.
 
 ### 4.8 Story & quests
+- **Story canon (TEAM ONLY, spoilers, never put on the public site):** the tutorial (Chapter 0) is secretly **the past** of the same place. At its end the Selection Stone shatters and the player wakes in Chapter 1 in the same spot, now a forest, centuries later, with no memory and a stone fragment named `???` carved with their Bloodline mark. The hidden truth: the player's past self tried to unite every Bloodline in one body, failed, and was defeated; body and soul split and memory was lost. A friendly spirit companion is really a fragment of the player's old mind and becomes the Chapter 1 boss ("I am you"); winning means **accepting** it. Chapter 1 asks "who am I?", Chapter 2 asks "who will I choose to be?". Full canon and reveal order: `gdd/lore-bible.md`; trailer plan: `gdd/trailer.md`.
 - Chapter- and region-based main story, city to city (BDO). **100 % soloable**; story bosses instanced.
 - Dialogue: **LuxDialogues** (Wynncraft-style). The quest engine to pair with it is not chosen yet.
 - Proposed chapter 1: tutorial → try Bloodlines → choose Bloodline → first region → instanced boss.
