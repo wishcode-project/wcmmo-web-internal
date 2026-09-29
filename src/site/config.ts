@@ -278,6 +278,7 @@ export const ui: Dict<{
   devlog: { kicker: string; latest: string; title: string; intro: string; readMore: string; all: string; more: string; englishOnly: string }
   lore: { kicker: string; title: string; intro: string; chapter: (n: number) => string; prologue: string; read: string; all: string; englishOnly: string; more: string }
   later: { kicker: string; title: string }
+  cityArt: { kicker: string; title: string; intro: string; draft: string; open: string }
   featuresPage: { kicker: string; title: string; intro: string; horizon: (list: string) => string }
   notFound: { title: string; body: string; back: string }
 }> = {
@@ -340,6 +341,13 @@ export const ui: Dict<{
       more: 'More chapters',
     },
     later: { kicker: 'Coming later', title: 'The world keeps growing' },
+    cityArt: {
+      kicker: 'Concept art',
+      title: 'The first city',
+      intro: 'A city of waterways and faith, where every newcomer\'s journey begins. This is the first design draft of its look: Thai-inspired spires, canals, and a great hall at its heart.',
+      draft: 'First draft · names and details are working titles and may change',
+      open: 'Open full size',
+    },
     featuresPage: {
       kicker: 'Features',
       title: "What you'll find in the world",
@@ -407,6 +415,13 @@ export const ui: Dict<{
       more: 'บทอื่น',
     },
     later: { kicker: 'เร็ว ๆ นี้', title: 'โลกที่เติบโตไม่หยุด' },
+    cityArt: {
+      kicker: 'Concept art',
+      title: 'นครแห่งแรก',
+      intro: 'นครแห่งสายน้ำและศรัทธา จุดเริ่มต้นการเดินทางของผู้มาใหม่ทุกคน นี่คือดีไซน์ฉบับร่างแรกของเมือง ยอดปราสาทกลิ่นอายไทย คลองสายน้ำ และศาลาอันยิ่งใหญ่ใจกลางเมือง',
+      draft: 'ฉบับร่างแรก · ชื่อและรายละเอียดยังเป็นชื่อชั่วคราว อาจเปลี่ยนได้',
+      open: 'เปิดภาพขนาดเต็ม',
+    },
     featuresPage: {
       kicker: 'ฟีเจอร์',
       title: 'สิ่งที่คุณจะได้พบในโลกนี้',

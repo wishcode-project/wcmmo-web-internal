@@ -43,7 +43,9 @@ PANELS = {
         "ch1-12": (965, 866, 1300, 1110),
     },
     "first-city.png": {
-        # the big city view is left out: its labels carry placeholder names
+        # the whole board, shown on the home page as the first-draft city design theme
+        # (owner decision 2026-09-30; its names are working titles and say so on the page)
+        "city-board": (0, 0, 1536, 1024),
         "city-gate": (12, 662, 310, 828),
         "city-trade": (318, 662, 612, 828),
         "city-hall": (622, 662, 917, 828),

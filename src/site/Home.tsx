@@ -3,7 +3,8 @@ import { HeroArt } from '../shared/HeroArt'
 import { useDict, useLang } from '../shared/i18n'
 import { timeAgo } from '../shared/time'
 import { comingLater, copy, features, site, ui } from './config'
-import { posts, stageProgress, stats } from './content'
+import { chapters, chapterText, posts, stageProgress, stats } from './content'
+import { storyImage } from '../shared/story'
 import { PixelIcon } from './PixelIcon'
 import { PostCard, SectionHeading, ServerPlate, StageCard } from './parts'
 import { Wordmark } from './PublicLayout'
@@ -87,6 +88,75 @@ function ProgressStrip() {
   )
 }
 
+/** The lore chapters as picture cards, straight from src/site/lore. */
+function LoreTeaser() {
+  const t = useDict(ui)
+  const { lang } = useLang()
+  return (
+    <section className="mx-auto mt-24 max-w-6xl px-4">
+      <SectionHeading kicker={t.lore.kicker} title={t.lore.title}>
+        {t.lore.intro}
+      </SectionHeading>
+      <div className="grid gap-5 md:grid-cols-2">
+        {chapters.map((c) => {
+          const text = chapterText(c, lang)
+          const cover = storyImage(c.cover)
+          return (
+            <Link key={c.slug} to={`/lore/${c.slug}`} className="paper group flex flex-col overflow-hidden transition-transform hover:-translate-y-1">
+              {cover && (
+                <span className="block overflow-hidden">
+                  <img src={cover} alt="" loading="lazy" className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                </span>
+              )}
+              <span className="flex flex-1 flex-col p-5">
+                <span className="font-display text-xs tracking-widest text-bark uppercase">
+                  ★ {c.n === 0 ? `${t.lore.chapter(0)} · ${t.lore.prologue}` : t.lore.chapter(c.n)}
+                </span>
+                <span className="mt-1 font-display text-2xl text-bark-dark">{text.title}</span>
+                <span className="mt-2 text-sm text-paper-muted">{text.summary}</span>
+                <span className="mt-auto pt-4 font-display text-sm text-[#2f5a17]">{t.lore.read} ▶</span>
+              </span>
+            </Link>
+          )
+        })}
+      </div>
+      <p className="mt-6 text-center">
+        <Link to="/lore" className="font-display text-leaf hover:underline">
+          {t.lore.all} ▶
+        </Link>
+      </p>
+    </section>
+  )
+}
+
+/** The first-city concept board, shown as the first draft of the city's design theme. */
+function CityArt() {
+  const t = useDict(ui).cityArt
+  const board = storyImage('city-board')
+  if (!board) return null
+  return (
+    <section className="mx-auto mt-24 max-w-6xl px-4">
+      <SectionHeading kicker={t.kicker} title={t.title}>
+        {t.intro}
+      </SectionHeading>
+      <a href={board} target="_blank" rel="noreferrer" className="group block" aria-label={t.open}>
+        <img
+          src={board}
+          alt={t.title}
+          loading="lazy"
+          className="w-full shadow-[0_0_0_3px_var(--color-bark),0_0_0_6px_var(--color-bark-dark),0_10px_30px_rgb(0_0_0_/_0.6)] transition group-hover:brightness-110"
+        />
+      </a>
+      <p className="mt-4 flex flex-wrap items-center justify-between gap-2 text-sm">
+        <span className="font-display text-gold">✎ {t.draft}</span>
+        <a href={board} target="_blank" rel="noreferrer" className="font-display text-leaf hover:underline">
+          ⤢ {t.open}
+        </a>
+      </p>
+    </section>
+  )
+}
+
 export function Home() {
   const t = useDict(ui)
   const c = useDict(copy)
@@ -124,6 +194,9 @@ export function Home() {
           </Link>
         </p>
       </section>
+
+      <LoreTeaser />
+      <CityArt />
 
       <section className="mx-auto mt-24 max-w-6xl px-4">
         <SectionHeading kicker={t.road.kicker} title={t.road.title}>
