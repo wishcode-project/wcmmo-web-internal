@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-09-29T14:15:56.106Z",
-  "head": "4a21ce0",
+  "syncedAt": "2026-09-29T14:21:25.400Z",
+  "head": "568e872",
   "branch": "main",
   "commits": [
+    {
+      "sha": "568e872",
+      "date": "2026-09-29T21:21:22+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: Lifezone will be our own plugin, after the combat/MMO core (D-19)",
+      "insertions": 8,
+      "deletions": 5,
+      "files": 5
+    },
     {
       "sha": "4a21ce0",
       "date": "2026-09-29T21:15:43+07:00",
@@ -149,7 +158,7 @@
     "docs/015-monster-tiers-farming.md": "2026-09-28T21:19:03+07:00",
     "docs/016-quest-story-framework.md": "2026-09-29T20:54:26+07:00",
     "docs/017-bosses-dungeons.md": "2026-09-28T21:19:03+07:00",
-    "docs/018-lifezone-housing.md": "2026-09-28T21:19:03+07:00",
+    "docs/018-lifezone-housing.md": "2026-09-29T21:21:22+07:00",
     "docs/019-lifeskills-resources.md": "2026-09-28T21:19:03+07:00",
     "docs/020-furniture-nexo.md": "2026-09-28T21:19:03+07:00",
     "docs/021-bloodlines.md": "2026-09-29T20:54:26+07:00",
@@ -157,13 +166,13 @@
     "docs/023-weapon-mastery.md": "2026-09-28T21:19:03+07:00",
     "docs/024-awakening-tutorial.md": "2026-09-29T21:03:04+07:00",
     "docs/README.md": "2026-09-29T21:15:43+07:00",
-    "docs/plugins.md": "2026-09-29T21:15:43+07:00",
+    "docs/plugins.md": "2026-09-29T21:21:22+07:00",
     "docs/adr/0001-purpur-java25-zgc.md": "2026-09-25T00:46:05+07:00",
     "docs/adr/0002-spec-first-workflow.md": "2026-09-25T00:46:05+07:00",
     "gdd/awakening-tutorial.md": "2026-09-29T20:54:26+07:00",
-    "gdd/owner-questions.md": "2026-09-29T21:15:43+07:00",
+    "gdd/owner-questions.md": "2026-09-29T21:21:22+07:00",
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
     "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",
-    "gdd/wcmmo-gdd-v2.md": "2026-09-29T21:15:43+07:00"
+    "gdd/wcmmo-gdd-v2.md": "2026-09-29T21:21:22+07:00"
   }
 }

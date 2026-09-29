@@ -20,7 +20,7 @@
 | Plugins owned (D-00) | MMOCore, MMOItems, MythicLib, MMOProfiles, MythicMobs, ModelEngine, Nexo, LuckPerms, DiscordSRV + the list in `../docs/plugins.md`. **Not owned: MythicDungeons** | GDD v2 §0 |
 | Language tool (D-27) | Triton (bought). Which languages: still open | GDD v2 §0 |
 | UI tool (D-39) | MythicHUD = always-on HUD; **UltimateUI = shops, quest list, every other custom UI** | GDD v2 §0 |
-| Lifezone (D-19) | In-server, own plugin, maybe MMOCore data; proxy later | GDD v2 §8 |
+| Lifezone (D-19) | In-server, own plugin, maybe MMOCore data; proxy later. **2026-09-29:** it must be a real plugin (not Skript); discuss after the combat/MMO core is mostly finished | GDD v2 §8, spec 018 |
 | Production VPS | 32 GB RAM, CPU good for 100–200 players; details later | spec 001 |
 | Timeline | vertical slice target **2–3 weeks** | spec 004 |
 | MMOInventory (D-09) | owned | GDD v2 §5 |

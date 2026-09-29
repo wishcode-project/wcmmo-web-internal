@@ -131,7 +131,7 @@ The owner wants only these 3 repos; the team still has to confirm (D-38).
 ### 4.9 Lifezone & housing (Heartopia style)
 - Separate **Lifezone** worlds for housing + lifeskills, **hard cap 20 players = 20 plots**; "World Full" blocks entry.
 - A house (blocks + Nexo furniture) is saved as a **schematic** and **pasted asynchronously with FAWE** onto a free plot in whichever Lifezone the player enters.
-- DECIDED: runs inside the main server with our own plugin; proxy (Velocity) only later if needed.
+- DECIDED: runs inside the main server with our own plugin; proxy (Velocity) only later if needed. Lifezone is the one system already agreed to be a real plugin (not Skript); it is discussed and built after the combat/MMO core is mostly finished.
 
 ### 4.10 Lifeskills
 - **Mining, Gathering, Fishing, Cooking, Alchemy** (MMOCore professions).
@@ -217,7 +217,7 @@ Other files: `docs/README.md` (registries of all IDs), `docs/plugins.md` (plugin
 | Discord bridge | DiscordSRV (later) |
 | Custom logic (all of it, for now) | Skript + SkBee, skript-reflect, skript-placeholders: prototypes, tutorial/quest glue, admin tools, and the custom mechanics below until the review |
 | Instances | **MythicDungeons: NOT owned** (team to discuss) |
-| Our own code | **Deferred (D-25).** Candidates for a later Kotlin plugin (`wcmmo-core`): combat states, bar swap, Bloodlines, AP/DP soft cap, enhancement ladder, totems, loot, Lifezone. Decided per system after Phase 0 |
+| Our own code | **Deferred (D-25).** Candidates for a later Kotlin plugin (`wcmmo-core`): combat states, bar swap, Bloodlines, AP/DP soft cap, enhancement ladder, totems, loot. Decided per system after Phase 0. **Lifezone: already agreed to be our own plugin** (D-19), after the combat/MMO core |
 
 Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; ItemSkins must not strip MMOItems data; every plugin's resource-pack assets merge into Nexo.
 

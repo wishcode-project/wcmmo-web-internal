@@ -278,7 +278,7 @@ Bloodlines plug into this: Berserker *Unstoppable* grants Super Armour, *Death D
 
 | ID | Decision | Options | Recommendation | Your call | Status |
 |---|---|---|---|---|---|
-| D-19 | Lifezone topology | worlds on main server / servers behind Velocity | ⚠️ Start as worlds on the main server; keep data ready for a Velocity split | In-server, own plugin (use MMOCore data where it helps); proxy later | DECIDED |
+| D-19 | Lifezone topology | worlds on main server / servers behind Velocity | ⚠️ Start as worlds on the main server; keep data ready for a Velocity split | In-server, own plugin (use MMOCore data where it helps); proxy later. **2026-09-29:** Lifezone is the one system already agreed to become our **own plugin** (exception to the Skript-first rule, D-25). Design and build are discussed after the combat/MMO core is mostly finished | DECIDED |
 | D-20 | Plot size | 24 / 32 / 48 | *proposed* 32×32×32 | | OPEN |
 | D-20b | When the house is saved | on leave / every edit | On leave + every 10 min | | OPEN |
 | D-20c | When the plot is pasted | on owner arrival | Paste on arrival, clear on leave | | OPEN |
@@ -346,4 +346,5 @@ Placeholder. To decide: ModelEngine mounts, pet buffs vs cosmetic, loot pickup.
 | 2026-09-28 | D-39 | MythicHUD = always-on HUD; UltimateUI = shops, quest list, other custom UI | owner |
 | 2026-09-29 | D-47 | Skript for prototypes, tutorial/quest glue, tools; Kotlin for hot paths and player data | owner |
 | 2026-09-29 | D-32, D-31 (part) | The Awakening tutorial picks the first Bloodline; 3 base Bloodlines = BODY / MIND / FREEDOM | team design |
+| 2026-09-29 | D-19 | Lifezone will be our own plugin; talk about it after the combat/MMO core is mostly finished | owner |
 | 2026-09-29 | D-25, D-47 (revised) | Skript + vendor plugins first; `wcmmo-plugins` deferred until a per-system review after Phase 0 (own plugin vs vendor/Skript) | owner |

@@ -158,7 +158,7 @@ Several plugins do the same job. Two plugins owning one job means double config,
 | Prototypes to test an idea in minutes | Combat states, damage rules, AP/DP soft cap (run on every hit) |
 | Tutorial / trailer glue: Awakening trigger checks, region events, cutscene steps (spec 024 first version) | Bloodline data, extraction, stages (player data, spec 021) |
 | Quest & dialogue glue between LuxDialogues, MythicMobs, rewards | Skill bar swap (input handling, spec 007) |
-| Admin / staff tools, small commands, event announcements | Lifezone instances + house save/paste (spec 018) |
+| Admin / staff tools, small commands, event announcements | Lifezone instances + house save/paste (spec 018): **already agreed to be our own plugin** (D-19), after the combat/MMO core |
 | One-off events and seasonal content | Anything a spec marks `validate` for performance |
 
 **Script rules**
