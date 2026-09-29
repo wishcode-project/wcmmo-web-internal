@@ -40,23 +40,47 @@ function Hero() {
   )
 }
 
+const percent = (done: number, total: number) => Math.round((done / Math.max(total, 1)) * 100)
+
+/** One labelled progress bar: big percentage, bar, "x of y" line underneath. */
+function ProgressBar({ label, pct, sub, fill }: { label: string; pct: number; sub: string; fill: string }) {
+  return (
+    <div>
+      <div className="flex items-baseline justify-between gap-2">
+        <span className="font-display text-lg text-bark-dark">{label}</span>
+        <span className="font-display text-4xl text-bark-dark tabular-nums">{pct}%</span>
+      </div>
+      <div className="bar-track mt-1 h-4" role="progressbar" aria-label={label} aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100}>
+        <div className="h-full" style={{ width: `${pct}%`, background: fill, boxShadow: 'inset 0 -3px 0 rgb(0 0 0 / 0.25)' }} />
+      </div>
+      <div className="mt-1.5 text-sm text-paper-muted">{sub}</div>
+    </div>
+  )
+}
+
 function ProgressStrip() {
   const t = useDict(ui)
-  const pct = Math.round((stats.specs.done / Math.max(stats.specs.total, 1)) * 100)
-  const items = [
-    { value: `${pct}%`, label: t.progress.built },
-    { value: `${stats.prototypes.done}/${stats.prototypes.total}`, label: t.progress.prototypes },
-    { value: String(stats.decisions.locked), label: t.progress.decisions },
-  ]
   return (
     <section className="relative z-10 mx-auto -mt-14 max-w-5xl px-4" aria-label="Development progress">
-      <div className="paper grid gap-2 p-5 sm:grid-cols-3 sm:p-6">
-        {items.map((i) => (
-          <div key={i.label} className="text-center">
-            <div className="font-display text-4xl text-bark-dark">{i.value}</div>
-            <div className="text-sm text-paper-muted">{i.label}</div>
+      <div className="paper grid gap-6 p-5 sm:grid-cols-[1fr_1fr_auto] sm:items-end sm:p-6">
+        <ProgressBar
+          label={t.progress.design}
+          pct={percent(stats.decisions.locked, stats.decisions.total)}
+          sub={t.progress.designSub(stats.decisions.locked, stats.decisions.total)}
+          fill="linear-gradient(180deg, #ffe071, #ffc94b 50%, #d9a032)"
+        />
+        <ProgressBar
+          label={t.progress.build}
+          pct={percent(stats.specs.done, stats.specs.total)}
+          sub={t.progress.buildSub(stats.specs.done, stats.specs.total)}
+          fill="linear-gradient(180deg, var(--color-leaf-light), var(--color-leaf) 50%, #6aa332)"
+        />
+        <div className="text-center sm:border-l-2 sm:border-bark/30 sm:pl-6">
+          <div className="font-display text-4xl text-bark-dark tabular-nums">
+            {stats.prototypes.done}/{stats.prototypes.total}
           </div>
-        ))}
+          <div className="text-sm text-paper-muted">{t.progress.prototypes}</div>
+        </div>
       </div>
       <p className="mt-2 text-center text-xs text-parch-dim">{t.progress.live(timeAgo(stats.updatedAt))}</p>
     </section>

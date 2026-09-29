@@ -261,7 +261,14 @@ export const ui: Dict<{
   copied: string
   discover: string
   readDevlog: string
-  progress: { built: string; prototypes: string; decisions: string; live: (ago: string) => string }
+  progress: {
+    design: string
+    designSub: (done: number, total: number) => string
+    build: string
+    buildSub: (done: number, total: number) => string
+    prototypes: string
+    live: (ago: string) => string
+  }
   game: { kicker: string; title: string; all: string }
   road: { kicker: string; title: string; intro: string; full: string; fullTitle: string; fullIntro: string; footer: (date: string) => string }
   stage: (n: number) => string
@@ -289,9 +296,11 @@ export const ui: Dict<{
     discover: 'Discover the game',
     readDevlog: 'Read the devlog',
     progress: {
-      built: 'of planned systems built',
+      design: 'Design',
+      designSub: (d, t) => `${d} of ${t} design decisions locked in`,
+      build: 'Built',
+      buildSub: (d, t) => `${d} of ${t} planned systems built and tested`,
       prototypes: 'tech prototypes proven',
-      decisions: 'design decisions locked in',
       live: (ago) => `Live from our design docs · updated ${ago}`,
     },
     game: { kicker: 'The game', title: 'Forge your own legend', all: 'See all features' },
@@ -343,9 +352,11 @@ export const ui: Dict<{
     discover: 'ทำความรู้จักเกม',
     readDevlog: 'อ่านบันทึกการพัฒนา',
     progress: {
-      built: 'ของระบบที่วางแผนไว้ สร้างเสร็จแล้ว',
+      design: 'ออกแบบ',
+      designSub: (d, t) => `ล็อกการตัดสินใจด้านดีไซน์แล้ว ${d} จาก ${t}`,
+      build: 'สร้างแล้ว',
+      buildSub: (d, t) => `สร้างและทดสอบระบบแล้ว ${d} จาก ${t}`,
       prototypes: 'ต้นแบบเทคโนโลยีที่พิสูจน์แล้ว',
-      decisions: 'การตัดสินใจด้านดีไซน์ที่ล็อกแล้ว',
       live: (ago) => `อัปเดตสดจากเอกสารดีไซน์ · ล่าสุด ${ago}`,
     },
     game: { kicker: 'ตัวเกม', title: 'สร้างตำนานในแบบของคุณ', all: 'ดูฟีเจอร์ทั้งหมด' },
