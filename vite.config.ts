@@ -1,7 +1,7 @@
 import { defineConfig, loadEnv, type Connect, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
-import { handleAuth, readCookie, verifyToken, type AuthEnv } from './api/_lib/auth'
+import { handleAuth, readCookie, verifyToken, type AuthEnv } from './api/_lib/auth.js'
 
 /**
  * Serves /api/login|session|logout from `vite dev` and `vite preview` with the same handler Vercel

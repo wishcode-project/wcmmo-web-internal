@@ -2,7 +2,7 @@
 // emitted under /assets/team/ (see vite.config.ts) and only served with a valid team session.
 // Public pages and their assets are untouched.
 import { next } from '@vercel/functions'
-import { readCookie, verifyToken } from './api/_lib/auth'
+import { readCookie, verifyToken } from './api/_lib/auth.js'
 
 export const config = { matcher: ['/assets/team/:path*'] }
 
