@@ -157,14 +157,14 @@ export function SpecDetail() {
       <nav className="mt-8 flex justify-between gap-4" aria-label="Spec navigation">
         {prev ? (
           <Link to={`/team/specs/${prev.id}`} className="btn max-w-[48%]">
-            <span className="truncate">◀ {prev.id} {prev.title}</span>
+            <span className="min-w-0 truncate">◀ {prev.id} {prev.title}</span>
           </Link>
         ) : (
           <span />
         )}
         {next && (
           <Link to={`/team/specs/${next.id}`} className="btn max-w-[48%]">
-            <span className="truncate">{next.id} {next.title} ▶</span>
+            <span className="min-w-0 truncate">{next.id} {next.title} ▶</span>
           </Link>
         )}
       </nav>

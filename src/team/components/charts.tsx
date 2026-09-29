@@ -1,9 +1,25 @@
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis, type TooltipProps } from 'recharts'
 import { decisionAreas, decisions, meta, specs } from '../lib/data'
 import { useDict } from '../../shared/i18n'
 import { fmtShort } from '../../shared/time'
 import { strings } from '../strings'
+
+/** True on screens at least `px` wide; charts use it to shrink their label column on phones. */
+function useWide(px = 640) {
+  const query = `(min-width: ${px}px)`
+  const [wide, setWide] = useState(() => typeof matchMedia === 'undefined' || matchMedia(query).matches)
+  useEffect(() => {
+    const m = matchMedia(query)
+    const on = () => setWide(m.matches)
+    m.addEventListener('change', on)
+    return () => m.removeEventListener('change', on)
+  }, [query])
+  return wide
+}
+
+const shorten = (s: string, n: number) => (s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s)
 
 const axis = { stroke: 'var(--color-slate-line)', tick: { fill: 'var(--color-parch-dim)', fontSize: 12 }, tickLine: false }
 
@@ -49,6 +65,7 @@ const OPEN = 'var(--color-st-open)'
 /** Decisions per GDD area, stacked by status. */
 export function DecisionsByArea() {
   const t = useDict(strings).charts
+  const wide = useWide()
   const data = decisionAreas
     .map((area) => {
       const ds = decisions.filter((d) => d.area === area)
@@ -68,7 +85,7 @@ export function DecisionsByArea() {
           <BarChart data={data} layout="vertical" margin={{ left: 0, right: 12, top: 0, bottom: 0 }} barCategoryGap={8}>
             <CartesianGrid horizontal={false} stroke="var(--color-slate-line)" strokeDasharray="2 4" />
             <XAxis type="number" allowDecimals={false} {...axis} />
-            <YAxis type="category" dataKey="area" width={150} {...axis} />
+            <YAxis type="category" dataKey="area" width={wide ? 150 : 104} {...axis} tick={{ ...axis.tick, fontSize: wide ? 12 : 11 }} />
             <Tooltip content={<Tip />} cursor={{ fill: 'rgb(255 255 255 / 0.04)' }} />
             <Bar isAnimationActive={false} dataKey="decided" name={t.decided} stackId="a" fill={DONE} stroke="var(--color-slate)" strokeWidth={2} />
             <Bar isAnimationActive={false} dataKey="partly" name={t.partly} stackId="a" fill={PARTLY} stroke="var(--color-slate)" strokeWidth={2} />
@@ -83,10 +100,11 @@ export function DecisionsByArea() {
 /** Unresolved decisions each unfinished spec cites: the list of what stands between it and READY. */
 export function SpecBlockers() {
   const t = useDict(strings).charts
+  const wide = useWide()
   const navigate = useNavigate()
   const data = specs
     .filter((s) => s.status !== 'DONE' && s.status !== 'SUPERSEDED')
-    .map((s) => ({ id: s.id, name: `${s.id} ${s.title.split(/[:(]/)[0].trim()}`, Blockers: s.blockers.length }))
+    .map((s) => ({ id: s.id, name: `${s.id} ${shorten(s.title.split(/[:(]/)[0].trim(), wide ? 30 : 16)}`, Blockers: s.blockers.length }))
     .sort((a, b) => b.Blockers - a.Blockers || a.id.localeCompare(b.id))
   return (
     <div style={{ height: data.length * 24 + 30 }}>
@@ -94,7 +112,7 @@ export function SpecBlockers() {
         <BarChart data={data} layout="vertical" margin={{ left: 0, right: 16, top: 0, bottom: 0 }} barCategoryGap={5}>
           <CartesianGrid horizontal={false} stroke="var(--color-slate-line)" strokeDasharray="2 4" />
           <XAxis type="number" allowDecimals={false} {...axis} />
-          <YAxis type="category" dataKey="name" width={210} {...axis} tick={{ ...axis.tick, fontSize: 11 }} />
+          <YAxis type="category" dataKey="name" width={wide ? 200 : 128} {...axis} tick={{ ...axis.tick, fontSize: 11 }} />
           <Tooltip content={<Tip unit={t.openDecisions} />} cursor={{ fill: 'rgb(255 255 255 / 0.04)' }} />
           <Bar
             isAnimationActive={false}

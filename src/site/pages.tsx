@@ -119,14 +119,14 @@ export function DevlogPost() {
       <nav className="mt-6 flex justify-between gap-4" aria-label={t.devlog.more}>
         {older ? (
           <Link to={`/devlog/${older.slug}`} className="btn max-w-[48%]">
-            <span className="truncate">◀ {postText(older, lang).title}</span>
+            <span className="min-w-0 truncate">◀ {postText(older, lang).title}</span>
           </Link>
         ) : (
           <span />
         )}
         {newer && (
           <Link to={`/devlog/${newer.slug}`} className="btn max-w-[48%]">
-            <span className="truncate">{postText(newer, lang).title} ▶</span>
+            <span className="min-w-0 truncate">{postText(newer, lang).title} ▶</span>
           </Link>
         )}
       </nav>

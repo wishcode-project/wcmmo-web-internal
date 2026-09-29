@@ -62,7 +62,7 @@ function ProgressStrip() {
   const t = useDict(ui)
   return (
     <section className="relative z-10 mx-auto -mt-14 max-w-5xl px-4" aria-label="Development progress">
-      <div className="paper grid gap-6 p-5 sm:grid-cols-[1fr_1fr_auto] sm:items-end sm:p-6">
+      <div className="paper grid gap-6 p-5 sm:grid-cols-2 sm:p-6 lg:grid-cols-[1fr_1fr_auto] lg:items-end">
         <ProgressBar
           label={t.progress.design}
           pct={percent(stats.decisions.locked, stats.decisions.total)}
@@ -75,7 +75,7 @@ function ProgressStrip() {
           sub={t.progress.buildSub(stats.specs.done, stats.specs.total)}
           fill="linear-gradient(180deg, var(--color-leaf-light), var(--color-leaf) 50%, #6aa332)"
         />
-        <div className="text-center sm:border-l-2 sm:border-bark/30 sm:pl-6">
+        <div className="border-t-2 border-bark/30 pt-4 text-center sm:col-span-2 lg:col-span-1 lg:border-t-0 lg:border-l-2 lg:pt-0 lg:pl-6">
           <div className="font-display text-4xl text-bark-dark tabular-nums">
             {stats.prototypes.done}/{stats.prototypes.total}
           </div>
@@ -129,7 +129,7 @@ export function Home() {
         <SectionHeading kicker={t.road.kicker} title={t.road.title}>
           {t.road.intro}
         </SectionHeading>
-        <ol className="grid gap-5 md:grid-cols-3">
+        <ol className="grid gap-5 sm:grid-cols-2 sm:[&>li:last-child:nth-child(odd)]:col-span-2 lg:grid-cols-3 lg:[&>li:last-child:nth-child(odd)]:col-span-1">
           {stageProgress.slice(0, 3).map((s, i) => (
             <StageCard key={String(s.key)} s={s} index={i} />
           ))}

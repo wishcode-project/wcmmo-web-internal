@@ -59,7 +59,14 @@ export function StageCard({ s, index }: { s: StageProgress; index: number }) {
     <li className={`paper relative flex flex-col p-5 ${s.state === 'planned' ? 'opacity-80' : ''}`}>
       <div className="flex items-center justify-between gap-2">
         <span className="font-display text-sm tracking-widest text-bark uppercase">{t.stage(index)}</span>
-        <span className="chip font-display" style={{ color: '#fff', background: stateColor[s.state], borderColor: 'rgb(0 0 0 / 0.3)', textShadow: '0 1px 0 rgb(0 0 0 / 0.5)' }}>
+        <span
+          className="chip font-display"
+          style={
+            s.state === 'current'
+              ? { color: '#3a2a1e', background: stateColor.current, borderColor: 'rgb(0 0 0 / 0.3)' } // dark text: white on gold is unreadable
+              : { color: '#fff', background: stateColor[s.state], borderColor: 'rgb(0 0 0 / 0.3)', textShadow: '0 1px 0 rgb(0 0 0 / 0.5)' }
+          }
+        >
           {s.state === 'complete' ? '✔ ' : s.state === 'current' ? '⚒ ' : '… '}
           {t.state[s.state]}
         </span>

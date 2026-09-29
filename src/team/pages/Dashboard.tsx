@@ -84,11 +84,11 @@ function Pipeline() {
   const none = useDict(strings).common.noneYet
   const cols = SPEC_STATUSES.filter((s) => s !== 'SUPERSEDED' || counts.specsByStatus.SUPERSEDED)
   return (
-    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
       {cols.map((st) => {
         const list = specs.filter((s) => s.status === st)
         return (
-          <div key={st} className="slate flex flex-col p-3">
+          <div key={st} className="slate flex min-w-0 flex-col p-3">
             <div className="flex items-center justify-between border-b border-slate-line pb-2">
               <SpecBadge status={st} dark />
               <span className="font-display text-2xl text-cream tabular-nums">{list.length}</span>
@@ -102,7 +102,7 @@ function Pipeline() {
                     style={{ boxShadow: `inset 3px 0 0 ${specStatusColor[st]}` }}
                   >
                     <span className="font-mono text-xs text-parch-dim">{s.id}</span>
-                    <span className="truncate">{s.title}</span>
+                    <span className="min-w-0 flex-1 truncate">{s.title}</span>
                     {s.status === 'DRAFT' && (
                       <span className={`ml-auto shrink-0 font-mono text-[11px] ${s.blockers.length ? 'text-st-open' : 'text-st-done'}`} title="open decisions cited">
                         {s.blockers.length ? t.open(s.blockers.length) : t.unblocked}
@@ -133,7 +133,7 @@ export function Dashboard() {
     <>
       <Hero />
 
-      <section className="grid grid-cols-2 gap-3 lg:grid-cols-5" aria-label="Headline numbers">
+      <section className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-5" aria-label="Headline numbers">
         <StatTile label={t.tiles.specsDone} value={counts.specsByStatus.DONE} of={counts.specs} />
         <StatTile label={t.tiles.decisions} value={counts.decided} of={decisions.length} hint={t.tiles.stillOpen(counts.decisionsOpen)} />
         <StatTile label={t.tiles.pocs} value={counts.pocsPassed} of={pocs.length} accent="var(--color-st-ready)" />
@@ -149,7 +149,7 @@ export function Dashboard() {
         <Pipeline />
       </section>
 
-      <section className="mt-10 grid gap-6 lg:grid-cols-2">
+      <section className="mt-10 grid gap-6 xl:grid-cols-2">
         <div>
           <SectionTitle aside={<Link to="/team/decisions" className="text-sm text-leaf hover:underline">{t.decisionsLink}</Link>}>{t.byArea}</SectionTitle>
           <div className="slate p-4">
@@ -165,8 +165,8 @@ export function Dashboard() {
         </div>
       </section>
 
-      <section className="mt-10 grid gap-6 lg:grid-cols-5">
-        <div className="lg:col-span-3">
+      <section className="mt-10 grid gap-6 xl:grid-cols-5">
+        <div className="xl:col-span-3">
           <SectionTitle aside={<Link to="/team/roadmap" className="text-sm text-leaf hover:underline">{t.roadmapLink}</Link>}>{t.phases}</SectionTitle>
           <div className="paper p-5">
             <ol className="flex flex-col gap-4">
@@ -193,7 +193,7 @@ export function Dashboard() {
             </ol>
           </div>
         </div>
-        <div className="lg:col-span-2">
+        <div className="xl:col-span-2">
           <SectionTitle>{t.pocs}</SectionTitle>
           <ul className="slate divide-y divide-slate-line">
             {pocs.map((p) => (
