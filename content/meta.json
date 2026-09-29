@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-09-29T17:25:12.584Z",
-  "head": "acdba2d",
+  "syncedAt": "2026-09-29T17:47:02.870Z",
+  "head": "c6ccd1a",
   "branch": "main",
   "commits": [
+    {
+      "sha": "c6ccd1a",
+      "date": "2026-09-30T00:46:42+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(story): add the Chapter 0, Chapter 1 and first-city concept boards",
+      "insertions": 1,
+      "deletions": 1,
+      "files": 4
+    },
     {
       "sha": "acdba2d",
       "date": "2026-09-30T00:24:58+07:00",
@@ -206,7 +215,7 @@
     "docs/adr/0001-purpur-java25-zgc.md": "2026-09-25T00:46:05+07:00",
     "docs/adr/0002-spec-first-workflow.md": "2026-09-25T00:46:05+07:00",
     "gdd/awakening-tutorial.md": "2026-09-29T20:54:26+07:00",
-    "gdd/lore-bible.md": "2026-09-30T00:24:58+07:00",
+    "gdd/lore-bible.md": "2026-09-30T00:46:42+07:00",
     "gdd/owner-questions.md": "2026-09-29T23:09:01+07:00",
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
     "gdd/trailer.md": "2026-09-30T00:24:58+07:00",

@@ -2,7 +2,7 @@
 
 > ⚠ TEAM ONLY: full spoilers. Never copy text from this file into the public site; the public Lore page has its own spoiler-free version.
 >
-> Version 2 · 2026-09-30 · Source: story/design team (Tatoo + OmAm) + concept boards (Chapter 0, Chapter 1, first city) · Related: [awakening-tutorial.md](awakening-tutorial.md) (tutorial mechanics), spec 016 (quests), spec 021 (Bloodlines), spec 024 (The Awakening)
+> Version 2 · 2026-09-30 · Source: story/design team (Tatoo + OmAm) + concept boards in [`boards/`](boards/) ([Chapter 0](boards/chapter-0-tutorial.png), [Chapter 1 part 1](boards/chapter-1-part-1.png), [first city](boards/first-city.png)) · Related: [awakening-tutorial.md](awakening-tutorial.md) (tutorial mechanics), spec 016 (quests), spec 021 (Bloodlines), spec 024 (The Awakening)
 >
 > **Direction locked by the story team:**
 > Tutorial = the past (it *looks* like a realm between worlds) → the Selection Stone shatters → the player sinks into water → the present: they wash up on a forest stream bank in the same place → a stone fragment carved with their Bloodline lies beside them → a villager rescues them → they reach the town → they start searching for their own past.
