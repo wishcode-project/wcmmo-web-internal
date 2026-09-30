@@ -8,6 +8,7 @@ import { Home } from './site/Home'
 import { Devlog, DevlogPost, Features, Lore, LoreChapter, PublicNotFound, PublicRoadmap } from './site/pages'
 import { BloodlinesPage } from './site/guide/BloodlinesPage'
 import { GuideLayout } from './site/guide/parts'
+import { ItemsPage } from './site/guide/ItemsPage'
 import { RunesPage } from './site/guide/RunesPage'
 import { SkillsPage } from './site/guide/SkillsPage'
 import { StatsPage } from './site/guide/StatsPage'
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
           { path: 'bloodlines', element: <BloodlinesPage /> },
           { path: 'skills', element: <SkillsPage /> },
           { path: 'runes', element: <RunesPage /> },
+          { path: 'items', element: <ItemsPage /> },
           { path: 'stats', element: <StatsPage /> },
         ],
       },

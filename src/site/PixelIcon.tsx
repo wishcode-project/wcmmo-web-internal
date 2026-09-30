@@ -46,6 +46,8 @@ const icons: Record<IconName, string[]> = {
   'rune-defence': ['....C.....', '...CcC....', '..CcwcC...', '.CccwccC..', 'CcccwcccC.', '.CccwccC..', '..CcwcC...', '...CcC....', '....C.....', '..........'],
   'rune-offence': ['....E.....', '...EeE....', '..EeweE...', '.EeewweE..', 'EeeewweeE.', '.EeewweE..', '..EewwE...', '...EeE....', '....E.....', '..........'],
   'rune-sustain': ['....L.....', '...LlL....', '..LlwlL...', '.LllwllL..', 'LlllwlllL.', '.LllwllL..', '..LlwlL...', '...LlL....', '....L.....', '..........'],
+  ring: ['...cc.....', '..cwwc....', '...cc.....', '..gggg....', '.g....g...', 'g......g..', 'g......g..', '.g....g...', '..gggg....', '..........'],
+  totem: ['...oyo....', '....o.....', '..bbbbb...', '..bkbkb...', '..bbbbb...', '..BbbbB...', '..bkkkb...', '..bbbbb...', '..BBBBB...', '.dddddddd.'],
   'rune-utility': ['....G.....', '...GgG....', '..GgwgG...', '.GggwggG..', 'GgggwgggG.', '.GggwggG..', '..GgwgG...', '...GgG....', '....G.....', '..........'],
 }
 

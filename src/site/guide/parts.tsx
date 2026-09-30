@@ -11,6 +11,7 @@ export function GuideLayout() {
     { to: '/guide/bloodlines', label: t.tabs.bloodlines },
     { to: '/guide/skills', label: t.tabs.skills },
     { to: '/guide/runes', label: t.tabs.runes },
+    { to: '/guide/items', label: t.tabs.items },
     { to: '/guide/stats', label: t.tabs.stats },
   ]
   return (

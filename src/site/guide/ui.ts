@@ -5,7 +5,7 @@ export const guideUi: Dict<{
   kicker: string
   title: string
   intro: string
-  tabs: { bloodlines: string; skills: string; runes: string; stats: string }
+  tabs: { bloodlines: string; skills: string; runes: string; items: string; stats: string }
   draft: string
   bl: {
     of: (name: string) => string
@@ -60,6 +60,35 @@ export const guideUi: Dict<{
     sourceRows: { tier: string; where: string }[]
     rules: string[]
   }
+  it: {
+    search: string
+    all: string
+    count: (n: number) => string
+    none: string
+    source: string
+    rarity: string
+    rarityText: string
+    rName: string
+    lines: string
+    roll: string
+    element: string
+    weight: string
+    identify: string
+    identifyText: string
+    unidentified: string
+    identifyBtn: string
+    reset: string
+    example: string
+    pages: [string, string, string]
+    nextPage: (n: number) => string
+    requires: string
+    enhance: string
+    enhanceText: string
+    stage: string
+    success: string
+    onFail: string
+    neverBreaks: string
+  }
   st: {
     sources: string
     sourcesText: string
@@ -81,7 +110,7 @@ export const guideUi: Dict<{
     kicker: 'Game guide',
     title: 'How WC-MMO plays',
     intro: 'Bloodlines, weapons, skills, runes and stats, straight from our design docs.',
-    tabs: { bloodlines: 'Bloodlines', skills: 'Weapons & skills', runes: 'Runes', stats: 'Stats' },
+    tabs: { bloodlines: 'Bloodlines', skills: 'Weapons & skills', runes: 'Runes', items: 'Items', stats: 'Stats' },
     draft: 'Early design: names, effects and values will change as we test.',
     bl: {
       of: (n) => `Bloodline of ${n}`,
@@ -144,6 +173,35 @@ export const guideUi: Dict<{
       ],
       rules: ['Passives only: new mechanics belong to Bloodlines.', 'The same rune can’t be slotted twice.', 'Swap freely whenever you’re out of combat.'],
     },
+    it: {
+      search: 'Search items…',
+      all: 'All',
+      count: (n) => `${n} items`,
+      none: 'No item matches.',
+      source: 'Source',
+      rarity: 'Rarity',
+      rarityText: 'Gear drops in five rarities. Rarer gear rolls more stat lines, rolls them higher, and is more likely to carry an element.',
+      rName: 'Rarity',
+      lines: 'Stat lines',
+      roll: 'Stat roll',
+      element: 'Element chance',
+      weight: 'How common',
+      identify: 'Identify and inspect',
+      identifyText: 'Good gear drops unidentified: you only see what you really got after an Identify Scroll or the Identify NPC. In your inventory, press F over an item to flip its tooltip between pages. Try it on the card.',
+      unidentified: 'Unidentified',
+      identifyBtn: 'Identify',
+      reset: 'Reset',
+      example: 'Example only: this item and its numbers are made up to show the tooltip.',
+      pages: ['Stats', 'Upgrades', 'Lore'],
+      nextPage: (n) => `F ▸ next page (${n}/3)`,
+      requires: 'Requires',
+      enhance: 'Enhancement',
+      enhanceText: 'Enhancement is where raw power comes from. Weapons and armour go +1 to +15, then I to V; accessories go I to V. Each failed try raises your next chance (pity).',
+      stage: 'Stage',
+      success: 'Success',
+      onFail: 'If it fails',
+      neverBreaks: 'Items are never destroyed.',
+    },
     st: {
       sources: 'Where your power comes from',
       sourcesText: 'Every system has one job, so no single grind makes you unbeatable.',
@@ -169,7 +227,7 @@ export const guideUi: Dict<{
     kicker: 'คู่มือเกม',
     title: 'WC-MMO เล่นยังไง',
     intro: 'สายเลือด อาวุธ สกิล รูน และสเตตัส ตรงจากเอกสารดีไซน์ของเรา',
-    tabs: { bloodlines: 'สายเลือด', skills: 'อาวุธและสกิล', runes: 'รูน', stats: 'สเตตัส' },
+    tabs: { bloodlines: 'สายเลือด', skills: 'อาวุธและสกิล', runes: 'รูน', items: 'ไอเทม', stats: 'สเตตัส' },
     draft: 'ดีไซน์ช่วงแรก: ชื่อ ผล และตัวเลขจะเปลี่ยนเมื่อเราได้ทดสอบ',
     bl: {
       of: (n) => `สายเลือดแห่ง ${n}`,
@@ -231,6 +289,35 @@ export const guideUi: Dict<{
         { tier: 'III', where: 'รางวัลดันเจียน, การปรุงยาระดับสูง' },
       ],
       rules: ['เป็นพาสซีฟเท่านั้น กลไกใหม่เป็นของสายเลือด', 'ใส่รูนเดียวกันซ้ำสองช่องไม่ได้', 'เปลี่ยนได้อิสระเมื่อไม่ได้อยู่ในการต่อสู้'],
+    },
+    it: {
+      search: 'ค้นหาไอเทม…',
+      all: 'ทั้งหมด',
+      count: (n) => `${n} ไอเทม`,
+      none: 'ไม่มีไอเทมที่ตรงกัน',
+      source: 'ได้จาก',
+      rarity: 'ความหายาก',
+      rarityText: 'อุปกรณ์ดรอปมาใน 5 ระดับความหายาก ยิ่งหายาก ยิ่งได้บรรทัดสเตตัสมากขึ้น สุ่มได้ค่าสูงขึ้น และมีโอกาสได้ธาตุมากขึ้น',
+      rName: 'ความหายาก',
+      lines: 'บรรทัดสเตตัส',
+      roll: 'ช่วงสุ่มค่า',
+      element: 'โอกาสได้ธาตุ',
+      weight: 'ความถี่',
+      identify: 'ประเมินค่าและดูรายละเอียด',
+      identifyText: 'อุปกรณ์ดี ๆ จะดรอปมาแบบยังไม่ระบุค่า คุณจะรู้ว่าได้อะไรจริง ๆ ก็ต่อเมื่อใช้ม้วนประเมินค่าหรือให้ NPC ประเมินให้ และในช่องเก็บของ กด F ที่ไอเทมเพื่อพลิกหน้าคำอธิบาย ลองกดบนการ์ดนี้ดูได้',
+      unidentified: 'ยังไม่ระบุค่า',
+      identifyBtn: 'ประเมินค่า',
+      reset: 'เริ่มใหม่',
+      example: 'ตัวอย่างเท่านั้น: ไอเทมนี้และตัวเลขเป็นของสมมติ เพื่อให้เห็นหน้าตาคำอธิบาย',
+      pages: ['สเตตัส', 'การอัปเกรด', 'เรื่องราว'],
+      nextPage: (n) => `F ▸ หน้าถัดไป (${n}/3)`,
+      requires: 'ต้องการ',
+      enhance: 'การตีบวก',
+      enhanceText: 'การตีบวกคือแหล่งพลังดิบ อาวุธและเกราะตีได้ +1 ถึง +15 แล้วต่อด้วย I ถึง V ส่วนเครื่องประดับตีได้ I ถึง V ทุกครั้งที่ล้มเหลว โอกาสสำเร็จครั้งถัดไปจะสูงขึ้น (pity)',
+      stage: 'ขั้น',
+      success: 'โอกาสสำเร็จ',
+      onFail: 'ถ้าล้มเหลว',
+      neverBreaks: 'ไอเทมไม่มีวันแตกหรือหายไป',
     },
     st: {
       sources: 'พลังของคุณมาจากไหน',

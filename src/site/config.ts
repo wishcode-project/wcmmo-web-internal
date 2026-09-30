@@ -30,6 +30,7 @@ export type IconName =
   | 'blood' | 'rune' | 'sword' | 'shield' | 'gem' | 'skull' | 'scroll' | 'house' | 'pickaxe'
   | 'fury' | 'ward' | 'pulse' | 'hammer' | 'bow' | 'staff' | 'orb'
   | 'rune-defence' | 'rune-offence' | 'rune-sustain' | 'rune-utility'
+  | 'ring' | 'totem'
 
 interface FeatureText {
   title: string
