@@ -19,7 +19,7 @@ You are helping a small team (2–7 people) build **WC-MMO**, a classless action
 5. **Spec-first workflow.** Design → decision in the GDD → spec `docs/NNN-*.md` → build → test → ship (section 2). If asked to "just build it", still say which spec it belongs to.
 6. **Minecraft server context:** Purpur 26.2, Java 25, Paper-API plugins. Target 100–200 concurrent players, performance budget **MSPT ≤ 40**. Prefer config/plugin solutions. Custom code: **Skript** (with SkBee, skript-reflect, skript-placeholders) on top of the bought plugins, **for everything for now** (DECIDED, D-25 revised 2026-09-29). There is no Kotlin plugin yet: after Phase 0 the team decides per system whether to move it into their own plugin or keep it on vendor plugins/Skript. Don't suggest creating `wcmmo-plugins` before that review; do mention when a script looks heavy enough (every hit/tick) to be a candidate.
 7. **Never** put secrets, paid plugin jars, or player data (UUIDs, IPs) in answers meant for git. Never link leak sites for plugins.
-8. Reply in the language the user writes in (team is Thai; docs are English).
+8. Reply in the language the user writes in (team is Thai; docs are English). In-game: Thai + English via Triton; proper names (Bloodlines, skills, runes, weapons, places) always stay English (spec 030).
 
 ---
 
@@ -251,20 +251,20 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 
 ## 8. Decisions
 
-**DECIDED (65 of 78):**
+**DECIDED (67 of 79):**
 
 | Area | Decided |
 |---|---|
 | Project & plugins | D-00 paid plugins owned (not MythicDungeons) · D-09 MMOInventory · D-14 MythicDungeons (not bought) · D-25 Skript + vendor plugins first, own Kotlin plugin per system after Phase 0 · D-39 MythicHUD = HUD, UltimateUI = other UI · D-40 MMOItems = gear, Nexo = furniture/blocks/pack · D-41 CosmeticsCore wearables, ItemSkins weapon skins · D-42 BattlePass/LuxCollect after the slice · D-43 profiles later · D-47 Skript vs Kotlin |
 | Vitality | D-01 stamina on a MythicHUD bar, hunger hidden · D-02 food = heal over time + buffs, potions = instant · D-03a sprint drains a little stamina |
 | Stats | D-07 cap 60, 2 points/level · D-07b paid respec item (NPC shop or quest) · D-08 stats gate gear · D-08b soft level floor · D-30 small utility bonuses only |
-| Combat | D-49 I-frame deferred (dash = movement) · D-03 F bar swap (revised) · D-50 AGI basic attack speed, cap 30 % · D-51 Remnant gauge + Q ultimates · D-52 10 general + 5 skills & 1 ultimate per weapon · D-53 instant bow · D-54 item detail pages · D-55 orb skills (NPC / monster orbs) · D-56 17 runes with shared caps · D-57 death & auto-respawn · D-58 levelling · D-59 party XP & loot · D-60 keys 1–5 cast skills · D-61 HUD layout · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
+| Combat | D-49 I-frame deferred (dash = movement) · D-03 F bar swap (revised) · D-50 AGI basic attack speed, cap 30 % · D-51 Remnant gauge + Q ultimates · D-52 10 general + 5 skills & 1 ultimate per weapon · D-53 instant bow · D-54 item detail pages · D-55 orb skills (NPC / monster orbs) · D-56 17 runes with shared caps · D-57 death & auto-respawn · D-58 levelling · D-59 party XP & loot · D-60 keys 1–5 cast skills · D-61 HUD layout · D-27 Thai + English, English proper names · D-62 Awakening / Awakened kept as a story link · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
 | Weapons | D-04 8 weapons, slice uses 4 · D-04b free switching · D-04c basic skills in tutorial, more from level-ups + city NPCs · D-36b Mastery CDR for that weapon's skills + general skills by held weapon |
 | Bloodlines & Runes | D-31/D-48 base Bloodlines Fury / Ward / Pulse, value trials · D-32 The Awakening picks the first Bloodline · D-33 in-game extractor keeps progress, store extractor resets · D-34 each stage = level + unlock materials · D-35 rune slots 2 → Lv30 → Lv50 · D-35b no duplicate runes, tiers I–III · D-46 Awakening scoring edge cases |
 | Gear | D-10 Identify + fallback · D-11 MythicLib elements for now · D-12 max V, pity, never destroyed · D-12b armour same ladder · D-12c one stone per category · D-12d accessories I–V · D-13/D-13b AP/DP soft cap from gear + enhancement |
 | World | D-15b 1 chapter in Phase 1 · D-16 totem item, 10 min · D-16b totems via MythicMobs spawners · D-17 world boss loot: hit or nearby → random roll, MVP top 1–3 more · D-17b 2×/day + admin summon · D-18 party dungeons 2–5, solo dungeons solo · D-19 Lifezone own plugin, after the core · D-22 5 lifeskills · D-23 furniture shop or craft · D-26 PvE only for now |
 
-**PARTLY / TESTING:** D-27 (Triton; languages open) · D-36 (test build: Mastery cap 30, unlocks 5/15/25; final cap 50 or 100 open) · D-05 (FPV: testing the Draconic pack).
+**PARTLY / TESTING:** D-36 (test build: Mastery cap 30, skills at 0/5/10/15/20, ultimate 25; final cap 50 or 100 open) · D-05 (FPV: testing the Draconic pack).
 
 **OPEN (ideas welcome):**
 

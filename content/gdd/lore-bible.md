@@ -26,7 +26,8 @@
 4. **The fragments are the player.** The stronger the player grows, the more the fragments rejoin, and the more memories return.
 5. **Why Muscle, Bone and Heart:** the base Bloodlines are parts of one body. Uniting every Bloodline meant building a **"complete body"**, the forbidden goal of the past self. Every new Bloodline found in the story is another part (Eye, Breath, Blood, Nerve…), each one a step closer to what the past self wanted.
 6. **The Remnant gauge (spec 025) is the same power:** in battle the fragments of the past self leak out and fill the gauge; ultimates are the past self's strength. Players use it from the start and only later understand what it is.
-7. The person the player has been searching for all along **is themselves**. The one who tried to unite the Bloodlines was **not a saviour but the cause of the old catastrophe**.
+7. **Two awakenings (D-62):** Chapter 0 "The Awakening" is the first waking, with no memory. Bloodline stage 5 "Awakened" is waking **again**: a memory of the past self returns and part of their power with it.
+8. The person the player has been searching for all along **is themselves**. The one who tried to unite the Bloodlines was **not a saviour but the cause of the old catastrophe**.
 
 ### The Selection Stone (ศิลาคัดสรร)
 
@@ -149,7 +150,7 @@ The payoff only works if the player **recognises the place by themselves**. The 
 | L6 | Does the stone item get a real name later? When? | |
 | L7 | How many years pass between Chapter 0 and Chapter 1? Stated anywhere, or always "unknown"? | |
 | L8 | How does "trying to unite every Bloodline" fit a player who has only one Bloodline slot? (e.g. the fragments slowly show traces of other Bloodlines) | Could become a late-game system |
-| L9 | The name clash noted in the tutorial review (R14): tutorial "The Awakening" vs Bloodline stage 5 "Awakened". With this lore, could stage 5 be the moment the player **reclaims** part of their past self? | Could turn the clash into a feature |
+| L9 | The name clash noted in the tutorial review (R14): tutorial "The Awakening" vs Bloodline stage 5 "Awakened". With this lore, could stage 5 be the moment the player **reclaims** part of their past self? | **Decided 2026-10-01 (D-62): keep both.** Stage 5 "Awakened" = awakening again: the player reclaims part of the past self's power (a Bloodline-specific memory scene when it unlocks) |
 | L10 | **Bloodline names and trial themes.** Concept board: 3 Bloodlines **Heart / Bone / Muscle** (red / blue / green) and 3 value trials: help others (compassion), overcome fear (endurance), push through obstacles (determination). Spec 024: hidden affinities BODY / MIND / FREEDOM scored from playstyle triggers (brawl / ranged / sneak, wall / lever / roof), and Berserker proposed as BODY | **Decided 2026-09-30 (D-48):** Pulse (Heart · compassion), Ward (Bone · endurance), Fury (Muscle · determination). See [bloodlines.md](bloodlines.md) |
 | L11 | The first city's real name | "wcmmo" placeholder until named |
 | L12 | The central sacred hall's role: the concept board calls it the Selection centre and "tutorial start". With the lore (the Selection happened in the past), is it where the Stone's remains or the Selection's memory are kept today? | |

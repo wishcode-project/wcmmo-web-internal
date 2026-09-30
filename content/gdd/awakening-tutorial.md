@@ -71,4 +71,4 @@ To balance narrative immersion with gameplay satisfaction, so players don't get 
 | R11 | Encounter/Reveal lines use "He" | Players are any gender | Keep all lines neutral ("They belong…", "you"), translated via Triton | spec 024 |
 | R12 | Tracking tool: scoreboards vs PlaceholderAPI | Scoreboards are easy to edit by accident and clutter `/scoreboard` | Our plugin stores scores (DB) and **exposes** them as placeholders `%wcmmo_affinity_body%` etc. for MythicMobs, LuxDialogues and MythicHUD | spec 024 |
 | R13 | Tuning data | We'll want to know how players are judged | Log each result (scores, clear/encounter, accepted/rejected, final Bloodline) to a DB table | spec 024 |
-| R14 | Name clash: tutorial "The Awakening" vs Bloodline stage 5 "Awakened" | Players and docs may mix them up | Rename one (e.g. stage 5 → "Ascended"), or keep both on purpose as a story link | owner |
+| R14 | Name clash: tutorial "The Awakening" vs Bloodline stage 5 "Awakened" | Players and docs may mix them up | Rename one (e.g. stage 5 → "Ascended"), or keep both on purpose as a story link | D-62: keep both, tied to lore |

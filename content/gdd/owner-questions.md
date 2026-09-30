@@ -71,7 +71,7 @@ Full list with docs and overlaps: [`../docs/plugins.md`](../docs/plugins.md). Ow
 |---|---|---|
 | ~~M1~~ | ~~The other base Bloodlines~~ **Answered 2026-09-30:** Fury / Ward / Pulse ([bloodlines.md](bloodlines.md)) | D-31, D-48 |
 | M2 | Exact extractor prices and the stage unlock materials per stage (rules decided: D-33, D-34) | D-33, D-34 |
-| M14 | Name clash: tutorial "The Awakening" vs stage 5 "Awakened"; rename one? | R14 |
+| ~~M14~~ | ~~Name clash~~ **Answered 2026-10-01:** keep both, tied to lore | D-62 |
 | ~~M3~~ | ~~Weapon skills~~ **Answered 2026-09-30:** 10 general + 5 skills and 1 ultimate per slice weapon (spec 008). Greatsword / Spear / Crossbow / Tome skill lists still to design (Phase 2) | D-52 |
 | ~~M4~~ | ~~Rune list~~ **Answered 2026-09-30:** 17 runes, spec 022 | D-56 |
 | M16 | Final Mastery cap: 50 or 100 (test build uses 30) | D-36 |
@@ -83,7 +83,7 @@ Full list with docs and overlaps: [`../docs/plugins.md`](../docs/plugins.md). Ow
 | ~~M9~~ | ~~Party XP and loot~~ **Answered 2026-10-01:** spec 028 | D-59 |
 | ~~M10~~ | ~~HUD layout~~ **Answered 2026-10-01:** spec 029 | D-61 |
 | M11 | VIP / store: what can be sold without pay-to-win | new |
-| M12 | Which languages Triton must serve (Thai + English?) | D-27 |
+| ~~M12~~ | ~~Languages~~ **Answered 2026-10-01:** Thai + English, English proper names, spec 030 | D-27 |
 
 ## Pending: team meeting
 

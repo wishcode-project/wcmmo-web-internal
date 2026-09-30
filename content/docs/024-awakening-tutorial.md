@@ -134,4 +134,4 @@ Disable the module → new players get the manual selection GUI directly. Awaken
 - Trials follow D-48 (decided 2026-09-30): value themes (compassion / endurance / determination) → Pulse / Ward / Fury. The story team wants 3–4 trials (this spec has 2, L2): a third trial can reuse the same three affinities.
 
 - D-45: instance tech (MythicDungeons vs own module).
-- Tutorial named "The Awakening" while Bloodline stage 5 is "Awakened": rename one to avoid confusion?
+- ~~Name clash with stage 5 "Awakened"~~: kept on purpose (D-62).
