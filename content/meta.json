@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-09-30T16:45:39.334Z",
-  "head": "3b6f165",
+  "syncedAt": "2026-09-30T16:51:11.707Z",
+  "head": "edae5e8",
   "branch": "main",
   "commits": [
+    {
+      "sha": "edae5e8",
+      "date": "2026-09-30T23:50:58+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(runes): 17 runes with shared caps (D-56, answers M4)",
+      "insertions": 84,
+      "deletions": 36,
+      "files": 5
+    },
     {
       "sha": "3b6f165",
       "date": "2026-09-30T23:45:25+07:00",
@@ -252,22 +261,22 @@
     "docs/019-lifeskills-resources.md": "2026-09-28T21:19:03+07:00",
     "docs/020-furniture-nexo.md": "2026-09-28T21:19:03+07:00",
     "docs/021-bloodlines.md": "2026-09-30T23:45:25+07:00",
-    "docs/022-runes.md": "2026-09-29T23:09:01+07:00",
+    "docs/022-runes.md": "2026-09-30T23:50:58+07:00",
     "docs/023-weapon-mastery.md": "2026-09-30T23:31:15+07:00",
     "docs/024-awakening-tutorial.md": "2026-09-30T22:46:05+07:00",
     "docs/025-remnant-ultimates.md": "2026-09-30T23:31:15+07:00",
     "docs/026-item-inspect-pages.md": "2026-09-30T23:31:15+07:00",
-    "docs/README.md": "2026-09-30T23:45:25+07:00",
+    "docs/README.md": "2026-09-30T23:50:58+07:00",
     "docs/plugins.md": "2026-09-30T22:46:05+07:00",
     "docs/adr/0001-purpur-java25-zgc.md": "2026-09-25T00:46:05+07:00",
     "docs/adr/0002-spec-first-workflow.md": "2026-09-25T00:46:05+07:00",
     "gdd/awakening-tutorial.md": "2026-09-30T22:46:05+07:00",
     "gdd/bloodlines.md": "2026-09-30T23:45:25+07:00",
     "gdd/lore-bible.md": "2026-09-30T23:31:15+07:00",
-    "gdd/owner-questions.md": "2026-09-30T23:31:15+07:00",
+    "gdd/owner-questions.md": "2026-09-30T23:50:58+07:00",
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
     "gdd/trailer.md": "2026-09-30T00:24:58+07:00",
     "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",
-    "gdd/wcmmo-gdd-v2.md": "2026-09-30T23:45:25+07:00"
+    "gdd/wcmmo-gdd-v2.md": "2026-09-30T23:50:58+07:00"
   }
 }

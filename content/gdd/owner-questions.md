@@ -73,7 +73,7 @@ Full list with docs and overlaps: [`../docs/plugins.md`](../docs/plugins.md). Ow
 | M2 | Exact extractor prices and the stage unlock materials per stage (rules decided: D-33, D-34) | D-33, D-34 |
 | M14 | Name clash: tutorial "The Awakening" vs stage 5 "Awakened"; rename one? | R14 |
 | ~~M3~~ | ~~Weapon skills~~ **Answered 2026-09-30:** 10 general + 5 skills and 1 ultimate per slice weapon (spec 008). Greatsword / Spear / Crossbow / Tome skill lists still to design (Phase 2) | D-52 |
-| M4 | Rune list (which runes exist); slot unlocks and rules are decided | D-35b |
+| ~~M4~~ | ~~Rune list~~ **Answered 2026-09-30:** 17 runes, spec 022 | D-56 |
 | M16 | Final Mastery cap: 50 or 100 (test build uses 30) | D-36 |
 | M17 | Skill lists for Greatsword, Spear, Crossbow, Tome (5 + ultimate each) | D-52 |
 | M5 | World map: cities, regions, Low/Mid/High zones | — |

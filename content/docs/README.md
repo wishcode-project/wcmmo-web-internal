@@ -137,7 +137,7 @@ No classes (GDD v2). Identity = 1 Bloodline + 2–4 Runes.
 | `wcmmo_bloodline_ward` | Bloodline | 021 | timing · Bone (§5) |
 | `wcmmo_bloodline_pulse` | Bloodline | 021 | flow · Heart (§6) |
 | `pulse`, `ward`, `fury` | tutorial affinities, placeholders `%wcmmo_affinity_<name>%` | 024 | |
-| `wcmmo_rune_vitality`, `_second_wind`, `_haste`, `_bulwark`, `_focus`, `_bloodthirst` | Rune (tiers I–III) | 022 | examples |
+| `wcmmo_rune_vitality`, `_stoneskin`, `_steadfast`, `_warding`, `_edge`, `_arcana`, `_fletch`, `_precision`, `_ruin`, `_haste`, `_tempo`, `_slayer`, `_leech`, `_breath`, `_clarity`, `_echo`, `_swiftness` | Rune (tiers I–III) | 022 | 17 runes (D-56) |
 
 ### Weapon & item types
 

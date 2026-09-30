@@ -94,7 +94,7 @@ The owner wants only these 3 repos; the team still has to confirm (D-38).
 - **More Bloodlines come with the story** (no fixed number). The base three are generalists; new ones are specialists with a *new core axis* and the same power budget, checked by a 3-test benchmark (clear / solo boss / survival, each Bloodline leads only its own, combined within ±15 %).
 - Names: one easy English word per Bloodline. Lore: base three are parts of one body; the past self wanted a "complete body".
 
-- **Runes (2–4 slots)**: free to swap; small passives; turn the same Bloodline into Tank or DPS. No duplicate rune IDs. Total cooldown reduction from all sources capped at 30 % (proposed).
+- **Runes (2–4 slots, D-56):** 17 small passives, tiers I–III, no duplicates, slots at start / Lv 30 / Lv 50. Defence: Vitality, Stoneskin, Steadfast, Warding · Offence: Edge, Arcana, Fletch, Precision, Ruin, Haste, Tempo, Slayer · Sustain: Leech, Breath, Clarity · Utility: Echo, Swiftness. Shared caps: CDR 30 % (with Mastery), basic speed 30 % (with AGI), crit 60 %.
 - Implementation (for now): Skript holds Bloodline data + triggers (using the registered IDs), MythicMobs skills are the effects. Whether this later moves to our own plugin is part of the per-system review (D-25).
 - **How the first Bloodline is chosen: The Awakening** (DECIDED, team design). *"You do not choose the Bloodline. The Bloodline chooses you."* The tutorial secretly scores three affinities from what the player does: **Pulse** (protect the wounded, free the trapped villager), **Ward** (hold the ring, walk the fear path), **Fury** (kill the brute, break the cracked wall), each +2. Clear lead → that Bloodline; close scores → a **Bloodline Encounter** where the tied Bloodlines argue and the player walks to one. Reveal → **Accept** or **Reject once** (then a manual pick of the 3 base Bloodlines). Leaving the tutorial locks it; later changes need the Extraction Item.
 
@@ -242,14 +242,14 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 
 ## 8. Decisions
 
-**DECIDED (59 of 72):**
+**DECIDED (60 of 73):**
 
 | Area | Decided |
 |---|---|
 | Project & plugins | D-00 paid plugins owned (not MythicDungeons) · D-09 MMOInventory · D-14 MythicDungeons (not bought) · D-25 Skript + vendor plugins first, own Kotlin plugin per system after Phase 0 · D-39 MythicHUD = HUD, UltimateUI = other UI · D-40 MMOItems = gear, Nexo = furniture/blocks/pack · D-41 CosmeticsCore wearables, ItemSkins weapon skins · D-42 BattlePass/LuxCollect after the slice · D-43 profiles later · D-47 Skript vs Kotlin |
 | Vitality | D-01 stamina on a MythicHUD bar, hunger hidden · D-02 food = heal over time + buffs, potions = instant · D-03a sprint drains a little stamina |
 | Stats | D-07 cap 60, 2 points/level · D-07b paid respec item (NPC shop or quest) · D-08 stats gate gear · D-08b soft level floor · D-30 small utility bonuses only |
-| Combat | D-49 I-frame deferred (dash = movement) · D-03 F bar swap (revised) · D-50 AGI basic attack speed, cap 30 % · D-51 Remnant gauge + Q ultimates · D-52 10 general + 5 skills & 1 ultimate per weapon · D-53 instant bow · D-54 item detail pages · D-55 orb skills (NPC / monster orbs) · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
+| Combat | D-49 I-frame deferred (dash = movement) · D-03 F bar swap (revised) · D-50 AGI basic attack speed, cap 30 % · D-51 Remnant gauge + Q ultimates · D-52 10 general + 5 skills & 1 ultimate per weapon · D-53 instant bow · D-54 item detail pages · D-55 orb skills (NPC / monster orbs) · D-56 17 runes with shared caps · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
 | Weapons | D-04 8 weapons, slice uses 4 · D-04b free switching · D-04c basic skills in tutorial, more from level-ups + city NPCs · D-36b Mastery CDR for that weapon's skills + general skills by held weapon |
 | Bloodlines & Runes | D-31/D-48 base Bloodlines Fury / Ward / Pulse, value trials · D-32 The Awakening picks the first Bloodline · D-33 in-game extractor keeps progress, store extractor resets · D-34 each stage = level + unlock materials · D-35 rune slots 2 → Lv30 → Lv50 · D-35b no duplicate runes, tiers I–III · D-46 Awakening scoring edge cases |
 | Gear | D-10 Identify + fallback · D-11 MythicLib elements for now · D-12 max V, pity, never destroyed · D-12b armour same ladder · D-12c one stone per category · D-12d accessories I–V · D-13/D-13b AP/DP soft cap from gear + enhancement |
