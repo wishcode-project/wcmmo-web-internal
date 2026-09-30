@@ -78,9 +78,9 @@ Full list with docs and overlaps: [`../docs/plugins.md`](../docs/plugins.md). Ow
 | M17 | Skill lists for Greatsword, Spear, Crossbow, Tome (5 + ultimate each) | D-52 |
 | M5 | World map: cities, regions, Low/Mid/High zones | — |
 | M6 | Chapter 1 story outline | D-15b |
-| M7 | Death penalty (XP loss? item loss? respawn point?) | new |
-| M8 | Levelling speed (XP curve); cap 60 is decided | D-07 |
-| M9 | Party XP and loot sharing; size 2–5 is decided | D-18 |
+| ~~M7~~ | ~~Death penalty~~ **Answered 2026-10-01:** spec 027 | D-57 |
+| ~~M8~~ | ~~Levelling speed~~ **Answered 2026-10-01:** spec 028 | D-58 |
+| ~~M9~~ | ~~Party XP and loot~~ **Answered 2026-10-01:** spec 028 | D-59 |
 | M10 | HUD layout: where HP / Mana / Stamina / skill bars / cooldowns show (MythicHUD) | D-01 |
 | M11 | VIP / store: what can be sold without pay-to-win | new |
 | M12 | Which languages Triton must serve (Thai + English?) | D-27 |

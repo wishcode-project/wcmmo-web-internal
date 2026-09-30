@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-09-30T16:51:11.707Z",
-  "head": "edae5e8",
+  "syncedAt": "2026-09-30T17:01:43.744Z",
+  "head": "a47fb58",
   "branch": "main",
   "commits": [
+    {
+      "sha": "a47fb58",
+      "date": "2026-10-01T00:01:28+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: death & respawn, levelling, party XP and loot (M7, M8, M9)",
+      "insertions": 250,
+      "deletions": 6,
+      "files": 7
+    },
     {
       "sha": "edae5e8",
       "date": "2026-09-30T23:50:58+07:00",
@@ -243,7 +252,7 @@
     "docs/001-server-baseline.md": "2026-09-28T22:55:03+07:00",
     "docs/002-plugin-stack.md": "2026-09-25T00:46:05+07:00",
     "docs/003-void-overworld.md": "2026-09-25T00:46:05+07:00",
-    "docs/004-roadmap-phase-plan.md": "2026-09-30T23:31:15+07:00",
+    "docs/004-roadmap-phase-plan.md": "2026-10-01T00:01:28+07:00",
     "docs/005-vitality-resources.md": "2026-09-30T22:56:06+07:00",
     "docs/006-attributes-stat-gating.md": "2026-09-30T23:31:15+07:00",
     "docs/007-classes-skill-bars.md": "2026-09-30T23:31:15+07:00",
@@ -266,17 +275,19 @@
     "docs/024-awakening-tutorial.md": "2026-09-30T22:46:05+07:00",
     "docs/025-remnant-ultimates.md": "2026-09-30T23:31:15+07:00",
     "docs/026-item-inspect-pages.md": "2026-09-30T23:31:15+07:00",
-    "docs/README.md": "2026-09-30T23:50:58+07:00",
+    "docs/027-death-respawn.md": "2026-10-01T00:01:28+07:00",
+    "docs/028-levelling-party-loot.md": "2026-10-01T00:01:28+07:00",
+    "docs/README.md": "2026-10-01T00:01:28+07:00",
     "docs/plugins.md": "2026-09-30T22:46:05+07:00",
     "docs/adr/0001-purpur-java25-zgc.md": "2026-09-25T00:46:05+07:00",
     "docs/adr/0002-spec-first-workflow.md": "2026-09-25T00:46:05+07:00",
     "gdd/awakening-tutorial.md": "2026-09-30T22:46:05+07:00",
     "gdd/bloodlines.md": "2026-09-30T23:45:25+07:00",
     "gdd/lore-bible.md": "2026-09-30T23:31:15+07:00",
-    "gdd/owner-questions.md": "2026-09-30T23:50:58+07:00",
+    "gdd/owner-questions.md": "2026-10-01T00:01:28+07:00",
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
     "gdd/trailer.md": "2026-09-30T00:24:58+07:00",
     "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",
-    "gdd/wcmmo-gdd-v2.md": "2026-09-30T23:50:58+07:00"
+    "gdd/wcmmo-gdd-v2.md": "2026-10-01T00:01:28+07:00"
   }
 }

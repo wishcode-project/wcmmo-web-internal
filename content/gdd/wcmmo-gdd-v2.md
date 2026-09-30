@@ -192,6 +192,9 @@ To prevent stat bloat, progression is strictly split. Each system has one job:
 | D-54 | Long item tooltips | one long list / pages | **Pages:** hover an item in the inventory and press F for the next page (stats / upgrades / lore). Skript PoC first, packet-level in our own plugin later. Spec 026 | as recommended | DECIDED |
 | D-55 | Extra skills beyond the weapon kits | none / MU-style orb skills | **Orb skills** (MU-inspired, own names and numbers): learned from **Skill Orbs bought from an NPC or dropped by monsters**; **family** orb skills (melee / ranged / magic) plus weapon-only orb skills (e.g. Sword *Whirl Cut*); each weapon keeps its own 5 skills + ultimate. Ward's Bone Bastion gains *Unbroken Vow* (max HP, party bonus). Spec 008 | as recommended | DECIDED |
 | D-56 | Rune list | — | **17 runes** in 4 groups: defence (Vitality, Stoneskin, Steadfast, Warding), offence (Edge, Arcana, Fletch, Precision, Ruin, Haste, Tempo, Slayer), sustain (Leech, Breath, Clarity), utility (Echo, Swiftness); tiers I–III; shared caps: CDR 30 % (with Mastery), basic speed 30 % (with AGI), crit 60 %. Slice uses 8. Spec 022 | as recommended | DECIDED |
+| D-57 | Death penalty & respawn | — | XP −1 % of the level requirement (none below Lv 15), no item drop, durability −5 %, Remnant halved, buffs cleared; **no vanilla death screen**: countdown then automatic respawn at the nearest Waystone / city; revive on the spot for 100 Remnant; party revive in dungeons. Spec 027 | as recommended + auto-respawn | DECIDED |
+| D-58 | Levelling speed | — | Cap 60 in ~90–100 h; slice 1 → 15 in 3–4 h; curve `50·L² + 100·L`; XP 60 % mobs / 30 % quests / 10 % dungeons; low-level mobs 50 % / 10 %. Spec 028 | as recommended | DECIDED |
+| D-59 | Party XP & loot | — | Party XP per member = base × (1 + 0.1·(n−1)) / n within 30 blocks and 10 levels, +5 % per extra distinct Bloodline; world drops owned by the top damager 30 s, then free 90 s, then despawn (round-robin inside the owner's party); dungeon bosses give personal rewards. Spec 028 | as recommended + top-damager ownership | DECIDED |
 | D-36b | Weapon swap exploit | — | Mastery CDR applies only to that weapon's skills. General skills use the held weapon's Mastery | Mastery CDR = that weapon's skills + general skills based on the weapon held | DECIDED |
 
 ---
@@ -359,6 +362,7 @@ Placeholder. To decide: ModelEngine mounts, pet buffs vs cosmetic, loot pickup.
 | 2026-09-28 | D-05 | FPV testing starts with the bought Draconic Dual Sword FPV pack | owner |
 | 2026-09-28 | D-39 | MythicHUD = always-on HUD; UltimateUI = shops, quest list, other custom UI | owner |
 | 2026-09-29 | D-01, D-02, D-03a, D-04, D-04c, D-06b, D-06c, D-06d, D-07, D-07b, D-08b, D-11, D-12, D-12c, D-12d, D-15b, D-16, D-17b, D-18, D-26, D-30, D-33, D-34, D-35, D-35b, D-36b, D-41, D-42, D-46 | Decision session: 29 decided, D-36 partly (test values), D-17 loot refined | owner |
+| 2026-10-01 | D-57, D-58, D-59 | Death (auto-respawn, light penalties), levelling targets, party XP and loot ownership | owner |
 | 2026-09-30 | D-56 | 17 runes with shared caps; renamed Breath / Clarity / Leech / Steadfast to avoid clashes | owner |
 | 2026-09-30 | D-55 | Orb skills (family + weapon-only) from NPC or monster orbs; Unbroken Vow on Ward | owner |
 | 2026-09-30 | D-03, D-30, D-50–D-54 | Controls: F bar swap, Q ultimate (Remnant gauge), instant bow; AGI basic attack speed capped; 10 general skills + 5 skills and 1 ultimate per weapon; item detail pages | owner |

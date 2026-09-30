@@ -35,6 +35,8 @@ as the spec that introduces it.** Specs link back here instead of redefining any
 | 024 | [The Awakening: tutorial & Bloodline Trial](024-awakening-tutorial.md) | DRAFT | plugins, content, wcmmo | validate |
 | 025 | [Remnant gauge & ultimates](025-remnant-ultimates.md) | DRAFT | wcmmo | validate |
 | 026 | [Item detail pages (F in the inventory)](026-item-inspect-pages.md) | DRAFT | wcmmo | confirm |
+| 027 | [Death & respawn](027-death-respawn.md) | DRAFT | wcmmo | validate |
+| 028 | [Levelling, party XP & loot](028-levelling-party-loot.md) | DRAFT | wcmmo | validate |
 
 Design intent lives in [`../gdd/wcmmo-gdd-v2.md`](../gdd/wcmmo-gdd-v2.md) (v1 is superseded); decisions `D-xx` are tracked there.
 Coming soon (GDD v2 §10–12, not specced): economy & trade, guild & node war, pets & mounts.
@@ -208,6 +210,7 @@ Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:s
 | `wcmmo_npc_enhancer` | — | city hub | 013 |
 | `wcmmo_npc_bloodline_keeper` | — | first city | 021 |
 | `wcmmo_npc_orb_merchant` | — | first city | 008 |
+| `wcmmo_npc_blacksmith` | — | first city | 027 |
 | `wcmmo_npc_tutorial_wounded`, `wcmmo_npc_tutorial_trapped` | — | tutorial | 024 |
 | `wcmmo_npc_furniture_merchant` | — | city hub | 020 |
 
@@ -246,6 +249,7 @@ Target LuckPerms layout (not live yet — CMI ranks are placeholders until LuckP
 | `wcmmo.bloodline.use` | default | 021 | `/bloodline` |
 | `wcmmo.admin.bloodline` | admin | 021 | |
 | `wcmmo.admin.remnant` | admin | 025 | |
+| `wcmmo.admin.waystone` | admin | 027 | |
 | `wcmmo.admin.awakening` | admin | 024 | reset / debug |
 | `wcmmo.awakening.skip` | admin, testers | 024 | skip tutorial |
 | `wcmmo.admin.lifezone` | admin | 018 | |
