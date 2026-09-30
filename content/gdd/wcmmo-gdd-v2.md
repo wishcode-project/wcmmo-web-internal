@@ -200,6 +200,7 @@ To prevent stat bloat, progression is strictly split. Each system has one job:
 | D-62 | "The Awakening" (tutorial) vs Bloodline stage 5 "Awakened" | rename one / keep both | **Keep both on purpose:** Chapter 0 is the first awakening (no memory); stage 5 is awakening **again**, reclaiming part of the past self's power (lore bible §2) | keep both, tie to lore | DECIDED |
 | D-63 | Chat | vanilla / channels | **Channels:** Global, Local (100 blocks, default), Party, Guild, Private, Shout (60 s CD, highlighted) + an All view; shortcuts `/g /l /p /gc /msg /r /shout`; a clickable channel bar from `/chat` (real tabs under the input need a client mod); NPC spam merged; Triton for labels / system text, player text not translated. Spec 031 | as recommended | DECIDED |
 | D-64 | NPC name colours & guards | — | **Green** ordinary NPCs · **Gold** important / service / main-quest NPCs (`!` / `?`) · **Blue** guards (players can't hit them, monsters can; attack monsters in sight 16 blocks, leash 24, return to post or patrol, respawn 30 s) · **Red** monsters · **Purple** bosses / elites. Guard-only kills give no XP / drops. Spec 032 | owner's design | DECIDED |
+| D-65 | Monster ranks & combat rules | — | **Normal** (red): no guard / Super Armour, CC works · **Elite** (purple): some have Frontguard **or** Super Armour · **Boss / World Boss** (purple): never stunned / knocked back / slowed except in a **stun phase** (A: scripted at HP 70 % / 40 % or after a missed big move, 5 s, +30 % damage taken, CC works); **B** Break gauge on some bosses later. Telegraphs: Normal area attacks, Elite / Boss all heavy moves. Spec 033 | owner's design, A first | DECIDED |
 | D-36b | Weapon swap exploit | — | Mastery CDR applies only to that weapon's skills. General skills use the held weapon's Mastery | Mastery CDR = that weapon's skills + general skills based on the weapon held | DECIDED |
 
 ---
@@ -367,6 +368,7 @@ Placeholder. To decide: ModelEngine mounts, pet buffs vs cosmetic, loot pickup.
 | 2026-09-28 | D-05 | FPV testing starts with the bought Draconic Dual Sword FPV pack | owner |
 | 2026-09-28 | D-39 | MythicHUD = always-on HUD; UltimateUI = shops, quest list, other custom UI | owner |
 | 2026-09-29 | D-01, D-02, D-03a, D-04, D-04c, D-06b, D-06c, D-06d, D-07, D-07b, D-08b, D-11, D-12, D-12c, D-12d, D-15b, D-16, D-17b, D-18, D-26, D-30, D-33, D-34, D-35, D-35b, D-36b, D-41, D-42, D-46 | Decision session: 29 decided, D-36 partly (test values), D-17 loot refined | owner |
+| 2026-10-01 | D-65 | Monster ranks; bosses CC-immune except stun phases (A now, Break gauge B later) | owner |
 | 2026-10-01 | D-64 | Five name colours; guard NPCs defend the city | owner |
 | 2026-10-01 | D-63 | Chat channels with a clickable channel bar | owner |
 | 2026-10-01 | D-27, D-62 | Thai + English with English proper names; Awakening / Awakened kept as a story link | owner |

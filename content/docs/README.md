@@ -41,6 +41,7 @@ as the spec that introduces it.** Specs link back here instead of redefining any
 | 030 | [Languages & translation](030-languages.md) | DRAFT | wcmmo | confirm |
 | 031 | [Chat channels](031-chat-channels.md) | DRAFT | wcmmo | confirm |
 | 032 | [NPCs, guards & name colours](032-npcs-name-colours.md) | DRAFT | wcmmo | confirm |
+| 033 | [Monster ranks & combat rules](033-monster-ranks-combat.md) | DRAFT | wcmmo | confirm |
 
 Design intent lives in [`../gdd/wcmmo-gdd-v2.md`](../gdd/wcmmo-gdd-v2.md) (v1 is superseded); decisions `D-xx` are tracked there.
 Coming soon (GDD v2 §10–12, not specced): economy & trade, guild & node war, pets & mounts.
@@ -197,6 +198,7 @@ Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:s
 | `wcmmo_mob_<zone>_<name>` | MythicMobs | 015 | pattern; concrete mobs per zone spec |
 | `wcmmo_mob_boss_world_01` | MythicMobs | 017 | |
 | `wcmmo_mob_guard_gate`, `wcmmo_mob_guard_patrol` | MythicMobs (faction `guards`, tag `wcmmo_guard`) | 032 | blue guards |
+| tags `wcmmo_boss`, `wcmmo_frontguard`; state `stunphase` | Skript / MythicMobs | 033 | boss CC immunity, Guard Elites, boss stun phase |
 | `wcmmo_mob_tutorial_raider`, `_wave`, `_brute` | MythicMobs | 024 | trial mobs |
 | `wcmmo_mob_spirit_pulse`, `_ward`, `_fury` | MythicMobs + ModelEngine | 024 | Encounter / Reveal entities |
 | `wcmmo_dungeon_solo_01`, `wcmmo_dungeon_party_01` | MythicDungeons | 017 | |

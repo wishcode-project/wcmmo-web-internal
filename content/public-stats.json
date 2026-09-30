@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-10-01T00:39:32+07:00",
+  "updatedAt": "2026-10-01T00:49:11+07:00",
   "specs": {
     "done": 3,
-    "total": 32
+    "total": 33
   },
   "foundation": {
     "done": 3,
@@ -17,7 +17,7 @@
     {
       "n": 1,
       "specsDone": 0,
-      "specsTotal": 21
+      "specsTotal": 22
     },
     {
       "n": 2,
@@ -40,7 +40,7 @@
     "total": 7
   },
   "decisions": {
-    "locked": 68,
-    "total": 80
+    "locked": 69,
+    "total": 81
   }
 }
