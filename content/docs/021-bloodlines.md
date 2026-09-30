@@ -99,7 +99,7 @@ Pulse rhythm and Ward guard checks run on every cast / hit; HP thresholds only i
 | 6 | Ward block 5 hits | 5 Bulwark pips, −15 % damage taken; decays 1 per 4 s without blocking |
 | 7 | Ward 2A perfect guard / 2B normal block | attacker staggered + 15 stamina + 2 stacks / 15 % reflected |
 | 8 | Ward 3A / 3B at 5 stacks | 3 s CC immune, −30 % damage / next skill +50 % + Super Armour |
-| 9 | Ward Bone Bastion solo vs 3 mobs | 30 % max HP absorbed, attackers slowed and take 20 % back |
+| 9 | Ward Bone Bastion solo vs 3 mobs | 30 % max HP absorbed, attackers slowed and take 20 % back, own max HP +10 % for 10 s (Unbroken Vow) · in a party of 4: every member +4 % max HP |
 | 10 | Ward 5A take a 50 % max-HP hit / 5B three perfect guards | damage halved, Bulwark 5 / automatic counter-strike |
 | 11 | Pulse cast skills A, B, C | Pulse: heal 4 % + damage in 5 blocks · A, A, B resets rhythm |
 | 12 | Pulse 2A overheal / 2B three Pulses | shield up to 10 % max HP / +15 % damage |

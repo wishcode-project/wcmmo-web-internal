@@ -190,6 +190,7 @@ To prevent stat bloat, progression is strictly split. Each system has one job:
 | D-52 | Skill counts | 3 per weapon / 5 + ultimate | **10 general skills** (any weapon) + **5 skills + 1 ultimate per weapon**, unlocked by Mastery 0/5/10/15/20, ultimate 25 (test build). Spec 008 | as recommended | DECIDED |
 | D-53 | Bow / Crossbow input | charged / instant | **Right click shoots instantly**, no charging (Wynncraft-style); shot interval lowered by AGI to a cap | as recommended | DECIDED |
 | D-54 | Long item tooltips | one long list / pages | **Pages:** hover an item in the inventory and press F for the next page (stats / upgrades / lore). Skript PoC first, packet-level in our own plugin later. Spec 026 | as recommended | DECIDED |
+| D-55 | Extra skills beyond the weapon kits | none / MU-style orb skills | **Orb skills** (MU-inspired, own names and numbers): learned from **Skill Orbs bought from an NPC or dropped by monsters**; **family** orb skills (melee / ranged / magic) plus weapon-only orb skills (e.g. Sword *Whirl Cut*); each weapon keeps its own 5 skills + ultimate. Ward's Bone Bastion gains *Unbroken Vow* (max HP, party bonus). Spec 008 | as recommended | DECIDED |
 | D-36b | Weapon swap exploit | — | Mastery CDR applies only to that weapon's skills. General skills use the held weapon's Mastery | Mastery CDR = that weapon's skills + general skills based on the weapon held | DECIDED |
 
 ---
@@ -357,6 +358,7 @@ Placeholder. To decide: ModelEngine mounts, pet buffs vs cosmetic, loot pickup.
 | 2026-09-28 | D-05 | FPV testing starts with the bought Draconic Dual Sword FPV pack | owner |
 | 2026-09-28 | D-39 | MythicHUD = always-on HUD; UltimateUI = shops, quest list, other custom UI | owner |
 | 2026-09-29 | D-01, D-02, D-03a, D-04, D-04c, D-06b, D-06c, D-06d, D-07, D-07b, D-08b, D-11, D-12, D-12c, D-12d, D-15b, D-16, D-17b, D-18, D-26, D-30, D-33, D-34, D-35, D-35b, D-36b, D-41, D-42, D-46 | Decision session: 29 decided, D-36 partly (test values), D-17 loot refined | owner |
+| 2026-09-30 | D-55 | Orb skills (family + weapon-only) from NPC or monster orbs; Unbroken Vow on Ward | owner |
 | 2026-09-30 | D-03, D-30, D-50–D-54 | Controls: F bar swap, Q ultimate (Remnant gauge), instant bow; AGI basic attack speed capped; 10 general skills + 5 skills and 1 ultimate per weapon; item detail pages | owner |
 | 2026-09-30 | D-49 | I-frame deferred out of Phase 0 | owner |
 | 2026-09-30 | D-31, D-48 | 3 base Bloodlines Fury / Ward / Pulse with A/B paths; value trials in the tutorial; future Bloodlines as specialists | owner |

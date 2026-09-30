@@ -1,11 +1,11 @@
 # 008 — Weapon types, weapon skills, ultimates & general skills
 
 > Status: DRAFT · Target: wcmmo (MMOItems types, MMOCore skills → MythicMobs skills, Skript) · FIRE mode: confirm
-> Design: [GDD v2 §3](../gdd/wcmmo-gdd-v2.md#3-weapon-freedom--compartmentalised-progression) · Decisions: D-04, D-04b, D-04c, D-06d, D-36, D-50, D-51, D-52, D-53
+> Design: [GDD v2 §3](../gdd/wcmmo-gdd-v2.md#3-weapon-freedom--compartmentalised-progression) · Decisions: D-04, D-04b, D-04c, D-06d, D-36, D-50, D-51, D-52, D-53, D-55
 
 ## Big picture
 
-- **Player story:** As any player, I pick up any weapon I have the stats for. Each weapon has **5 skills + 1 ultimate**, unlocked through Mastery (spec 023). I also carry **general skills** that work with any weapon.
+- **Player story:** As any player, I pick up any weapon I have the stats for. Each weapon has **5 skills + 1 ultimate**, unlocked through Mastery (spec 023). I also carry **general skills** that work with any weapon, and I can learn extra **orb skills** from Skill Orbs that I buy from NPCs or loot from monsters.
 - **Done means:** weapon types exist and are stat-gated (006); weapon skills only cast with that weapon in hand (007); ultimates spend the Remnant gauge (025); every weapon is fully playable solo.
 
 ## Design rules
@@ -99,6 +99,55 @@ Lighter than weapon skills: movement, defence, utility. Dash and Backstep come f
 | 20 | `wcmmo_skill_meteor` | Meteor ★ | 1.5 s cast (Super Armour), meteor radius 4 + burn | 450 % · CD 25 s · 60 mana |
 | **25** | `wcmmo_ult_cataclysm` | **Cataclysm** (ultimate) | meteors across radius 8 for 4 s + burn | 10 × 90 % · 100 Remnant |
 
+## Orb skills (D-55)
+
+Extra skills on top of the weapon kits, inspired by MU Online's orb skills (we keep only the idea and the motion; names and numbers are ours).
+
+| Rule | Detail |
+|---|---|
+| How you learn them | use a **Skill Orb** item: **bought from the Orb Merchant NPC or dropped by monsters** (higher-tier orbs from Mid / High zones) |
+| Family orb skills | castable with **any weapon of that family** |
+| Weapon orb skills | castable only with that weapon type (every weapon still has its own 5 skills + ultimate) |
+| Slots | share the same 10 skill slots as general and weapon skills: a real choice |
+| Power | about as strong as a mid weapon skill (Mastery 10–15 tier), never stronger than the weapon's own top skills |
+| Mastery | not unlocked by Mastery, but Mastery CDR of the held weapon applies |
+
+| Family | Weapons |
+|---|---|
+| Melee | Sword, Greatsword, Hammer, Spear |
+| Ranged | Bow, Crossbow |
+| Magic | Staff, Tome (and a future spellblade weapon, if added) |
+
+### Melee family
+| ID | Name | Motion / effect | Numbers |
+|---|---|---|---|
+| `wcmmo_skill_gale_lance` | **Gale Lance** | gather power 0.5 s (Super Armour), then a 5-block lunging thrust charged with **wind**; the gust carries on through the first target into those behind | 260 % first target + 100 % line behind · CD 14 s · 25 st |
+| `wcmmo_skill_earthsplitter` | **Earthsplitter** | strike the ground: 3 expanding **earth** shockwave rings around you, radius 5, small knock-up. Counts as *heavy* (breaks guard) when used with a Hammer or Greatsword | 3 × 90 % · CD 16 s · 30 st |
+
+### Sword orb skill (added to the sword PoC)
+| ID | Name | Motion / effect | Numbers |
+|---|---|---|---|
+| `wcmmo_skill_whirl_cut` | **Whirl Cut** | spin the blade in a **180°** sweep in front of you: same damage as a normal hit, but hits everything around, the go-to move when mobs surround you | 100 % · CD 2 s · 10 st |
+
+### Magic family
+| ID | Name | Motion / effect | Numbers |
+|---|---|---|---|
+| `wcmmo_skill_wraith_swarm` | **Wraith Swarm** | spirits spiral out from you and strike every enemy in your line of sight, radius 8: the levelling / farming spell | 4 × 80 % · CD 12 s · 40 mana |
+| `wcmmo_skill_hellburst` | **Hellburst** | leap into the air and stomp down: fire bursts out in a **five-pointed star**, radius 5 | 250 % · CD 16 s · 50 mana |
+| `wcmmo_skill_ring_of_embers` | **Ring of Embers** | a ring of fire burns around you for 4 s, searing anyone who comes close (solo defence) | 8 × 40 % · CD 20 s · 60 mana |
+
+### Ranged family
+| ID | Name | Motion / effect | Numbers |
+|---|---|---|---|
+| `wcmmo_skill_fanfire` | **Fanfire** | 5 arrows in a 45° fan that **pierce** through enemies; combos with Snare Arrow | 5 × 70 % · CD 5 s · 15 st |
+
+### Orb items
+
+| ID | Kind |
+|---|---|
+| `wcmmo_item_orb_<skill>` (e.g. `wcmmo_item_orb_gale_lance`) | consumable, right click to learn the skill once |
+| `wcmmo_npc_orb_merchant` | NPC in the first city: sells the basic orbs |
+
 ## Balance
 
 - Target: similar damage per 30 s across weapons; Sword steady, Hammer bursts + breaks, Bow safest, Staff widest but mana-limited. Checked with the same 3-test benchmark as Bloodlines (gdd/bloodlines.md §7) per weapon.
@@ -126,6 +175,9 @@ Max 1 projectile entity per cast; area hits via MythicMobs targeters, not per-ti
 | 7 | Bow right click spam | instant shots at the interval, AGI shortens it to the cap |
 | 8 | Each ultimate at 100 Remnant | fires, Super Armour while casting, gauge to 0 |
 | 9 | Solo benchmark per weapon | within ±15 % of each other |
+| 10 | Use a Whirl Cut orb, slot it, cast with a Sword / with a Hammer | works / "Requires Sword" |
+| 11 | Gale Lance with Sword, Hammer and Spear | works with all three (melee family) |
+| 12 | Buy an orb from the Orb Merchant, and loot one from a mob | both teach the skill; using a known orb again does nothing and keeps the item |
 
 ## Rollback
 
@@ -133,5 +185,5 @@ Revert content. Weapon type and skill IDs must never change once players have th
 
 ## Acceptance criteria
 
-- [x] D-04, D-06d, D-52 decided.
+- [x] D-04, D-06d, D-52, D-55 decided.
 - [ ] Skills built as MMOCore skills → MythicMobs skills; tests 1–9 pass.

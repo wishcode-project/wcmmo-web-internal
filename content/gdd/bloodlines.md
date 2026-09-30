@@ -81,7 +81,7 @@ Materials come from dungeons or lifeskills (names TBD, `wcmmo_item_bloodline_sea
 | 2 | B | **Thornhide** | Blocks reflect damage | reflect 15 % of the blocked hit's original damage |
 | 3 | A | **Iron Stance** | At 5 stacks, become immovable | 3 s CC immunity + −30 % damage taken · consumes all stacks · 10 s CD |
 | 3 | B | **Marrow Break** | At 5 stacks, the next skill spends them for a heavy blow | +50 % damage + Super Armour for that skill |
-| 4 | fixed (active) | **Bone Bastion** | Bone armour absorbs damage. Solo: enemies hitting it take reflected damage and slow down. In a party it also draws enemy attention | absorbs 30 % max HP for 4 s · reflect 20 % · slow 30 % · cooldown 45 s |
+| 4 | fixed (active) | **Bone Bastion + Unbroken Vow** | Bone armour absorbs damage and raises max HP. Solo: enemies hitting it take reflected damage and slow down. In a party it also draws enemy attention and every member gets extra max HP (the Vow) | absorbs 30 % max HP for 4 s · reflect 20 % · slow 30 % · **max HP +10 % for 10 s** · party: each member **+1 % max HP per party member** (max +5 %) for 10 s · cooldown 45 s |
 | 5 | A | **Last Stand** | A single huge hit is halved and fills Bulwark | hit > 40 % max HP → damage × 0.5, stacks → 5 · internal CD 60 s |
 | 5 | B | **Retribution** | Perfect guards charge an automatic counter | every 3rd perfect guard → instant counter-strike at 150 % weapon damage |
 

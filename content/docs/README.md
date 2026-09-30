@@ -161,6 +161,10 @@ Rarity tiers (MMOItems): `common`, `uncommon`, `rare`, `epic`, `legendary` (012)
 | `wcmmo_skill_rapid_volley`, `_tumble_shot`, `_arrow_rain`, `_snare_arrow`, `_piercing_gale` | weapon | Bow | 008, 023 |
 | `wcmmo_skill_fireball`, `_frost_nova`, `_chain_lightning`, `_blink`, `_meteor` | weapon | Staff | 008, 023 |
 | `wcmmo_ult_blade_storm`, `wcmmo_ult_earthbreaker`, `wcmmo_ult_heavens_barrage`, `wcmmo_ult_cataclysm` | ultimate (Q, 100 Remnant) | Sword / Hammer / Bow / Staff (Mastery 25) | 008, 025 |
+| `wcmmo_skill_gale_lance`, `_earthsplitter` | orb (melee family) | Sword / Greatsword / Hammer / Spear | 008 |
+| `wcmmo_skill_whirl_cut` | orb (Sword only) | Sword | 008 |
+| `wcmmo_skill_wraith_swarm`, `_hellburst`, `_ring_of_embers` | orb (magic family) | Staff / Tome | 008 |
+| `wcmmo_skill_fanfire` | orb (ranged family) | Bow / Crossbow | 008 |
 | `wcmmo_skill_blood_rage`, `wcmmo_skill_bone_bastion`, `wcmmo_skill_heartbeat_surge` | Bloodline active | Fury / Ward / Pulse stage 4 | 021 |
 
 Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:superarmour`, `wcmmo:armourbreak` (009).
@@ -170,6 +174,7 @@ Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:s
 | ID | Plugin | Spec | Notes |
 |---|---|---|---|
 | `wcmmo_item_respec_scroll` | MMOItems | 006 | |
+| `wcmmo_item_orb_<skill>` | MMOItems | 008 | Skill Orb: teaches an orb skill (NPC shop or monster drop) |
 | `wcmmo_item_bloodline_extractor` | MMOItems | 021 | removes Bloodline, progress kept |
 | `wcmmo_item_bloodline_extractor_store` | MMOItems | 021 | store version, resets progress to stage 1 |
 | `wcmmo_item_bloodline_seal_<stage>` | MMOItems | 021 | stage unlock materials (names TBD) |
@@ -202,6 +207,7 @@ Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:s
 |---|---|---|---|
 | `wcmmo_npc_enhancer` | — | city hub | 013 |
 | `wcmmo_npc_bloodline_keeper` | — | first city | 021 |
+| `wcmmo_npc_orb_merchant` | — | first city | 008 |
 | `wcmmo_npc_tutorial_wounded`, `wcmmo_npc_tutorial_trapped` | — | tutorial | 024 |
 | `wcmmo_npc_furniture_merchant` | — | city hub | 020 |
 

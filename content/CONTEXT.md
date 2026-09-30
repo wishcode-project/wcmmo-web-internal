@@ -86,7 +86,7 @@ The owner wants only these 3 repos; the team still has to confirm (D-38).
 | Bloodline | Body part | Core axis | Solo strength | Party bonus | Stage 4 active |
 |---|---|---|---|---|---|
 | **Fury** | Muscle | risk: lower HP = stronger | fastest clears | damage | Blood Rage (pay HP, reset cooldowns) |
-| **Ward** | Bone | timing: block to stack Bulwark, perfect guards, release | best survival | tank | Bone Bastion (absorb shield, reflect) |
+| **Ward** | Bone | timing: block to stack Bulwark, perfect guards, release | best survival | tank | Bone Bastion + Unbroken Vow (absorb shield, reflect, max HP for you and the party) |
 | **Pulse** | Heart | flow: chain *different* skills; every 3 → a Pulse that heals you and hurts enemies | most consistent in long fights | support | Heartbeat Surge (every skill Pulses for 6 s) |
 
 - Stage 1 and 4 fixed; **stages 2, 3 and 5 offer path A or B** (8 builds per Bloodline, PoE2-style), respec at the Bloodline Keeper for gold.
@@ -102,6 +102,7 @@ The owner wants only these 3 repos; the team still has to confirm (D-38).
 - **Stats gate gear** (e.g. heavy Greatsword needs high STR). Level cap 60, 2 points/level. AGI also raises **basic** attack / shot speed, +0.5 %/point, **cap +30 %** (D-50).
 - **Weapon types (8):** Sword, Greatsword, Hammer, Spear (melee) · Bow, Crossbow (ranged) · Staff, Tome (magic). Vertical slice: Sword, Hammer, Bow, Staff.
 - **Skills (D-52, spec 008):** **10 general skills** usable with any weapon (Dash, Backstep, Sidestep, Kick, Shoulder Charge, Leap, Second Wind, Battle Cry, Iron Skin, Focus) + **5 skills and 1 ultimate per weapon**. Every weapon has exactly one guard-break skill; Hammer / Greatsword heavy skills break guard and Super Armour.
+- **Orb skills (D-55):** extra MU-inspired skills learned from **Skill Orbs** (bought from the Orb Merchant or dropped by monsters): melee family (Gale Lance, Earthsplitter), ranged family (Fanfire), magic family (Wraith Swarm, Hellburst, Ring of Embers), and weapon-only ones (Sword: Whirl Cut). They share the 10 slots; each weapon still has its own 5 skills + ultimate.
 - **Weapon Mastery**: one MMOCore profession per weapon; XP from hitting mobs; weapon skills unlock at Mastery 0/5/10/15/20, the ultimate at 25 (test build, cap 30); cooldown reduction up to 20 %.
 - **Remnant gauge & ultimates (D-51, spec 025):** fighting fills Remnant (0–100: basic hit +1, skill hit +3, +1 per 2 % HP lost); at 100 press **Q** for the held weapon's ultimate (Super Armour while casting). Lore (team only): it's the past self's soul fragments leaking out.
 - **Controls:**
@@ -241,14 +242,14 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 
 ## 8. Decisions
 
-**DECIDED (58 of 71):**
+**DECIDED (59 of 72):**
 
 | Area | Decided |
 |---|---|
 | Project & plugins | D-00 paid plugins owned (not MythicDungeons) · D-09 MMOInventory · D-14 MythicDungeons (not bought) · D-25 Skript + vendor plugins first, own Kotlin plugin per system after Phase 0 · D-39 MythicHUD = HUD, UltimateUI = other UI · D-40 MMOItems = gear, Nexo = furniture/blocks/pack · D-41 CosmeticsCore wearables, ItemSkins weapon skins · D-42 BattlePass/LuxCollect after the slice · D-43 profiles later · D-47 Skript vs Kotlin |
 | Vitality | D-01 stamina on a MythicHUD bar, hunger hidden · D-02 food = heal over time + buffs, potions = instant · D-03a sprint drains a little stamina |
 | Stats | D-07 cap 60, 2 points/level · D-07b paid respec item (NPC shop or quest) · D-08 stats gate gear · D-08b soft level floor · D-30 small utility bonuses only |
-| Combat | D-49 I-frame deferred (dash = movement) · D-03 F bar swap (revised) · D-50 AGI basic attack speed, cap 30 % · D-51 Remnant gauge + Q ultimates · D-52 10 general + 5 skills & 1 ultimate per weapon · D-53 instant bow · D-54 item detail pages · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
+| Combat | D-49 I-frame deferred (dash = movement) · D-03 F bar swap (revised) · D-50 AGI basic attack speed, cap 30 % · D-51 Remnant gauge + Q ultimates · D-52 10 general + 5 skills & 1 ultimate per weapon · D-53 instant bow · D-54 item detail pages · D-55 orb skills (NPC / monster orbs) · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
 | Weapons | D-04 8 weapons, slice uses 4 · D-04b free switching · D-04c basic skills in tutorial, more from level-ups + city NPCs · D-36b Mastery CDR for that weapon's skills + general skills by held weapon |
 | Bloodlines & Runes | D-31/D-48 base Bloodlines Fury / Ward / Pulse, value trials · D-32 The Awakening picks the first Bloodline · D-33 in-game extractor keeps progress, store extractor resets · D-34 each stage = level + unlock materials · D-35 rune slots 2 → Lv30 → Lv50 · D-35b no duplicate runes, tiers I–III · D-46 Awakening scoring edge cases |
 | Gear | D-10 Identify + fallback · D-11 MythicLib elements for now · D-12 max V, pity, never destroyed · D-12b armour same ladder · D-12c one stone per category · D-12d accessories I–V · D-13/D-13b AP/DP soft cap from gear + enhancement |
