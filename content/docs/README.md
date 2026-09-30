@@ -108,7 +108,7 @@ Paid jars are never committed; each dev downloads with their own licence.
 | Weapon / item type | `WCMMO_<TYPE>` | `WCMMO_SWORD` | [Types](#weapon--item-types) |
 | DB table | `wcmmo_v1_<area>_<name>` | `wcmmo_v1_lifezone_house` | [Database tables](#database-tables) |
 | Skill | `wcmmo_skill_<name>` | `wcmmo_skill_dash` | [Skills](#skills) |
-| Bloodline | `wcmmo_bloodline_<name>` | `wcmmo_bloodline_berserker` | [Bloodlines & Runes](#bloodlines--runes) |
+| Bloodline | `wcmmo_bloodline_<name>` | `wcmmo_bloodline_fury` | [Bloodlines & Runes](#bloodlines--runes) |
 | Rune | `wcmmo_rune_<name>` | `wcmmo_rune_vitality` | [Bloodlines & Runes](#bloodlines--runes) |
 | Furniture / block | `wcmmo_furn_<name>` / `wcmmo_block_<name>` | `wcmmo_furn_tavern_table` | Items |
 | NPC | `wcmmo_npc_<name>` | `wcmmo_npc_blacksmith` | [NPCs](#npcs) |
@@ -131,8 +131,10 @@ No classes (GDD v2). Identity = 1 Bloodline + 2–4 Runes.
 
 | ID | Kind | Spec | Notes |
 |---|---|---|---|
-| `wcmmo_bloodline_berserker` | Bloodline | 021 | BODY affinity (proposed); MIND and FREEDOM Bloodlines pending D-31 |
-| `BODY`, `MIND`, `FREEDOM` | tutorial affinities, placeholders `%wcmmo_affinity_<name>%` | 024 | |
+| `wcmmo_bloodline_fury` | Bloodline | 021 | risk · Muscle ([bloodlines.md](../gdd/bloodlines.md) §4) |
+| `wcmmo_bloodline_ward` | Bloodline | 021 | timing · Bone (§5) |
+| `wcmmo_bloodline_pulse` | Bloodline | 021 | flow · Heart (§6) |
+| `pulse`, `ward`, `fury` | tutorial affinities, placeholders `%wcmmo_affinity_<name>%` | 024 | |
 | `wcmmo_rune_vitality`, `_second_wind`, `_haste`, `_bulwark`, `_focus`, `_bloodthirst` | Rune (tiers I–III) | 022 | examples |
 
 ### Weapon & item types
@@ -156,7 +158,7 @@ Rarity tiers (MMOItems): `common`, `uncommon`, `rare`, `epic`, `legendary` (012)
 | `wcmmo_skill_ground_smash`, `wcmmo_skill_quake`, `wcmmo_skill_titan_fall` | unique | Hammer | 008, 023 |
 | `wcmmo_skill_power_shot`, `wcmmo_skill_arrow_rain`, `wcmmo_skill_piercing_gale` | unique | Bow | 008, 023 |
 | `wcmmo_skill_fireball`, `wcmmo_skill_frost_nova`, `wcmmo_skill_meteor` | unique | Staff | 008, 023 |
-| `wcmmo_skill_blood_rage` | Bloodline active | Berserker stage 4 | 021 |
+| `wcmmo_skill_blood_rage`, `wcmmo_skill_bone_bastion`, `wcmmo_skill_heartbeat_surge` | Bloodline active | Fury / Ward / Pulse stage 4 | 021 |
 
 Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:superarmour`, `wcmmo:armourbreak` (009).
 
@@ -180,8 +182,8 @@ Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:s
 |---|---|---|---|
 | `wcmmo_mob_<zone>_<name>` | MythicMobs | 015 | pattern; concrete mobs per zone spec |
 | `wcmmo_mob_boss_world_01` | MythicMobs | 017 | |
-| `wcmmo_mob_tutorial_brawler`, `_target`, `_sleeper` | MythicMobs | 024 | trial mobs |
-| `wcmmo_mob_spirit_body`, `_mind`, `_freedom` | MythicMobs + ModelEngine | 024 | Encounter / Reveal entities |
+| `wcmmo_mob_tutorial_raider`, `_wave`, `_brute` | MythicMobs | 024 | trial mobs |
+| `wcmmo_mob_spirit_pulse`, `_ward`, `_fury` | MythicMobs + ModelEngine | 024 | Encounter / Reveal entities |
 | `wcmmo_dungeon_solo_01`, `wcmmo_dungeon_party_01` | MythicDungeons | 017 | |
 
 ### Professions
@@ -196,6 +198,8 @@ Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:s
 | ID | Citizens id | Location | Spec |
 |---|---|---|---|
 | `wcmmo_npc_enhancer` | — | city hub | 013 |
+| `wcmmo_npc_bloodline_keeper` | — | first city | 021 |
+| `wcmmo_npc_tutorial_wounded`, `wcmmo_npc_tutorial_trapped` | — | tutorial | 024 |
 | `wcmmo_npc_furniture_merchant` | — | city hub | 020 |
 
 ### Quests
@@ -268,7 +272,7 @@ Minecraft 26.x keeps every dimension inside the level folder (`wcmmo/dimensions/
 | `wcmmo__zone_<tier>_<nn>` | wcmmo | `wcmmo-zone` (tier, AP, DP) | 014 |
 | `wcmmo__totem_<zone>_<n>` | wcmmo | totem spot | 015 |
 | `wcmmo_lifezone_<n>__plot_<01-20>` | lifezone | owner-only build | 018 |
-| `wcmmo_tutorial__trial_action`, `__sleeping_zone`, `__trial_gate`, `__roof_bypass`, `__sanctum` | tutorial | trial triggers | 024 |
+| `wcmmo_tutorial__trial_action`, `__hold_ring`, `__trial_gate`, `__fear_path`, `__sanctum` | tutorial | trial triggers | 024 |
 
 ## Database tables
 

@@ -2,6 +2,8 @@
 
 > Source: team design (trailer / tutorial), added 2026-09-29 · Part of [GDD v2](wcmmo-gdd-v2.md) §2 · Contract: [spec 024](../docs/024-awakening-tutorial.md)
 >
+> **Update 2026-09-30 (D-48):** the affinities are now **Pulse / Ward / Fury** (Heart · compassion / Bone · endurance / Muscle · determination) with value trials. The BODY / MIND / FREEDOM triggers below are the original team draft; the current triggers are in spec 024 and the Bloodlines in [bloodlines.md](bloodlines.md).
+>
 > Sections 2–2.3 are the team's design text (formatting cleaned only). **Review notes** at the end are open points to settle before spec 024 can be READY.
 
 ## 2. The Awakening (Tutorial & Bloodline Selection)

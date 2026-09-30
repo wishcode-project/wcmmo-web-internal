@@ -81,20 +81,22 @@ The owner wants only these 3 repos; the team still has to confirm (D-38).
 ### 4.2 Classless: Bloodlines & Runes
 - **No classes.** Any player can use any weapon they have the stats for.
 - **Bloodline (1 slot)**: core identity, hard-bound; changing it needs a rare **extraction item** (progress kept per Bloodline, proposed). Evolves in **5 stages** that change *mechanics*.
-- **Example: Berserker** (the only one designed so far):
+- **3 base Bloodlines (DECIDED, D-31/D-48), tone like Black Desert.** Full design: `gdd/bloodlines.md`.
 
-| Stage | Unlock | Name | Effect |
-|---|---|---|---|
-| 1 | on bind | Adrenaline | +20 % attack speed while HP < 30 % |
-| 2 | Lv 20 | Pain is Power | taking damage restores Stamina |
-| 3 | Lv 40 | Unstoppable | charge skills gain Super Armour |
-| 4 | Lv 60 | Blood Rage | active: sacrifice HP to reset cooldowns |
-| 5 | Awakened | Death Defying | a fatal blow leaves 1 HP + 3 s I-frame |
+| Bloodline | Body part | Core axis | Solo strength | Party bonus | Stage 4 active |
+|---|---|---|---|---|---|
+| **Fury** | Muscle | risk: lower HP = stronger | fastest clears | damage | Blood Rage (pay HP, reset cooldowns) |
+| **Ward** | Bone | timing: block to stack Bulwark, perfect guards, release | best survival | tank | Bone Bastion (absorb shield, reflect) |
+| **Pulse** | Heart | flow: chain *different* skills; every 3 → a Pulse that heals you and hurts enemies | most consistent in long fights | support | Heartbeat Surge (every skill Pulses for 6 s) |
+
+- Stage 1 and 4 fixed; **stages 2, 3 and 5 offer path A or B** (8 builds per Bloodline, PoE2-style), respec at the Bloodline Keeper for gold.
+- **Solo first:** each can recover, deal damage and survive alone; ally effects are bonuses (≤ 50 % of self value) with a solo version.
+- **More Bloodlines come with the story** (no fixed number). The base three are generalists; new ones are specialists with a *new core axis* and the same power budget, checked by a 3-test benchmark (clear / solo boss / survival, each Bloodline leads only its own, combined within ±15 %).
+- Names: one easy English word per Bloodline. Lore: base three are parts of one body; the past self wanted a "complete body".
 
 - **Runes (2–4 slots)**: free to swap; small passives; turn the same Bloodline into Tank or DPS. No duplicate rune IDs. Total cooldown reduction from all sources capped at 30 % (proposed).
 - Implementation (for now): Skript holds Bloodline data + triggers (using the registered IDs), MythicMobs skills are the effects. Whether this later moves to our own plugin is part of the per-system review (D-25).
-- **How the first Bloodline is chosen: The Awakening** (DECIDED, team design). *"You do not choose the Bloodline. The Bloodline chooses you."* The tutorial secretly scores three affinities from what the player does: **BODY** (brawl, break the cracked wall), **MIND** (ranged scroll kills, hidden lever), **FREEDOM** (sneak past sleeping mobs, parkour over the roof), each +2. Clear lead → that Bloodline; close scores → a **Bloodline Encounter** where the tied Bloodlines argue and the player walks to one. Reveal → **Accept** or **Reject once** (then a manual pick of the 3 base Bloodlines). Leaving the tutorial locks it; later changes need the Extraction Item.
-- **3 base Bloodlines** = BODY / MIND / FREEDOM. Berserker is proposed as BODY; MIND and FREEDOM are not designed yet.
+- **How the first Bloodline is chosen: The Awakening** (DECIDED, team design). *"You do not choose the Bloodline. The Bloodline chooses you."* The tutorial secretly scores three affinities from what the player does: **Pulse** (protect the wounded, free the trapped villager), **Ward** (hold the ring, walk the fear path), **Fury** (kill the brute, break the cracked wall), each +2. Clear lead → that Bloodline; close scores → a **Bloodline Encounter** where the tied Bloodlines argue and the player walks to one. Reveal → **Accept** or **Reject once** (then a manual pick of the 3 base Bloodlines). Leaving the tutorial locks it; later changes need the Extraction Item.
 
 ### 4.3 Weapons, stats, mastery, skills
 - **Stats gate gear** (e.g. heavy Greatsword needs high STR). Proposed: level cap 60, 2 points/level.
@@ -149,7 +151,7 @@ Economy & trade · Guild & node war · Pets & mounts · death penalty · party s
 | Phase | Goal |
 |---|---|
 | 0: PoC | Prove risky tech: FPV animation, combat states, Shift+RMB swap, Bloodline hooks, Mastery cooldown math, Identify, Lifezone save/paste with Nexo furniture, stamina display |
-| 1: Vertical slice | Tutorial + 1 region, Berserker stages 1–3, 2 Rune slots, 4 weapons with Mastery to 25, stat gating, 1 solo dungeon |
+| 1: Vertical slice | Tutorial + 1 region, all 3 base Bloodlines stages 1–3, 2 Rune slots, 4 weapons with Mastery to 25, stat gating, 1 solo dungeon |
 | 2: Core MMO | All launch Bloodlines to stage 5, all weapons, enhancement to V, Mid/High zones, totems, world boss, party dungeon |
 | 3: Lifezone | Housing instances, lifeskills, furniture |
 | 4: Social | Economy, guilds & node war, pets & mounts |
@@ -226,7 +228,7 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 
 ## 8. Decisions
 
-**DECIDED (50 of 64):**
+**DECIDED (52 of 65):**
 
 | Area | Decided |
 |---|---|
@@ -235,17 +237,17 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 | Stats | D-07 cap 60, 2 points/level · D-07b paid respec item (NPC shop or quest) · D-08 stats gate gear · D-08b soft level floor · D-30 small utility bonuses only |
 | Combat | D-03 Shift+RMB bar swap · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
 | Weapons | D-04 8 weapons, slice uses 4 · D-04b free switching · D-04c basic skills in tutorial, more from level-ups + city NPCs · D-36b Mastery CDR for that weapon's skills + general skills by held weapon |
-| Bloodlines & Runes | D-32 The Awakening picks the first Bloodline · D-33 in-game extractor keeps progress, store extractor resets · D-34 each stage = level + unlock materials · D-35 rune slots 2 → Lv30 → Lv50 · D-35b no duplicate runes, tiers I–III · D-46 Awakening scoring edge cases |
+| Bloodlines & Runes | D-31/D-48 base Bloodlines Fury / Ward / Pulse, value trials · D-32 The Awakening picks the first Bloodline · D-33 in-game extractor keeps progress, store extractor resets · D-34 each stage = level + unlock materials · D-35 rune slots 2 → Lv30 → Lv50 · D-35b no duplicate runes, tiers I–III · D-46 Awakening scoring edge cases |
 | Gear | D-10 Identify + fallback · D-11 MythicLib elements for now · D-12 max V, pity, never destroyed · D-12b armour same ladder · D-12c one stone per category · D-12d accessories I–V · D-13/D-13b AP/DP soft cap from gear + enhancement |
 | World | D-15b 1 chapter in Phase 1 · D-16 totem item, 10 min · D-16b totems via MythicMobs spawners · D-17 world boss loot: hit or nearby → random roll, MVP top 1–3 more · D-17b 2×/day + admin summon · D-18 party dungeons 2–5, solo dungeons solo · D-19 Lifezone own plugin, after the core · D-22 5 lifeskills · D-23 furniture shop or craft · D-26 PvE only for now |
 
-**PARTLY / TESTING:** D-27 (Triton; languages open) · D-31 (3 base Bloodlines BODY/MIND/FREEDOM; MIND + FREEDOM not designed) · D-36 (test build: Mastery cap 30, unlocks 5/15/25; final cap 50 or 100 open) · D-05 (FPV: testing the Draconic pack).
+**PARTLY / TESTING:** D-27 (Triton; languages open) · D-36 (test build: Mastery cap 30, unlocks 5/15/25; final cap 50 or 100 open) · D-05 (FPV: testing the Draconic pack).
 
 **OPEN (ideas welcome):**
 
 | Area | Decisions |
 |---|---|
-| Bloodlines | D-48 Bloodline names & trial themes (art: Heart/Bone/Muscle, value trials; spec: BODY/MIND/FREEDOM) · D-31 MIND + FREEDOM Bloodline designs · D-37 implementation (Skript-first now) · D-45 tutorial instance tech |
+| Bloodlines | D-37 implementation (Skript-first now) · D-45 tutorial instance tech |
 | Combat / weapons | D-44 FPV weapon trigger layer (Crucible vs MMOItems + script) |
 | World | D-15 quest engine to pair with LuxDialogues |
 | Lifezone (later) | D-20 plot size · D-20b save timing · D-20c paste timing · D-21 full-zone parties · D-21b visiting |
@@ -260,7 +262,7 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 | Item | `wcmmo_item_<name>` | `wcmmo_item_identify_scroll` |
 | Mob / boss | `wcmmo_mob_<name>` | `wcmmo_mob_boss_world_01` |
 | Skill | `wcmmo_skill_<name>` | `wcmmo_skill_ground_smash` |
-| Bloodline / Rune | `wcmmo_bloodline_<name>` / `wcmmo_rune_<name>` | `wcmmo_bloodline_berserker`, `wcmmo_rune_haste` |
+| Bloodline / Rune | `wcmmo_bloodline_<name>` / `wcmmo_rune_<name>` | `wcmmo_bloodline_fury`, `wcmmo_rune_haste` |
 | Weapon / item type (MMOItems) | `WCMMO_<TYPE>` | `WCMMO_HAMMER`, `WCMMO_RING`, `WCMMO_RUNE` |
 | Mastery profession | `mastery_<weapon>` | `mastery_hammer` |
 | Furniture / block (Nexo) | `wcmmo_furn_<name>` / `wcmmo_block_<name>` | `wcmmo_furn_starter_bed` |
@@ -285,7 +287,7 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 | TM4 | VPS provider, CPU/cores, budget |
 | TM5 | Buy MythicDungeons or build instances ourselves |
 | TM6 | Quest engine to pair with LuxDialogues (after plugin setup, with the first trailer in mind) |
-| M1–M4 | MIND + FREEDOM Bloodlines · extractor · weapon list + 3 unique skills each · rune list |
+| M1–M4 | extractor prices + stage materials · weapon list + 3 unique skills each · rune list |
 | M5–M6 | World map (cities, regions, zones) · Chapter 1 story |
 | M7–M12 | Death penalty · level cap/speed · party system · HUD layout · VIP/store rules · Triton languages |
 | T2–T8 | Tech: bar-swap fallback · Bloodline hook design · Mastery math · Identify test owner · Nexo furniture in schematics · FPV weapons long-term (Crucible vs MMOItems + plugin) |

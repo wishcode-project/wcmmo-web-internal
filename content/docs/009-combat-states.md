@@ -5,7 +5,7 @@
 
 ## Big picture
 
-- **Player story:** As a player, I dodge through attacks (I-frame), block from the front (Frontguard), and power through CC (Super Armour); heavy Hammer/Greatsword skills break guard and Super Armour (D-06d). Bloodlines can grant states (Berserker *Unstoppable* → Super Armour, *Death Defying* → I-frame, spec 021).
+- **Player story:** As a player, I dodge through attacks (I-frame), block from the front (Frontguard), and power through CC (Super Armour); heavy Hammer/Greatsword skills break guard and Super Armour (D-06d). Bloodlines can grant states (Fury *Unstoppable* → Super Armour, *Death Defying* → I-frame; Ward is built on Frontguard and perfect guards, spec 021).
 - **Done means:** every damage/CC event between players and MythicMobs is resolved by the matrix below, for both players and mobs.
 
 ## Systems & config

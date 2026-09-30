@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-30T22:05:03+07:00",
+  "updatedAt": "2026-09-30T22:46:05+07:00",
   "specs": {
     "done": 3,
     "total": 24
@@ -40,7 +40,7 @@
     "total": 7
   },
   "decisions": {
-    "locked": 50,
-    "total": 65
+    "locked": 51,
+    "total": 64
   }
 }

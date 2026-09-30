@@ -119,15 +119,18 @@ The rigid class system is removed. Players build their character freely and mix 
 - **Hard-bound:** cannot be swapped freely. Removing or changing it needs a special **extraction item**.
 - **Bloodline evolution (stages):** Bloodlines grow with the player and change *mechanics*, not just raw stats. Handled with MythicMobs conditional triggers.
 
-*Example: Berserker Bloodline*
+**The three base Bloodlines (D-31, D-48 decided 2026-09-30).** Full design, paths, numbers and build guide: [bloodlines.md](bloodlines.md).
 
-| Stage | Unlock | Name | Effect |
-|---|---|---|---|
-| 1 | on bind | Adrenaline | +20 % attack speed while HP < 30 % |
-| 2 | Lv. 20 | Pain is Power | taking damage restores Stamina |
-| 3 | Lv. 40 | Unstoppable | charge skills gain Super Armour |
-| 4 | Lv. 60 | Blood Rage | active skill: sacrifice HP to reset cooldowns |
-| 5 | Awakened | Death Defying | a fatal blow leaves HP at 1 + 3 s I-frame |
+| Bloodline | Body part | Core axis | Solo strength | Party bonus |
+|---|---|---|---|---|
+| **Fury** | Muscle | risk: lower HP = stronger | fastest clears | damage |
+| **Ward** | Bone | timing: guard, store, release | best survival | tank |
+| **Pulse** | Heart | flow: chain different skills for heal + damage pulses | most consistent in long fights | support |
+
+- Stage 1 and stage 4 (active) are fixed; **stages 2, 3 and 5 offer path A or B** → 8 builds per Bloodline (PoE2-style). Respec paths at the Bloodline Keeper.
+- **Solo first:** every Bloodline can recover, deal damage and survive alone; ally effects are bonuses only.
+- **More Bloodlines arrive with the story** (no fixed count). The base three are generalists; new ones are specialists with a new core axis and the same power budget (bloodlines.md §7).
+- Fury keeps the original Berserker stages (Adrenaline, Pain is Power, Unstoppable, Blood Rage, Death Defying) as its A-path spine.
 
 ### Passive Runes (2–4 slots)
 
@@ -136,16 +139,16 @@ The rigid class system is removed. Players build their character freely and mix 
 
 | ID | Decision | Options | Recommendation | Your call | Status |
 |---|---|---|---|---|---|
-| D-31 | Bloodlines at launch | 1 / 3 / 5 | **4**, one per play pattern: Berserker (melee risk/reward), plus e.g. a guardian (tank), an arcane (caster) and a hunter (ranged/mobility). Names/themes are yours | **3 base Bloodlines**, one per tutorial affinity: `BODY` (melee/tank), `MIND` (magic/tactics), `FREEDOM` (agility/ranger). Proposed: Berserker = BODY; MIND and FREEDOM Bloodlines still to design (M1) | PARTLY |
-| D-32 | How a new player gets their first Bloodline | choose at start / tutorial quest / random drop | Choose 1 of the launch Bloodlines at the end of the tutorial chapter (after trying each briefly) | **The Awakening / Bloodline Trial** (team design): hidden BODY/MIND/FREEDOM affinity tracked in the tutorial picks the Bloodline; tie → Encounter; one-time Reject → manual pick of the 3 base Bloodlines. See [awakening-tutorial.md](awakening-tutorial.md) | DECIDED |
+| D-31 | Bloodlines at launch | 1 / 3 / 5 | **4**, one per play pattern: Berserker (melee risk/reward), plus e.g. a guardian (tank), an arcane (caster) and a hunter (ranged/mobility). Names/themes are yours **3 base Bloodlines: Fury (Muscle), Ward (Bone), Pulse (Heart)**, full design in [bloodlines.md](bloodlines.md). More Bloodlines come with the story, balanced as specialists | DECIDED |
+| D-32 | How a new player gets their first Bloodline | choose at start / tutorial quest / random drop | Choose 1 of the launch Bloodlines at the end of the tutorial chapter (after trying each briefly) | **The Awakening / Bloodline Trial** (team design): hidden pulse / ward / fury affinity tracked in the tutorial picks the Bloodline; tie → Encounter; one-time Reject → manual pick of the 3 base Bloodlines. See [awakening-tutorial.md](awakening-tutorial.md) | DECIDED |
 | D-33 | Extraction item | source, cost, what happens to stage progress | Rare item (boss drop or high-cost NPC trade). **Stage progress is kept per Bloodline**, so switching back does not reset it | **Two extractor variants:** in-game (boss drop or very expensive NPC purchase) **keeps** stage progress; store/cash version **resets** to stage 1. Early game: in-game version first | DECIDED |
 | D-34 | Stage requirements | level only / level + quest | Stages 2–4 = player level (20/40/60). Stage 5 Awakened = level 60 + an awakening quest/solo dungeon | Every stage needs the **level** (20/40/60, Awakened) **and** unlock materials, from dungeons or lifeskills | DECIDED |
 | D-35 | Rune slots 2 → 4 | level / quest / enhancement | 2 at start, 3rd at Lv. 30, 4th from a mid-game quest | By level only: 2 slots at start, 3rd at Lv 30, 4th at Lv 50 | DECIDED |
 | D-35b | Rune rules | duplicates, rarity, source | No duplicate rune IDs equipped. Tiers I–III, dropped + crafted (Alchemy). Swap freely out of combat | No duplicate rune IDs; tiers I–III; drop + Alchemy craft; swap out of combat | DECIDED |
-| D-37 | Bloodline implementation | MythicMobs triggers only / Kotlin + MythicMobs | ⚠️ Kotlin owns binding, stage and extraction (player data). MythicMobs skills are the *effects*, triggered by our plugin's events (on-damaged, low-HP, fatal-blow). PoC with Berserker stages 1–5 | | OPEN |
+| D-37 | Bloodline implementation | MythicMobs triggers only / Kotlin + MythicMobs | ⚠️ Kotlin owns binding, stage and extraction (player data). MythicMobs skills are the *effects*, triggered by our plugin's events (on-damaged, low-HP, fatal-blow). PoC with Fury, Ward and Pulse stage 1 + one path each (Skript-first now, D-25) | | OPEN |
 | D-45 | Tutorial instance tech | MythicDungeons (not owned) / own instance module in wcmmo-core | Own small per-player instance module (reused by Lifezone code), unless the team buys MythicDungeons (TM5) | | OPEN |
 | D-46 | Trial scoring edge cases | — | Gap ≥ 4 = clear winner, ≤ 2 = Encounter (all steps are +2); 3-way tie or 0/0/0 → 3 entities; puzzle counts only the first solution, each combat trigger once. See review notes R1–R3 | As review notes R1–R3: gap ≥ 4 = clear winner, ≤ 2 = Encounter; 3-way tie or 0/0/0 → 3 spirits; gate counts first solution only; each combat trigger once | DECIDED |
-| D-48 | Bloodline names & trial themes | Concept art: **Heart / Bone / Muscle** + value trials (compassion / endurance / determination) · Spec 024: hidden BODY / MIND / FREEDOM from playstyle triggers | Keep one system: e.g. art names + playstyle triggers inside. See lore bible L10 | team to discuss | OPEN |
+| D-48 | Bloodline names & trial themes | Concept art: **Heart / Bone / Muscle** + value trials (compassion / endurance / determination) · Spec 024: hidden BODY / MIND / FREEDOM from playstyle triggers | Keep one system: e.g. art names + playstyle triggers inside. See lore bible L10 | **Value trials** from the art (compassion / endurance / determination) → **Pulse / Ward / Fury**; Heart / Bone / Muscle stay as the lore body parts; display names are one easy English word | DECIDED |
 
 ---
 
@@ -154,7 +157,7 @@ The rigid class system is removed. Players build their character freely and mix 
 Full team design + review notes: [awakening-tutorial.md](awakening-tutorial.md) · contract: spec 024.
 
 - *"You do not choose the Bloodline. The Bloodline chooses you."* No class dropdown.
-- The tutorial secretly scores 3 affinities from what the player does: **BODY** (brawl, break the wall), **MIND** (ranged scrolls, hidden lever), **FREEDOM** (sneak past, parkour over the roof). Each trigger = +2.
+- The tutorial secretly scores 3 affinities from what the player does: **Pulse** (save the wounded, free the trapped villager), **Ward** (hold the ring, walk the fear path), **Fury** (kill the brute, break the wall). Each trigger = +2.
 - Clear lead → that Bloodline is chosen. Close scores → **Bloodline Encounter**: the tied Bloodlines appear, argue, the player walks to one.
 - **Reveal → Accept / Reject.** Reject is allowed **once** and opens a manual pick of the 3 base Bloodlines.
 - Leaving the tutorial locks it in; later changes need the Extraction Item (D-33).
@@ -197,7 +200,7 @@ To prevent stat bloat, progression is strictly split. Each system has one job:
 | CC skill | damage + CC | blocked | damage, **no CC** | miss |
 | Guard/armour-break skill | damage | guard broken + damage | damage **+ CC** | miss |
 
-Bloodlines plug into this: Berserker *Unstoppable* grants Super Armour, *Death Defying* grants I-frame.
+Bloodlines plug into this: Fury *Unstoppable* grants Super Armour, *Death Defying* grants I-frame; Ward builds on Frontguard and perfect guards.
 
 | ID | Decision | Options | Recommendation | Your call | Status |
 |---|---|---|---|---|---|
@@ -325,7 +328,7 @@ Placeholder. To decide: ModelEngine mounts, pet buffs vs cosmetic, loot pickup.
 | Phase | Goal | Specs |
 |---|---|---|
 | **0: PoC** | Prove risky tech: FPV animation (D-05), combat states, `Shift+RMB` bar swap (D-03), Bloodline hooks (D-37), identify (D-10), Mastery CDR via PlaceholderAPI (D-36), Lifezone schematic + Nexo furniture | 004 |
-| **1: Vertical slice** | Tutorial + 1 region, **Berserker Bloodline stages 1–3**, 2 Runes, 4 weapons (Sword, Hammer, Bow, Staff) with Mastery to 25, stats gating, basic gear, 1 solo dungeon | 005–012, 014, 016, 021–024 |
+| **1: Vertical slice** | Tutorial + 1 region, **all 3 base Bloodlines (Fury, Ward, Pulse) stages 1–3**, 2 Runes, 4 weapons (Sword, Hammer, Bow, Staff) with Mastery to 25, stats gating, basic gear, 1 solo dungeon | 005–012, 014, 016, 021–024 |
 | **2: Core MMO** | All launch Bloodlines to stage 5, all weapons, enhancement to V, Mid/High zones, stationary farming, world boss, party dungeon | 013–017, 021–023 |
 | **3: Lifezone** | Instances, housing migration, lifeskills, furniture | 018–020 |
 | **4: Social** | Economy, guilds & node war, pets & mounts | §10–12 (not specced) |
@@ -348,6 +351,7 @@ Placeholder. To decide: ModelEngine mounts, pet buffs vs cosmetic, loot pickup.
 | 2026-09-28 | D-05 | FPV testing starts with the bought Draconic Dual Sword FPV pack | owner |
 | 2026-09-28 | D-39 | MythicHUD = always-on HUD; UltimateUI = shops, quest list, other custom UI | owner |
 | 2026-09-29 | D-01, D-02, D-03a, D-04, D-04c, D-06b, D-06c, D-06d, D-07, D-07b, D-08b, D-11, D-12, D-12c, D-12d, D-15b, D-16, D-17b, D-18, D-26, D-30, D-33, D-34, D-35, D-35b, D-36b, D-41, D-42, D-46 | Decision session: 29 decided, D-36 partly (test values), D-17 loot refined | owner |
+| 2026-09-30 | D-31, D-48 | 3 base Bloodlines Fury / Ward / Pulse with A/B paths; value trials in the tutorial; future Bloodlines as specialists | owner |
 | 2026-09-29 | D-47 | Skript for prototypes, tutorial/quest glue, tools; Kotlin for hot paths and player data | owner |
 | 2026-09-29 | D-32, D-31 (part) | The Awakening tutorial picks the first Bloodline; 3 base Bloodlines = BODY / MIND / FREEDOM | team design |
 | 2026-09-29 | D-19 | Lifezone will be our own plugin; talk about it after the combat/MMO core is mostly finished | owner |

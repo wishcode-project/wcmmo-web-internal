@@ -28,8 +28,8 @@
 | Plugin versions | all bought → always the latest build; record the version at install | `../docs/plugins.md` |
 | Decision session (2026-09-29) | 29 decisions settled: vitality, stats, combat, weapons, Bloodline/Rune rules, gear, world, extras. D-36 test values only | GDD v2 decision log |
 | Skript vs Kotlin (D-47) | Skript for prototypes, tutorial/quest glue, tools; Kotlin for hot paths + player data. Until the D-25 review, Skript covers the hot paths too | `../docs/plugins.md` §3.8 |
-| First Bloodline (D-32) | **The Awakening** tutorial (team design): hidden BODY/MIND/FREEDOM affinity, Encounter, one-time Reject | `awakening-tutorial.md`, spec 024 |
-| Base Bloodlines (D-31, part) | 3 base Bloodlines = BODY / MIND / FREEDOM | GDD v2 §2 |
+| First Bloodline (D-32) | **The Awakening** tutorial (team design): hidden Pulse/Ward/Fury affinity, Encounter, one-time Reject | `awakening-tutorial.md`, spec 024 |
+| Base Bloodlines (D-31, D-48) | **Fury (Muscle) / Ward (Bone) / Pulse (Heart)**, A/B paths at stages 2/3/5, solo first, future Bloodlines as specialists | `bloodlines.md`, spec 021 |
 | FPV test (D-05) | start with the bought **Draconic Dual Sword FPV** pack (`~/Downloads/draconic_dual_sword_FPV`) | spec 010 |
 
 ## Pending: plugins (D-00)
@@ -69,7 +69,7 @@ Full list with docs and overlaps: [`../docs/plugins.md`](../docs/plugins.md). Ow
 
 | # | Question | Decision |
 |---|---|---|
-| M1 | The **MIND** and **FREEDOM** Bloodlines: names, playstyle, 5 stages each. Is Berserker the BODY one? | D-31 |
+| ~~M1~~ | ~~The other base Bloodlines~~ **Answered 2026-09-30:** Fury / Ward / Pulse ([bloodlines.md](bloodlines.md)) | D-31, D-48 |
 | M2 | Exact extractor prices and the stage unlock materials per stage (rules decided: D-33, D-34) | D-33, D-34 |
 | M14 | Name clash: tutorial "The Awakening" vs stage 5 "Awakened"; rename one? | R14 |
 | M3 | 3 unique skills per weapon (names + effects); list of 8 weapons is decided | D-04 |

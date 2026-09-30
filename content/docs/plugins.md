@@ -165,7 +165,7 @@ Several plugins do the same job. Two plugins owning one job means double config,
 - Scripts live in `wcmmo/plugins/Skript/scripts/`, tracked in git, named `wcmmo_<area>_<name>.sk` (e.g. `wcmmo_awakening_triggers.sk`).
 - **Never track** `plugins/Skript/variables.csv*`: it holds player data. Add it to `wcmmo/.gitignore` when Skript is installed.
 - Every script's header says which spec it belongs to. A script that grows past ~300 lines or runs every tick goes on the list for the D-25 review.
-- Player data kept in Skript variables (Bloodline, stage, Mastery…) uses the registered IDs (`wcmmo_bloodline_berserker`…) so it can be migrated if the system later moves to our own plugin.
+- Player data kept in Skript variables (Bloodline, stage, Mastery…) uses the registered IDs (`wcmmo_bloodline_fury`…) so it can be migrated if the system later moves to our own plugin.
 - Script variables that other plugins need are exposed with skript-placeholders as `%wcmmo_<name>%`, never read straight from `variables.csv`.
 
 ## 4. Install order on the dev server

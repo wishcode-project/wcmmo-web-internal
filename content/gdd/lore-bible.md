@@ -24,7 +24,8 @@
 2. **It failed.** They were defeated. Their **body and soul were torn apart** and **all memory was lost**.
 3. **Pieces of their soul survived as fragments.** In the present, these fragments appear to the player as helpers: they teach, grant power, and guide the player towards parts of the truth.
 4. **The fragments are the player.** The stronger the player grows, the more the fragments rejoin, and the more memories return.
-5. The person the player has been searching for all along **is themselves**. The one who tried to unite the Bloodlines was **not a saviour but the cause of the old catastrophe**.
+5. **Why Muscle, Bone and Heart:** the base Bloodlines are parts of one body. Uniting every Bloodline meant building a **"complete body"**, the forbidden goal of the past self. Every new Bloodline found in the story is another part (Eye, Breath, Blood, Nerve…), each one a step closer to what the past self wanted.
+6. The person the player has been searching for all along **is themselves**. The one who tried to unite the Bloodlines was **not a saviour but the cause of the old catastrophe**.
 
 ### The Selection Stone (ศิลาคัดสรร)
 
@@ -108,7 +109,7 @@ Boss lines (draft):
 | First name | **`???`** |
 | First description | *ก้อนหินเก่าแก่ที่มีลวดลายบางอย่างสลักอยู่* (an ancient stone with some kind of pattern carved into it) |
 | Never | Never call it "Heart Bloodline Stone" or anything that explains it. The name may change later as the player learns more (L6) |
-| Pattern | Shows the player's own Bloodline mark (BODY / MIND / FREEDOM line), set by spec 024 |
+| Pattern | Shows the player's own Bloodline mark: Fury (Muscle), Ward (Bone) or Pulse (Heart), set by spec 024 |
 | Story use | Key item: NPC reactions, the stone-base moment (1.7), later chapters |
 | Systems | Needs an item ID in the registry when specced (e.g. a quest item in spec 016); per-player pattern read from the Bloodline bound in spec 021 |
 
@@ -148,7 +149,7 @@ The payoff only works if the player **recognises the place by themselves**. The 
 | L7 | How many years pass between Chapter 0 and Chapter 1? Stated anywhere, or always "unknown"? | |
 | L8 | How does "trying to unite every Bloodline" fit a player who has only one Bloodline slot? (e.g. the fragments slowly show traces of other Bloodlines) | Could become a late-game system |
 | L9 | The name clash noted in the tutorial review (R14): tutorial "The Awakening" vs Bloodline stage 5 "Awakened". With this lore, could stage 5 be the moment the player **reclaims** part of their past self? | Could turn the clash into a feature |
-| L10 | **Bloodline names and trial themes.** Concept board: 3 Bloodlines **Heart / Bone / Muscle** (red / blue / green) and 3 value trials: help others (compassion), overcome fear (endurance), push through obstacles (determination). Spec 024: hidden affinities BODY / MIND / FREEDOM scored from playstyle triggers (brawl / ranged / sneak, wall / lever / roof), and Berserker proposed as BODY | **Team to discuss** (D-48). Options: names from the art + playstyle triggers inside, or the art's value trials fully |
+| L10 | **Bloodline names and trial themes.** Concept board: 3 Bloodlines **Heart / Bone / Muscle** (red / blue / green) and 3 value trials: help others (compassion), overcome fear (endurance), push through obstacles (determination). Spec 024: hidden affinities BODY / MIND / FREEDOM scored from playstyle triggers (brawl / ranged / sneak, wall / lever / roof), and Berserker proposed as BODY | **Decided 2026-09-30 (D-48):** Pulse (Heart · compassion), Ward (Bone · endurance), Fury (Muscle · determination). See [bloodlines.md](bloodlines.md) |
 | L11 | The first city's real name | "wcmmo" placeholder until named |
 | L12 | The central sacred hall's role: the concept board calls it the Selection centre and "tutorial start". With the lore (the Selection happened in the past), is it where the Stone's remains or the Selection's memory are kept today? | |
 | L13 | Do the Chapter 1 dialogue answers (1.5) change anything (e.g. a small affinity nudge or a memory hint), or are they flavour only? | |

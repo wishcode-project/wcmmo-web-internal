@@ -32,7 +32,7 @@
 |---|---|---|---|---|
 | HP | 100 | +5, +DEF utility (006, D-30) | 1 %/s out of combat (5 s) | |
 | Mana | 100 | +2, +INT utility (D-30) | 2/s | |
-| Stamina | 100 | +0, +AGI utility (D-30); Berserker stage 2 restores on hit (021) | 10/s after 1 s without spending | |
+| Stamina | 100 | +0, +AGI utility (D-30); Fury stage 2A restores on hit (021) | 10/s after 1 s without spending | |
 
 | Action | Stamina cost |
 |---|---|
