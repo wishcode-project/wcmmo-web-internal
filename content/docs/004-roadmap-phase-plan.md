@@ -12,7 +12,7 @@
 
 | Phase | Goal | Specs | Exit criteria |
 |---|---|---|---|
-| 0 — PoC | prove risky tech with vendor plugins + Skript | this spec | all PoCs have a result; D-00, D-05, D-19, D-37 decided; per-system review done (own plugin vs vendor/Skript, D-25) |
+| 0 — PoC | prove risky tech with vendor plugins + Skript (7 PoCs; PoC-5 moved to Phase 3) | this spec | all 7 PoCs have a result; D-05, D-37, D-44 decided; per-system review done (own plugin vs vendor/Skript, D-25) |
 | 1 — Vertical slice | tutorial + 1 region, Berserker Bloodline stages 1–3, 2 Rune slots, 4 weapons (Sword, Hammer, Bow, Staff) with Mastery to 25, stat gating, 1 solo dungeon | 005–012, 014, 016, 021–024 | 5 testers finish chapter 1 solo; MSPT ≤ 40 with 20 bots/players |
 | 2 — Core MMO | all launch Bloodlines to stage 5, all weapons, enhancement to V, Mid/High zones, stationary farming, world boss, party dungeon | 013–017, 021–023 | world boss with 50 players at MSPT ≤ 45 |
 | 3 — Lifezone | instances, housing, professions, furniture | 018–020 | 20/20 Lifezone with pastes and no TPS dip below 19 |
@@ -42,18 +42,23 @@
 |---|---|---|---|---|---|
 | PoC-1 | Can we show souls-like first-person attack animations? | a Sword 3-hit combo animates in first person, synced within 100 ms at 50 ms ping | animated item model + particles + sounds | 010 | D-05 |
 | PoC-2 | Frontguard / I-frame / Super Armour as damage/CC rules | interaction matrix in 009 passes with 2 players + 1 MythicMob | reduced set: I-frame + Super Armour only | 009 | D-06b |
-| PoC-3 | `Shift + Right Click` bar swap without input clashes (D-03 decided) | swap works while holding bow, crossbow, food, block, and looking at a chest; none of those actions trigger | `Shift+F` | 007 | D-03 |
+| PoC-3 | `Shift + Right Click` bar swap without input clashes (D-03 decided) | swap works while holding bow, crossbow, food, block, an FPV weapon whose right click attacks (Draconic pack), and looking at a chest; none of those actions trigger | `Shift+F` for single weapons; sneak + hotbar scroll for dual weapons (they use F / off-hand) | 007 | D-03 |
 | PoC-7 | Bloodline hooks drive MythicMobs effects on players | Berserker stages 1–5 pass spec 021 tests | stage effects done fully in Skript (no MythicMobs skills) | 021 | D-37 |
-| PoC-8 | Mastery cooldown math via PlaceholderAPI in MythicMobs | cooldown = base × (1 − min(0.20, mastery × 0.004)) measured in game | cooldown applied by a Skript skill wrapper | 023 | D-36 |
+| PoC-8 | Mastery cooldown math via PlaceholderAPI in MythicMobs | the spec 023 formula (test build: cap 30, CDR cap 20 %) matches in game within 1 tick | cooldown applied by a Skript skill wrapper | 023 | D-36 |
 | PoC-4 | Identify random gear | an unidentified MMOItems drop becomes a rolled item via an Identify scroll/NPC | fixed crafted/quest items | 012 | D-10 |
-| PoC-5 | Lifezone schematic with Nexo furniture | save a 32×32 house with 20 Nexo furniture pieces, paste to another plot async, furniture still works | furniture re-spawned from a saved list instead of schematic entities | 018 | D-19, D-20 |
-| PoC-6 | Stamina replaces hunger | hunger never drops; stamina shown per D-01; dash consumes stamina | action-bar display | 005 | D-01 |
+| PoC-6 | Stamina replaces hunger | hunger stays full and hidden; stamina shown on the MythicHUD bar (D-01); sprint drains a little, dash more (D-03a) | action-bar display | 005 | D-01 |
 
 Each PoC is one FIRE intent in its target repo, mode `validate`, with a `/spark profiler` link in the test report.
 
+## Later tests (not part of Phase 0)
+
+| Test | Question | Pass condition | Fallback | Spec | Moved because |
+|---|---|---|---|---|---|
+| PoC-5 → Phase 3 | Lifezone schematic with Nexo furniture | save a 32×32 house with 20 Nexo furniture pieces, paste to another plot async, furniture still works | furniture re-spawned from a saved list instead of schematic entities | 018 | Lifezone is our own plugin, built after the combat/MMO core (D-19, 2026-09-29). Run it when Phase 3 starts |
+
 ## Performance
 
-PoC-2, PoC-5 must report MSPT with 20 concurrent actions (bots or testers). PoC-2 and PoC-7 run Skript on every hit: their `/spark` numbers are the main input for the D-25 per-system review.
+PoC-2 must report MSPT with 20 concurrent actions (bots or testers). PoC-2 and PoC-7 run Skript on every hit: their `/spark` numbers are the main input for the D-25 per-system review.
 
 ## Test plan (dev box)
 
@@ -76,5 +81,5 @@ PoCs run on `develop` only, on branches `poc/NNN-slug`. Nothing ships to `main` 
 
 ## Open questions
 
-- D-00, D-27 (see GDD v2) block P1–P3.
+- D-00 is decided (all owned except MythicDungeons). D-38 (repo layout) still blocks P2.
 - After Phase 0: per-system review (D-25), which systems move into `wcmmo-plugins` and which stay vendor/Skript.
