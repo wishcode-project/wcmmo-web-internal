@@ -20,12 +20,14 @@
 | Not translated | player chat |
 | Public website | already EN / TH; uses the same names |
 
+**Goal (owner, 2026-10-01): put as much player-facing text through Triton as possible**, including chat channel names and system messages (spec 031). Anything that can't go through Triton is listed in the vertical-slice review.
+
 ## Translation keys
 
 | Part | Pattern | Example |
 |---|---|---|
 | key | `wcmmo.<area>.<name>` | `wcmmo.death.fallen` |
-| areas | `ui`, `hud`, `skill`, `rune`, `bloodline`, `item`, `quest`, `npc`, `death`, `system` | |
+| areas | `ui`, `hud`, `chat`, `skill`, `rune`, `bloodline`, `item`, `quest`, `npc`, `death`, `system` | |
 | in plugin configs | Triton's language tag around the key (`[lang]wcmmo.death.fallen[/lang]`) | MMOItems lore, MythicMobs names, LuxDialogues lines, UltimateUI / MythicHUD text, Skript messages |
 
 Source language for writing: **Thai for story and dialogue** (the story team writes in Thai), **English for system / UI text**; the other language is translated from it. Every key needs both before a release.

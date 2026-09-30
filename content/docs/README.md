@@ -39,6 +39,7 @@ as the spec that introduces it.** Specs link back here instead of redefining any
 | 028 | [Levelling, party XP & loot](028-levelling-party-loot.md) | DRAFT | wcmmo | validate |
 | 029 | [HUD layout](029-hud.md) | DRAFT | wcmmo | confirm |
 | 030 | [Languages & translation](030-languages.md) | DRAFT | wcmmo | confirm |
+| 031 | [Chat channels](031-chat-channels.md) | DRAFT | wcmmo | confirm |
 
 Design intent lives in [`../gdd/wcmmo-gdd-v2.md`](../gdd/wcmmo-gdd-v2.md) (v1 is superseded); decisions `D-xx` are tracked there.
 Coming soon (GDD v2 §10–12, not specced): economy & trade, guild & node war, pets & mounts.
@@ -252,6 +253,8 @@ Target LuckPerms layout (not live yet — CMI ranks are placeholders until LuckP
 | `wcmmo.admin.bloodline` | admin | 021 | |
 | `wcmmo.admin.remnant` | admin | 025 | |
 | `wcmmo.admin.waystone` | admin | 027 | |
+| `wcmmo.chat.shout` | default | 031 | |
+| `wcmmo.chat.spy` | mod | 031 | moderation view of private channels |
 | `wcmmo.admin.awakening` | admin | 024 | reset / debug |
 | `wcmmo.awakening.skip` | admin, testers | 024 | skip tutorial |
 | `wcmmo.admin.lifezone` | admin | 018 | |

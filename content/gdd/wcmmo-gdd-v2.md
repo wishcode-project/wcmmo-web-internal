@@ -198,6 +198,7 @@ To prevent stat bloat, progression is strictly split. Each system has one job:
 | D-60 | Skill casting keys | click combos / scroll / number keys | **Keys 1–5 cast the active bar's skills while holding a weapon**; 6–9 select items | as recommended | DECIDED |
 | D-61 | HUD layout | — | Bottom-centre block (wooden style, reference in `boards/hud-reference.png`): HP panel left, Mana panel right, **level number in a centre hex whose fill is stamina** (green / yellow / red, running icon while sprinting), segmented **XP bar** below, **skill bar + ultimate above**, vanilla hotbar framed at the bottom; party top-left, boss bar top-centre, quests + buffs top-right. Spec 029 | owner's layout | DECIDED |
 | D-62 | "The Awakening" (tutorial) vs Bloodline stage 5 "Awakened" | rename one / keep both | **Keep both on purpose:** Chapter 0 is the first awakening (no memory); stage 5 is awakening **again**, reclaiming part of the past self's power (lore bible §2) | keep both, tie to lore | DECIDED |
+| D-63 | Chat | vanilla / channels | **Channels:** Global, Local (100 blocks, default), Party, Guild, Private, Shout (60 s CD, highlighted) + an All view; shortcuts `/g /l /p /gc /msg /r /shout`; a clickable channel bar from `/chat` (real tabs under the input need a client mod); NPC spam merged; Triton for labels / system text, player text not translated. Spec 031 | as recommended | DECIDED |
 | D-36b | Weapon swap exploit | — | Mastery CDR applies only to that weapon's skills. General skills use the held weapon's Mastery | Mastery CDR = that weapon's skills + general skills based on the weapon held | DECIDED |
 
 ---
@@ -365,6 +366,7 @@ Placeholder. To decide: ModelEngine mounts, pet buffs vs cosmetic, loot pickup.
 | 2026-09-28 | D-05 | FPV testing starts with the bought Draconic Dual Sword FPV pack | owner |
 | 2026-09-28 | D-39 | MythicHUD = always-on HUD; UltimateUI = shops, quest list, other custom UI | owner |
 | 2026-09-29 | D-01, D-02, D-03a, D-04, D-04c, D-06b, D-06c, D-06d, D-07, D-07b, D-08b, D-11, D-12, D-12c, D-12d, D-15b, D-16, D-17b, D-18, D-26, D-30, D-33, D-34, D-35, D-35b, D-36b, D-41, D-42, D-46 | Decision session: 29 decided, D-36 partly (test values), D-17 loot refined | owner |
+| 2026-10-01 | D-63 | Chat channels with a clickable channel bar | owner |
 | 2026-10-01 | D-27, D-62 | Thai + English with English proper names; Awakening / Awakened kept as a story link | owner |
 | 2026-10-01 | D-60, D-61 | Keys 1–5 cast skills; HUD layout (level hex with stamina fill, XP bar, skill bar above) | owner |
 | 2026-10-01 | D-57, D-58, D-59 | Death (auto-respawn, light penalties), levelling targets, party XP and loot ownership | owner |
