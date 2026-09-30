@@ -59,7 +59,9 @@ export const posts: Post[] = (() => {
     const post = bySlug.get(e.slug)
     if (post) post.th = e.text
   }
-  return [...bySlug.values()].sort((a, b) => b.date.localeCompare(a.date))
+  // newest first; posts on the same day by devlog number ("Devlog #3" before "#2")
+  const num = (p: Post) => Number(/#(\d+)/.exec(p.en.title)?.[1] ?? 0)
+  return [...bySlug.values()].sort((a, b) => b.date.localeCompare(a.date) || num(b) - num(a))
 })()
 
 interface ChapterText {

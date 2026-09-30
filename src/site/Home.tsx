@@ -20,6 +20,7 @@ function Hero() {
         <h1 className="sr-only">{site.name}</h1>
         <Wordmark size="xl" />
         <p className="mt-5 max-w-xl font-display text-xl text-cream drop-shadow-[0_2px_0_#000] sm:text-2xl">{c.tagline}</p>
+        <p className="mt-2 font-display text-sm text-paper-light drop-shadow-[0_2px_0_#000]">🌐 {c.languages}</p>
         <div className="mt-8">
           <ServerPlate />
         </div>

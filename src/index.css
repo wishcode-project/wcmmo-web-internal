@@ -219,7 +219,9 @@
   .prose-paper p:has(> .story-fig + .story-fig) { @apply grid gap-4 sm:grid-cols-2; }
   .prose-paper p:has(> .story-fig + .story-fig) .story-fig { @apply my-0; }
   .prose-paper p:has(> .story-fig + .story-fig) .story-fig img { @apply aspect-video; }
-  .prose-paper table { @apply w-full min-w-[560px] border-collapse text-sm; }
+  .prose-paper table { @apply w-full border-collapse text-sm; }
+  /* spec tables sit in a scrollable .table-wrap, so they may stay wide; devlog/lore tables wrap instead */
+  .prose-paper .table-wrap table { @apply min-w-[560px]; }
   .prose-paper th { @apply bg-bark px-3 py-2 text-left font-display font-normal text-cream; }
   .prose-paper td { @apply border-b border-bark/30 px-3 py-2 align-top; }
   .prose-paper tbody tr:nth-child(even) td { @apply bg-paper-light/50; }

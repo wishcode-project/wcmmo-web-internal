@@ -10,17 +10,19 @@ export const site = {
   discordUrl: null as string | null,
 }
 
-export const copy: Dict<{ tagline: string; pitch: string; edition: string }> = {
+export const copy: Dict<{ tagline: string; pitch: string; edition: string; languages: string }> = {
   en: {
     tagline: 'A classless action MMORPG, built in Minecraft.',
     pitch:
       'No classes. No fixed paths. Your Bloodline shapes how you fight, the weapons you master decide what you can do, and every hit you dodge is on you.',
     edition: 'Java Edition',
+    languages: 'Play in English or Thai',
   },
   th: {
     tagline: 'เกม Action MMORPG ไร้คลาส สร้างบน Minecraft',
     pitch: 'ไม่มีคลาส ไม่มีเส้นทางตายตัว สายเลือดของคุณกำหนดวิธีต่อสู้ อาวุธที่คุณชำนาญกำหนดสิ่งที่คุณทำได้ และทุกการหลบคือฝีมือของคุณเอง',
     edition: 'Java Edition',
+    languages: 'เล่นได้ทั้งภาษาไทยและภาษาอังกฤษ',
   },
 }
 
@@ -131,12 +133,12 @@ export const features: Feature[] = [
       en: {
         title: 'Zones, bosses & dungeons',
         short: 'Earn your way into harder zones. Fight world bosses together.',
-        body: 'Every zone has a power level you need to match. Farm in the open world or hold a spot and call waves of monsters to you. World bosses reward everyone who fought, not just the last hit. Solo and party dungeons wait for the brave.',
+        body: 'Every zone has a power level you need to match. Normal monsters are yours to stun and push around; elites block or shrug off hits until you find the gap; bosses can\'t be controlled at all, until their stun phase opens a window. Farm in the open world or hold a spot and call waves of monsters to you. World bosses reward everyone who fought, not just the last hit. Solo and party dungeons wait for the brave.',
       },
       th: {
         title: 'โซน บอส & ดันเจียน',
         short: 'ไต่ระดับสู่โซนที่ยากขึ้น ร่วมกันล้มเวิลด์บอส',
-        body: 'ทุกโซนมีระดับพลังที่คุณต้องไปให้ถึง ฟาร์มในโลกเปิด หรือยึดจุดแล้วเรียกมอนสเตอร์มาเป็นระลอก เวิลด์บอสให้รางวัลทุกคนที่ร่วมสู้ ไม่ใช่แค่คนตีดาบสุดท้าย และยังมีดันเจียนทั้งแบบเดี่ยวและปาร์ตี้รอผู้กล้าอยู่',
+        body: 'ทุกโซนมีระดับพลังที่คุณต้องไปให้ถึง มอนสเตอร์ธรรมดาคุณสตันหรือผลักได้ตามใจ อีลิตจะกันหรือไม่สะทกสะท้านจนกว่าคุณจะหาช่องเจอ ส่วนบอสควบคุมไม่ได้เลย จนกว่าเฟสสตันจะเปิดช่องให้ ฟาร์มในโลกเปิด หรือยึดจุดแล้วเรียกมอนสเตอร์มาเป็นระลอก เวิลด์บอสให้รางวัลทุกคนที่ร่วมสู้ ไม่ใช่แค่คนตีดาบสุดท้าย และยังมีดันเจียนทั้งแบบเดี่ยวและปาร์ตี้รอผู้กล้าอยู่',
       },
     },
   },
