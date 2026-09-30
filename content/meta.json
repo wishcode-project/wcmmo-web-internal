@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-09-30T17:49:23.225Z",
-  "head": "a689934",
+  "syncedAt": "2026-09-30T17:56:31.309Z",
+  "head": "b19178d",
   "branch": "main",
   "commits": [
+    {
+      "sha": "b19178d",
+      "date": "2026-10-01T00:56:16+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(gdd): fix the D-31 row (missing column separator)",
+      "insertions": 1,
+      "deletions": 1,
+      "files": 1
+    },
     {
       "sha": "a689934",
       "date": "2026-10-01T00:49:11+07:00",
@@ -338,6 +347,6 @@
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
     "gdd/trailer.md": "2026-09-30T00:24:58+07:00",
     "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",
-    "gdd/wcmmo-gdd-v2.md": "2026-10-01T00:49:11+07:00"
+    "gdd/wcmmo-gdd-v2.md": "2026-10-01T00:56:16+07:00"
   }
 }
