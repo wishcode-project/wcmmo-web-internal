@@ -21,7 +21,7 @@ Weapon types (D-04 *proposed*; **bold** = vertical slice):
 
 | Type ID | Family | Identity | Resource |
 |---|---|---|---|
-| **`WCMMO_SWORD`** | melee | balanced, fast, short I-frames | Stamina |
+| **`WCMMO_SWORD`** | melee | balanced, fastest attack speed, quick combo cancels | Stamina |
 | `WCMMO_GREATSWORD` | melee | slow AOE, Super Armour on heavy swings, breaks guard | Stamina |
 | **`WCMMO_HAMMER`** | melee | heavy, breaks guard + Super Armour | Stamina |
 | `WCMMO_SPEAR` | melee | longest reach, Frontguard stance | Stamina |

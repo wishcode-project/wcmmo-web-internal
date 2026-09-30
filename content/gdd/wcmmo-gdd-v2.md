@@ -191,7 +191,7 @@ To prevent stat bloat, progression is strictly split. Each system has one job:
 
 ## 4. Combat & mechanics
 
-- **BDO mechanics:** **Frontguard** (frontal block), **I-frame** (invincibility frames) and **Super Armour** (immune to crowd control/stagger).
+- **BDO mechanics:** **Frontguard** (frontal block), **I-frame** (invincibility frames) and **Super Armour** (immune to crowd control/stagger). **I-frame is deferred (D-49):** Phase 0 builds Frontguard and Super Armour only.
 - **FPV animation:** souls-like first-person combat animations using MC models and ModelEngine.
 
 | Attacker ↓ / Defender state → | Normal | Frontguard (hit from front) | Super Armour | I-frame |
@@ -200,7 +200,7 @@ To prevent stat bloat, progression is strictly split. Each system has one job:
 | CC skill | damage + CC | blocked | damage, **no CC** | miss |
 | Guard/armour-break skill | damage | guard broken + damage | damage **+ CC** | miss |
 
-Bloodlines plug into this: Fury *Unstoppable* grants Super Armour, *Death Defying* grants I-frame; Ward builds on Frontguard and perfect guards.
+Bloodlines plug into this: Fury *Unstoppable* and *Death Defying* grant Super Armour; Ward builds on Frontguard and perfect guards.
 
 | ID | Decision | Options | Recommendation | Your call | Status |
 |---|---|---|---|---|---|
@@ -209,6 +209,7 @@ Bloodlines plug into this: Fury *Unstoppable* grants Super Armour, *Death Defyin
 | D-06b | Frontguard on hit | 0 / chip / stamina drain | Chip 20 % + stamina drain; guard breaks at 0 stamina | Chip 20 % + stamina drain per blocked hit; guard breaks at 0 stamina (1 s stagger) | DECIDED |
 | D-06c | PvP in v2 | none / arenas / open world | Arenas only until guild design (§11) | **Now:** arenas only. **Later (after guild design):** open-world PvP outside safe zones, only between players **Lv 25+** | DECIDED |
 | D-06d | Which weapons break guard / Super Armour | — | Hammer and Greatsword heavy skills break both | **Hybrid:** every weapon has 1 guard-break skill (breaks Frontguard only, long cooldown). **Hammer + Greatsword**: all heavy skills break Frontguard **and** Super Armour, and their normal hits drain guard stamina ×2 | DECIDED |
+| D-49 | I-frame in Phase 0? | keep (simple no-damage window) / defer / drop | Keep the simple version (an `onDamaged` aura that cancels damage for a few ticks) | **Defer:** not in Phase 0. Dash is pure movement, Fury's Death Defying uses Super Armour instead; may return later | DECIDED |
 
 ---
 
@@ -351,6 +352,7 @@ Placeholder. To decide: ModelEngine mounts, pet buffs vs cosmetic, loot pickup.
 | 2026-09-28 | D-05 | FPV testing starts with the bought Draconic Dual Sword FPV pack | owner |
 | 2026-09-28 | D-39 | MythicHUD = always-on HUD; UltimateUI = shops, quest list, other custom UI | owner |
 | 2026-09-29 | D-01, D-02, D-03a, D-04, D-04c, D-06b, D-06c, D-06d, D-07, D-07b, D-08b, D-11, D-12, D-12c, D-12d, D-15b, D-16, D-17b, D-18, D-26, D-30, D-33, D-34, D-35, D-35b, D-36b, D-41, D-42, D-46 | Decision session: 29 decided, D-36 partly (test values), D-17 loot refined | owner |
+| 2026-09-30 | D-49 | I-frame deferred out of Phase 0 | owner |
 | 2026-09-30 | D-31, D-48 | 3 base Bloodlines Fury / Ward / Pulse with A/B paths; value trials in the tutorial; future Bloodlines as specialists | owner |
 | 2026-09-29 | D-47 | Skript for prototypes, tutorial/quest glue, tools; Kotlin for hot paths and player data | owner |
 | 2026-09-29 | D-32, D-31 (part) | The Awakening tutorial picks the first Bloodline; 3 base Bloodlines = BODY / MIND / FREEDOM | team design |

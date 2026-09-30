@@ -41,7 +41,7 @@
 | PoC | Question | Pass condition | Fallback | Spec | Decision |
 |---|---|---|---|---|---|
 | PoC-1 | Can we show souls-like first-person attack animations? | a Sword 3-hit combo animates in first person, synced within 100 ms at 50 ms ping | animated item model + particles + sounds | 010 | D-05 |
-| PoC-2 | Frontguard / I-frame / Super Armour as damage/CC rules | interaction matrix in 009 passes with 2 players + 1 MythicMob | reduced set: I-frame + Super Armour only | 009 | D-06b |
+| PoC-2 | Frontguard / Super Armour as damage/CC rules (I-frame deferred, D-49) | interaction matrix in 009 passes with 2 players + 1 MythicMob | reduced set: Super Armour only | 009 | D-06b |
 | PoC-3 | `Shift + Right Click` bar swap without input clashes (D-03 decided) | swap works while holding bow, crossbow, food, block, an FPV weapon whose right click attacks (Draconic pack), and looking at a chest; none of those actions trigger | `Shift+F` for single weapons; sneak + hotbar scroll for dual weapons (they use F / off-hand) | 007 | D-03 |
 | PoC-7 | Bloodline hooks drive MythicMobs effects on players | Fury, Ward and Pulse stage 1 + one path each pass their spec 021 tests, with `/spark` numbers | stage effects done fully in Skript (no MythicMobs skills) | 021 | D-37 |
 | PoC-8 | Mastery cooldown math via PlaceholderAPI in MythicMobs | the spec 023 formula (test build: cap 30, CDR cap 20 %) matches in game within 1 tick | cooldown applied by a Skript skill wrapper | 023 | D-36 |

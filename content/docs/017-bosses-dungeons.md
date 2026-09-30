@@ -12,7 +12,7 @@
 
 | Repo | File | What |
 |---|---|---|
-| wcmmo-content | MythicMobs bosses | phases, mechanics requiring I-frame/Frontguard |
+| wcmmo-content | MythicMobs bosses | phases, mechanics requiring Frontguard, perfect guards and positioning (I-frame deferred, D-49) |
 | wcmmo-content | MythicDungeons | solo + party dungeon templates |
 | wcmmo-plugins | `loot` module | damage-contribution tracking and distribution (D-17) |
 | wcmmo | CMI Schedules or plugin scheduler | world boss times (D-17b) |

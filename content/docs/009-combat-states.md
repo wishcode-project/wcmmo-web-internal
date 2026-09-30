@@ -5,7 +5,7 @@
 
 ## Big picture
 
-- **Player story:** As a player, I dodge through attacks (I-frame), block from the front (Frontguard), and power through CC (Super Armour); heavy Hammer/Greatsword skills break guard and Super Armour (D-06d). Bloodlines can grant states (Fury *Unstoppable* → Super Armour, *Death Defying* → I-frame; Ward is built on Frontguard and perfect guards, spec 021).
+- **Player story:** As a player, I block from the front (Frontguard) and power through CC (Super Armour). **I-frame (dodging through attacks) is deferred (D-49, 2026-09-30):** not built in Phase 0, may return later; heavy Hammer/Greatsword skills break guard and Super Armour (D-06d). Bloodlines can grant states (Fury *Unstoppable* → Super Armour, *Death Defying* → 3 s Super Armour at 1 HP; Ward is built on Frontguard and perfect guards, spec 021).
 - **Done means:** every damage/CC event between players and MythicMobs is resolved by the matrix below, for both players and mobs.
 
 ## Systems & config
@@ -36,8 +36,8 @@ State keys: `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:superarmour`, `wcmmo:armo
 
 | Thing | Value |
 |---|---|
-| Dash I-frame | 6 ticks (0.3 s) |
-| Sword short I-frame (on specific skills) | 4 ticks |
+| ~~Dash I-frame~~ | deferred (D-49) |
+| ~~Sword short I-frame~~ | deferred (D-49) |
 | Frontguard chip damage | 20 % (D-06b) |
 | Guard-break skill per weapon | 1, long cooldown (D-06d) |
 | Hammer / Greatsword normal hit vs guard | stamina drain ×2 (D-06d) |

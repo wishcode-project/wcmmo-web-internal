@@ -65,7 +65,7 @@ Materials come from dungeons or lifeskills (names TBD, `wcmmo_item_bloodline_sea
 | 3 | A | **Unstoppable** | Charge / heavy skills gain Super Armour while active | skills tagged `charge` or `heavy` |
 | 3 | B | **Frenzy** | Hits stack damage while below half HP | +2 % damage per hit, max 10 %, HP < 50 %, stacks drop 3 s after the last hit |
 | 4 | fixed (active) | **Blood Rage** | Pay HP to reset all skill cooldowns | pay 25 % current HP · cooldown 90 s · can't be used below 10 % HP |
-| 5 | A | **Death Defying** | A fatal hit leaves you at 1 HP, invulnerable | 3 s I-frame · internal CD 300 s |
+| 5 | A | **Death Defying** | A fatal hit leaves you at 1 HP, then you fight on with Super Armour, reduced damage and a fast heal | 3 s: Super Armour + −50 % damage taken + heal 20 % max HP over the 3 s · internal CD 300 s |
 | 5 | B | **Last Rampage** | Deep in danger you become a monster | HP < 15 %: +30 % damage, 10 % lifesteal |
 
 **Solo kit:** recovery (2A stamina / 2B kill heals) · damage (Adrenaline, Frenzy, Blood Rage) · survival (Unstoppable, Death Defying).

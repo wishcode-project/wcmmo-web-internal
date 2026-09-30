@@ -95,7 +95,7 @@ Pulse rhythm and Ward guard checks run on every cast / hit; HP thresholds only i
 | 2 | Fury 2A take a hit / 2B kill a mob | stamina restored / 5 % HP healed |
 | 3 | Fury 3A charge skill while being stunned | no stun · 3B: 5 hits below 50 % HP → +10 % damage |
 | 4 | Fury Blood Rage at 60 % HP | HP −25 % of current, all cooldowns reset · refused below 10 % HP |
-| 5 | Fury 5A lethal hit twice within 300 s | first: 1 HP + 3 s I-frame · second: death · 5B below 15 % HP: +30 % damage, lifesteal |
+| 5 | Fury 5A lethal hit twice within 300 s | first: 1 HP, then 3 s Super Armour + −50 % damage + heal 20 % · second: death · 5B below 15 % HP: +30 % damage, lifesteal |
 | 6 | Ward block 5 hits | 5 Bulwark pips, −15 % damage taken; decays 1 per 4 s without blocking |
 | 7 | Ward 2A perfect guard / 2B normal block | attacker staggered + 15 stamina + 2 stacks / 15 % reflected |
 | 8 | Ward 3A / 3B at 5 stacks | 3 s CC immune, −30 % damage / next skill +50 % + Super Armour |

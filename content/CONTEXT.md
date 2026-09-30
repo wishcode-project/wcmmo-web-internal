@@ -106,7 +106,7 @@ The owner wants only these 3 repos; the team still has to confirm (D-38).
 - **Weapon-specific casting cap:** a unique weapon skill (e.g. Hammer's *Ground Smash*) fails if you hold a different weapon type.
 
 ### 4.4 Combat
-- BDO-style states: **Frontguard** (frontal block), **I-frame** (invincible during dodges), **Super Armour** (immune to stagger/CC, still takes damage). Heavy weapons (proposed: Hammer, Greatsword) break guard and Super Armour.
+- BDO-style states: **Frontguard** (frontal block), **I-frame** (invincible during dodges; **deferred, D-49**: not built in Phase 0), **Super Armour** (immune to stagger/CC, still takes damage). Heavy weapons (proposed: Hammer, Greatsword) break guard and Super Armour.
 - **Souls-like first-person (FPV) animation** with ModelEngine.
 - Status: testing with a bought pack, **Draconic Dual Sword FPV** (MythicMobs skills + MythicCrucible item triggers + ModelEngine first-person model `pv=true`). Known findings: needs Crucible item triggers; damage is fixed (not tied to stats yet); right-click is an attack (may clash with Shift+RMB bar swap); F key/off-hand used by dual swords; third-person model has no attack animations; dual-wield give/take could dupe items; assets must be merged into the Nexo pack.
 
@@ -228,14 +228,14 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 
 ## 8. Decisions
 
-**DECIDED (52 of 65):**
+**DECIDED (53 of 66):**
 
 | Area | Decided |
 |---|---|
 | Project & plugins | D-00 paid plugins owned (not MythicDungeons) · D-09 MMOInventory · D-14 MythicDungeons (not bought) · D-25 Skript + vendor plugins first, own Kotlin plugin per system after Phase 0 · D-39 MythicHUD = HUD, UltimateUI = other UI · D-40 MMOItems = gear, Nexo = furniture/blocks/pack · D-41 CosmeticsCore wearables, ItemSkins weapon skins · D-42 BattlePass/LuxCollect after the slice · D-43 profiles later · D-47 Skript vs Kotlin |
 | Vitality | D-01 stamina on a MythicHUD bar, hunger hidden · D-02 food = heal over time + buffs, potions = instant · D-03a sprint drains a little stamina |
 | Stats | D-07 cap 60, 2 points/level · D-07b paid respec item (NPC shop or quest) · D-08 stats gate gear · D-08b soft level floor · D-30 small utility bonuses only |
-| Combat | D-03 Shift+RMB bar swap · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
+| Combat | D-49 I-frame deferred (dash = movement) · D-03 Shift+RMB bar swap · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
 | Weapons | D-04 8 weapons, slice uses 4 · D-04b free switching · D-04c basic skills in tutorial, more from level-ups + city NPCs · D-36b Mastery CDR for that weapon's skills + general skills by held weapon |
 | Bloodlines & Runes | D-31/D-48 base Bloodlines Fury / Ward / Pulse, value trials · D-32 The Awakening picks the first Bloodline · D-33 in-game extractor keeps progress, store extractor resets · D-34 each stage = level + unlock materials · D-35 rune slots 2 → Lv30 → Lv50 · D-35b no duplicate runes, tiers I–III · D-46 Awakening scoring edge cases |
 | Gear | D-10 Identify + fallback · D-11 MythicLib elements for now · D-12 max V, pity, never destroyed · D-12b armour same ladder · D-12c one stone per category · D-12d accessories I–V · D-13/D-13b AP/DP soft cap from gear + enhancement |

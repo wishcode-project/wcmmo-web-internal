@@ -23,7 +23,7 @@
 |---|---|---|
 | `mana` | MMOCore resource | built-in |
 | `stamina` | MMOCore resource | built-in |
-| `wcmmo_skill_dash` | skill | stamina cost, I-frame per 009 |
+| `wcmmo_skill_dash` | skill | stamina cost; pure movement (no I-frame, D-49) |
 | `wcmmo_cdgroup_meal`, `wcmmo_cdgroup_potion` | cooldown groups | consumables share cooldown per group |
 
 ## Balance (proposed)
