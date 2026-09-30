@@ -13,7 +13,7 @@
 | Phase | Goal | Specs | Exit criteria |
 |---|---|---|---|
 | 0 — PoC | prove risky tech with vendor plugins + Skript (7 PoCs; PoC-5 moved to Phase 3) | this spec | all 7 PoCs have a result; D-05, D-37, D-44 decided; per-system review done (own plugin vs vendor/Skript, D-25) |
-| 1 — Vertical slice | tutorial + 1 region, all 3 base Bloodlines (Fury, Ward, Pulse) stages 1–3, 2 Rune slots, 4 weapons (Sword, Hammer, Bow, Staff) with Mastery to 25, stat gating, 1 solo dungeon | 005–012, 014, 016, 021–025, 027–031 | 5 testers finish chapter 1 solo; MSPT ≤ 40 with 20 bots/players |
+| 1 — Vertical slice | tutorial + 1 region, all 3 base Bloodlines (Fury, Ward, Pulse) stages 1–3, 2 Rune slots, 4 weapons (Sword, Hammer, Bow, Staff) with Mastery to 25, stat gating, 1 solo dungeon | 005–012, 014, 016, 021–025, 027–032 | 5 testers finish chapter 1 solo; MSPT ≤ 40 with 20 bots/players |
 | 2 — Core MMO | all launch Bloodlines to stage 5, all weapons, enhancement to V, Mid/High zones, stationary farming, world boss, party dungeon | 013–017, 021–023 | world boss with 50 players at MSPT ≤ 45 |
 | 3 — Lifezone | instances, housing, professions, furniture | 018–020 | 20/20 Lifezone with pastes and no TPS dip below 19 |
 | 4 — Social | economy, guild & node war, pets & mounts | not specced | — |

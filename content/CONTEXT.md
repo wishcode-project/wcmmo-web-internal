@@ -131,6 +131,9 @@ Bottom-centre wooden block: HP panel (left), Mana panel (right), **level number 
 ### 4.3d Chat (D-63, spec 031)
 Channels: Global, Local (100 blocks, default), Party, Guild, Private (`/msg`, `/r`), Shout (60 s cooldown, highlighted) + an All view. Shortcuts `/g /l /p /gc /shout`, `/ch <channel>` to switch; `/chat` prints a clickable channel bar (real tabs under the chat input would need a client mod). NPC spam merged; labels and system messages through Triton, player text not translated.
 
+### 4.3e NPCs & name colours (D-64, spec 032)
+🟢 Green = ordinary NPCs (talk) · 🟡 Gold = important / service / main-quest NPCs with `!` / `?` markers · 🔵 Blue = guards (players can't hit them, monsters can; they attack monsters in sight within 16 blocks, leash 24, return to post or resume patrol, respawn after 30 s) · 🔴 Red = monsters `[Lv N] Name` · 🟣 Purple = bosses / elites. Monsters killed only by guards give no XP or drops.
+
 ### 4.4 Combat
 - BDO-style states: **Frontguard** (frontal block), **I-frame** (invincible during dodges; **deferred, D-49**: not built in Phase 0), **Super Armour** (immune to stagger/CC, still takes damage). Heavy weapons (proposed: Hammer, Greatsword) break guard and Super Armour.
 - **Souls-like first-person (FPV) animation** with ModelEngine.
@@ -254,14 +257,14 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 
 ## 8. Decisions
 
-**DECIDED (68 of 80):**
+**DECIDED (69 of 81):**
 
 | Area | Decided |
 |---|---|
 | Project & plugins | D-00 paid plugins owned (not MythicDungeons) · D-09 MMOInventory · D-14 MythicDungeons (not bought) · D-25 Skript + vendor plugins first, own Kotlin plugin per system after Phase 0 · D-39 MythicHUD = HUD, UltimateUI = other UI · D-40 MMOItems = gear, Nexo = furniture/blocks/pack · D-41 CosmeticsCore wearables, ItemSkins weapon skins · D-42 BattlePass/LuxCollect after the slice · D-43 profiles later · D-47 Skript vs Kotlin |
 | Vitality | D-01 stamina on a MythicHUD bar, hunger hidden · D-02 food = heal over time + buffs, potions = instant · D-03a sprint drains a little stamina |
 | Stats | D-07 cap 60, 2 points/level · D-07b paid respec item (NPC shop or quest) · D-08 stats gate gear · D-08b soft level floor · D-30 small utility bonuses only |
-| Combat | D-49 I-frame deferred (dash = movement) · D-03 F bar swap (revised) · D-50 AGI basic attack speed, cap 30 % · D-51 Remnant gauge + Q ultimates · D-52 10 general + 5 skills & 1 ultimate per weapon · D-53 instant bow · D-54 item detail pages · D-55 orb skills (NPC / monster orbs) · D-56 17 runes with shared caps · D-57 death & auto-respawn · D-58 levelling · D-59 party XP & loot · D-60 keys 1–5 cast skills · D-61 HUD layout · D-27 Thai + English, English proper names · D-62 Awakening / Awakened kept as a story link · D-63 chat channels · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
+| Combat | D-49 I-frame deferred (dash = movement) · D-03 F bar swap (revised) · D-50 AGI basic attack speed, cap 30 % · D-51 Remnant gauge + Q ultimates · D-52 10 general + 5 skills & 1 ultimate per weapon · D-53 instant bow · D-54 item detail pages · D-55 orb skills (NPC / monster orbs) · D-56 17 runes with shared caps · D-57 death & auto-respawn · D-58 levelling · D-59 party XP & loot · D-60 keys 1–5 cast skills · D-61 HUD layout · D-27 Thai + English, English proper names · D-62 Awakening / Awakened kept as a story link · D-63 chat channels · D-64 name colours & guards · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
 | Weapons | D-04 8 weapons, slice uses 4 · D-04b free switching · D-04c basic skills in tutorial, more from level-ups + city NPCs · D-36b Mastery CDR for that weapon's skills + general skills by held weapon |
 | Bloodlines & Runes | D-31/D-48 base Bloodlines Fury / Ward / Pulse, value trials · D-32 The Awakening picks the first Bloodline · D-33 in-game extractor keeps progress, store extractor resets · D-34 each stage = level + unlock materials · D-35 rune slots 2 → Lv30 → Lv50 · D-35b no duplicate runes, tiers I–III · D-46 Awakening scoring edge cases |
 | Gear | D-10 Identify + fallback · D-11 MythicLib elements for now · D-12 max V, pity, never destroyed · D-12b armour same ladder · D-12c one stone per category · D-12d accessories I–V · D-13/D-13b AP/DP soft cap from gear + enhancement |
