@@ -33,6 +33,8 @@ as the spec that introduces it.** Specs link back here instead of redefining any
 | 022 | [Passive Runes](022-runes.md) | DRAFT | content | validate |
 | 023 | [Weapon Mastery](023-weapon-mastery.md) | DRAFT | content, wcmmo | validate |
 | 024 | [The Awakening: tutorial & Bloodline Trial](024-awakening-tutorial.md) | DRAFT | plugins, content, wcmmo | validate |
+| 025 | [Remnant gauge & ultimates](025-remnant-ultimates.md) | DRAFT | wcmmo | validate |
+| 026 | [Item detail pages (F in the inventory)](026-item-inspect-pages.md) | DRAFT | wcmmo | confirm |
 
 Design intent lives in [`../gdd/wcmmo-gdd-v2.md`](../gdd/wcmmo-gdd-v2.md) (v1 is superseded); decisions `D-xx` are tracked there.
 Coming soon (GDD v2 §10–12, not specced): economy & trade, guild & node war, pets & mounts.
@@ -153,11 +155,12 @@ Rarity tiers (MMOItems): `common`, `uncommon`, `rare`, `epic`, `legendary` (012)
 
 | ID | Kind | Weapon / source | Spec |
 |---|---|---|---|
-| `wcmmo_skill_dash`, `wcmmo_skill_guard`, `wcmmo_skill_backstep` | general | any weapon | 005, 008 |
-| `wcmmo_skill_blade_flurry`, `wcmmo_skill_riposte`, `wcmmo_skill_thousand_cuts` | unique | Sword (Mastery 10/25/40) | 008, 023 |
-| `wcmmo_skill_ground_smash`, `wcmmo_skill_quake`, `wcmmo_skill_titan_fall` | unique | Hammer | 008, 023 |
-| `wcmmo_skill_power_shot`, `wcmmo_skill_arrow_rain`, `wcmmo_skill_piercing_gale` | unique | Bow | 008, 023 |
-| `wcmmo_skill_fireball`, `wcmmo_skill_frost_nova`, `wcmmo_skill_meteor` | unique | Staff | 008, 023 |
+| `wcmmo_skill_dash`, `_backstep`, `_sidestep`, `_kick`, `_shoulder_charge`, `_leap`, `_second_wind`, `_battle_cry`, `_iron_skin`, `_focus` | general (10) | any weapon | 008 |
+| `wcmmo_skill_blade_flurry`, `_piercing_thrust`, `_rising_slash`, `_riposte`, `_thousand_cuts` | weapon | Sword (Mastery 0/5/10/15/20) | 008, 023 |
+| `wcmmo_skill_ground_smash`, `_wide_swing`, `_quake`, `_unmovable`, `_titan_fall` | weapon | Hammer | 008, 023 |
+| `wcmmo_skill_rapid_volley`, `_tumble_shot`, `_arrow_rain`, `_snare_arrow`, `_piercing_gale` | weapon | Bow | 008, 023 |
+| `wcmmo_skill_fireball`, `_frost_nova`, `_chain_lightning`, `_blink`, `_meteor` | weapon | Staff | 008, 023 |
+| `wcmmo_ult_blade_storm`, `wcmmo_ult_earthbreaker`, `wcmmo_ult_heavens_barrage`, `wcmmo_ult_cataclysm` | ultimate (Q, 100 Remnant) | Sword / Hammer / Bow / Staff (Mastery 25) | 008, 025 |
 | `wcmmo_skill_blood_rage`, `wcmmo_skill_bone_bastion`, `wcmmo_skill_heartbeat_surge` | Bloodline active | Fury / Ward / Pulse stage 4 | 021 |
 
 Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:superarmour`, `wcmmo:armourbreak` (009).
@@ -236,6 +239,7 @@ Target LuckPerms layout (not live yet — CMI ranks are placeholders until LuckP
 | `wcmmo.admin.boss` | admin | 017 | |
 | `wcmmo.bloodline.use` | default | 021 | `/bloodline` |
 | `wcmmo.admin.bloodline` | admin | 021 | |
+| `wcmmo.admin.remnant` | admin | 025 | |
 | `wcmmo.admin.awakening` | admin | 024 | reset / debug |
 | `wcmmo.awakening.skip` | admin, testers | 024 | skip tutorial |
 | `wcmmo.admin.lifezone` | admin | 018 | |

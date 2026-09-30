@@ -28,8 +28,8 @@ Owner bought **Draconic Dual Sword FPV** as the first test (kept outside git: `~
 |---|---|---|---|
 | F1 | `~onSwing`, `~onUse`, `~onHold`, `~onUnHeld`, `~onPressF` and `Generation:` are **MythicCrucible** item features | FPV weapons need Crucible *or* our own trigger layer (D-44) | PoC as-is with Crucible; decide D-44 after |
 | F2 | Damage is a fixed `2` | ignores MMOItems stats, enhancement AP, AP/DP soft cap (014), combat states (009) | route damage through MythicLib/our plugin in the port |
-| F3 | Right click (`~onUse`) drives attacks 3–5 | **`Shift + Right Click` bar swap (D-03) may also fire an attack** | PoC-3 must test with this sword |
-| F4 | F key is cancelled and the **off-hand is used** (dual swords) | the `Shift+F` fallback for D-03 is **blocked** for dual weapons | need a third fallback (e.g. hotbar-scroll while sneaking) or a per-weapon rule |
+| F3 | Right click (`~onUse`) drives attacks 3–5 | no clash any more: the bar swap moved to **F** (D-03 revised) | melee weapons keep right click free for their own combos |
+| F4 | F key is cancelled and the **off-hand is used** (dual swords) | **clashes with the F bar swap** (D-03 revised) | when porting FPV weapons (D-44), F belongs to the bar swap; dual wield must not use the off-hand swap key |
 | F5 | Mining Fatigue is applied while held (hides vanilla swing) | Mining lifeskill is slower while holding a weapon | fine: lifeskills use tools |
 | F6 | TPV model has no attack animations | other players may not see the attack | test what a second player sees |
 | F7 | Dual wield via `takeitem a=2` / `give a=1` / `equip OFFHAND` | item dupe/loss risk if inventory is full or on lag | replace with our plugin in the port |
@@ -54,7 +54,7 @@ Animation speed is fixed. Faster casting comes from Weapon Mastery (spec 023), n
 | 0 | Install Draconic pack (MythicMobs + Crucible + ModelEngine) on dev, hold the sword | first-person dual swords, hold anim plays |
 | 0b | Left-click ×2, right-click ×3 | attacks 1–2 then 3–5 animate, cone damage lands |
 | 0c | Second player watches | record what they see (F6) |
-| 0d | `Shift + Right Click` while holding it | does the bar swap also fire attack 3? (F3) |
+| 0d | Press F while holding it | does the bar swap work, or does the pack's `~onPressF` swallow it? (F4) |
 | 1 | Build Sword 3-hit combo in A, B, C | all three playable (only if A fails) |
 | 2 | Test at 0 ms and 150 ms simulated ping | record desync |
 | 3 | 20 players attacking at once | MSPT recorded (spark) |

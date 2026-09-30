@@ -16,7 +16,7 @@
 | Raw power | stats + gear | **Enhancement** is the main source of AP/DP |
 | Cooldown/cast speed | AGI | **Weapon Mastery** (MMOCore profession per weapon) |
 | Unique weapon skills | per class | unlocked by **Mastery**, only castable with that weapon in hand |
-| Bar swap | proposed `Shift+F` | **`Shift + Right Click`** (decided) |
+| Bar swap | proposed `Shift+F` | **F** (revised 2026-09-30; was Shift + Right Click) |
 | Story instances | proposed | **MythicDungeons** (decided) |
 | Furniture | shop | **NPC shop or crafted** (decided) |
 
@@ -170,12 +170,12 @@ To prevent stat bloat, progression is strictly split. Each system has one job:
 2. **Equipment enhancement = raw power.** Weapon and armour enhancement (+1 to +15, then I–V) is the main source of damage (AP) and defence (DP).
 3. **Weapon Expertise (Mastery) = combat fluidity.** Using a weapon raises its Mastery (MMOCore professions). High Mastery unlocks unique weapon skills and, through PlaceholderAPI math in MythicMobs, lowers skill cooldowns or cast times.
 4. **Skill slots & casting logic = tactical limit.**
-   - Players equip only **10 active skills**, split into two 5-slot bars swapped with **`Shift + Right Click`**.
+   - Players equip only **10 active skills**, split into two 5-slot bars swapped with **F** (D-03 revised). The weapon's **ultimate** is on **Q** and uses the Remnant gauge (D-51).
    - **Weapon-specific casting cap:** a slotted unique weapon skill (e.g. Hammer's *Ground Smash*) fails to cast if the player is holding a different weapon type (e.g. a Sword).
 
 | ID | Decision | Options | Recommendation | Your call | Status |
 |---|---|---|---|---|---|
-| D-03 | Bar swap input | `Shift+RMB` / `Shift+F` | **`Shift + Right Click`** (your call). ⚠️ PoC must prove it doesn't clash with bows, food, blocks **or FPV weapons whose right click is an attack** (Draconic pack). `Shift+F` fallback is blocked for dual weapons (they use F/off-hand); a third fallback is needed (e.g. sneak + hotbar scroll) | Shift+RMB | DECIDED |
+| D-03 | Bar swap input | `Shift+RMB` / `Shift+F` | **`Shift + Right Click`** (your call). ⚠️ PoC must prove it doesn't clash with bows, food, blocks **or FPV weapons whose right click is an attack** (Draconic pack). `Shift+F` fallback is blocked for dual weapons (they use F/off-hand); a third fallback is needed (e.g. sneak + hotbar scroll) | **Revised 2026-09-30: F** swaps the bars (bows now use right click to shoot, D-53). Was Shift + Right Click | DECIDED |
 | D-04 | Weapon type list | — | *proposed* 8: Sword, Greatsword, Hammer, Spear (melee) · Bow, Crossbow (ranged) · Staff, Tome (magic). Vertical slice: Sword, Hammer, Bow, Staff | 8 weapon types; vertical slice uses Sword, Hammer, Bow, Staff | DECIDED |
 | D-04b | Switching weapons | free / restricted | Free: weapon freedom. Only stat requirements gate | free | DECIDED |
 | D-04c | Where general (non-weapon) skills come from | skill tree / Bloodline / trainers | General skills (dash, block, etc.) from level-based trainer NPCs. Unique weapon skills from Mastery (D-36) | Basic skills (dash, guard, backstep) learned in the tutorial; more general skills from level-ups and city NPCs along the main quest | DECIDED |
@@ -183,8 +183,13 @@ To prevent stat bloat, progression is strictly split. Each system has one job:
 | D-08b | Also require a minimum level? | yes / no | Yes, a soft floor (e.g. tier level) against twinking with borrowed stats gear | Yes, a soft level floor per gear tier | DECIDED |
 | D-07 | Stat points per level & level cap | — | Level cap ≥ 60 (Bloodline stage 4 is Lv. 60). *proposed* cap 60 in Phase 1, 2 points/level | Level cap 60, 2 points per level | DECIDED |
 | D-07b | Respec | free / item / gold | Paid respec item (economy sink) | Paid respec item (gold sink). Sources: NPC shop or quest reward | DECIDED |
-| D-30 | Do stats give any combat bonus besides gating? | none / small utility | **Small utility only** (e.g. DEF → max HP, AGI → max Stamina, INT → max Mana). No damage from stats, so AP stays the only damage source | Small utility only (DEF→HP, AGI→Stamina, INT→Mana); never damage | DECIDED |
+| D-30 | Do stats give any combat bonus besides gating? | none / small utility | **Small utility only** (e.g. DEF → max HP, AGI → max Stamina, INT → max Mana). No damage from stats, so AP stays the only damage source | Small utility only (DEF→HP, INT→Mana, AGI→Stamina) **+ revised 2026-09-30 (D-50): AGI also raises basic attack speed**, capped. Never damage per hit, never skill cooldowns | DECIDED |
 | D-36 | Mastery details | XP source, cap, unlocks, CDR | XP from hits on mobs (not players). Cap 50 per weapon. Unique skills at 10/25/40. CDR = Mastery × 0.4 %, **cap 20 %** | **Test values:** cap 30, unique skills at 5 / 15 / 25. XP from mobs only; CDR cap 20 %. **Final cap (50 or 100) to discuss later** | PARTLY |
+| D-50 | AGI and basic attack speed | none / uncapped / capped | +0.5 % basic attack / shot speed per AGI point, **cap +30 %**; skill cooldowns stay Mastery-only | as recommended | DECIDED |
+| D-51 | Ultimate system | none / cooldown ultimates / gauge ultimates | **Remnant** gauge 0–100 (basic hit +1, skill hit +3, +1 per 2 % HP lost, no decay); at 100 press **Q** for the held weapon's ultimate (Super Armour while casting). Lore: the past self's soul fragments leaking out. Spec 025 | as recommended | DECIDED |
+| D-52 | Skill counts | 3 per weapon / 5 + ultimate | **10 general skills** (any weapon) + **5 skills + 1 ultimate per weapon**, unlocked by Mastery 0/5/10/15/20, ultimate 25 (test build). Spec 008 | as recommended | DECIDED |
+| D-53 | Bow / Crossbow input | charged / instant | **Right click shoots instantly**, no charging (Wynncraft-style); shot interval lowered by AGI to a cap | as recommended | DECIDED |
+| D-54 | Long item tooltips | one long list / pages | **Pages:** hover an item in the inventory and press F for the next page (stats / upgrades / lore). Skript PoC first, packet-level in our own plugin later. Spec 026 | as recommended | DECIDED |
 | D-36b | Weapon swap exploit | — | Mastery CDR applies only to that weapon's skills. General skills use the held weapon's Mastery | Mastery CDR = that weapon's skills + general skills based on the weapon held | DECIDED |
 
 ---
@@ -328,7 +333,7 @@ Placeholder. To decide: ModelEngine mounts, pet buffs vs cosmetic, loot pickup.
 
 | Phase | Goal | Specs |
 |---|---|---|
-| **0: PoC** | Prove risky tech: FPV animation (D-05), combat states, `Shift+RMB` bar swap (D-03), Bloodline hooks (D-37), identify (D-10), Mastery CDR via PlaceholderAPI (D-36), Lifezone schematic + Nexo furniture | 004 |
+| **0: PoC** | Prove risky tech: FPV animation (D-05), combat states, F bar swap + Q ultimate + instant bow (D-03, D-51, D-53), Bloodline hooks (D-37), identify (D-10), Mastery CDR via PlaceholderAPI (D-36), Lifezone schematic + Nexo furniture | 004 |
 | **1: Vertical slice** | Tutorial + 1 region, **all 3 base Bloodlines (Fury, Ward, Pulse) stages 1–3**, 2 Runes, 4 weapons (Sword, Hammer, Bow, Staff) with Mastery to 25, stats gating, basic gear, 1 solo dungeon | 005–012, 014, 016, 021–024 |
 | **2: Core MMO** | All launch Bloodlines to stage 5, all weapons, enhancement to V, Mid/High zones, stationary farming, world boss, party dungeon | 013–017, 021–023 |
 | **3: Lifezone** | Instances, housing migration, lifeskills, furniture | 018–020 |
@@ -352,6 +357,7 @@ Placeholder. To decide: ModelEngine mounts, pet buffs vs cosmetic, loot pickup.
 | 2026-09-28 | D-05 | FPV testing starts with the bought Draconic Dual Sword FPV pack | owner |
 | 2026-09-28 | D-39 | MythicHUD = always-on HUD; UltimateUI = shops, quest list, other custom UI | owner |
 | 2026-09-29 | D-01, D-02, D-03a, D-04, D-04c, D-06b, D-06c, D-06d, D-07, D-07b, D-08b, D-11, D-12, D-12c, D-12d, D-15b, D-16, D-17b, D-18, D-26, D-30, D-33, D-34, D-35, D-35b, D-36b, D-41, D-42, D-46 | Decision session: 29 decided, D-36 partly (test values), D-17 loot refined | owner |
+| 2026-09-30 | D-03, D-30, D-50–D-54 | Controls: F bar swap, Q ultimate (Remnant gauge), instant bow; AGI basic attack speed capped; 10 general skills + 5 skills and 1 ultimate per weapon; item detail pages | owner |
 | 2026-09-30 | D-49 | I-frame deferred out of Phase 0 | owner |
 | 2026-09-30 | D-31, D-48 | 3 base Bloodlines Fury / Ward / Pulse with A/B paths; value trials in the tutorial; future Bloodlines as specialists | owner |
 | 2026-09-29 | D-47 | Skript for prototypes, tutorial/quest glue, tools; Kotlin for hot paths and player data | owner |

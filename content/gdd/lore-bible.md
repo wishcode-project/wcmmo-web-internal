@@ -25,7 +25,8 @@
 3. **Pieces of their soul survived as fragments.** In the present, these fragments appear to the player as helpers: they teach, grant power, and guide the player towards parts of the truth.
 4. **The fragments are the player.** The stronger the player grows, the more the fragments rejoin, and the more memories return.
 5. **Why Muscle, Bone and Heart:** the base Bloodlines are parts of one body. Uniting every Bloodline meant building a **"complete body"**, the forbidden goal of the past self. Every new Bloodline found in the story is another part (Eye, Breath, Blood, Nerve…), each one a step closer to what the past self wanted.
-6. The person the player has been searching for all along **is themselves**. The one who tried to unite the Bloodlines was **not a saviour but the cause of the old catastrophe**.
+6. **The Remnant gauge (spec 025) is the same power:** in battle the fragments of the past self leak out and fill the gauge; ultimates are the past self's strength. Players use it from the start and only later understand what it is.
+7. The person the player has been searching for all along **is themselves**. The one who tried to unite the Bloodlines was **not a saviour but the cause of the old catastrophe**.
 
 ### The Selection Stone (ศิลาคัดสรร)
 

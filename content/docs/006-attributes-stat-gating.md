@@ -37,7 +37,7 @@ Utility bonuses per point (only if D-30 = "small utility"):
 | Attribute | Per point | Never |
 |---|---|---|
 | STR | +0.5 carry/knockback resistance (future) | damage |
-| AGI | +1 max Stamina | cooldown (Mastery owns that) |
+| AGI | +1 max Stamina · **+0.5 % basic attack / shot speed, cap +30 %** (D-50) | skill cooldowns (Mastery owns them) |
 | INT | +2 max Mana | damage |
 | DEX | +0.2 % projectile velocity | damage |
 | DEF | +3 max HP | flat damage reduction (DP owns that) |

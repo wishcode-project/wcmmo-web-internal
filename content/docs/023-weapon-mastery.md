@@ -7,7 +7,7 @@
 
 - **Player story:** As a player, the more I fight with a Hammer, the better I get with it: I unlock Hammer skills and my Hammer skills come back faster.
 - **Compartment rule:** Mastery = **fluidity** (unlocks, cooldown, cast time). It never adds AP/DP.
-- **Done means:** one MMOCore profession per weapon type gains XP from use; unique skills unlock at 10/25/40; skill cooldowns read Mastery through PlaceholderAPI.
+- **Done means:** one MMOCore profession per weapon type gains XP from use; weapon skills unlock at 0/5/10/15/20 and the ultimate at 25 (test build); skill cooldowns read Mastery through PlaceholderAPI.
 
 ## Systems & config
 
@@ -43,7 +43,7 @@
 | Setting | Value |
 |---|---|
 | Mastery cap | **test build: 30** · final: 50 or 100 (to discuss, D-36) |
-| Unique skill unlocks | **test build: 5 / 15 / 25** · final: 10 / 25 / 40 if cap 50 |
+| Weapon skill unlocks | **test build: 0 / 5 / 10 / 15 / 20, ultimate 25** (5 skills + 1 ultimate, D-52) · final values follow the final cap |
 | CDR per level / cap | cap 20 %; per-level rate follows the final cap (0.4 % at cap 50) |
 | Time to Mastery 25 (target) | ~6 h of active fighting in level-appropriate zones |
 

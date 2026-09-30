@@ -99,16 +99,29 @@ The owner wants only these 3 repos; the team still has to confirm (D-38).
 - **How the first Bloodline is chosen: The Awakening** (DECIDED, team design). *"You do not choose the Bloodline. The Bloodline chooses you."* The tutorial secretly scores three affinities from what the player does: **Pulse** (protect the wounded, free the trapped villager), **Ward** (hold the ring, walk the fear path), **Fury** (kill the brute, break the cracked wall), each +2. Clear lead → that Bloodline; close scores → a **Bloodline Encounter** where the tied Bloodlines argue and the player walks to one. Reveal → **Accept** or **Reject once** (then a manual pick of the 3 base Bloodlines). Leaving the tutorial locks it; later changes need the Extraction Item.
 
 ### 4.3 Weapons, stats, mastery, skills
-- **Stats gate gear** (e.g. heavy Greatsword needs high STR). Proposed: level cap 60, 2 points/level.
-- **Proposed weapon types (8):** Sword, Greatsword, Hammer, Spear (melee) · Bow, Crossbow (ranged) · Staff, Tome (magic). Vertical slice: Sword, Hammer, Bow, Staff.
-- **Weapon Mastery**: one MMOCore profession per weapon; XP from hitting mobs; unique skills unlock at Mastery 10 / 25 / 40; cooldown reduction up to 20 % via PlaceholderAPI math in MythicMobs (proposed).
-- **10 active skills** in **two bars of 5**, swapped with **Shift + Right Click** (DECIDED).
-- **Weapon-specific casting cap:** a unique weapon skill (e.g. Hammer's *Ground Smash*) fails if you hold a different weapon type.
+- **Stats gate gear** (e.g. heavy Greatsword needs high STR). Level cap 60, 2 points/level. AGI also raises **basic** attack / shot speed, +0.5 %/point, **cap +30 %** (D-50).
+- **Weapon types (8):** Sword, Greatsword, Hammer, Spear (melee) · Bow, Crossbow (ranged) · Staff, Tome (magic). Vertical slice: Sword, Hammer, Bow, Staff.
+- **Skills (D-52, spec 008):** **10 general skills** usable with any weapon (Dash, Backstep, Sidestep, Kick, Shoulder Charge, Leap, Second Wind, Battle Cry, Iron Skin, Focus) + **5 skills and 1 ultimate per weapon**. Every weapon has exactly one guard-break skill; Hammer / Greatsword heavy skills break guard and Super Armour.
+- **Weapon Mastery**: one MMOCore profession per weapon; XP from hitting mobs; weapon skills unlock at Mastery 0/5/10/15/20, the ultimate at 25 (test build, cap 30); cooldown reduction up to 20 %.
+- **Remnant gauge & ultimates (D-51, spec 025):** fighting fills Remnant (0–100: basic hit +1, skill hit +3, +1 per 2 % HP lost); at 100 press **Q** for the held weapon's ultimate (Super Armour while casting). Lore (team only): it's the past self's soul fragments leaking out.
+- **Controls:**
+
+| Input | Action |
+|---|---|
+| Left click | basic attack (melee weapons, Staff / Tome magic bolt) |
+| Right click | Bow / Crossbow: **instant shot, no charging** (D-53) |
+| Shift (hold) | Guard (Frontguard) |
+| F | swap skill bar 1 ↔ 2 (D-03 revised) |
+| Q | ultimate (100 Remnant) |
+| F in the inventory on an item | next page of item details: stats / upgrades / lore (D-54, spec 026) |
+
+- **10 active skill slots** in **two bars of 5**; the ultimate doesn't use a slot.
+- **Weapon-specific casting cap:** a weapon skill (e.g. Hammer's *Ground Smash*) fails if you hold a different weapon type.
 
 ### 4.4 Combat
 - BDO-style states: **Frontguard** (frontal block), **I-frame** (invincible during dodges; **deferred, D-49**: not built in Phase 0), **Super Armour** (immune to stagger/CC, still takes damage). Heavy weapons (proposed: Hammer, Greatsword) break guard and Super Armour.
 - **Souls-like first-person (FPV) animation** with ModelEngine.
-- Status: testing with a bought pack, **Draconic Dual Sword FPV** (MythicMobs skills + MythicCrucible item triggers + ModelEngine first-person model `pv=true`). Known findings: needs Crucible item triggers; damage is fixed (not tied to stats yet); right-click is an attack (may clash with Shift+RMB bar swap); F key/off-hand used by dual swords; third-person model has no attack animations; dual-wield give/take could dupe items; assets must be merged into the Nexo pack.
+- Status: testing with a bought pack, **Draconic Dual Sword FPV** (MythicMobs skills + MythicCrucible item triggers + ModelEngine first-person model `pv=true`). Known findings: needs Crucible item triggers; damage is fixed (not tied to stats yet); right-click is an attack; F key/off-hand used by dual swords (clashes with the F bar swap, fix when porting, D-44); third-person model has no attack animations; dual-wield give/take could dupe items; assets must be merged into the Nexo pack.
 
 ### 4.5 Equipment
 - 4 armour slots + **accessories (BDO style)**: 1 Necklace, 1 Earring, 1 Ring, 1 Belt (via MMOInventory).
@@ -150,7 +163,7 @@ Economy & trade · Guild & node war · Pets & mounts · death penalty · party s
 
 | Phase | Goal |
 |---|---|
-| 0: PoC | Prove risky tech: FPV animation, combat states, Shift+RMB swap, Bloodline hooks, Mastery cooldown math, Identify, Lifezone save/paste with Nexo furniture, stamina display |
+| 0: PoC | Prove risky tech: FPV animation, combat states, F bar swap / Q ultimate / instant bow, Bloodline hooks, Mastery cooldown math, Identify, Lifezone save/paste with Nexo furniture, stamina display |
 | 1: Vertical slice | Tutorial + 1 region, all 3 base Bloodlines stages 1–3, 2 Rune slots, 4 weapons with Mastery to 25, stat gating, 1 solo dungeon |
 | 2: Core MMO | All launch Bloodlines to stage 5, all weapons, enhancement to V, Mid/High zones, totems, world boss, party dungeon |
 | 3: Lifezone | Housing instances, lifeskills, furniture |
@@ -228,14 +241,14 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 
 ## 8. Decisions
 
-**DECIDED (53 of 66):**
+**DECIDED (58 of 71):**
 
 | Area | Decided |
 |---|---|
 | Project & plugins | D-00 paid plugins owned (not MythicDungeons) · D-09 MMOInventory · D-14 MythicDungeons (not bought) · D-25 Skript + vendor plugins first, own Kotlin plugin per system after Phase 0 · D-39 MythicHUD = HUD, UltimateUI = other UI · D-40 MMOItems = gear, Nexo = furniture/blocks/pack · D-41 CosmeticsCore wearables, ItemSkins weapon skins · D-42 BattlePass/LuxCollect after the slice · D-43 profiles later · D-47 Skript vs Kotlin |
 | Vitality | D-01 stamina on a MythicHUD bar, hunger hidden · D-02 food = heal over time + buffs, potions = instant · D-03a sprint drains a little stamina |
 | Stats | D-07 cap 60, 2 points/level · D-07b paid respec item (NPC shop or quest) · D-08 stats gate gear · D-08b soft level floor · D-30 small utility bonuses only |
-| Combat | D-49 I-frame deferred (dash = movement) · D-03 Shift+RMB bar swap · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
+| Combat | D-49 I-frame deferred (dash = movement) · D-03 F bar swap (revised) · D-50 AGI basic attack speed, cap 30 % · D-51 Remnant gauge + Q ultimates · D-52 10 general + 5 skills & 1 ultimate per weapon · D-53 instant bow · D-54 item detail pages · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
 | Weapons | D-04 8 weapons, slice uses 4 · D-04b free switching · D-04c basic skills in tutorial, more from level-ups + city NPCs · D-36b Mastery CDR for that weapon's skills + general skills by held weapon |
 | Bloodlines & Runes | D-31/D-48 base Bloodlines Fury / Ward / Pulse, value trials · D-32 The Awakening picks the first Bloodline · D-33 in-game extractor keeps progress, store extractor resets · D-34 each stage = level + unlock materials · D-35 rune slots 2 → Lv30 → Lv50 · D-35b no duplicate runes, tiers I–III · D-46 Awakening scoring edge cases |
 | Gear | D-10 Identify + fallback · D-11 MythicLib elements for now · D-12 max V, pity, never destroyed · D-12b armour same ladder · D-12c one stone per category · D-12d accessories I–V · D-13/D-13b AP/DP soft cap from gear + enhancement |
