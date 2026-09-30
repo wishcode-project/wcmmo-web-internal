@@ -88,9 +88,10 @@ export const decisions: Decision[] = gddTables
         question: r[1] ?? '',
         options: r[2] ?? '',
         recommendation: r[3] ?? '',
-        answer: r[4] ?? '',
-        rawStatus: plain(r[5] ?? ''),
-        status: normStatus(r[5] ?? ''),
+        // Status is always the last cell, so a row with a missing separator still reads right.
+        answer: r.length >= 6 ? (r[4] ?? '') : '',
+        rawStatus: plain(r[r.length - 1] ?? ''),
+        status: normStatus(r[r.length - 1] ?? ''),
         area: areaName(t.section),
         specs: [] as string[],
       })),
@@ -432,6 +433,7 @@ const docTitle = (md: string, fallback: string) => plain(/^#\s+(.*)$/m.exec(md)?
 export const docs: Doc[] = [
   { path: 'gdd/wcmmo-gdd-v2.md', group: 'Design' as const },
   { path: 'gdd/awakening-tutorial.md', group: 'Design' as const },
+  { path: 'gdd/bloodlines.md', group: 'Design' as const },
   { path: 'gdd/lore-bible.md', group: 'Design' as const, note: 'full spoilers, team only' },
   { path: 'gdd/trailer.md', group: 'Design' as const },
   { path: 'CONTEXT.md', group: 'Brief' as const },

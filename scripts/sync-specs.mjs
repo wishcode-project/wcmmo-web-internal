@@ -124,7 +124,7 @@ const decisionRows = read('gdd/wcmmo-gdd-v2.md')
   .split('\n')
   .filter((l) => /^\|\s*D-\d/.test(l))
   .map((l) => l.split('|').slice(1, -1).map((c) => c.trim()))
-  .filter((r) => r.length >= 6)
+  .filter((r) => r.length >= 5) // status is the last cell even if a separator is missing
 
 writeFileSync(
   join(out, 'public-stats.json'),

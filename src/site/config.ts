@@ -47,13 +47,13 @@ export const features: Feature[] = [
       en: {
         title: 'Bloodlines, not classes',
         short: 'One Bloodline defines who you are, and it evolves as you do.',
-        body: 'Forget picking a class at the start. You carry a single Bloodline that changes how you play, not just how big your numbers are. It awakens in stages as you grow, unlocking new mechanics along the way. The first one we are building: the Berserker, who gets more dangerous the closer they are to death.',
+        body: 'Forget picking a class at the start. You carry a single Bloodline that changes how you play, not just how big your numbers are. It awakens in stages as you grow, and at key stages you choose between two paths. Three base Bloodlines open the story: Fury grows stronger as your health drops, Ward turns well-timed guards into stored power, and Pulse heals and hurts as you chain different skills. More arrive as the story goes on.',
         tag: 'First look',
       },
       th: {
         title: 'สายเลือด แทนคลาส',
         short: 'สายเลือดเดียวที่บอกว่าคุณเป็นใคร และเติบโตไปพร้อมกับคุณ',
-        body: 'ไม่ต้องเลือกคลาสตั้งแต่เริ่ม คุณมีสายเลือด (Bloodline) เพียงหนึ่งเดียวที่เปลี่ยนวิธีเล่นของคุณ ไม่ใช่แค่เพิ่มตัวเลข สายเลือดจะตื่นขึ้นทีละขั้นเมื่อคุณเติบโต และปลดล็อกกลไกใหม่ไปเรื่อย ๆ สายเลือดแรกที่เรากำลังสร้างคือ Berserker ยิ่งใกล้ตาย ยิ่งอันตราย',
+        body: 'ไม่ต้องเลือกคลาสตั้งแต่เริ่ม คุณมีสายเลือด (Bloodline) เพียงหนึ่งเดียวที่เปลี่ยนวิธีเล่นของคุณ ไม่ใช่แค่เพิ่มตัวเลข สายเลือดจะตื่นขึ้นทีละขั้นเมื่อคุณเติบโต และในบางขั้นคุณจะได้เลือกหนึ่งในสองเส้นทาง เริ่มต้นด้วยสามสายเลือดพื้นฐาน: Fury ยิ่งเลือดน้อยยิ่งแข็งแกร่ง, Ward เปลี่ยนการป้องกันในจังหวะที่พอดีให้เป็นพลังสะสม และ Pulse ทั้งฟื้นฟูและสร้างความเสียหายเมื่อต่อสกิลที่ต่างกันเป็นจังหวะ สายเลือดใหม่จะตามมากับเนื้อเรื่อง',
         tag: 'เผยโฉมครั้งแรก',
       },
     },
@@ -65,12 +65,12 @@ export const features: Feature[] = [
       en: {
         title: 'Runes',
         short: 'Small passives that tune your build.',
-        body: 'Slot Runes to fine-tune your character: more staying power, faster recovery, shorter cooldowns. The same Bloodline can become a wall or a glass cannon depending on what you socket.',
+        body: 'Slot Runes to fine-tune your character: more staying power, faster recovery, shorter cooldowns, sharper crits. Seventeen runes in four groups (defence, offence, sustain and utility) mean the same Bloodline can become a wall or a glass cannon depending on what you socket.',
       },
       th: {
         title: 'รูน',
         short: 'พาสซีฟเล็ก ๆ ที่ช่วยปรับบิลด์ของคุณ',
-        body: 'ใส่รูนเพื่อปรับแต่งตัวละครอย่างละเอียด ทั้งความอึด การฟื้นตัว และคูลดาวน์ที่สั้นลง สายเลือดเดียวกันอาจกลายเป็นแทงก์หรือสายดาเมจก็ได้ ขึ้นอยู่กับรูนที่คุณเลือก',
+        body: 'ใส่รูนเพื่อปรับแต่งตัวละครอย่างละเอียด ทั้งความอึด การฟื้นตัว คูลดาวน์ที่สั้นลง และคริติคอลที่แรงขึ้น รูน 17 แบบใน 4 กลุ่ม (ป้องกัน โจมตี ฟื้นฟู และสนับสนุน) ทำให้สายเลือดเดียวกันกลายเป็นแทงก์หรือสายดาเมจก็ได้ ขึ้นอยู่กับรูนที่คุณเลือก',
       },
     },
   },
@@ -81,12 +81,12 @@ export const features: Feature[] = [
       en: {
         title: 'Weapon freedom & Mastery',
         short: 'Pick up any weapon you can handle. Master it to unlock its secrets.',
-        body: 'Any player can wield any weapon, as long as they have the stats for it. Every weapon type has its own unique skills, unlocked by mastering it in battle. The more you fight with it, the faster and smoother it gets.',
+        body: 'Any player can wield any weapon, as long as they have the stats for it. Every weapon has its own five skills and an ultimate, unlocked by mastering it in battle, and the more you fight with it, the faster and smoother it gets. Extra orb skills can be learned from Skill Orbs, bought from NPCs or dropped by monsters.',
       },
       th: {
         title: 'อิสระในการใช้อาวุธ & ความชำนาญ',
         short: 'ถืออาวุธไหนก็ได้ที่คุณรับไหว ฝึกให้ชำนาญเพื่อปลดล็อกความลับ',
-        body: 'ผู้เล่นทุกคนใช้อาวุธได้ทุกชนิด ขอแค่มีสเตตัสถึง อาวุธแต่ละประเภทมีสกิลเฉพาะของตัวเอง ซึ่งปลดล็อกได้ด้วยการฝึกความชำนาญในการต่อสู้ ยิ่งใช้บ่อย ยิ่งเร็วและลื่นไหล',
+        body: 'ผู้เล่นทุกคนใช้อาวุธได้ทุกชนิด ขอแค่มีสเตตัสถึง อาวุธแต่ละประเภทมีสกิลของตัวเอง 5 สกิลและท่าไม้ตายอีก 1 ท่า ซึ่งปลดล็อกได้ด้วยการฝึกความชำนาญในการต่อสู้ ยิ่งใช้บ่อย ยิ่งเร็วและลื่นไหล และยังเรียนสกิลเพิ่มได้จาก Skill Orb ที่ซื้อจาก NPC หรือดรอปจากมอนสเตอร์',
       },
     },
   },
@@ -97,13 +97,13 @@ export const features: Feature[] = [
       en: {
         title: 'Action combat',
         short: 'Dodge, guard and power through. Timing beats stats.',
-        body: 'Roll through attacks with invincibility frames, block hits from the front, and push through crowd control with super armour. Two skill bars and a quick swap let you chain combos mid-fight. We are also experimenting with first-person weapon animations.',
+        body: 'Dash out of danger, block hits from the front, and push through crowd control with super armour. Swap between two skill bars mid-fight to chain combos, and when your Remnant gauge fills, unleash your weapon\'s ultimate. We are also experimenting with first-person weapon animations.',
         tag: 'In prototyping',
       },
       th: {
         title: 'ระบบต่อสู้แบบแอคชัน',
         short: 'หลบ กัน และฝ่าไปข้างหน้า จังหวะสำคัญกว่าสเตตัส',
-        body: 'กลิ้งหลบการโจมตีด้วยจังหวะอมตะ (I-frame) ป้องกันการโจมตีจากด้านหน้า และฝ่าการควบคุมด้วย Super Armour มีแถบสกิลสองแถวที่สลับได้ทันทีเพื่อต่อคอมโบกลางการต่อสู้ และเรากำลังทดลองแอนิเมชันอาวุธมุมมองบุคคลที่หนึ่งด้วย',
+        body: 'พุ่งหลบออกจากอันตราย ป้องกันการโจมตีจากด้านหน้า และฝ่าการควบคุมด้วย Super Armour สลับแถบสกิลสองแถวกลางการต่อสู้เพื่อต่อคอมโบ และเมื่อเกจ Remnant เต็ม ก็ปล่อยท่าไม้ตายของอาวุธได้ทันที นอกจากนี้เรากำลังทดลองแอนิเมชันอาวุธมุมมองบุคคลที่หนึ่งด้วย',
         tag: 'กำลังทดสอบต้นแบบ',
       },
     },
