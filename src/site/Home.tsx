@@ -189,9 +189,12 @@ export function Home() {
             )
           })}
         </div>
-        <p className="mt-6 text-center">
+        <p className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2">
           <Link to="/features" className="font-display text-leaf hover:underline">
             {t.game.all} ▶
+          </Link>
+          <Link to="/guide" className="font-display text-gold hover:underline">
+            📖 {t.game.guide} ▶
           </Link>
         </p>
       </section>

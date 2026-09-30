@@ -38,6 +38,7 @@ export function PublicLayout() {
   const nav = [
     { to: '/', label: t.nav.home, end: true },
     { to: '/features', label: t.nav.features },
+    { to: '/guide', label: t.nav.guide },
     { to: '/roadmap', label: t.nav.roadmap },
     { to: '/lore', label: t.nav.lore },
     { to: '/devlog', label: t.nav.devlog },
@@ -54,7 +55,7 @@ export function PublicLayout() {
           <Link to="/" aria-label={`${site.name} home`}>
             <Wordmark />
           </Link>
-          <nav className="ml-auto hidden md:block" aria-label="Main">
+          <nav className="ml-auto hidden lg:block" aria-label="Main">
             <ul className="flex items-center gap-1">
               {nav.map((n) => (
                 <li key={n.to}>
@@ -73,16 +74,16 @@ export function PublicLayout() {
               ))}
             </ul>
           </nav>
-          <LangSwitch className="ml-auto md:ml-2" />
-          <Link to="/team" className="btn hidden md:inline-flex" title="Dev team only">
+          <LangSwitch className="ml-auto lg:ml-2" />
+          <Link to="/team" className="btn hidden lg:inline-flex" title="Dev team only">
             🔒 {t.nav.team}
           </Link>
-          <button className="btn md:hidden" aria-expanded={open} aria-controls="public-mobile-nav" onClick={() => setOpen((o) => !o)}>
+          <button className="btn lg:hidden" aria-expanded={open} aria-controls="public-mobile-nav" onClick={() => setOpen((o) => !o)}>
             {open ? '✖' : '☰'} {t.menu}
           </button>
         </div>
         {open && (
-          <nav id="public-mobile-nav" className="border-t-2 border-black/30 md:hidden" aria-label="Main">
+          <nav id="public-mobile-nav" className="border-t-2 border-black/30 lg:hidden" aria-label="Main">
             <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-1 px-4 py-3">
               {nav.map((n) => (
                 <li key={n.to}>

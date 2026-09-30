@@ -17,6 +17,13 @@ const palette: Record<string, string> = {
   c: '#5fb4ea',
   C: '#2a5f8a',
   k: '#2a1816',
+  o: '#f08a3a',
+  y: '#ffd166',
+  m: '#e27ad6',
+  M: '#8a3a86',
+  e: '#e0604c',
+  E: '#8a2a22',
+  G: '#b8860b',
 }
 
 const icons: Record<IconName, string[]> = {
@@ -29,6 +36,17 @@ const icons: Record<IconName, string[]> = {
   scroll: ['.bgggggg..', 'bgwwwwwwg.', '.gwkkkkwg.', '.gwwwwwwg.', '.gwkkkkwg.', '.gwwwwwwg.', '.gwkkkwwg.', '.gwwwwwwgb', '..ggggggb.', '..........'],
   house: ['....RR....', '...RRRR...', '..RRRRRR..', '.RRRRRRRR.', 'RRRRRRRRRR', '.wwwwwwww.', '.wccwwbbw.', '.wccwwbbw.', '.wwwwwbbw.', 'llllllllll'],
   pickaxe: ['.ssssss...', 'ss....ss..', 's...b..ss.', '....b...s.', '....b.....', '....b.....', '....b.....', '....B.....', '....B.....', '..........'],
+  fury: ['....r.....', '...rr.....', '...rrr.r..', '..rrorrr..', '..roorrr..', '.rroyorrr.', '.royyyorr.', '.royyyyor.', '..royyor..', '...rrrr...'],
+  ward: ['.dddddddd.', 'dsswwwwssd', 'dswwwwwwsd', 'dwwwssswwd', 'dwwssssswd', '.dwwssswd.', '.dswwwwsd.', '..dswwsd..', '...dssd...', '....dd....'],
+  pulse: ['.mm...mm..', 'mMMm.mMMm.', 'mMwMmMMMm.', 'mMwMMMMMm.', '.mMMMMMm..', '..mMMMm...', '...mMm....', '....m.....', 'y.y...y.y.', '.y.y.y.y..'],
+  hammer: ['.dddddd...', 'dsssssssd.', 'dswsssssd.', 'dsssssssd.', '.dddddd...', '...bb.....', '...bb.....', '...bb.....', '...BB.....', '..........'],
+  bow: ['...bb.....', '..b..s....', '.b....s...', '.b.....s..', 'bggggggwsy', '.b.....s..', '.b....s...', '..b..s....', '...bb.....', '..........'],
+  staff: ['......cc..', '.....cwcc.', '.....cccc.', '......cc..', '.....b....', '....b.....', '...b......', '..b.......', '.B........', 'B.........'],
+  orb: ['..........', '...cccc...', '..cwwccc..', '.cwwccccC.', '.cccccccC.', '.ccccccCC.', '..cccccC..', '...cCCC...', '....dd....', '...dddd...'],
+  'rune-defence': ['....C.....', '...CcC....', '..CcwcC...', '.CccwccC..', 'CcccwcccC.', '.CccwccC..', '..CcwcC...', '...CcC....', '....C.....', '..........'],
+  'rune-offence': ['....E.....', '...EeE....', '..EeweE...', '.EeewweE..', 'EeeewweeE.', '.EeewweE..', '..EewwE...', '...EeE....', '....E.....', '..........'],
+  'rune-sustain': ['....L.....', '...LlL....', '..LlwlL...', '.LllwllL..', 'LlllwlllL.', '.LllwllL..', '..LlwlL...', '...LlL....', '....L.....', '..........'],
+  'rune-utility': ['....G.....', '...GgG....', '..GgwgG...', '.GggwggG..', 'GgggwgggG.', '.GggwggG..', '..GgwgG...', '...GgG....', '....G.....', '..........'],
 }
 
 export function PixelIcon({ name, className = 'size-10' }: { name: IconName; className?: string }) {

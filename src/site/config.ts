@@ -26,7 +26,10 @@ export const copy: Dict<{ tagline: string; pitch: string; edition: string; langu
   },
 }
 
-export type IconName = 'blood' | 'rune' | 'sword' | 'shield' | 'gem' | 'skull' | 'scroll' | 'house' | 'pickaxe'
+export type IconName =
+  | 'blood' | 'rune' | 'sword' | 'shield' | 'gem' | 'skull' | 'scroll' | 'house' | 'pickaxe'
+  | 'fury' | 'ward' | 'pulse' | 'hammer' | 'bow' | 'staff' | 'orb'
+  | 'rune-defence' | 'rune-offence' | 'rune-sustain' | 'rune-utility'
 
 interface FeatureText {
   title: string
@@ -249,7 +252,7 @@ export const stages: Stage[] = [
 
 /** UI strings for the public site. */
 export const ui: Dict<{
-  nav: { home: string; features: string; roadmap: string; lore: string; devlog: string; team: string }
+  nav: { home: string; features: string; guide: string; roadmap: string; lore: string; devlog: string; team: string }
   menu: string
   skip: string
   explore: string
@@ -271,7 +274,7 @@ export const ui: Dict<{
     prototypes: string
     live: (ago: string) => string
   }
-  game: { kicker: string; title: string; all: string }
+  game: { kicker: string; title: string; all: string; guide: string }
   road: { kicker: string; title: string; intro: string; full: string; fullTitle: string; fullIntro: string; footer: (date: string) => string }
   stage: (n: number) => string
   state: { complete: string; current: string; planned: string }
@@ -285,7 +288,7 @@ export const ui: Dict<{
   notFound: { title: string; body: string; back: string }
 }> = {
   en: {
-    nav: { home: 'Home', features: 'Features', roadmap: 'Roadmap', lore: 'Lore', devlog: 'Devlog', team: 'Team' },
+    nav: { home: 'Home', features: 'Features', guide: 'Guide', roadmap: 'Roadmap', lore: 'Lore', devlog: 'Devlog', team: 'Team' },
     menu: 'Menu',
     skip: 'Skip to content',
     explore: 'Explore',
@@ -307,7 +310,7 @@ export const ui: Dict<{
       prototypes: 'tech prototypes proven',
       live: (ago) => `Live from our design docs · updated ${ago}`,
     },
-    game: { kicker: 'The game', title: 'Forge your own legend', all: 'See all features' },
+    game: { kicker: 'The game', title: 'Forge your own legend', all: 'See all features', guide: 'Open the game guide' },
     road: {
       kicker: 'Roadmap',
       title: 'The road so far',
@@ -359,7 +362,7 @@ export const ui: Dict<{
     notFound: { title: 'You wandered off the map', body: "This page doesn't exist (yet).", back: 'Back to town' },
   },
   th: {
-    nav: { home: 'หน้าแรก', features: 'ฟีเจอร์', roadmap: 'โรดแมป', lore: 'ตำนาน', devlog: 'บันทึกการพัฒนา', team: 'ทีมงาน' },
+    nav: { home: 'หน้าแรก', features: 'ฟีเจอร์', guide: 'คู่มือ', roadmap: 'โรดแมป', lore: 'ตำนาน', devlog: 'บันทึกการพัฒนา', team: 'ทีมงาน' },
     menu: 'เมนู',
     skip: 'ข้ามไปยังเนื้อหา',
     explore: 'สำรวจ',
@@ -381,7 +384,7 @@ export const ui: Dict<{
       prototypes: 'ต้นแบบเทคโนโลยีที่พิสูจน์แล้ว',
       live: (ago) => `อัปเดตสดจากเอกสารดีไซน์ · ล่าสุด ${ago}`,
     },
-    game: { kicker: 'ตัวเกม', title: 'สร้างตำนานในแบบของคุณ', all: 'ดูฟีเจอร์ทั้งหมด' },
+    game: { kicker: 'ตัวเกม', title: 'สร้างตำนานในแบบของคุณ', all: 'ดูฟีเจอร์ทั้งหมด', guide: 'เปิดคู่มือเกม' },
     road: {
       kicker: 'โรดแมป',
       title: 'เส้นทางที่ผ่านมา',
