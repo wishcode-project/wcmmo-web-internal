@@ -112,6 +112,7 @@ The owner wants only these 3 repos; the team still has to confirm (D-38).
 | Left click | basic attack (melee weapons, Staff / Tome magic bolt) |
 | Right click | Bow / Crossbow: **instant shot, no charging** (D-53) |
 | Shift (hold) | Guard (Frontguard) |
+| 1–5 (holding a weapon) | cast the active bar's skills (D-60); 6–9 select items |
 | F | swap skill bar 1 ↔ 2 (D-03 revised) |
 | Q | ultimate (100 Remnant) |
 | F in the inventory on an item | next page of item details: stats / upgrades / lore (D-54, spec 026) |
@@ -123,6 +124,9 @@ The owner wants only these 3 repos; the team still has to confirm (D-38).
 - **Death (D-57, spec 027):** no vanilla death screen: title + 5 s countdown, then automatic respawn at the nearest Waystone / city. Penalties: XP −1 % of the level requirement (none below Lv 15), no item drop, durability −5 % (repair at the Blacksmith), Remnant halved, buffs cleared. Revive on the spot for 100 Remnant (10 min CD, open world). Dungeons: checkpoints; party members revive by holding Shift 3 s.
 - **Levelling (D-58, spec 028):** cap 60 in ~90–100 h; the vertical slice takes 1 → 15 in 3–4 h; XP to next = `50·L² + 100·L`; XP ~60 % mobs / 30 % quests / 10 % dungeons; mobs 5+ / 10+ levels below give 50 % / 10 %.
 - **Party (D-59, spec 028):** MMOCore parties 2–5; XP per member = base × (1 + 0.1·(n−1)) / n (within 30 blocks, 10 levels), so party XP/hour ≈ solo; +5 % per extra distinct Bloodline. Loot: world drops owned by the top damager 30 s, then free 90 s, then gone (round-robin inside the owner's party); dungeon bosses give personal rewards.
+
+### 4.3c HUD (D-61, spec 029)
+Bottom-centre wooden block: HP panel (left), Mana panel (right), **level number in a centre hex whose fill shows stamina** (green ≥ 60 %, yellow 30–60 %, red < 30 %; a running icon replaces the number while sprinting), segmented **XP bar** below, **skill bar (5 icons, 1/2 badge) + ultimate with Remnant ring above**, vanilla hotbar framed at the bottom, Bloodline badge left of HP. Party top-left, boss bar top-centre, quests + buffs top-right. Vanilla hearts / food / armour / air / XP hidden.
 
 ### 4.4 Combat
 - BDO-style states: **Frontguard** (frontal block), **I-frame** (invincible during dodges; **deferred, D-49**: not built in Phase 0), **Super Armour** (immune to stagger/CC, still takes damage). Heavy weapons (proposed: Hammer, Greatsword) break guard and Super Armour.
@@ -247,14 +251,14 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 
 ## 8. Decisions
 
-**DECIDED (63 of 76):**
+**DECIDED (65 of 78):**
 
 | Area | Decided |
 |---|---|
 | Project & plugins | D-00 paid plugins owned (not MythicDungeons) · D-09 MMOInventory · D-14 MythicDungeons (not bought) · D-25 Skript + vendor plugins first, own Kotlin plugin per system after Phase 0 · D-39 MythicHUD = HUD, UltimateUI = other UI · D-40 MMOItems = gear, Nexo = furniture/blocks/pack · D-41 CosmeticsCore wearables, ItemSkins weapon skins · D-42 BattlePass/LuxCollect after the slice · D-43 profiles later · D-47 Skript vs Kotlin |
 | Vitality | D-01 stamina on a MythicHUD bar, hunger hidden · D-02 food = heal over time + buffs, potions = instant · D-03a sprint drains a little stamina |
 | Stats | D-07 cap 60, 2 points/level · D-07b paid respec item (NPC shop or quest) · D-08 stats gate gear · D-08b soft level floor · D-30 small utility bonuses only |
-| Combat | D-49 I-frame deferred (dash = movement) · D-03 F bar swap (revised) · D-50 AGI basic attack speed, cap 30 % · D-51 Remnant gauge + Q ultimates · D-52 10 general + 5 skills & 1 ultimate per weapon · D-53 instant bow · D-54 item detail pages · D-55 orb skills (NPC / monster orbs) · D-56 17 runes with shared caps · D-57 death & auto-respawn · D-58 levelling · D-59 party XP & loot · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
+| Combat | D-49 I-frame deferred (dash = movement) · D-03 F bar swap (revised) · D-50 AGI basic attack speed, cap 30 % · D-51 Remnant gauge + Q ultimates · D-52 10 general + 5 skills & 1 ultimate per weapon · D-53 instant bow · D-54 item detail pages · D-55 orb skills (NPC / monster orbs) · D-56 17 runes with shared caps · D-57 death & auto-respawn · D-58 levelling · D-59 party XP & loot · D-60 keys 1–5 cast skills · D-61 HUD layout · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
 | Weapons | D-04 8 weapons, slice uses 4 · D-04b free switching · D-04c basic skills in tutorial, more from level-ups + city NPCs · D-36b Mastery CDR for that weapon's skills + general skills by held weapon |
 | Bloodlines & Runes | D-31/D-48 base Bloodlines Fury / Ward / Pulse, value trials · D-32 The Awakening picks the first Bloodline · D-33 in-game extractor keeps progress, store extractor resets · D-34 each stage = level + unlock materials · D-35 rune slots 2 → Lv30 → Lv50 · D-35b no duplicate runes, tiers I–III · D-46 Awakening scoring edge cases |
 | Gear | D-10 Identify + fallback · D-11 MythicLib elements for now · D-12 max V, pity, never destroyed · D-12b armour same ladder · D-12c one stone per category · D-12d accessories I–V · D-13/D-13b AP/DP soft cap from gear + enhancement |

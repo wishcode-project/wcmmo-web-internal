@@ -21,7 +21,8 @@
 | **F** | **swap skill bar 1 ↔ 2** (D-03 revised: was Shift + Right Click) | right click is taken by bows |
 | **Q** | **ultimate** of the held weapon, needs 100 Remnant (D-51, spec 025) | Q no longer drops items in the world; drop items from the inventory screen |
 | F in the inventory, hovering an item | next page of the item's details (D-54, spec 026) | a different event from F in the world: no clash |
-| Skill keys | cast the slot of the active bar | MMOCore casting mode |
+| **1–5 (holding a weapon)** | cast the matching skill of the active bar; the held item doesn't change (D-60) | MMOCore casting mode, PoC-3 confirms |
+| **6–9** | select item slots (potions, food, spare weapon) | |
 
 ## Rules
 
@@ -84,4 +85,4 @@ Disable the script; MMOCore default casting and vanilla F / Q come back.
 
 ## Open questions
 
-- Which MMOCore casting mode binds the active bar's 5 slots to the skill keys (next step after PoC-3).
+- Which MMOCore casting mode lets keys 1–5 cast while the weapon stays in hand (PoC-3). HUD: spec 029.

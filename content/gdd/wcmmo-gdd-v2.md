@@ -195,6 +195,8 @@ To prevent stat bloat, progression is strictly split. Each system has one job:
 | D-57 | Death penalty & respawn | — | XP −1 % of the level requirement (none below Lv 15), no item drop, durability −5 %, Remnant halved, buffs cleared; **no vanilla death screen**: countdown then automatic respawn at the nearest Waystone / city; revive on the spot for 100 Remnant; party revive in dungeons. Spec 027 | as recommended + auto-respawn | DECIDED |
 | D-58 | Levelling speed | — | Cap 60 in ~90–100 h; slice 1 → 15 in 3–4 h; curve `50·L² + 100·L`; XP 60 % mobs / 30 % quests / 10 % dungeons; low-level mobs 50 % / 10 %. Spec 028 | as recommended | DECIDED |
 | D-59 | Party XP & loot | — | Party XP per member = base × (1 + 0.1·(n−1)) / n within 30 blocks and 10 levels, +5 % per extra distinct Bloodline; world drops owned by the top damager 30 s, then free 90 s, then despawn (round-robin inside the owner's party); dungeon bosses give personal rewards. Spec 028 | as recommended + top-damager ownership | DECIDED |
+| D-60 | Skill casting keys | click combos / scroll / number keys | **Keys 1–5 cast the active bar's skills while holding a weapon**; 6–9 select items | as recommended | DECIDED |
+| D-61 | HUD layout | — | Bottom-centre block (wooden style, reference in `boards/hud-reference.png`): HP panel left, Mana panel right, **level number in a centre hex whose fill is stamina** (green / yellow / red, running icon while sprinting), segmented **XP bar** below, **skill bar + ultimate above**, vanilla hotbar framed at the bottom; party top-left, boss bar top-centre, quests + buffs top-right. Spec 029 | owner's layout | DECIDED |
 | D-36b | Weapon swap exploit | — | Mastery CDR applies only to that weapon's skills. General skills use the held weapon's Mastery | Mastery CDR = that weapon's skills + general skills based on the weapon held | DECIDED |
 
 ---
@@ -362,6 +364,7 @@ Placeholder. To decide: ModelEngine mounts, pet buffs vs cosmetic, loot pickup.
 | 2026-09-28 | D-05 | FPV testing starts with the bought Draconic Dual Sword FPV pack | owner |
 | 2026-09-28 | D-39 | MythicHUD = always-on HUD; UltimateUI = shops, quest list, other custom UI | owner |
 | 2026-09-29 | D-01, D-02, D-03a, D-04, D-04c, D-06b, D-06c, D-06d, D-07, D-07b, D-08b, D-11, D-12, D-12c, D-12d, D-15b, D-16, D-17b, D-18, D-26, D-30, D-33, D-34, D-35, D-35b, D-36b, D-41, D-42, D-46 | Decision session: 29 decided, D-36 partly (test values), D-17 loot refined | owner |
+| 2026-10-01 | D-60, D-61 | Keys 1–5 cast skills; HUD layout (level hex with stamina fill, XP bar, skill bar above) | owner |
 | 2026-10-01 | D-57, D-58, D-59 | Death (auto-respawn, light penalties), levelling targets, party XP and loot ownership | owner |
 | 2026-09-30 | D-56 | 17 runes with shared caps; renamed Breath / Clarity / Leech / Steadfast to avoid clashes | owner |
 | 2026-09-30 | D-55 | Orb skills (family + weapon-only) from NPC or monster orbs; Unbroken Vow on Ward | owner |

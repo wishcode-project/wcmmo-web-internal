@@ -37,6 +37,7 @@ as the spec that introduces it.** Specs link back here instead of redefining any
 | 026 | [Item detail pages (F in the inventory)](026-item-inspect-pages.md) | DRAFT | wcmmo | confirm |
 | 027 | [Death & respawn](027-death-respawn.md) | DRAFT | wcmmo | validate |
 | 028 | [Levelling, party XP & loot](028-levelling-party-loot.md) | DRAFT | wcmmo | validate |
+| 029 | [HUD layout](029-hud.md) | DRAFT | wcmmo | confirm |
 
 Design intent lives in [`../gdd/wcmmo-gdd-v2.md`](../gdd/wcmmo-gdd-v2.md) (v1 is superseded); decisions `D-xx` are tracked there.
 Coming soon (GDD v2 §10–12, not specced): economy & trade, guild & node war, pets & mounts.
