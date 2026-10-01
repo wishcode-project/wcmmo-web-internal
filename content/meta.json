@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-01T17:58:30.693Z",
-  "head": "7088019",
+  "syncedAt": "2026-10-01T17:59:53.659Z",
+  "head": "b12a29e",
   "branch": "main",
   "commits": [
+    {
+      "sha": "b12a29e",
+      "date": "2026-10-02T00:59:42+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: note the PoC-2 tests that need more players",
+      "insertions": 9,
+      "deletions": 0,
+      "files": 1
+    },
     {
       "sha": "7088019",
       "date": "2026-10-02T00:58:15+07:00",
@@ -489,7 +498,7 @@
     "gdd/awakening-tutorial.md": "2026-10-01T00:27:45+07:00",
     "gdd/bloodlines.md": "2026-09-30T23:45:25+07:00",
     "gdd/lore-bible.md": "2026-10-01T00:27:45+07:00",
-    "gdd/owner-questions.md": "2026-10-01T22:23:49+07:00",
+    "gdd/owner-questions.md": "2026-10-02T00:59:42+07:00",
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
     "gdd/trailer.md": "2026-09-30T00:24:58+07:00",
     "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",

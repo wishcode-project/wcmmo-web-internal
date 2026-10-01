@@ -85,6 +85,15 @@ Full list with docs and overlaps: [`../docs/plugins.md`](../docs/plugins.md). Ow
 | M11 | VIP / store: what can be sold without pay-to-win | new |
 | ~~M12~~ | ~~Languages~~ **Answered 2026-10-01:** Thai + English, English proper names, spec 030 | D-27 |
 
+## Pending: tests that need more people
+
+| # | Test | Needs | Spec |
+|---|---|---|---|
+| PT1 | PoC-2 player-vs-player rows of the combat matrix (guard vs guard, heavy vs guard, Super Armour vs CC) | 2 players | 009, 004 |
+| PT2 | PoC-2 MSPT report: 20 players / bots hitting at once, `/spark profiler` link | 20 testers or bots | 004 |
+
+Owner (2026-10-02): do these when testers are available; they don't block PoC-3.
+
 ## Pending: team meeting
 
 | # | Topic | Decision |
