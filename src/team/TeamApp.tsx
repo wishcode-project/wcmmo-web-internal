@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { useDict } from '../shared/i18n'
+import { lazyImport } from '../shared/staleBuild'
 import { strings } from './strings'
 import { Layout } from './components/Layout'
 import { Dashboard } from './pages/Dashboard'
@@ -14,7 +15,7 @@ import { SpecDetail } from './pages/SpecDetail'
 import { Specs } from './pages/Specs'
 
 // React Flow is only needed on the graph page, so keep it out of the main team chunk.
-const Graph = lazy(() => import('./pages/Graph').then((m) => ({ default: m.Graph })))
+const Graph = lazy(lazyImport(() => import('./pages/Graph').then((m) => ({ default: m.Graph }))))
 const GraphFallback = () => <p className="py-16 text-center font-display text-parch-dim">{useDict(strings).graph.loading}</p>
 
 /** Rendered under /team/* once the TeamGate has a session. */

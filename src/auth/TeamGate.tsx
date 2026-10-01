@@ -1,12 +1,14 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDict } from '../shared/i18n'
+import { lazyImport } from '../shared/staleBuild'
 import { Login } from './Login'
 import { fetchSession, knownSession, logout, TeamSession, type SessionState } from './session'
 
 // The team app (and the private spec data inside it) is only downloaded after login.
 // In production its files live under /assets/team/, which the server refuses without a session.
-const TeamApp = lazy(() => import('../team/TeamApp'))
+// lazyImport: a tab left open across a deploy reloads itself instead of crashing.
+const TeamApp = lazy(lazyImport(() => import('../team/TeamApp')))
 
 const Loading = ({ label }: { label: string }) => (
   <div className="flex min-h-dvh items-center justify-center">

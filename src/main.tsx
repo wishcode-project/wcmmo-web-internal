@@ -4,6 +4,7 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import './index.css'
 import { TeamGate } from './auth/TeamGate'
 import { LangProvider } from './shared/i18n'
+import { reloadForNewBuild, RouteError } from './shared/staleBuild'
 import { Home } from './site/Home'
 import { Devlog, DevlogPost, Features, Lore, LoreChapter, PublicNotFound, PublicRoadmap } from './site/pages'
 import { BloodlinesPage } from './site/guide/BloodlinesPage'
@@ -20,6 +21,7 @@ import { PublicLayout } from './site/PublicLayout'
 const router = createBrowserRouter([
   {
     element: <PublicLayout />,
+    errorElement: <RouteError />,
     children: [
       { path: '/', element: <Home /> },
       { path: '/features', element: <Features /> },
@@ -43,8 +45,13 @@ const router = createBrowserRouter([
       { path: '*', element: <PublicNotFound /> },
     ],
   },
-  { path: '/team/*', element: <TeamGate /> },
+  { path: '/team/*', element: <TeamGate />, errorElement: <RouteError /> },
 ])
+
+// Vite fires this when a preloaded chunk/CSS of an old build is gone: reload once.
+window.addEventListener('vite:preloadError', (e) => {
+  if (reloadForNewBuild()) e.preventDefault()
+})
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
