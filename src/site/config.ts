@@ -30,7 +30,7 @@ export type IconName =
   | 'blood' | 'rune' | 'sword' | 'shield' | 'gem' | 'skull' | 'scroll' | 'house' | 'pickaxe'
   | 'fury' | 'ward' | 'pulse' | 'hammer' | 'bow' | 'staff' | 'orb'
   | 'rune-defence' | 'rune-offence' | 'rune-sustain' | 'rune-utility'
-  | 'ring' | 'totem'
+  | 'ring' | 'totem' | 'wings'
 
 interface FeatureText {
   title: string
@@ -103,13 +103,13 @@ export const features: Feature[] = [
       en: {
         title: 'Action combat',
         short: 'Dodge, guard and power through. Timing beats stats.',
-        body: 'Dash out of danger, block hits from the front, and push through crowd control with super armour. Swap between two skill bars mid-fight to chain combos, and when your Remnant gauge fills, unleash your weapon\'s ultimate. We are also experimenting with first-person weapon animations.',
+        body: 'Dash out of danger, block hits from the front, and push through crowd control with super armour. Cast skills with quick three-click combos, switch between two skill sets mid-fight, and when your Remnant gauge fills, unleash your weapon\'s ultimate. We are also experimenting with first-person weapon animations.',
         tag: 'In prototyping',
       },
       th: {
         title: 'ระบบต่อสู้แบบแอคชัน',
         short: 'หลบ กัน และฝ่าไปข้างหน้า จังหวะสำคัญกว่าสเตตัส',
-        body: 'พุ่งหลบออกจากอันตราย ป้องกันการโจมตีจากด้านหน้า และฝ่าการควบคุมด้วย Super Armour สลับแถบสกิลสองแถวกลางการต่อสู้เพื่อต่อคอมโบ และเมื่อเกจ Remnant เต็ม ก็ปล่อยท่าไม้ตายของอาวุธได้ทันที นอกจากนี้เรากำลังทดลองแอนิเมชันอาวุธมุมมองบุคคลที่หนึ่งด้วย',
+        body: 'พุ่งหลบออกจากอันตราย ป้องกันการโจมตีจากด้านหน้า และฝ่าการควบคุมด้วย Super Armour ใช้สกิลด้วยคอมโบ 3 คลิก สลับชุดสกิลสองชุดกลางการต่อสู้ และเมื่อเกจ Remnant เต็ม ก็ปล่อยท่าไม้ตายของอาวุธได้ทันที นอกจากนี้เรากำลังทดลองแอนิเมชันอาวุธมุมมองบุคคลที่หนึ่งด้วย',
         tag: 'กำลังทดสอบต้นแบบ',
       },
     },
@@ -217,8 +217,8 @@ export const stages: Stage[] = [
   {
     key: 0,
     text: {
-      en: { title: 'Proving the tech', blurb: 'Prototyping the risky parts first: first-person combat, dodging and guarding, the skill-bar swap, Bloodline powers and housing.' },
-      th: { title: 'พิสูจน์เทคโนโลยี', blurb: 'ทดสอบต้นแบบส่วนที่เสี่ยงที่สุดก่อน: การต่อสู้มุมมองบุคคลที่หนึ่ง การหลบและการป้องกัน การสลับแถบสกิล พลังสายเลือด และระบบบ้าน' },
+      en: { title: 'Proving the tech', blurb: 'Prototyping the risky parts first: first-person combat, dodging and guarding, skill sets, Bloodline powers and housing.' },
+      th: { title: 'พิสูจน์เทคโนโลยี', blurb: 'ทดสอบต้นแบบส่วนที่เสี่ยงที่สุดก่อน: การต่อสู้มุมมองบุคคลที่หนึ่ง การหลบและการป้องกัน ชุดสกิล พลังสายเลือด และระบบบ้าน' },
     },
   },
   {

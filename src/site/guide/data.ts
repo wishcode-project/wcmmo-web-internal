@@ -243,10 +243,20 @@ export const orbSkills: (Skill & { who: T })[] = [
 export const controls: { key: string; text: T }[] = [
   { key: 'LMB', text: { en: 'basic attack (melee, magic bolt)', th: 'โจมตีพื้นฐาน (ประชิด, ลูกเวท)' } },
   { key: 'RMB', text: { en: 'basic shot: bows fire instantly', th: 'ยิงพื้นฐาน: ธนูยิงออกทันที' } },
-  { key: '1–5', text: { en: 'cast the skills on the active bar', th: 'ใช้สกิลในแถบที่เลือกอยู่' } },
-  { key: 'F', text: { en: 'swap skill bar 1 ↔ 2', th: 'สลับแถบสกิล 1 ↔ 2' } },
+  { key: 'R-L-R', text: { en: '3-click combo: casts a slot of the active set', th: 'คอมโบ 3 คลิก: ใช้สกิลในช่องของชุดที่เลือกอยู่' } },
+  { key: 'F', text: { en: 'switch skill set 1 ↔ 2', th: 'สลับชุดสกิล 1 ↔ 2' } },
   { key: 'Shift', text: { en: 'guard (hold)', th: 'ป้องกัน (กดค้าง)' } },
   { key: 'Q', text: { en: 'ultimate, when the Remnant gauge is full', th: 'ท่าไม้ตาย เมื่อเกจ Remnant เต็ม' } },
+  { key: '1–9', text: { en: 'plain hotbar: weapons, potions, food', th: 'hotbar ปกติ: อาวุธ ยา อาหาร' } },
+]
+
+/** The five 3-click combos (spec 007). Bows mirror them: left and right swapped. */
+export const combos: { slot: number; melee: string; bow: string }[] = [
+  { slot: 1, melee: 'R-L-R', bow: 'L-R-L' },
+  { slot: 2, melee: 'R-R-R', bow: 'L-L-L' },
+  { slot: 3, melee: 'R-L-L', bow: 'L-R-R' },
+  { slot: 4, melee: 'R-R-L', bow: 'L-L-R' },
+  { slot: 5, melee: 'L-R-L', bow: 'R-L-R' },
 ]
 
 // ── Runes ───────────────────────────────────────────────────────────────────

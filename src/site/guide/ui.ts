@@ -44,6 +44,11 @@ export const guideUi: Dict<{
     usableWith: string
     slotsTitle: string
     slotsText: string
+    combosTitle: string
+    combosText: string
+    slot: (n: number) => string
+    comboMelee: string
+    comboBow: string
   }
   rn: {
     slots: string
@@ -147,8 +152,13 @@ export const guideUi: Dict<{
       orbs: 'Orb skills',
       orbsText: 'Use a Skill Orb, bought from the Orb Merchant or dropped by monsters, to learn an extra skill. About as strong as a mid-tier weapon skill, never stronger than a weapon’s best.',
       usableWith: 'Usable with',
-      slotsTitle: 'Ten slots, two bars',
-      slotsText: 'General, weapon and orb skills share the same ten slots (two bars of five). The ultimate sits on Q and takes no slot.',
+      slotsTitle: 'Your skills, your loadout',
+      slotsText: 'Skills belong to you, not to the weapon. Any skill you own goes in any of ten slots (two sets of five), plus one ultimate slot. The weapon in your hand only decides whether a skill can be used right now. Switch weapons whenever you like: the new weapon can’t make basic attacks for 5 seconds, but skills still work.',
+      combosTitle: 'Casting with 3-click combos',
+      combosText: 'Skills are cast with three quick clicks, so the number keys stay a normal hotbar. Bows and crossbows use the same combos mirrored.',
+      slot: (n) => `Slot ${n}`,
+      comboMelee: 'Melee & magic',
+      comboBow: 'Bow & crossbow',
     },
     rn: {
       slots: 'Rune slots',
@@ -213,6 +223,7 @@ export const guideUi: Dict<{
       pointsRows: [
         { label: 'Per level', value: '2 points' },
         { label: 'Level cap', value: '60' },
+        { label: 'Max per attribute', value: '80' },
         { label: 'Respec', value: 'a respec scroll from an NPC or a quest' },
       ],
       ladder: 'What gear asks for',
@@ -264,8 +275,13 @@ export const guideUi: Dict<{
       orbs: 'สกิลจาก Orb',
       orbsText: 'ใช้ Skill Orb ที่ซื้อจาก Orb Merchant หรือดรอปจากมอนสเตอร์ เพื่อเรียนสกิลเพิ่ม ความแรงประมาณสกิลอาวุธระดับกลาง และไม่มีทางแรงกว่าสกิลที่ดีที่สุดของอาวุธ',
       usableWith: 'ใช้ได้กับ',
-      slotsTitle: '10 ช่อง สองแถบ',
-      slotsText: 'สกิลทั่วไป สกิลอาวุธ และสกิลจาก Orb ใช้ช่องเดียวกันทั้ง 10 ช่อง (สองแถบ แถบละ 5) ส่วนท่าไม้ตายอยู่ที่ปุ่ม Q ไม่กินช่อง',
+      slotsTitle: 'สกิลของคุณ จัดชุดเองได้',
+      slotsText: 'สกิลเป็นของคุณ ไม่ได้ผูกกับอาวุธ สกิลไหนที่คุณมีก็ใส่ได้ในทั้ง 10 ช่อง (สองชุด ชุดละ 5) และมีช่องท่าไม้ตายอีก 1 ช่อง อาวุธที่ถืออยู่กำหนดแค่ว่าตอนนี้ใช้สกิลนั้นได้ไหม เปลี่ยนอาวุธได้ตลอด แต่อาวุธใหม่จะโจมตีพื้นฐานไม่ได้ 5 วินาที ส่วนสกิลยังใช้ได้',
+      combosTitle: 'ใช้สกิลด้วยคอมโบ 3 คลิก',
+      combosText: 'สกิลใช้ด้วยการคลิกเร็ว 3 ครั้ง ปุ่มตัวเลขจึงยังเป็น hotbar ปกติ ธนูและหน้าไม้ใช้คอมโบเดียวกันแบบกลับด้าน',
+      slot: (n) => `ช่อง ${n}`,
+      comboMelee: 'ประชิดและเวท',
+      comboBow: 'ธนูและหน้าไม้',
     },
     rn: {
       slots: 'ช่องรูน',
@@ -330,6 +346,7 @@ export const guideUi: Dict<{
       pointsRows: [
         { label: 'ต่อเลเวล', value: '2 แต้ม' },
         { label: 'เลเวลสูงสุด', value: '60' },
+        { label: 'สูงสุดต่อค่าสเตตัส', value: '80' },
         { label: 'รีเซ็ตแต้ม', value: 'ใช้ม้วนรีเซ็ตจาก NPC หรือรางวัลเควสต์' },
       ],
       ladder: 'อุปกรณ์ต้องการอะไร',

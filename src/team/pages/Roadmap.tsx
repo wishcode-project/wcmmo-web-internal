@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { DecisionChip, Inline, PageHeader, PocBadge, Progress, SectionTitle, SpecChip, specStatusColor } from '../components/ui'
-import { phases, pocs, prereqs, sliceWindow, specById } from '../lib/data'
+import { Markdown } from '../components/Markdown'
+import { files, phases, pocs, prereqs, sliceWindow, specById } from '../lib/data'
+import { sectionText } from '../lib/markdown'
 import { useDict } from '../../shared/i18n'
 import { daysBetween, fmtDate } from '../../shared/time'
 import { strings } from '../strings'
@@ -47,6 +49,8 @@ function Timeline() {
     </div>
   )
 }
+
+const progress = sectionText(files['docs/004-roadmap-phase-plan.md'] ?? '', 'Progress log')
 
 export function Roadmap() {
   const t = useDict(strings)
@@ -161,6 +165,15 @@ export function Roadmap() {
           ))}
         </ul>
       </section>
+
+      {progress && (
+        <section className="mt-10">
+          <SectionTitle>{r.progress}</SectionTitle>
+          <div className="paper min-w-0 px-5 py-4">
+            <Markdown source={progress} basePath="docs/004-roadmap-phase-plan.md" />
+          </div>
+        </section>
+      )}
     </>
   )
 }

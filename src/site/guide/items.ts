@@ -65,6 +65,18 @@ export const items: Item[] = [
     },
     source: { en: 'monster drops, crafting, quests', th: 'ดรอปจากมอนสเตอร์, คราฟต์, เควสต์' },
   },
+  {
+    id: 'wings',
+    name: { en: 'Wings', th: 'ปีก' },
+    icon: 'wings',
+    category: 'gear',
+    type: { en: 'Wings · one slot', th: 'ปีก · 1 ช่อง' },
+    text: {
+      en: 'Folded in town, spread wide in the wilds, and they slow your fall. No real flight. Their look follows your Bloodline, and better wings give a small, honest power boost. The store only ever sells wing skins, never stats.',
+      th: 'หุบอยู่ในเมือง กางออกเมื่อออกไปข้างนอก และช่วยให้ตกช้าลง บินจริงไม่ได้ หน้าตาเปลี่ยนตามสายเลือดของคุณ ปีกที่ดีกว่าให้พลังเพิ่มเล็กน้อยอย่างตรงไปตรงมา ร้านค้าจะขายแค่สกินปีก ไม่ขายค่าสเตตัส',
+    },
+    source: { en: 'three tiers, earned in game', th: 'มี 3 ระดับ ได้จากการเล่นในเกม' },
+  },
   accessory('necklace', 'Necklace', 'สร้อยคอ'),
   accessory('earring', 'Earring', 'ต่างหู'),
   accessory('ring', 'Ring', 'แหวน'),

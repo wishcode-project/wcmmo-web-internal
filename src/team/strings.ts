@@ -136,6 +136,7 @@ const en = {
     fallback: 'Fallback',
     notes: (d: string) => `Result notes (${d})`,
     prereqs: 'Prerequisites before any PoC',
+    progress: 'Progress log & next steps',
   },
   questions: {
     title: 'Open questions',
@@ -302,6 +303,7 @@ const th: Strings = {
     fallback: 'แผนสำรอง',
     notes: (d: string) => `บันทึกผล (${d})`,
     prereqs: 'สิ่งที่ต้องมีก่อนเริ่ม PoC',
+    progress: 'บันทึกความคืบหน้าและขั้นต่อไป',
   },
   questions: {
     title: 'คำถามที่ค้างอยู่',

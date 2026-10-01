@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom'
 import { useDict, useLang } from '../../shared/i18n'
 import { PixelIcon } from '../PixelIcon'
-import { controls, generalSkills, laterWeapons, orbSkills, weapons, type Skill } from './data'
+import { combos, controls, generalSkills, laterWeapons, orbSkills, weapons, type Skill } from './data'
 import { GuideTitle, Stone, Tooltip } from './parts'
 import { guideUi } from './ui'
 
@@ -41,14 +41,39 @@ export function SkillsPage() {
         <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {controls.map((c) => (
             <li key={c.key} className="flex items-center gap-3 text-sm">
-              <kbd className="min-w-14 bg-bark-dark px-2 py-1 text-center font-display text-cream shadow-[inset_0_-3px_0_rgb(0_0_0_/_0.4),0_0_0_2px_var(--color-bark)]">{c.key}</kbd>
+              <kbd className="min-w-16 bg-bark-dark px-2 py-1 text-center font-display text-cream shadow-[inset_0_-3px_0_rgb(0_0_0_/_0.4),0_0_0_2px_var(--color-bark)]">{c.key}</kbd>
               <span>{c.text[lang]}</span>
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-sm text-paper-muted">
-          <strong className="text-bark-dark">{t.slotsTitle}:</strong> {t.slotsText}
-        </p>
+        <div className="mt-5 grid gap-5 md:grid-cols-2">
+          <div>
+            <h3 className="font-display text-bark-dark">{t.slotsTitle}</h3>
+            <p className="mt-1 text-sm text-paper-muted">{t.slotsText}</p>
+          </div>
+          <div>
+            <h3 className="font-display text-bark-dark">{t.combosTitle}</h3>
+            <p className="mt-1 text-sm text-paper-muted">{t.combosText}</p>
+            <table className="mt-2 w-full text-sm">
+              <thead>
+                <tr className="bg-bark text-left font-display text-cream">
+                  <th className="px-3 py-1.5 font-normal" />
+                  <th className="px-3 py-1.5 font-normal">{t.comboMelee}</th>
+                  <th className="px-3 py-1.5 font-normal">{t.comboBow}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {combos.map((c) => (
+                  <tr key={c.slot} className="border-b border-bark/25">
+                    <td className="px-3 py-1.5 text-paper-muted">{t.slot(c.slot)}</td>
+                    <td className="px-3 py-1.5 font-mono font-bold text-bark-dark">{c.melee}</td>
+                    <td className="px-3 py-1.5 font-mono font-bold text-bark-dark">{c.bow}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </section>
 
       <section>
