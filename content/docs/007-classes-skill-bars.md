@@ -31,7 +31,7 @@
 3. Casting a slotted **weapon skill** while holding a different weapon type → fails with "Requires <Weapon>", no cooldown or cost used.
 4. Loadout changes only out of combat (5 s since the last hit).
 5. **Basic attack speed:** AGI raises basic attack / shot speed, **+0.5 % per point, capped at +30 %** (D-50). Skill cooldowns are not affected by AGI (Mastery owns them, spec 023).
-6. **Bow / Crossbow basic shot:** right click fires an arrow at once with the weapon's damage; shot interval 0.75 s (Bow) / 1.0 s (Crossbow, heavier bolt), lowered by AGI down to the cap (Bow 0.55 s). **Short range (owner, 2026-10-01):** the shot reaches 6 blocks, flat, then disappears. No aim assist.
+6. **Bow / Crossbow basic shot:** right click fires an arrow at once with the weapon's damage; shot interval 0.75 s (Bow) / 1.0 s (Crossbow, heavier bolt), lowered by AGI down to the cap (Bow 0.55 s). **Short range (owner, 2026-10-01):** a slow arrow that arcs with gravity, reaches at most 6 blocks, and disappears when it hits, lands or reaches the limit. No aim assist.
 7. ⚠️ FPV weapons: the Draconic pack uses F (off-hand) today. When FPV weapons are ported (D-44), F belongs to the bar swap.
 
 ## Data & IDs
@@ -50,7 +50,8 @@
 | Out-of-combat timer for loadout edits | 5 s |
 | AGI basic attack speed | +0.5 %/point, cap +30 % |
 | Bow / Crossbow shot interval | 0.75 s / 1.0 s → min 0.55 s / 0.75 s |
-| Bow / Crossbow basic shot range | **6 blocks**, flat; the arrow disappears after that (long range = skills) |
+| Bow / Crossbow basic shot range | **6 blocks** from the shooter; slow arrow (1.1 blocks / tick) with normal gravity, Wynncraft feel (long range = skills) |
+| Basic shot arrow | disappears at 6 blocks, 0.5 s after landing, or at once when it hits something; never stuck in a body, never picked up |
 
 ## Commands & permissions
 

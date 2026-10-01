@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-01T16:52:01.804Z",
-  "head": "99d9c28",
+  "syncedAt": "2026-10-01T16:55:23.670Z",
+  "head": "6b5293d",
   "branch": "main",
   "commits": [
+    {
+      "sha": "6b5293d",
+      "date": "2026-10-01T23:55:08+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(007): bow basic shot arcs with gravity and vanishes",
+      "insertions": 3,
+      "deletions": 2,
+      "files": 1
+    },
     {
       "sha": "99d9c28",
       "date": "2026-10-01T23:51:49+07:00",
@@ -390,7 +399,7 @@
     "docs/004-roadmap-phase-plan.md": "2026-10-01T22:23:49+07:00",
     "docs/005-vitality-resources.md": "2026-10-01T22:23:49+07:00",
     "docs/006-attributes-stat-gating.md": "2026-10-01T22:23:49+07:00",
-    "docs/007-classes-skill-bars.md": "2026-10-01T23:51:49+07:00",
+    "docs/007-classes-skill-bars.md": "2026-10-01T23:55:08+07:00",
     "docs/008-weapon-types-exclusive-skills.md": "2026-09-30T23:45:25+07:00",
     "docs/009-combat-states.md": "2026-10-01T22:23:49+07:00",
     "docs/010-fpv-animation-poc.md": "2026-10-01T22:23:49+07:00",
