@@ -107,7 +107,7 @@ Full per-plugin guide (docs, dependencies, setup, overlaps): [plugins.md](plugin
 | wcmmo-core (ours) | — **deferred** (D-25): per-system review after Phase 0 | own | wcmmo-plugins | vitality, skillbar, combat, bloodline, enhance, zones, totem, loot, lifezone modules | 005, 007, 009, 013–015, 017, 018, 021 |
 | Velocity | — maybe (D-19) | free | wcmmo-infra | proxy for multi-server Lifezones | 018 |
 
-Paid jars are never committed; each dev downloads with their own licence.
+Plugin jars (paid included) are committed only in the private `wcmmo` repo under `plugins/*.jar` (owner, 2026-10-01), so every clone runs the same set. Never in a public repo.
 
 ## ID namespaces
 

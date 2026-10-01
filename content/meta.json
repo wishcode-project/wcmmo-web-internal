@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-01T13:59:16.502Z",
-  "head": "0624b5e",
+  "syncedAt": "2026-10-01T14:01:20.401Z",
+  "head": "72f9efa",
   "branch": "main",
   "commits": [
+    {
+      "sha": "72f9efa",
+      "date": "2026-10-01T21:01:02+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(registry): plugin jars live in the private wcmmo repo",
+      "insertions": 1,
+      "deletions": 1,
+      "files": 1
+    },
     {
       "sha": "0624b5e",
       "date": "2026-10-01T20:59:03+07:00",
@@ -347,7 +356,7 @@
     "docs/033-monster-ranks-combat.md": "2026-10-01T00:49:11+07:00",
     "docs/034-wings.md": "2026-10-01T20:59:03+07:00",
     "docs/035-training-dummy.md": "2026-10-01T20:59:03+07:00",
-    "docs/README.md": "2026-10-01T20:59:03+07:00",
+    "docs/README.md": "2026-10-01T21:01:02+07:00",
     "docs/plugins.md": "2026-09-30T22:46:05+07:00",
     "docs/adr/0001-purpur-java25-zgc.md": "2026-09-25T00:46:05+07:00",
     "docs/adr/0002-spec-first-workflow.md": "2026-09-25T00:46:05+07:00",
