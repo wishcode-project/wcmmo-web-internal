@@ -13,7 +13,7 @@
 
 | Part | Rule |
 |---|---|
-| Model | **Skeleton** with a **Steve player head** and a **wooden sword** in the main hand (no bow) |
+| Model | **Skeleton** with a **Steve player head** and a **wooden sword** in the main hand (no bow), **arms raised forward like a zombie** |
 | Name | `&e[Dummy] &f<name>` (default name "Training Dummy") |
 | Behaviour | no AI: never moves, turns, attacks or retaliates; no knockback; no sunburn; silent |
 | Health | **never runs out**: damage is applied for real (so on-hit effects, statuses and Bloodline hooks work), then health is topped up to full the next tick |
