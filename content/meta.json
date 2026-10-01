@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-01T17:07:38.390Z",
-  "head": "039c9ec",
+  "syncedAt": "2026-10-01T17:29:24.754Z",
+  "head": "349a7de",
   "branch": "main",
   "commits": [
+    {
+      "sha": "349a7de",
+      "date": "2026-10-02T00:29:09+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(035): dummy head line shows the session total",
+      "insertions": 2,
+      "deletions": 2,
+      "files": 1
+    },
     {
       "sha": "039c9ec",
       "date": "2026-10-02T00:07:23+07:00",
@@ -445,7 +454,7 @@
     "docs/032-npcs-name-colours.md": "2026-10-01T00:39:32+07:00",
     "docs/033-monster-ranks-combat.md": "2026-10-01T00:49:11+07:00",
     "docs/034-wings.md": "2026-10-02T00:07:23+07:00",
-    "docs/035-training-dummy.md": "2026-10-01T20:59:03+07:00",
+    "docs/035-training-dummy.md": "2026-10-02T00:29:09+07:00",
     "docs/README.md": "2026-10-02T00:07:23+07:00",
     "docs/plugins.md": "2026-10-01T22:07:29+07:00",
     "docs/adr/0001-purpur-java25-zgc.md": "2026-09-25T00:46:05+07:00",

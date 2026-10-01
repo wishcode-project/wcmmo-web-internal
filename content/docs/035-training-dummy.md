@@ -25,7 +25,7 @@ A text display above the name, refreshed every 5 ticks:
 
 ```
 [Dummy] Training Dummy
-DPS 152.4 · Last 38.0 · Max 96.5
+DPS 152.4 · Last 38.0 · Max 96.5 · Total 1840
 Slowness II · Staggered · Guard Broken · Poison
 ```
 
@@ -38,7 +38,7 @@ Statuses shown: vanilla potion effects (with level), our combat states (spec 009
 | Session start | first hit by a player |
 | Session end | **5 s** without a hit from that player |
 | Per player | every player has their own session; the head line shows the **latest attacker's** numbers |
-| Live (head line) | DPS = damage in session ÷ seconds since session start; last hit; max hit |
+| Live (head line) | DPS = damage in session ÷ seconds since session start; last hit; max hit; **session total** |
 | Summary (chat, to that player) | duration, total damage, DPS, hits, max hit, crit % (if the crit flag is readable; VERIFY) |
 | Command | `/dummy stats` → your last summary again |
 
