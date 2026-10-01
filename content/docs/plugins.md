@@ -36,7 +36,7 @@ Only link official pages (the store page, the wiki, GitHub). Never use leak site
 | Nexo | items/pack | **owned**, installed | 1.29-dev (b3ebc6e48) | ✅ | furniture, custom blocks, **merged resource pack owner** (D-40, T7) | 018, 020 |
 | **MythicHUD** | HUD | **owned**, installed | 1.3.5 | ✅ | always-on HUD: HP / Mana / Stamina / skill bars / cooldowns (D-39) | 005, 007 |
 | **UltimateUI** | UI | **owned**, installed | 1.4.0 | ✅ | shops, quest list, menus, any custom UI MythicHUD can't do (D-39) | — |
-| **CosmeticsCore** | cosmetics | **owned**, installed | 1.3.13 needed | ❌ 1.3.12 has no 26.2 support (NMS null); 1.3.13 loads but this copy fails the licence check: re-download 1.3.13 from the store | hats, backs, wings, balloons (D-41) | — |
+| **CosmeticsCore** | cosmetics | **owned**, installed | 1.3.13 | ⚠️ enabled; licence log `Unknown user ID: %%__USER__%%` (jar not stamped with the buyer ID). 1.3.12 has no 26.2 support | hats, backs, wings, balloons (D-41) | — |
 | **ItemSkins** | cosmetics | **owned** | 2.1.0 | ❓ | weapon/item texture skins (D-41) | — |
 | **LuxDialogues** | quests | **owned** | 4.1.3 | ✅ | Wynncraft-style NPC dialogue (D-15) | 016 |
 | **LuxCollect** | quests | **owned** | ? | ⚠️ page lists up to 1.21.11 | collectables hunt (D-42) | — |

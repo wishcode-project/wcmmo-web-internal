@@ -91,7 +91,7 @@ Full per-plugin guide (docs, dependencies, setup, overlaps): [plugins.md](plugin
 | UltimateUI | 1.4.0 | paid | wcmmo | shops, quest list, custom UI (D-39) | — |
 | MythicHUD | 1.3.5 | paid | wcmmo | always-on HUD (D-39) | 005, 007 |
 | MythicCrucible | 5.13.0 | paid | wcmmo | FPV weapon item triggers for the test (D-44); not the pack owner | 010 |
-| CosmeticsCore | 1.3.13 needed (licensed download) ❌ | paid | wcmmo | wearable cosmetics (D-41) | — |
+| CosmeticsCore | 1.3.13 ⚠️ licence log | paid | wcmmo | wearable cosmetics (D-41) | — |
 | ItemSkins | 2.1.0 owned | paid | wcmmo | weapon skins (D-41), needs PacketEvents | — |
 | LuxDialogues | 4.1.3 | paid | wcmmo | NPC dialogue (D-15) | 016 |
 | LuxCollect | — owned | paid | wcmmo | collectables (D-42) | — |
