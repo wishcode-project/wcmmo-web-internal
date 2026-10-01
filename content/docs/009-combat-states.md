@@ -80,3 +80,4 @@ Disable module via config flag `combat.enabled: false`.
 | Date | Repo | FIRE run | PR | Notes |
 |---|---|---|---|---|
 | 2026-10-02 | wcmmo | `run-wcmmo-002` | branch `feat/mmo-core-setup` | MythicLib chance mitigation off (`roll: '0'` for block / dodge / parry). In-game: no Blocked / Dodged / Parried. |
+| 2026-10-02 | wcmmo | `run-wcmmo-003` | branch `feat/009-combat-poc` | PoC-2 functional pass (1 player): Frontguard chip 20 % from the front only, stamina drain, guard break (stamina / heavy attack), perfect guard, Super Armour. Placeholder feedback: action bar texts + glow (blue Frontguard, orange Super Armour, yellow stun). `/wcmmodebug` prints the pipeline. PvP rows and MSPT report still open. |

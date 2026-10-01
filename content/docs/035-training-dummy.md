@@ -115,3 +115,9 @@ A handful of dummies (target ≤ 10, all in cities). The head line updates every
 
 - [x] D-67 decided.
 - [ ] Tests 1–9 pass.
+
+## Implementation log
+
+| Date | Repo | FIRE run | PR | Notes |
+|---|---|---|---|---|
+| 2026-10-02 | wcmmo | `run-wcmmo-003` | branch `feat/009-combat-poc` | Dummy works in game: spawn / list / tp / remove / info / respawn, never dies, head line DPS · Last · Max · Total, chat summary, hit line on the action bar. Finding: never set MythicMobs `MaxCombatDistance: 0` (it cancels every attack). |

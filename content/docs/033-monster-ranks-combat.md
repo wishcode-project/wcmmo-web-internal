@@ -121,3 +121,9 @@ Exact drop rates are written per zone in the zone / mob specs.
 
 - [x] D-65 decided.
 - [ ] Tests 1–7 pass.
+
+## Implementation log
+
+| Date | Repo | FIRE run | PR | Notes |
+|---|---|---|---|---|
+| 2026-10-02 | wcmmo | `run-wcmmo-003` | branch `feat/009-combat-poc` | Test mobs: `wcmmo_test_grunt` (Normal), Shieldbearer (Guard Elite, blue glow), Brute (Armour Elite, orange glow, telegraphed guard-breaking smash), `wcmmo_test_boss` (stun phases; not confirmed in game yet). |
