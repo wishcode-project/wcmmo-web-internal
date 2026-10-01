@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-01T18:34:07.709Z",
-  "head": "2a3c390",
+  "syncedAt": "2026-10-01T18:34:23.582Z",
+  "head": "66fe228",
   "branch": "main",
   "commits": [
+    {
+      "sha": "66fe228",
+      "date": "2026-10-02T01:33:57+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(context): controls row for click combos",
+      "insertions": 1,
+      "deletions": 1,
+      "files": 1
+    },
     {
       "sha": "2a3c390",
       "date": "2026-10-02T01:33:51+07:00",
