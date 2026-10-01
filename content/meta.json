@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-01T15:35:19.479Z",
-  "head": "bae04a8",
+  "syncedAt": "2026-10-01T16:50:26.168Z",
+  "head": "f095b0c",
   "branch": "main",
   "commits": [
+    {
+      "sha": "f095b0c",
+      "date": "2026-10-01T23:50:10+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(007): bow basic shot range 6 with aim assist (D-53 revised)",
+      "insertions": 6,
+      "deletions": 2,
+      "files": 2
+    },
     {
       "sha": "bae04a8",
       "date": "2026-10-01T22:35:01+07:00",
@@ -372,7 +381,7 @@
     "docs/004-roadmap-phase-plan.md": "2026-10-01T22:23:49+07:00",
     "docs/005-vitality-resources.md": "2026-10-01T22:23:49+07:00",
     "docs/006-attributes-stat-gating.md": "2026-10-01T22:23:49+07:00",
-    "docs/007-classes-skill-bars.md": "2026-10-01T00:22:29+07:00",
+    "docs/007-classes-skill-bars.md": "2026-10-01T23:50:10+07:00",
     "docs/008-weapon-types-exclusive-skills.md": "2026-09-30T23:45:25+07:00",
     "docs/009-combat-states.md": "2026-10-01T22:23:49+07:00",
     "docs/010-fpv-animation-poc.md": "2026-10-01T22:23:49+07:00",
@@ -412,6 +421,6 @@
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
     "gdd/trailer.md": "2026-09-30T00:24:58+07:00",
     "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",
-    "gdd/wcmmo-gdd-v2.md": "2026-10-01T22:23:49+07:00"
+    "gdd/wcmmo-gdd-v2.md": "2026-10-01T23:50:10+07:00"
   }
 }

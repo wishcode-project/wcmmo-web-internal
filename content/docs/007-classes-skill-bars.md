@@ -31,7 +31,7 @@
 3. Casting a slotted **weapon skill** while holding a different weapon type → fails with "Requires <Weapon>", no cooldown or cost used.
 4. Loadout changes only out of combat (5 s since the last hit).
 5. **Basic attack speed:** AGI raises basic attack / shot speed, **+0.5 % per point, capped at +30 %** (D-50). Skill cooldowns are not affected by AGI (Mastery owns them, spec 023).
-6. **Bow / Crossbow basic shot:** right click fires an arrow at once with the weapon's damage; shot interval 0.75 s (Bow) / 1.0 s (Crossbow, heavier bolt), lowered by AGI down to the cap (Bow 0.55 s).
+6. **Bow / Crossbow basic shot:** right click fires an arrow at once with the weapon's damage; shot interval 0.75 s (Bow) / 1.0 s (Crossbow, heavier bolt), lowered by AGI down to the cap (Bow 0.55 s). **Short range with aim assist (owner, 2026-10-01):** the shot reaches 6 blocks and, if something attackable is within 2 blocks of the crosshair line, flies at it, so exact aiming isn't needed.
 7. ⚠️ FPV weapons: the Draconic pack uses F (off-hand) today. When FPV weapons are ported (D-44), F belongs to the bar swap.
 
 ## Data & IDs
@@ -50,6 +50,8 @@
 | Out-of-combat timer for loadout edits | 5 s |
 | AGI basic attack speed | +0.5 %/point, cap +30 % |
 | Bow / Crossbow shot interval | 0.75 s / 1.0 s → min 0.55 s / 0.75 s |
+| Bow / Crossbow basic shot range | **6 blocks**, flat; the arrow disappears after that (long range = skills) |
+| Basic shot aim assist | locks an attackable target within **2 blocks** of the crosshair line, in line of sight; never guards; players only in PvP zones |
 
 ## Commands & permissions
 
@@ -68,6 +70,7 @@ Event-driven only (click, swap-hand, drop events); no repeating tasks.
 |---|---|---|
 | 1 | Slot 10 skills, cast from bar 1, press F | HUD shows bar 2; bar-1 cooldowns continue; no item moves to the off-hand |
 | 2 | Hold a bow, right click | arrow fires instantly, no draw animation needed |
+| 2b | Shoot at a mob 5 blocks away with the crosshair ~1.5 blocks off it; then at one 8 blocks away | first hits (aim assist); second: arrow disappears at 6 blocks |
 | 3 | Hold a bow, spam right click | shots limited to the interval; faster with more AGI, never below the cap |
 | 4 | Hold a bow, press F | bars swap, nothing shot |
 | 5 | Press Q with < 100 Remnant / with 100 | "Remnant not full" / ultimate fires, gauge back to 0 |
