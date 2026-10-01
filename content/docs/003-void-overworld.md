@@ -15,7 +15,7 @@ Backfilled from `wcmmo` commit `f18c219`.
 | Repo | File | Key | Value | Dev ≠ prod? |
 |---|---|---|---|---|
 | wcmmo | `server.properties` (untracked, per machine) | `level-name` | `wcmmo` | no — must match on both |
-| wcmmo | `server.properties` | `level-type` / `generator-settings` | vanilla flat, void preset | no |
+| wcmmo | `server.properties` | `level-type` / `generator-settings` | `minecraft:flat` / `{"biome":"minecraft:the_void","layers":[{"block":"minecraft:air","height":1}]}` | no |
 | wcmmo | `plugins/Multiverse-Core/worlds.yml` | `minecraft:overworld.spawn-location` | `8, -63, 8` | no |
 | wcmmo | `plugins/WorldGuard/worlds/wcmmo*/` | per-dimension config | stock | no |
 
@@ -55,10 +55,11 @@ Void world: near-zero chunk gen cost. Mob spawning is still on (`spawning.monste
 
 ## Open questions
 
-- `server.properties.example` still says `level-name=world` — update it to `wcmmo` (small autopilot fix, good first FIRE run).
+- ~~`server.properties.example` still says `level-name=world`~~ **Fixed 2026-10-01** (`run-wcmmo-001`): the example now has `level-name=wcmmo`, `level-type=minecraft\:flat` and the void `generator-settings` `{"biome":"minecraft:the_void","layers":[{"block":"minecraft:air","height":1}]}`.
 
 ## Implementation log
 
 | Date | Repo | FIRE run | PR | Notes |
 |---|---|---|---|---|
 | 2026-09-23 | wcmmo | — (pre-FIRE) | — | `f18c219` |
+| 2026-10-01 | wcmmo | `run-wcmmo-001` (autopilot) | branch `fix/003-void-world-example` | `846f3d3`: example matches the spec; `.yamllint` ignores vendor UltimateUI editor files. The Mac dev box world was made from the old example (normal terrain): regenerate it |
