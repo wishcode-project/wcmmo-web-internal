@@ -16,45 +16,45 @@ Only link official pages (the store page, the wiki, GitHub). Never use leak site
 
 | Plugin | Category | Status | Version | 26.2 | Used for | Specs |
 |---|---|---|---|---|---|---|
-| Purpur | server | installed | 26.2 | ✅ | server software | 001 |
-| CMI + CMILib | essentials | installed | ? | ❓ | homes, warps, kits, chat, tab, economy | 002 |
-| Vault | bridge | installed, prepared | ? | ❓ | economy/permission API | 002 |
-| WorldGuard | world | installed | ? | ❓ | regions, zone flags, plots | 002, 014, 018 |
-| FastAsyncWorldEdit | world | installed | ? | ❓ | building, house paste | 002, 018 |
-| Multiverse-Core | world | installed | ? | ❓ | worlds, Lifezone worlds | 002, 003, 018 |
-| Citizens | NPC | installed | ? | ❓ | NPCs | 002, 013, 016, 020 |
-| spark | tools | installed | ? | ❓ | lag profiling | 001 |
-| MMOCore | RPG core | **owned** | ? | ❓ | stats, Mana/Stamina, Mastery, lifeskills | 005, 006, 019, 023 |
-| MMOItems | RPG core | **owned** | ? | ❓ | gear, Identify, enhancement, runes | 008, 011–013, 022 |
-| MythicLib | RPG core | **owned** | ? | ❓ | required library | — |
+| Purpur | server | installed | 26.2 build 2633 | ✅ | server software | 001 |
+| CMI + CMILib | essentials | installed | 9.8.10.2 + CMILib 1.6.0.1 | ✅ | homes, warps, kits, chat, tab, economy | 002 |
+| Vault | bridge | installed, prepared | 2.1.1 (java21) | ✅ | economy/permission API | 002 |
+| WorldGuard | world | installed | 7.0.19 | ✅ | regions, zone flags, plots | 002, 014, 018 |
+| FastAsyncWorldEdit | world | installed | 2.15.4 | ✅ | building, house paste | 002, 018 |
+| Multiverse-Core | world | installed | 5.8.1 | ✅ | worlds, Lifezone worlds | 002, 003, 018 |
+| Citizens | NPC | installed | 2.0.44 build 4256 | ✅ | NPCs | 002, 013, 016, 020 |
+| spark | tools | installed | built into Purpur | ✅ | lag profiling | 001 |
+| MMOCore | RPG core | **owned**, installed | 1.13.1-SNAPSHOT (2026-09-12) | ✅ | stats, Mana/Stamina, Mastery, lifeskills | 005, 006, 019, 023 |
+| MMOItems | RPG core | **owned**, installed | 6.10.1-SNAPSHOT (2026-09-16) | ✅ | gear, Identify, enhancement, runes | 008, 011–013, 022 |
+| MythicLib | RPG core | **owned**, installed | 1.7.1-SNAPSHOT (2026-09-12) | ✅ | required library | — |
 | MMOProfiles | RPG core | **owned**, later | ? | ❓ | multiple characters per account: planned, not at start (D-43) | — |
-| MMOInventory | RPG core | **owned** (D-09) | ? | ❓ | accessory + rune slots | 011, 022 |
-| MythicMobs | mobs | **owned** | ? | ❓ | mobs, bosses, Bloodline effects, totems | 015, 017, 021 |
-| ModelEngine | models | **owned** | ? | ❓ | mob models, animation test | 010 |
+| MMOInventory | RPG core | **owned** (D-09), installed | 2.0-SNAPSHOT (2026-08-23) | ✅ | accessory + rune slots | 011, 022 |
+| MythicMobs | mobs | **owned**, installed | Premium 5.13.0 | ✅ | mobs, bosses, Bloodline effects, totems | 015, 017, 021 |
+| ModelEngine | models | **owned**, installed | R4.1.1 | ✅ | mob models, animation test | 010 |
 | MythicDungeons | instances | **to buy** (D-14: not owned) | ? | ❓ | story bosses, dungeons | 016, 017 |
-| **MythicCrucible** | items | **owned** | ? | ❓ | **needed for the FPV weapon test**: the Draconic pack uses Crucible item triggers (D-44). Not a pack owner (D-40) | 010 |
-| Nexo | items/pack | **owned** | ? | ❓ | furniture, custom blocks, **merged resource pack owner** (D-40, T7) | 018, 020 |
-| **MythicHUD** | HUD | **owned** | ? | ❓ | always-on HUD: HP / Mana / Stamina / skill bars / cooldowns (D-39) | 005, 007 |
-| **UltimateUI** | UI | **owned** | ? | ❓ | shops, quest list, menus, any custom UI MythicHUD can't do (D-39) | — |
-| **CosmeticsCore** | cosmetics | **owned** | ? | ⚠️ page lists up to 26.1.2 | hats, backs, wings, balloons (D-41) | — |
+| **MythicCrucible** | items | **owned**, installed | 5.13.0 | ✅ | **needed for the FPV weapon test**: the Draconic pack uses Crucible item triggers (D-44). Not a pack owner (D-40) | 010 |
+| Nexo | items/pack | **owned**, installed | 1.29-dev (b3ebc6e48) | ✅ | furniture, custom blocks, **merged resource pack owner** (D-40, T7) | 018, 020 |
+| **MythicHUD** | HUD | **owned**, installed | 1.3.5 | ✅ | always-on HUD: HP / Mana / Stamina / skill bars / cooldowns (D-39) | 005, 007 |
+| **UltimateUI** | UI | **owned**, installed | 1.4.0 | ✅ | shops, quest list, menus, any custom UI MythicHUD can't do (D-39) | — |
+| **CosmeticsCore** | cosmetics | **owned**, installed | 1.3.13 | ⚠️ loads; licence check error ("Unknown user ID"), re-download from the store page | hats, backs, wings, balloons (D-41) | — |
 | **ItemSkins** | cosmetics | **owned** | 2.1.0 | ❓ | weapon/item texture skins (D-41) | — |
-| **LuxDialogues** | quests | **owned** | ? | ❓ | Wynncraft-style NPC dialogue (D-15) | 016 |
+| **LuxDialogues** | quests | **owned** | — not installed yet | ❓ | Wynncraft-style NPC dialogue (D-15) | 016 |
 | **LuxCollect** | quests | **owned** | ? | ⚠️ page lists up to 1.21.11 | collectables hunt (D-42) | — |
 | Quest engine | quests | **undecided** (D-15) | — | — | story quest objectives/stages | 016 |
 | **BattlePass** | engagement | **owned** | 5.0.12 | ✅ (title says 1.17–26.2) | seasons, daily/weekly quests (D-42) | — |
 | **Guilds** | social | **parked** (GDD §11) | 3.5.7.2 | ❓ | guilds (design coming soon) | — |
 | **Order** | economy | **parked** (GDD §10) | 2.6.9 | ❓ | player buy orders (design coming soon) | — |
 | **BotSentry** | security | **owned** | 9.9.1-THANATOS | ❓ | anti-bot / anti-VPN | — |
-| Triton | language | owned | ? | ❓ | Thai/English per player (D-27) | — |
-| PlaceholderAPI | bridge | **prepared** (free) | ? | ❓ | Mastery maths, HUD values, Skript placeholders | 023 |
-| LuckPerms | permissions | **owned** (free) | ? | ❓ | permission groups | README |
-| PacketEvents | library | free | ? | ❓ | required by ItemSkins | — |
-| **ProtocolLib** | library | **prepared** (free) | ? | ❓ check (often needs a dev build on new MC versions) | packet library that many plugins depend on | — |
+| Triton | language | owned, installed | 4.1.0 | ❌ fails to enable (ProtocolLib packet hook error); try a newer Triton / ProtocolLib dev build | Thai/English per player (D-27) | — |
+| PlaceholderAPI | bridge | **prepared** (free), installed | 2.12.3 | ✅ | Mastery maths, HUD values, Skript placeholders | 023 |
+| LuckPerms | permissions | **owned** (free), installed | 5.5.85 | ✅ | permission groups | README |
+| PacketEvents | library | free, installed | 2.14.0 | ✅ | required by ItemSkins | — |
+| **ProtocolLib** | library | **prepared** (free), installed | 5.4.0 | ✅ | packet library that many plugins depend on | — |
 | DiscordSRV | social | **owned** (free), later | ? | ❓ | Discord chat bridge | — |
-| **Skript** | scripting | **owned** (free) | ? | ❓ | quick custom logic: prototypes, tutorial/quest glue, admin tools (D-47) | 024 |
-| **SkBee** | Skript addon | **owned** (free) | ? | ❓ | NBT, boss bars, scoreboards, structures, more syntax for Skript | — |
-| **skript-reflect** | Skript addon | **owned** (free) | ? | ❓ | call Java/Paper/plugin APIs from Skript | — |
-| **skript-placeholders** | Skript addon | **owned** (free) | ? | ❓ | read and register PlaceholderAPI placeholders from Skript | — |
+| **Skript** | scripting | **owned** (free), installed | 2.16.2 | ✅ | quick custom logic: prototypes, tutorial/quest glue, admin tools (D-47) | 024 |
+| **SkBee** | Skript addon | **owned** (free), installed | 3.26.0 | ✅ | NBT, boss bars, scoreboards, structures, more syntax for Skript | — |
+| **skript-reflect** | Skript addon | **owned** (free), installed | 2.6.3 | ✅ | call Java/Paper/plugin APIs from Skript | — |
+| **skript-placeholders** | Skript addon | **owned** (free), installed | 1.7.2 (fork) | ✅ | read and register PlaceholderAPI placeholders from Skript | — |
 | wcmmo-core | ours | **deferred** (D-25): Skript first, per-system review after Phase 0 | — | — | candidates: combat states, bar swap, Bloodlines, AP/DP, Lifezone… | many |
 
 ## 2. Overlaps: decide one owner per job

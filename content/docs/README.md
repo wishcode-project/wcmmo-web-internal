@@ -66,42 +66,42 @@ Production only changes through a PR `develop` → `main`. Release checklist: `w
 
 ## Plugin registry
 
-Versions are the ones running on the dev box. Update the row in the same commit as a version bump.
+Versions are the ones running on the dev box (checked by a boot on Purpur 26.2 build 2633, 2026-10-01). Update the row in the same commit as a version bump.
 Full per-plugin guide (docs, dependencies, setup, overlaps): [plugins.md](plugins.md).
 
 | Plugin | Version | Licence | Config owner | Purpose | Spec |
 |---|---|---|---|---|---|
-| Purpur (server) | 26.2 | free | wcmmo | server software | 001 |
-| CMI + CMILib | _record from dev box_ | paid | wcmmo | essentials: homes, warps, kits, chat, tab, RTP, economy provider | 002 |
-| Vault | _record_ | free | wcmmo | economy/permission API bridge | 002 |
-| WorldGuard | _record_ | free | wcmmo | regions and flags | 002 |
-| FastAsyncWorldEdit | _record_ | free | wcmmo | building, schematics | 002 |
-| Multiverse-Core | _record_ | free | wcmmo | world management | 002 |
-| Citizens | _record_ | paid | wcmmo | NPCs | 002 |
-| spark | _record_ | free | wcmmo (data ignored) | profiler, `/spark health` | 002 |
-| LuckPerms | — owned | free | wcmmo | permissions (DB in `.env`) | — |
-| Nexo | — owned | paid | wcmmo-content | custom items, blocks, furniture, resource pack | — |
-| MythicMobs + MythicLib | — owned | paid | wcmmo-content | custom mobs, skills | — |
-| MMOCore / MMOItems / MMOProfiles | — owned | paid | wcmmo-content | classes, levels, RPG items, profiles | — |
-| ModelEngine | — owned | paid | wcmmo-content | custom mob models | — |
+| Purpur (server) | 26.2 build 2633 | free | wcmmo | server software | 001 |
+| CMI + CMILib | 9.8.10.2 + 1.6.0.1 | paid | wcmmo | essentials: homes, warps, kits, chat, tab, RTP, economy provider | 002 |
+| Vault | 2.1.1 | free | wcmmo | economy/permission API bridge | 002 |
+| WorldGuard | 7.0.19 | free | wcmmo | regions and flags | 002 |
+| FastAsyncWorldEdit | 2.15.4 | free | wcmmo | building, schematics | 002 |
+| Multiverse-Core | 5.8.1 | free | wcmmo | world management | 002 |
+| Citizens | 2.0.44 b4256 | paid | wcmmo | NPCs | 002 |
+| spark | built into Purpur | free | wcmmo (data ignored) | profiler, `/spark health` | 002 |
+| LuckPerms | 5.5.85 | free | wcmmo | permissions (DB in `.env`) | — |
+| Nexo | 1.29-dev | paid | wcmmo-content | custom items, blocks, furniture, resource pack | — |
+| MythicMobs + MythicLib | 5.13.0 + 1.7.1-SNAPSHOT | paid | wcmmo-content | custom mobs, skills | — |
+| MMOCore / MMOItems / MMOProfiles | 1.13.1 / 6.10.1 (SNAPSHOTs) / not installed | paid | wcmmo-content | classes, levels, RPG items, profiles | — |
+| ModelEngine | R4.1.1 | paid | wcmmo-content | custom mob models | — |
 | DiscordSRV | — owned | free | wcmmo | chat bridge (token in `.env`) | — |
-| MMOInventory | — owned (D-09) | paid | wcmmo-content | accessory + Rune slots | 011, 022 |
-| PlaceholderAPI | — prepared | free | wcmmo | placeholders for Mastery math in MythicMobs | 023 |
-| Triton | — owned | paid | wcmmo | per-player translations (D-27) | — |
-| UltimateUI | — owned | paid | wcmmo | shops, quest list, custom UI (D-39) | — |
-| MythicHUD | — owned | paid | wcmmo | always-on HUD (D-39) | 005, 007 |
-| MythicCrucible | — owned | paid | wcmmo | FPV weapon item triggers for the test (D-44); not the pack owner | 010 |
-| CosmeticsCore | — owned | paid | wcmmo | wearable cosmetics (D-41) | — |
+| MMOInventory | 2.0-SNAPSHOT | paid | wcmmo-content | accessory + Rune slots | 011, 022 |
+| PlaceholderAPI | 2.12.3 | free | wcmmo | placeholders for Mastery math in MythicMobs | 023 |
+| Triton | 4.1.0 ❌ fails to enable | paid | wcmmo | per-player translations (D-27) | — |
+| UltimateUI | 1.4.0 | paid | wcmmo | shops, quest list, custom UI (D-39) | — |
+| MythicHUD | 1.3.5 | paid | wcmmo | always-on HUD (D-39) | 005, 007 |
+| MythicCrucible | 5.13.0 | paid | wcmmo | FPV weapon item triggers for the test (D-44); not the pack owner | 010 |
+| CosmeticsCore | 1.3.13 ⚠️ licence error | paid | wcmmo | wearable cosmetics (D-41) | — |
 | ItemSkins | 2.1.0 owned | paid | wcmmo | weapon skins (D-41), needs PacketEvents | — |
-| LuxDialogues | — owned | paid | wcmmo | NPC dialogue (D-15) | 016 |
+| LuxDialogues | — owned, not installed yet | paid | wcmmo | NPC dialogue (D-15) | 016 |
 | LuxCollect | — owned | paid | wcmmo | collectables (D-42) | — |
 | BattlePass | 5.0.12 owned | paid | wcmmo | seasonal quests (D-42) | — |
 | Guilds | 3.5.7.2 owned, parked | paid | wcmmo | guilds (GDD §11) | — |
 | Order | 2.6.9 owned, parked | paid | wcmmo | buy orders (GDD §10) | — |
 | BotSentry | 9.9.1-THANATOS owned | paid | wcmmo | anti-bot / anti-VPN | — |
-| PacketEvents | — free | free | wcmmo | library (ItemSkins) | — |
-| ProtocolLib | — prepared | free | wcmmo | packet library (dependency for several plugins) | — |
-| Skript + SkBee + skript-reflect + skript-placeholders | — owned | free | wcmmo | custom scripting: prototypes, tutorial/quest glue, admin tools, and for now the custom mechanics too (D-25, D-47) | 024 |
+| PacketEvents | 2.14.0 | free | wcmmo | library (ItemSkins) | — |
+| ProtocolLib | 5.4.0 | free | wcmmo | packet library (dependency for several plugins) | — |
+| Skript + SkBee + skript-reflect + skript-placeholders | 2.16.2 + 3.26.0 + 2.6.3 + 1.7.2 | free | wcmmo | custom scripting: prototypes, tutorial/quest glue, admin tools, and for now the custom mechanics too (D-25, D-47) | 024 |
 | BetonQuest | — proposed (D-15) | free | wcmmo-content | quests, dialogue | 016 |
 | MythicDungeons | — **to buy** (D-14, not owned) | paid | wcmmo-content | instanced bosses/dungeons | 016, 017 |
 | wcmmo-core (ours) | — **deferred** (D-25): per-system review after Phase 0 | own | wcmmo-plugins | vitality, skillbar, combat, bloodline, enhance, zones, totem, loot, lifezone modules | 005, 007, 009, 013–015, 017, 018, 021 |
