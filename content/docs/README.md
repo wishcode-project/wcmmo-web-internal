@@ -87,20 +87,20 @@ Full per-plugin guide (docs, dependencies, setup, overlaps): [plugins.md](plugin
 | DiscordSRV | — owned | free | wcmmo | chat bridge (token in `.env`) | — |
 | MMOInventory | 2.0-SNAPSHOT | paid | wcmmo-content | accessory + Rune slots | 011, 022 |
 | PlaceholderAPI | 2.12.3 | free | wcmmo | placeholders for Mastery math in MythicMobs | 023 |
-| Triton | 4.1.0 ❌ fails to enable | paid | wcmmo | per-player translations (D-27) | — |
+| Triton | 4.1.0 | paid | wcmmo | per-player translations (D-27) | — |
 | UltimateUI | 1.4.0 | paid | wcmmo | shops, quest list, custom UI (D-39) | — |
 | MythicHUD | 1.3.5 | paid | wcmmo | always-on HUD (D-39) | 005, 007 |
 | MythicCrucible | 5.13.0 | paid | wcmmo | FPV weapon item triggers for the test (D-44); not the pack owner | 010 |
-| CosmeticsCore | 1.3.13 ⚠️ licence error | paid | wcmmo | wearable cosmetics (D-41) | — |
+| CosmeticsCore | 1.3.13 needed (licensed download) ❌ | paid | wcmmo | wearable cosmetics (D-41) | — |
 | ItemSkins | 2.1.0 owned | paid | wcmmo | weapon skins (D-41), needs PacketEvents | — |
-| LuxDialogues | — owned, not installed yet | paid | wcmmo | NPC dialogue (D-15) | 016 |
+| LuxDialogues | 4.1.3 | paid | wcmmo | NPC dialogue (D-15) | 016 |
 | LuxCollect | — owned | paid | wcmmo | collectables (D-42) | — |
 | BattlePass | 5.0.12 owned | paid | wcmmo | seasonal quests (D-42) | — |
 | Guilds | 3.5.7.2 owned, parked | paid | wcmmo | guilds (GDD §11) | — |
 | Order | 2.6.9 owned, parked | paid | wcmmo | buy orders (GDD §10) | — |
 | BotSentry | 9.9.1-THANATOS owned | paid | wcmmo | anti-bot / anti-VPN | — |
 | PacketEvents | 2.14.0 | free | wcmmo | library (ItemSkins) | — |
-| ProtocolLib | 5.4.0 | free | wcmmo | packet library (dependency for several plugins) | — |
+| ProtocolLib | 5.5.0-SNAPSHOT | free | wcmmo | packet library (dependency for several plugins) | — |
 | Skript + SkBee + skript-reflect + skript-placeholders | 2.16.2 + 3.26.0 + 2.6.3 + 1.7.2 | free | wcmmo | custom scripting: prototypes, tutorial/quest glue, admin tools, and for now the custom mechanics too (D-25, D-47) | 024 |
 | BetonQuest | — proposed (D-15) | free | wcmmo-content | quests, dialogue | 016 |
 | MythicDungeons | — **to buy** (D-14, not owned) | paid | wcmmo-content | instanced bosses/dungeons | 016, 017 |

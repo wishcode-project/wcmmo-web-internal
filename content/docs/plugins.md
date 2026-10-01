@@ -36,20 +36,20 @@ Only link official pages (the store page, the wiki, GitHub). Never use leak site
 | Nexo | items/pack | **owned**, installed | 1.29-dev (b3ebc6e48) | ✅ | furniture, custom blocks, **merged resource pack owner** (D-40, T7) | 018, 020 |
 | **MythicHUD** | HUD | **owned**, installed | 1.3.5 | ✅ | always-on HUD: HP / Mana / Stamina / skill bars / cooldowns (D-39) | 005, 007 |
 | **UltimateUI** | UI | **owned**, installed | 1.4.0 | ✅ | shops, quest list, menus, any custom UI MythicHUD can't do (D-39) | — |
-| **CosmeticsCore** | cosmetics | **owned**, installed | 1.3.13 | ⚠️ loads; licence check error ("Unknown user ID"), re-download from the store page | hats, backs, wings, balloons (D-41) | — |
+| **CosmeticsCore** | cosmetics | **owned**, installed | 1.3.13 needed | ❌ 1.3.12 has no 26.2 support (NMS null); 1.3.13 loads but this copy fails the licence check: re-download 1.3.13 from the store | hats, backs, wings, balloons (D-41) | — |
 | **ItemSkins** | cosmetics | **owned** | 2.1.0 | ❓ | weapon/item texture skins (D-41) | — |
-| **LuxDialogues** | quests | **owned** | — not installed yet | ❓ | Wynncraft-style NPC dialogue (D-15) | 016 |
+| **LuxDialogues** | quests | **owned** | 4.1.3 | ✅ | Wynncraft-style NPC dialogue (D-15) | 016 |
 | **LuxCollect** | quests | **owned** | ? | ⚠️ page lists up to 1.21.11 | collectables hunt (D-42) | — |
 | Quest engine | quests | **undecided** (D-15) | — | — | story quest objectives/stages | 016 |
 | **BattlePass** | engagement | **owned** | 5.0.12 | ✅ (title says 1.17–26.2) | seasons, daily/weekly quests (D-42) | — |
 | **Guilds** | social | **parked** (GDD §11) | 3.5.7.2 | ❓ | guilds (design coming soon) | — |
 | **Order** | economy | **parked** (GDD §10) | 2.6.9 | ❓ | player buy orders (design coming soon) | — |
 | **BotSentry** | security | **owned** | 9.9.1-THANATOS | ❓ | anti-bot / anti-VPN | — |
-| Triton | language | owned, installed | 4.1.0 | ❌ fails to enable (ProtocolLib packet hook error); try a newer Triton / ProtocolLib dev build | Thai/English per player (D-27) | — |
+| Triton | language | owned, installed | 4.1.0 | ✅ (needs ProtocolLib 5.5.0 dev build; 5.4.0 broke it) | Thai/English per player (D-27) | — |
 | PlaceholderAPI | bridge | **prepared** (free), installed | 2.12.3 | ✅ | Mastery maths, HUD values, Skript placeholders | 023 |
 | LuckPerms | permissions | **owned** (free), installed | 5.5.85 | ✅ | permission groups | README |
 | PacketEvents | library | free, installed | 2.14.0 | ✅ | required by ItemSkins | — |
-| **ProtocolLib** | library | **prepared** (free), installed | 5.4.0 | ✅ | packet library that many plugins depend on | — |
+| **ProtocolLib** | library | **prepared** (free), installed | 5.5.0-SNAPSHOT (dev build) | ✅ | packet library that many plugins depend on | — |
 | DiscordSRV | social | **owned** (free), later | ? | ❓ | Discord chat bridge | — |
 | **Skript** | scripting | **owned** (free), installed | 2.16.2 | ✅ | quick custom logic: prototypes, tutorial/quest glue, admin tools (D-47) | 024 |
 | **SkBee** | Skript addon | **owned** (free), installed | 3.26.0 | ✅ | NBT, boss bars, scoreboards, structures, more syntax for Skript | — |
