@@ -95,8 +95,14 @@ Disable the script; MMOCore default casting and vanilla F / Q come back.
 
 ## Acceptance criteria
 
-- [ ] PoC-3 PASS for tests 1–6 (F / Q / instant bow without clashes).
+- [x] PoC-3 PASS (2026-10-02, `run-wcmmo-004`): combos / F / Q / bow without clashes.
 
 ## Open questions
 
 - Which MMOCore casting mode lets keys 1–5 cast while the weapon stays in hand (PoC-3). HUD: spec 029.
+
+## Implementation log
+
+| Date | Repo | FIRE run | PR | Notes |
+|---|---|---|---|---|
+| 2026-10-02 | wcmmo | `run-wcmmo-004` | branch `feat/007-skillbar-poc` → `develop` | PoC-3 pass. Kit files: `wcmmo_30_skillbar.sk` (loadout, combos, weapon swap), `wcmmo_31_skills_gui.sk` (`/skills`), `wcmmo_32_skill_hud.sk` (set display, text), `wcmmo_35_remnant.sk` (ultimate slot). To tune: combo timing. Not built: out-of-combat loadout rule, icons (029), UltimateUI screen. |
