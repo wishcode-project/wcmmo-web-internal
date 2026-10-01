@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-09-30T17:56:31.309Z",
-  "head": "b19178d",
+  "syncedAt": "2026-10-01T13:59:16.502Z",
+  "head": "0624b5e",
   "branch": "main",
   "commits": [
+    {
+      "sha": "0624b5e",
+      "date": "2026-10-01T20:59:03+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: wings and training dummy (D-66, D-67)",
+      "insertions": 227,
+      "deletions": 5,
+      "files": 8
+    },
     {
       "sha": "b19178d",
       "date": "2026-10-01T00:56:16+07:00",
@@ -306,7 +315,7 @@
     "docs/001-server-baseline.md": "2026-09-28T22:55:03+07:00",
     "docs/002-plugin-stack.md": "2026-09-25T00:46:05+07:00",
     "docs/003-void-overworld.md": "2026-09-25T00:46:05+07:00",
-    "docs/004-roadmap-phase-plan.md": "2026-10-01T00:49:11+07:00",
+    "docs/004-roadmap-phase-plan.md": "2026-10-01T20:59:03+07:00",
     "docs/005-vitality-resources.md": "2026-09-30T22:56:06+07:00",
     "docs/006-attributes-stat-gating.md": "2026-09-30T23:31:15+07:00",
     "docs/007-classes-skill-bars.md": "2026-10-01T00:22:29+07:00",
@@ -336,7 +345,9 @@
     "docs/031-chat-channels.md": "2026-10-01T00:31:21+07:00",
     "docs/032-npcs-name-colours.md": "2026-10-01T00:39:32+07:00",
     "docs/033-monster-ranks-combat.md": "2026-10-01T00:49:11+07:00",
-    "docs/README.md": "2026-10-01T00:49:11+07:00",
+    "docs/034-wings.md": "2026-10-01T20:59:03+07:00",
+    "docs/035-training-dummy.md": "2026-10-01T20:59:03+07:00",
+    "docs/README.md": "2026-10-01T20:59:03+07:00",
     "docs/plugins.md": "2026-09-30T22:46:05+07:00",
     "docs/adr/0001-purpur-java25-zgc.md": "2026-09-25T00:46:05+07:00",
     "docs/adr/0002-spec-first-workflow.md": "2026-09-25T00:46:05+07:00",
@@ -347,6 +358,6 @@
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
     "gdd/trailer.md": "2026-09-30T00:24:58+07:00",
     "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",
-    "gdd/wcmmo-gdd-v2.md": "2026-10-01T00:56:16+07:00"
+    "gdd/wcmmo-gdd-v2.md": "2026-10-01T20:59:03+07:00"
   }
 }

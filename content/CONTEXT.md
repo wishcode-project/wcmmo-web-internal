@@ -137,6 +137,12 @@ Channels: Global, Local (100 blocks, default), Party, Guild, Private (`/msg`, `/
 ### 4.3f Monster ranks (D-65, spec 033)
 **Normal** (red): no Frontguard or Super Armour, all CC works · **Elite** (purple): some have Frontguard **or** Super Armour (one each) · **Boss / World Boss** (purple): take damage but are never stunned / knocked back / slowed, except during a **stun phase** (scripted at HP 70 % / 40 % or after a missed big move: 5 s, +30 % damage taken, CC works). Break gauge (players fill it) later for some bosses. Proposed stats: HP `20+8·L`, damage `3+0.6·L`; Elite ×4 HP ×1.5 dmg, Boss ×20 HP ×2 dmg. Chapter 1 monster list: story team.
 
+### 4.3g Wings (D-66, spec 034)
+A **wings** slot beside armour and accessories (MMOInventory, MMOItems `WCMMO_WINGS`). Wings I / II / III: +3/6/10 % damage, −3/5/8 % damage taken, +0/40/80 HP (Lv 20/40/55). Same stats for all; the look follows the Bloodline (Fury ember, Ward bone, Pulse light). Folded in safe zones (`wcmmo__safe_<name>`), spread with a hover pose and Slow Falling while airborne outside. No real flight. Store: skins only.
+
+### 4.3h Training dummy (D-67, spec 035)
+Admin-placed dummy (`/dummy spawn|list|tp|remove|info|respawn`), skeleton with a Steve head and wooden sword. Never dies or fights back; statuses above its head; per-player DPS summary after 5 s idle. Gives Remnant only (no XP, Mastery or drops). Records in Skript variables + log, auto-repaired on restart.
+
 ### 4.4 Combat
 - BDO-style states: **Frontguard** (frontal block), **I-frame** (invincible during dodges; **deferred, D-49**: not built in Phase 0), **Super Armour** (immune to stagger/CC, still takes damage). Heavy weapons (proposed: Hammer, Greatsword) break guard and Super Armour.
 - **Souls-like first-person (FPV) animation** with ModelEngine.
@@ -260,14 +266,14 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 
 ## 8. Decisions
 
-**DECIDED (70 of 82):**
+**DECIDED (72 of 84):**
 
 | Area | Decided |
 |---|---|
 | Project & plugins | D-00 paid plugins owned (not MythicDungeons) · D-09 MMOInventory · D-14 MythicDungeons (not bought) · D-25 Skript + vendor plugins first, own Kotlin plugin per system after Phase 0 · D-39 MythicHUD = HUD, UltimateUI = other UI · D-40 MMOItems = gear, Nexo = furniture/blocks/pack · D-41 CosmeticsCore wearables, ItemSkins weapon skins · D-42 BattlePass/LuxCollect after the slice · D-43 profiles later · D-47 Skript vs Kotlin |
 | Vitality | D-01 stamina on a MythicHUD bar, hunger hidden · D-02 food = heal over time + buffs, potions = instant · D-03a sprint drains a little stamina |
 | Stats | D-07 cap 60, 2 points/level · D-07b paid respec item (NPC shop or quest) · D-08 stats gate gear · D-08b soft level floor · D-30 small utility bonuses only |
-| Combat | D-49 I-frame deferred (dash = movement) · D-03 F bar swap (revised) · D-50 AGI basic attack speed, cap 30 % · D-51 Remnant gauge + Q ultimates · D-52 10 general + 5 skills & 1 ultimate per weapon · D-53 instant bow · D-54 item detail pages · D-55 orb skills (NPC / monster orbs) · D-56 17 runes with shared caps · D-57 death & auto-respawn · D-58 levelling · D-59 party XP & loot · D-60 keys 1–5 cast skills · D-61 HUD layout · D-27 Thai + English, English proper names · D-62 Awakening / Awakened kept as a story link · D-63 chat channels · D-64 name colours & guards · D-65 monster ranks, boss stun phases · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
+| Combat | D-49 I-frame deferred (dash = movement) · D-03 F bar swap (revised) · D-50 AGI basic attack speed, cap 30 % · D-51 Remnant gauge + Q ultimates · D-52 10 general + 5 skills & 1 ultimate per weapon · D-53 instant bow · D-54 item detail pages · D-55 orb skills (NPC / monster orbs) · D-56 17 runes with shared caps · D-57 death & auto-respawn · D-58 levelling · D-59 party XP & loot · D-60 keys 1–5 cast skills · D-61 HUD layout · D-27 Thai + English, English proper names · D-62 Awakening / Awakened kept as a story link · D-63 chat channels · D-64 name colours & guards · D-65 monster ranks, boss stun phases · D-66 wings · D-67 training dummy · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
 | Weapons | D-04 8 weapons, slice uses 4 · D-04b free switching · D-04c basic skills in tutorial, more from level-ups + city NPCs · D-36b Mastery CDR for that weapon's skills + general skills by held weapon |
 | Bloodlines & Runes | D-31/D-48 base Bloodlines Fury / Ward / Pulse, value trials · D-32 The Awakening picks the first Bloodline · D-33 in-game extractor keeps progress, store extractor resets · D-34 each stage = level + unlock materials · D-35 rune slots 2 → Lv30 → Lv50 · D-35b no duplicate runes, tiers I–III · D-46 Awakening scoring edge cases |
 | Gear | D-10 Identify + fallback · D-11 MythicLib elements for now · D-12 max V, pity, never destroyed · D-12b armour same ladder · D-12c one stone per category · D-12d accessories I–V · D-13/D-13b AP/DP soft cap from gear + enhancement |

@@ -42,6 +42,8 @@ as the spec that introduces it.** Specs link back here instead of redefining any
 | 031 | [Chat channels](031-chat-channels.md) | DRAFT | wcmmo | confirm |
 | 032 | [NPCs, guards & name colours](032-npcs-name-colours.md) | DRAFT | wcmmo | confirm |
 | 033 | [Monster ranks & combat rules](033-monster-ranks-combat.md) | DRAFT | wcmmo | confirm |
+| 034 | [Wings](034-wings.md) | DRAFT | wcmmo | validate |
+| 035 | [Training dummy (DPS meter)](035-training-dummy.md) | DRAFT | wcmmo | confirm |
 
 Design intent lives in [`../gdd/wcmmo-gdd-v2.md`](../gdd/wcmmo-gdd-v2.md) (v1 is superseded); decisions `D-xx` are tracked there.
 Coming soon (GDD v2 §10–12, not specced): economy & trade, guild & node war, pets & mounts.
@@ -155,6 +157,7 @@ No classes (GDD v2). Identity = 1 Bloodline + 2–4 Runes.
 | `WCMMO_STAFF`, `WCMMO_TOME` | magic weapon | 008 |
 | `WCMMO_NECKLACE`, `WCMMO_EARRING`, `WCMMO_RING`, `WCMMO_BELT` | accessory | 011 |
 | `WCMMO_RUNE` | rune | 022 |
+| `WCMMO_WINGS` | wings slot | 034 |
 
 Rarity tiers (MMOItems): `common`, `uncommon`, `rare`, `epic`, `legendary` (012).
 
@@ -189,6 +192,8 @@ Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:s
 | `wcmmo_item_identify_scroll` | MMOItems | 012 | |
 | `wcmmo_item_stone_weapon`, `_armour`, `_accessory` | MMOItems | 013 | enhancement materials |
 | `wcmmo_item_totem_low`, `_mid`, `_high` | MMOItems | 015 | stationary farming cost |
+| `wcmmo_item_wings_1`, `_2`, `_3` | MMOItems | 034 | Wings I–III |
+| `wcmmo_cos_wings_feather`, `_fury`, `_ward`, `_pulse` | CosmeticsCore or ModelEngine | 034 | wing looks (feather = no Bloodline) |
 | `wcmmo_furn_starter_bed`, `_table`, `_chair`, `_lamp` | Nexo | 020 | |
 
 ### Mobs, bosses & dungeons
@@ -199,6 +204,7 @@ Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:s
 | `wcmmo_mob_boss_world_01` | MythicMobs | 017 | |
 | `wcmmo_mob_guard_gate`, `wcmmo_mob_guard_patrol` | MythicMobs (faction `guards`, tag `wcmmo_guard`) | 032 | blue guards |
 | tags `wcmmo_boss`, `wcmmo_frontguard`; state `stunphase` | Skript / MythicMobs | 033 | boss CC immunity, Guard Elites, boss stun phase |
+| `wcmmo_mob_dummy` | MythicMobs (tag `wcmmo_dummy`) | 035 | training dummy, admin-placed |
 | `wcmmo_mob_tutorial_raider`, `_wave`, `_brute` | MythicMobs | 024 | trial mobs |
 | `wcmmo_mob_spirit_pulse`, `_ward`, `_fury` | MythicMobs + ModelEngine | 024 | Encounter / Reveal entities |
 | `wcmmo_dungeon_solo_01`, `wcmmo_dungeon_party_01` | MythicDungeons | 017 | |
@@ -262,6 +268,8 @@ Target LuckPerms layout (not live yet — CMI ranks are placeholders until LuckP
 | `wcmmo.admin.awakening` | admin | 024 | reset / debug |
 | `wcmmo.awakening.skip` | admin, testers | 024 | skip tutorial |
 | `wcmmo.admin.lifezone` | admin | 018 | |
+| `wcmmo.admin.dummy` | admin | 035 | place / remove / list dummies |
+| `wcmmo.dummy.stats` | default | 035 | `/dummy stats` |
 
 ## Commands
 
@@ -274,6 +282,7 @@ Our own commands and any CMI alias we add. Stock plugin commands are not listed.
 | `/bloodline` | `wcmmo.bloodline.use` | wcmmo-core | 021 |
 | `/runes` | MMOInventory default | MMOInventory | 022 |
 | `/mastery` | MMOCore default | CMI alias → MMOCore professions | 023 |
+| `/dummy spawn\|list\|tp\|remove\|info\|respawn\|stats` | `wcmmo.admin.dummy` (`stats`: `wcmmo.dummy.stats`) | Skript `wcmmo_80_dummy.sk` | 035 |
 | `/wcmmo <module> …` | `wcmmo.admin.<module>` | wcmmo-core | 007, 009, 013, 015, 017, 018 |
 
 ## Worlds
@@ -294,6 +303,7 @@ Minecraft 26.x keeps every dimension inside the level folder (`wcmmo/dimensions/
 |---|---|---|---|
 | `wcmmo__zone_<tier>_<nn>` | wcmmo | `wcmmo-zone` (tier, AP, DP) | 014 |
 | `wcmmo__totem_<zone>_<n>` | wcmmo | totem spot | 015 |
+| `wcmmo__safe_<name>` | wcmmo | safe zone (city / village): `pvp deny`, wings folded | 034 |
 | `wcmmo_lifezone_<n>__plot_<01-20>` | lifezone | owner-only build | 018 |
 | `wcmmo_tutorial__trial_action`, `__hold_ring`, `__trial_gate`, `__fear_path`, `__sanctum` | tutorial | trial triggers | 024 |
 
