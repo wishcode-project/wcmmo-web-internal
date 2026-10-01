@@ -34,10 +34,11 @@
 6. **Combos:** 3 clicks, each within 1 s of the last. A combo that starts with the weapon's basic click (e.g. `L-R-L` for melee) needs its 2nd click within 0.35 s, so normal attacks followed by a skill aren't misread.
 7. **Weapon swap cooldown: 5 s** (owner's starting value). Switching to another weapon is always allowed, but the new weapon **can't make basic attacks** (hits, shots, bolts) for 5 s; **skills still work**. The action bar counts down ("attacks ready in 3.2 s") and shows "Weapon ready" at the end. Potions / food and going back to the same weapon slot don't start it.
 8. **Loadout screen `/skills`** (PoC: one 6-row window): row 1 = slots 1–5 + ultimate slot, row 2 = slots 6–10, row 3 = page buttons, rows 4–6 = owned skills (27 per page). Click a skill, then a slot; right click a slot to empty it; a skill sits in one slot at a time. Final screen (list in the inventory area) = UltimateUI.
-9. Loadout changes only out of combat (5 s since the last hit). *(not enforced in the PoC yet)*
-10. **Basic attack speed:** AGI raises basic attack / shot speed, **+0.5 % per point, capped at +30 %** (D-50). Skill cooldowns are not affected by AGI (Mastery owns them, spec 023).
-11. **Bow / Crossbow basic shot:** right click fires an arrow at once with the weapon's damage; shot interval 0.75 s (Bow) / 1.0 s (Crossbow, heavier bolt), lowered by AGI down to the cap (Bow 0.55 s). **Natural arrow (owner, 2026-10-02):** launched with a velocity and normal gravity, no range limit, no aim assist; it disappears when it hits or shortly after it lands.
-12. ⚠️ FPV weapons: the Draconic pack uses F (off-hand) today. When FPV weapons are ported (D-44), F belongs to the bar swap.
+9. **Skill set display:** while a weapon is held, the HUD shows the **five slots of the active set**, each with its skill and **cooldown** (ready / seconds left / wrong weapon / empty), plus the ultimate and Remnant. F switches which set is shown; the other set's cooldowns keep running. PoC: a text boss bar (`wcmmo_32_skill_hud.sk`); final: skill icons in MythicHUD (spec 029).
+10. Loadout changes only out of combat (5 s since the last hit). *(not enforced in the PoC yet)*
+11. **Basic attack speed:** AGI raises basic attack / shot speed, **+0.5 % per point, capped at +30 %** (D-50). Skill cooldowns are not affected by AGI (Mastery owns them, spec 023).
+12. **Bow / Crossbow basic shot:** right click fires an arrow at once with the weapon's damage; shot interval 0.75 s (Bow) / 1.0 s (Crossbow, heavier bolt), lowered by AGI down to the cap (Bow 0.55 s). **Natural arrow (owner, 2026-10-02):** launched with a velocity and normal gravity, no range limit, no aim assist; it disappears when it hits or shortly after it lands.
+13. ⚠️ FPV weapons: the Draconic pack uses F (off-hand) today. When FPV weapons are ported (D-44), F belongs to the bar swap.
 
 ## Data & IDs
 
