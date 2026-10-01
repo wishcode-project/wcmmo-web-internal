@@ -87,3 +87,31 @@ PoCs run on `develop` only, on branches `poc/NNN-slug`. Nothing ships to `main` 
 
 - D-00 is decided (all owned except MythicDungeons). D-38 (repo layout) still blocks P2.
 - After Phase 0: per-system review (D-25), which systems move into `wcmmo-plugins` and which stay vendor/Skript.
+
+## Progress log
+
+| Date | What was done | FIRE runs | Where it stands |
+|---|---|---|---|
+| 2026-10-01 | Dev box on macOS (`./start.sh`, 6 GB), specsmd FIRE installed in `wcmmo`, plugin jars tracked in the private repo (28 plugins load on Purpur 26.2 build 2633), D-38 = 3 repos (content configs + kit live in `wcmmo`), Nexo is the only resource pack, void world `wcmmo` | `run-wcmmo-001` | `develop` |
+| 2026-10-01 → 02 | Kit loads on Skript 2.16 (17 → 20 scripts, no errors); bridge checked against the plugin jars. Classless MMOCore profile (cap 60, curve, HP / Mana / Stamina, 5 attributes max 80, 8 Mastery professions), MythicLib chance mitigation off, 14 `WCMMO_*` item types, test weapons, wings slot. Bow basic shot redesigned (natural arrow, no draw animation) | `run-wcmmo-002` | `develop` |
+| 2026-10-02 | **PoC-2 combat: functional pass.** Frontguard, guard break, perfect guard, Super Armour, boss stun phases (now in the Skript pipeline), training dummy with DPS meter, glow colours, `/wcmmodebug` | `run-wcmmo-003` | `develop`; PT1 / PT2 need testers (`gdd/owner-questions.md`) |
+| 2026-10-02 | **PoC-3 skill sets: pass**, redesigned by the owner: skills belong to the player, 10 slots + ultimate slot, 3-click combos, `/skills` screen, text skill bar with cooldowns, weapon swap blocks basic attacks 5 s | `run-wcmmo-004` | `develop` |
+
+### Next (in the owner's preferred order when work resumes)
+
+| # | Item | Notes |
+|---|---|---|
+| 1 | PoC-7 Bloodlines (Fury / Ward / Pulse) with the dummy | code written, never run |
+| 2 | HUD (spec 029): MythicHUD layout, skill icons, replace the action-bar / boss-bar placeholders | MythicHUD sample layouts are off |
+| 3 | Skill lists (spec 008): 10 general + 5 per weapon | only Dash, Whirl Cut, Ground Smash + 4 ultimates have effects |
+| 4 | PoC-1 FPV (Draconic pack files are in `wcmmo`), PoC-4 Identify, PoC-6 vitality | |
+| 5 | Equipment GUI (011 / 022 / 034): slots inside the E inventory, final wings position, wing model PoC | wings equip through `/mmoinv open` today |
+| 6 | LuckPerms groups + permissions | owner: last |
+
+### Known issues carried over
+
+- The server sometimes doesn't exit after `stop` (spark "Timed out waiting for world statistics"): Ctrl+C.
+- CosmeticsCore 1.3.13 logs `Unknown user ID` (licence stamp).
+- Combo timing and the right-click-on-block first click need tuning (spec 007).
+- `gh` isn't logged in on the dev box: merges into `develop` were done locally and pushed, without pull requests.
+
