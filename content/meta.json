@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-01T18:56:22.224Z",
-  "head": "3475cb3",
+  "syncedAt": "2026-10-01T18:59:39.649Z",
+  "head": "ca2778d",
   "branch": "main",
   "commits": [
+    {
+      "sha": "ca2778d",
+      "date": "2026-10-02T01:59:24+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(004): record PoC-2 and PoC-3 in the PoC results table",
+      "insertions": 2,
+      "deletions": 1,
+      "files": 1
+    },
     {
       "sha": "3475cb3",
       "date": "2026-10-02T01:56:07+07:00",
@@ -513,7 +522,7 @@
     "docs/001-server-baseline.md": "2026-09-28T22:55:03+07:00",
     "docs/002-plugin-stack.md": "2026-10-01T22:23:49+07:00",
     "docs/003-void-overworld.md": "2026-10-01T22:35:01+07:00",
-    "docs/004-roadmap-phase-plan.md": "2026-10-02T01:56:07+07:00",
+    "docs/004-roadmap-phase-plan.md": "2026-10-02T01:59:24+07:00",
     "docs/005-vitality-resources.md": "2026-10-02T00:07:23+07:00",
     "docs/006-attributes-stat-gating.md": "2026-10-02T00:07:23+07:00",
     "docs/007-classes-skill-bars.md": "2026-10-02T01:54:15+07:00",

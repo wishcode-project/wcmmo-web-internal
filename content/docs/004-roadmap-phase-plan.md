@@ -81,7 +81,8 @@ PoCs run on `develop` only, on branches `poc/NNN-slug`. Nothing ships to `main` 
 
 | PoC | Date | Result | FIRE run | Notes |
 |---|---|---|---|---|
-| | | | | |
+| PoC-2 | 2026-10-02 | PASS (functional) | `run-wcmmo-003` | Frontguard, guard break, perfect guard, Super Armour and boss stun phases work in the Skript pipeline (I-frame deferred, D-49). Still to run: PT1 player-vs-player rows (2 players) and PT2 MSPT with 20 players / bots |
+| PoC-3 | 2026-10-02 | PASS | `run-wcmmo-004` | Redesigned by the owner (D-60 revised): skills belong to the player, 10 slots + ultimate slot, 3-click combos, F switches sets, `/skills` screen. Combo timing still to tune (spec 007) |
 
 ## Open questions
 
