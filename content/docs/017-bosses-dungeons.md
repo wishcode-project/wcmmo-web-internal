@@ -1,6 +1,6 @@
 # 017 — World bosses, solo & party dungeons
 
-> Status: DRAFT · Target: wcmmo-content (MythicMobs, MythicDungeons), wcmmo-plugins (`loot` module) · FIRE mode: validate
+> Status: DRAFT · Target: wcmmo (MythicMobs, MythicDungeons), wcmmo-plugins (`loot` module) · FIRE mode: validate
 > Design: [GDD v2 §6](../gdd/wcmmo-gdd-v2.md#6-farming-zones-monster-tiers-bosses--dungeons) · Decisions: D-17, D-17b, D-18
 
 ## Big picture
@@ -12,8 +12,8 @@
 
 | Repo | File | What |
 |---|---|---|
-| wcmmo-content | MythicMobs bosses | phases, mechanics requiring Frontguard, perfect guards and positioning (I-frame deferred, D-49) |
-| wcmmo-content | MythicDungeons | solo + party dungeon templates |
+| wcmmo | MythicMobs bosses | phases, mechanics requiring Frontguard, perfect guards and positioning (I-frame deferred, D-49) |
+| wcmmo | MythicDungeons | solo + party dungeon templates |
 | wcmmo-plugins | `loot` module | damage-contribution tracking and distribution (D-17) |
 | wcmmo | CMI Schedules or plugin scheduler | world boss times (D-17b) |
 

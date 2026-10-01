@@ -1,6 +1,6 @@
 # 020 — Furniture (Nexo) & lifeskill NPCs
 
-> Status: DRAFT · Target: wcmmo-content (Nexo, Citizens, BetonQuest) · FIRE mode: confirm
+> Status: DRAFT · Target: wcmmo (Nexo, Citizens, BetonQuest) · FIRE mode: confirm
 > Design: [GDD v2 §8](../gdd/wcmmo-gdd-v2.md#8-lifezone--housing-heartopia-style) · Decisions: D-23
 
 ## Big picture
@@ -12,8 +12,8 @@
 
 | Repo | File | What |
 |---|---|---|
-| wcmmo-content | `Nexo/items/furniture/*.yml` + pack assets | furniture definitions |
-| wcmmo-content | Citizens shop / BetonQuest | furniture NPC + side quests |
+| wcmmo | `Nexo/items/furniture/*.yml` + pack assets | furniture definitions |
+| wcmmo | Citizens shop / BetonQuest | furniture NPC + side quests |
 
 ## Data & IDs
 

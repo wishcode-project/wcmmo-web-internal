@@ -1,6 +1,6 @@
 # 012 — Item generation, Identify & elements
 
-> Status: DRAFT · Target: wcmmo-content (MMOItems, MythicLib, MythicMobs drops) · FIRE mode: validate
+> Status: DRAFT · Target: wcmmo (MMOItems, MythicLib, MythicMobs drops) · FIRE mode: validate
 > Design: [GDD v2 §5](../gdd/wcmmo-gdd-v2.md#5-equipment-system) · Decisions: D-10, D-11
 
 ## Big picture
@@ -12,10 +12,10 @@
 
 | Repo | File | What |
 |---|---|---|
-| wcmmo-content | MMOItems templates + modifiers | per-tier stat ranges, element modifiers |
-| wcmmo-content | MMOItems unidentified option | drops are unidentified |
-| wcmmo-content | MythicMobs drop tables | zone-tier drops |
-| wcmmo-content | NPC (Citizens/BetonQuest) | Identify NPC or `wcmmo_item_identify_scroll` |
+| wcmmo | MMOItems templates + modifiers | per-tier stat ranges, element modifiers |
+| wcmmo | MMOItems unidentified option | drops are unidentified |
+| wcmmo | MythicMobs drop tables | zone-tier drops |
+| wcmmo | NPC (Citizens/BetonQuest) | Identify NPC or `wcmmo_item_identify_scroll` |
 
 Fallback (if PoC-4 fails): fixed items from crafting / quest rewards, no random rolls.
 

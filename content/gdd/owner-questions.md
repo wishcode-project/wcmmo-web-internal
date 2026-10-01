@@ -89,7 +89,7 @@ Full list with docs and overlaps: [`../docs/plugins.md`](../docs/plugins.md). Ow
 
 | # | Topic | Decision |
 |---|---|---|
-| TM1 | Confirm 3-repo layout | D-38 |
+| ~~TM1~~ | ~~Confirm 3-repo layout~~ **Answered 2026-10-01: 3 repos, content in `wcmmo`** | D-38 |
 | TM2 | Who does map / resources / models (2–5 people) | — |
 | TM3 | Is 2–3 weeks for the vertical slice realistic with ~75 % on one person? | 004 |
 | TM4 | VPS: CPU model / core count, provider, budget | 001 |

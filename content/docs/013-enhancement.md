@@ -1,6 +1,6 @@
 # 013 — Enhancement (+1…+15, I…V)
 
-> Status: DRAFT · Target: wcmmo-content (MMOItems upgrade templates), wcmmo-plugins (Roman stages, pity) · FIRE mode: validate
+> Status: DRAFT · Target: wcmmo (MMOItems upgrade templates), wcmmo-plugins (Roman stages, pity) · FIRE mode: validate
 > Design: [GDD v2 §3, §5](../gdd/wcmmo-gdd-v2.md#5-equipment-system) · Decisions: D-12, D-12b, D-12c, D-12d
 
 ## Big picture
@@ -13,9 +13,9 @@
 
 | Repo | File | What |
 |---|---|---|
-| wcmmo-content | MMOItems upgrade templates | stat gain per stage |
+| wcmmo | MMOItems upgrade templates | stat gain per stage |
 | wcmmo-plugins | `enhance` module | ladder, success %, pity stacks, Roman display (`+15` → `I`) |
-| wcmmo-content | Citizens/BetonQuest NPC | enhancement master |
+| wcmmo | Citizens/BetonQuest NPC | enhancement master |
 
 ## Data & IDs
 

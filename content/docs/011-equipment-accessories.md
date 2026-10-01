@@ -1,6 +1,6 @@
 # 011 — Equipment & accessory slots
 
-> Status: DRAFT · Target: wcmmo-content (MMOItems, MMOInventory), wcmmo (plugin install) · FIRE mode: confirm
+> Status: DRAFT · Target: wcmmo (MMOItems, MMOInventory), wcmmo (plugin install) · FIRE mode: confirm
 > Design: [GDD v2 §5](../gdd/wcmmo-gdd-v2.md#5-equipment-system) · Decisions: D-09
 
 ## Big picture
@@ -13,8 +13,8 @@
 | Repo | File | What |
 |---|---|---|
 | wcmmo | plugin registry + jar | add MMOInventory (D-09) |
-| wcmmo-content | MMOInventory slot config | 4 accessory slots, type-restricted (Rune slots live in the same GUI, spec 022) |
-| wcmmo-content | MMOItems `item-types.yml` | accessory types |
+| wcmmo | MMOInventory slot config | 4 accessory slots, type-restricted (Rune slots live in the same GUI, spec 022) |
+| wcmmo | MMOItems `item-types.yml` | accessory types |
 
 ## Data & IDs
 

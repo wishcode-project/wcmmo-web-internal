@@ -1,6 +1,6 @@
 # 014 — Zones & AP/DP soft cap
 
-> Status: DRAFT · Target: wcmmo (WorldGuard regions), wcmmo-plugins (`zones` module), wcmmo-content (MythicMobs) · FIRE mode: validate
+> Status: DRAFT · Target: wcmmo (WorldGuard regions), wcmmo-plugins (`zones` module), wcmmo (MythicMobs) · FIRE mode: validate
 > Design: [GDD v2 §6](../gdd/wcmmo-gdd-v2.md#6-farming-zones-monster-tiers-bosses--dungeons) · Decisions: D-13, D-13b
 
 ## Big picture
@@ -15,7 +15,7 @@
 | wcmmo | `plugins/WorldGuard/worlds/wcmmo/regions.yml` | zone regions (flag `wcmmo-zone`) |
 | wcmmo-plugins | `zones` module config `zones.yml` | region → tier, AP, DP |
 | wcmmo-plugins | `zones/SoftCapService` | computes player AP/DP (D-13b) and multipliers |
-| wcmmo-content | MythicMobs | mobs spawn only in their tier's regions |
+| wcmmo | MythicMobs | mobs spawn only in their tier's regions |
 
 ## Rules
 

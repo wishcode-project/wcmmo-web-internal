@@ -41,11 +41,11 @@ You are helping a small team (2–7 people) build **WC-MMO**, a classless action
 
 | Repo | Holds | Status |
 |---|---|---|
-| `wcmmo` (private) | the real server: configs, scripts. Paid assets may live here (private) | exists |
+| `wcmmo` (private) | the real server: plugin jars (paid included), **all** plugin + content configs (MMO, Mythic, Nexo), Skript kit (`plugins/Skript/scripts/wcmmo_*.sk`, index `docs/kit/`), start scripts (`start.sh` macOS 6 GB, `start.bat`) | exists, FIRE installed |
 | `wcmmo-specs` (private) | design doc (GDD), specs, registries, plugin guide, open questions | exists |
 | `wcmmo-plugins` | source of our own Kotlin plugin(s) + starter build per plugin | **deferred** until the per-system review after Phase 0 (D-25) |
 
-The owner wants only these 3 repos; the team still has to confirm (D-38).
+Only these 3 repos (D-38, decided 2026-10-01). No `wcmmo-content`.
 
 **Workflow**
 1. **Design** in `gdd/wcmmo-gdd-v2.md`. Every choice is a decision `D-xx` (options, recommendation, owner's call, status).
@@ -266,11 +266,11 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 
 ## 8. Decisions
 
-**DECIDED (72 of 84):**
+**DECIDED (73 of 84):**
 
 | Area | Decided |
 |---|---|
-| Project & plugins | D-00 paid plugins owned (not MythicDungeons) · D-09 MMOInventory · D-14 MythicDungeons (not bought) · D-25 Skript + vendor plugins first, own Kotlin plugin per system after Phase 0 · D-39 MythicHUD = HUD, UltimateUI = other UI · D-40 MMOItems = gear, Nexo = furniture/blocks/pack · D-41 CosmeticsCore wearables, ItemSkins weapon skins · D-42 BattlePass/LuxCollect after the slice · D-43 profiles later · D-47 Skript vs Kotlin |
+| Project & plugins | D-00 paid plugins owned (not MythicDungeons) · D-09 MMOInventory · D-14 MythicDungeons (not bought) · D-25 Skript + vendor plugins first, own Kotlin plugin per system after Phase 0 · D-39 MythicHUD = HUD, UltimateUI = other UI · D-40 MMOItems = gear, Nexo = furniture/blocks/pack · D-41 CosmeticsCore wearables, ItemSkins weapon skins · D-42 BattlePass/LuxCollect after the slice · D-43 profiles later · D-47 Skript vs Kotlin · D-38 3 repos, content + plugin jars in `wcmmo` |
 | Vitality | D-01 stamina on a MythicHUD bar, hunger hidden · D-02 food = heal over time + buffs, potions = instant · D-03a sprint drains a little stamina |
 | Stats | D-07 cap 60, 2 points/level · D-07b paid respec item (NPC shop or quest) · D-08 stats gate gear · D-08b soft level floor · D-30 small utility bonuses only |
 | Combat | D-49 I-frame deferred (dash = movement) · D-03 F bar swap (revised) · D-50 AGI basic attack speed, cap 30 % · D-51 Remnant gauge + Q ultimates · D-52 10 general + 5 skills & 1 ultimate per weapon · D-53 instant bow · D-54 item detail pages · D-55 orb skills (NPC / monster orbs) · D-56 17 runes with shared caps · D-57 death & auto-respawn · D-58 levelling · D-59 party XP & loot · D-60 keys 1–5 cast skills · D-61 HUD layout · D-27 Thai + English, English proper names · D-62 Awakening / Awakened kept as a story link · D-63 chat channels · D-64 name colours & guards · D-65 monster ranks, boss stun phases · D-66 wings · D-67 training dummy · D-06b Frontguard chip 20 % + stamina drain · D-06c arenas now; later open-world PvP outside safe zones for Lv 25+ · D-06d every weapon 1 guard-break skill; Hammer/Greatsword break guard + Super Armour, ×2 guard drain |
@@ -289,7 +289,6 @@ Watch-outs: LuxCollect and CosmeticsCore store pages don't confirm 26.2 yet; Ite
 | Combat / weapons | D-44 FPV weapon trigger layer (Crucible vs MMOItems + script) |
 | World | D-15 quest engine to pair with LuxDialogues |
 | Lifezone (later) | D-20 plot size · D-20b save timing · D-20c paste timing · D-21 full-zone parties · D-21b visiting |
-| Project | D-38 repo layout |
 
 ---
 

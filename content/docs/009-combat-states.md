@@ -1,6 +1,6 @@
 # 009 — Combat states: Frontguard, I-frame, Super Armour
 
-> Status: DRAFT · Target: wcmmo-plugins (`wcmmo-core` module `combat`), wcmmo-content (skill flags) · FIRE mode: validate
+> Status: DRAFT · Target: wcmmo-plugins (`wcmmo-core` module `combat`), wcmmo (skill flags) · FIRE mode: validate
 > Design: [GDD v2 §4](../gdd/wcmmo-gdd-v2.md#4-combat--mechanics) · Decisions: D-06b, D-06c, D-06d, D-25
 
 ## Big picture
@@ -14,8 +14,8 @@
 |---|---|---|
 | wcmmo-plugins | `combat/CombatStateService` | per-entity state flags with expiry (ticks) |
 | wcmmo-plugins | `combat/DamageResolver` | listens to MythicLib/Paper damage events, applies matrix |
-| wcmmo-content | skills | set state: `iframe:<ticks>`, `frontguard`, `superarmour:<ticks>`, `armourbreak` |
-| wcmmo-content | MythicMobs | mobs can have Super Armour / Frontguard too |
+| wcmmo | skills | set state: `iframe:<ticks>`, `frontguard`, `superarmour:<ticks>`, `armourbreak` |
+| wcmmo | MythicMobs | mobs can have Super Armour / Frontguard too |
 
 ## Rules
 

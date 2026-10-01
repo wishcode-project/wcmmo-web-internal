@@ -1,6 +1,6 @@
 # 015 — Monster tiers, loop farming & stationary farming
 
-> Status: DRAFT · Target: wcmmo-content (MythicMobs), wcmmo-plugins (`totem` module), wcmmo (regions) · FIRE mode: confirm
+> Status: DRAFT · Target: wcmmo (MythicMobs), wcmmo-plugins (`totem` module), wcmmo (regions) · FIRE mode: confirm
 > Design: [GDD v2 §6](../gdd/wcmmo-gdd-v2.md#6-farming-zones-monster-tiers-bosses--dungeons) · Decisions: D-16, D-16b
 
 ## Big picture
@@ -12,8 +12,8 @@
 
 | Repo | File | What |
 |---|---|---|
-| wcmmo-content | MythicMobs mobs + spawners | tiered mobs, pack spawners in zone regions |
-| wcmmo-content | MythicMobs skills | wave spawning towards the totem |
+| wcmmo | MythicMobs mobs + spawners | tiered mobs, pack spawners in zone regions |
+| wcmmo | MythicMobs skills | wave spawning towards the totem |
 | wcmmo-plugins | `totem` module | spot ownership, timer, cost check, cleanup |
 | wcmmo | WorldGuard | `wcmmo__totem_<zone>_<n>` regions |
 

@@ -1,6 +1,6 @@
 # 004 — Roadmap & Phase 0 proof-of-concepts
 
-> Status: DRAFT · Target: wcmmo, wcmmo-content · FIRE mode: confirm
+> Status: DRAFT · Target: wcmmo · FIRE mode: confirm
 > Design: [GDD v2 — Phase plan](../gdd/wcmmo-gdd-v2.md#phase-plan)
 
 ## Big picture
@@ -29,7 +29,7 @@
 | # | Item | Repo | Owner |
 |---|---|---|---|
 | P1 | Buy/confirm plugins, fill the table in `gdd/owner-questions.md` (D-00) | — | Tatoo |
-| P2 | Decide repo layout (D-38). If 3 repos: track MMO content configs in `wcmmo` (update `.gitignore`); no `wcmmo-content` | wcmmo | Tatoo + team |
+| P2 | ✅ **Done 2026-10-01:** D-38 = 3 repos; MMO / Mythic / Nexo configs tracked in `wcmmo` (`.gitignore` updated), no `wcmmo-content`; kit moved into `wcmmo` | wcmmo | Tatoo + team |
 | P3 | Install Skript + SkBee, skript-reflect, skript-placeholders on the dev box (`docs/plugins.md` §3.8, install step 6b); add `plugins/Skript/variables.csv*` to `wcmmo/.gitignore` first | wcmmo | Tatoo |
 | P4 | LuckPerms + MySQL on dev box (groups per `docs/README.md`) | wcmmo | dev |
 | ~~P5~~ | ~~Create `wcmmo-plugins` repo (Kotlin, Gradle, Paper API 26.2)~~ **Deferred (D-25, 2026-09-29)** until the per-system review after Phase 0 | wcmmo-plugins | Tatoo |

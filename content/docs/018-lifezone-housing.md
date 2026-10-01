@@ -1,6 +1,6 @@
 # 018 — Lifezone instances & housing
 
-> Status: DRAFT · Target: wcmmo-plugins (`lifezone` module), wcmmo (worlds, DB), wcmmo-infra (maybe Velocity) · FIRE mode: validate
+> Status: DRAFT · Target: wcmmo-plugins (`lifezone` module), wcmmo (worlds, DB, maybe Velocity) · FIRE mode: validate
 > Design: [GDD v2 §8](../gdd/wcmmo-gdd-v2.md#8-lifezone--housing-heartopia-style) · Decisions: D-19, D-20, D-20b, D-20c, D-21, D-21b
 >
 > **Timing (D-19, 2026-09-29):** Lifezone will be our own plugin, not Skript. It is designed and built only after the combat/MMO core is mostly finished; until then this spec stays DRAFT.
@@ -17,7 +17,7 @@
 | wcmmo-plugins | `lifezone` module | instance registry, capacity, plot allocation, save/paste |
 | wcmmo | Multiverse / world templates | `wcmmo_lifezone_<n>` worlds from one template |
 | wcmmo | `.env` | DB connection (house blobs) |
-| wcmmo-infra | Velocity (only if D-19 = servers) | proxy + shared DB |
+| wcmmo | Velocity (only if D-19 = servers) | proxy + shared DB |
 
 ## Rules
 

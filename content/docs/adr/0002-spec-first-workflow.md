@@ -8,7 +8,7 @@ Changes to configs and content need to be reviewable, traceable and reproducible
 
 ## Decision
 - `wcmmo-specs` holds rules (`CLAUDE.md`), registries (`docs/README.md`) and one numbered spec per feature. No specsmd installed here.
-- Each implementation repo (`wcmmo`, later `wcmmo-plugins`, `wcmmo-content`, `wcmmo-infra`) installs **specsmd FIRE**. Every FIRE intent cites a spec number; each run logs plan / test report / walkthrough under `.specs-fire/runs/`.
+- Each implementation repo (`wcmmo`, later `wcmmo-plugins`; since D-38 there is no `wcmmo-content` / `wcmmo-infra`) installs **specsmd FIRE**. Every FIRE intent cites a spec number; each run logs plan / test report / walkthrough under `.specs-fire/runs/`.
 - specsmd "simple" flow (requirements → design → tasks) is not used: it duplicates what the spec repo already provides.
 
 ## Consequences

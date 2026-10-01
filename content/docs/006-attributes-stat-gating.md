@@ -1,6 +1,6 @@
 # 006 — Stats as the gear gateway (STR/AGI/INT/DEX/DEF)
 
-> Status: DRAFT · Target: wcmmo-content (MMOCore attributes, MMOItems requirements) · FIRE mode: validate
+> Status: DRAFT · Target: wcmmo (MMOCore attributes, MMOItems requirements) · FIRE mode: validate
 > Design: [GDD v2 §3](../gdd/wcmmo-gdd-v2.md#3-weapon-freedom--compartmentalised-progression) · Decisions: D-07, D-07b, D-08, D-08b, D-30
 
 ## Big picture
@@ -13,9 +13,9 @@
 
 | Repo | File | What |
 |---|---|---|
-| wcmmo-content | MMOCore `attributes.yml` | 5 attributes; per-point buffs limited to the D-30 utility table |
-| wcmmo-content | MMOCore `config.yml` | attribute points per level, respec item |
-| wcmmo-content | MMOItems item templates | attribute requirements (+ level floor if D-08b) |
+| wcmmo | MMOCore `attributes.yml` | 5 attributes; per-point buffs limited to the D-30 utility table |
+| wcmmo | MMOCore `config.yml` | attribute points per level, respec item |
+| wcmmo | MMOItems item templates | attribute requirements (+ level floor if D-08b) |
 
 ## Data & IDs
 

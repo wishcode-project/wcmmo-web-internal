@@ -17,7 +17,7 @@ Backfilled from `wcmmo` commits `f18c219` and `8bcbc6f`.
 | CMI + CMILib | `plugins/CMI/**`, `plugins/CMILib/config.yml` | `Settings/DataBaseInfo.yml` untracked (DB password). Only `Locale_EN` translations tracked. |
 | Vault | `plugins/Vault/config.yml` | economy provider = CMI |
 | WorldGuard | `plugins/WorldGuard/config.yml`, `worlds/wcmmo*/` | stale `worlds/world*` and `worlds/dev` untracked |
-| FastAsyncWorldEdit | `plugins/FastAsyncWorldEdit/{config,worldedit-config}.yml` | schematics live in `wcmmo-world` |
+| FastAsyncWorldEdit | `plugins/FastAsyncWorldEdit/{config,worldedit-config}.yml` | schematics stay untracked (`plugins/*/schematics/`) until they get a home (D-38) |
 | Multiverse-Core | `plugins/Multiverse-Core/{config,worlds,anchors}.yml` | see 003 |
 | Citizens | `plugins/Citizens/{config,saves,shops}.yml`, `templates/` | `lib/` untracked |
 | spark | none (`plugins/spark/` ignored) | profiler |

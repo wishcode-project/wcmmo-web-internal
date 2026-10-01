@@ -1,6 +1,6 @@
 # 016 — Quest & story framework
 
-> Status: DRAFT · Target: wcmmo-content (BetonQuest, Citizens, MythicDungeons) · FIRE mode: confirm
+> Status: DRAFT · Target: wcmmo (BetonQuest, Citizens, MythicDungeons) · FIRE mode: confirm
 > Design: [GDD v2 §7](../gdd/wcmmo-gdd-v2.md#7-quests--story) · Decisions: D-14, D-15, D-15b, D-27, D-32
 
 ## Big picture
@@ -13,9 +13,9 @@
 | Repo | File | What |
 |---|---|---|
 | wcmmo | plugin registry | add BetonQuest (D-15), MythicDungeons (D-14) |
-| wcmmo-content | `BetonQuest/QuestPackages/wcmmo/ch01/` | conversations, objectives, rewards |
-| wcmmo-content | MythicDungeons `ch01_boss` | instance for story boss |
-| wcmmo-content | Citizens NPCs | quest givers |
+| wcmmo | `BetonQuest/QuestPackages/wcmmo/ch01/` | conversations, objectives, rewards |
+| wcmmo | MythicDungeons `ch01_boss` | instance for story boss |
+| wcmmo | Citizens NPCs | quest givers |
 
 ## Conventions
 

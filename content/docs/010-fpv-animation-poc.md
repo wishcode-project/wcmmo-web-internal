@@ -1,6 +1,6 @@
 # 010 — First-person combat animation (PoC)
 
-> Status: DRAFT · Target: wcmmo-content (Nexo/ModelEngine assets), wcmmo-plugins · FIRE mode: validate
+> Status: DRAFT · Target: wcmmo (Nexo/ModelEngine assets), wcmmo-plugins · FIRE mode: validate
 > Design: [GDD v2 §4](../gdd/wcmmo-gdd-v2.md#4-combat--mechanics) · Decisions: D-05
 
 ## Big picture

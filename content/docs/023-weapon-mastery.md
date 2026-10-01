@@ -1,6 +1,6 @@
 # 023 — Weapon Mastery (Expertise)
 
-> Status: DRAFT · Target: wcmmo-content (MMOCore professions, MythicMobs skills), wcmmo (PlaceholderAPI) · FIRE mode: validate
+> Status: DRAFT · Target: wcmmo (MMOCore professions, MythicMobs skills), wcmmo (PlaceholderAPI) · FIRE mode: validate
 > Design: [GDD v2 §3](../gdd/wcmmo-gdd-v2.md#3-weapon-freedom--compartmentalised-progression) · Decisions: D-36, D-36b
 
 ## Big picture
@@ -13,9 +13,9 @@
 
 | Repo | File | What |
 |---|---|---|
-| wcmmo-content | MMOCore `professions/mastery_<weapon>.yml` | one profession per weapon type, XP curve |
-| wcmmo-content | MMOCore XP sources | XP on damaging mobs with that weapon type |
-| wcmmo-content | MythicMobs skills | cooldown/cast time formula using `%mmocore_profession_mastery_<weapon>%` |
+| wcmmo | MMOCore `professions/mastery_<weapon>.yml` | one profession per weapon type, XP curve |
+| wcmmo | MMOCore XP sources | XP on damaging mobs with that weapon type |
+| wcmmo | MythicMobs skills | cooldown/cast time formula using `%mmocore_profession_mastery_<weapon>%` |
 | wcmmo | plugin registry | add PlaceholderAPI |
 
 ## Rules

@@ -1,6 +1,6 @@
 # 019 — Lifeskills & resource tiers
 
-> Status: DRAFT · Target: wcmmo-content (MMOCore professions, Nexo blocks, MMOItems materials) · FIRE mode: confirm
+> Status: DRAFT · Target: wcmmo (MMOCore professions, Nexo blocks, MMOItems materials) · FIRE mode: confirm
 > Design: [GDD v2 §9](../gdd/wcmmo-gdd-v2.md#9-lifeskills--economy) · Decisions: D-22, D-26
 
 ## Big picture
@@ -12,9 +12,9 @@
 
 | Repo | File | What |
 |---|---|---|
-| wcmmo-content | MMOCore `professions/*.yml` | 5 professions, XP curves |
-| wcmmo-content | MMOCore block regen / Nexo custom blocks | resource nodes |
-| wcmmo-content | MMOItems materials + recipes | cooking → food (005), alchemy → potions |
+| wcmmo | MMOCore `professions/*.yml` | 5 professions, XP curves |
+| wcmmo | MMOCore block regen / Nexo custom blocks | resource nodes |
+| wcmmo | MMOItems materials + recipes | cooking → food (005), alchemy → potions |
 
 ## Data & IDs
 

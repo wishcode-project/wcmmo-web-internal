@@ -80,12 +80,12 @@ Full per-plugin guide (docs, dependencies, setup, overlaps): [plugins.md](plugin
 | Citizens | 2.0.44 b4256 | paid | wcmmo | NPCs | 002 |
 | spark | built into Purpur | free | wcmmo (data ignored) | profiler, `/spark health` | 002 |
 | LuckPerms | 5.5.85 | free | wcmmo | permissions (DB in `.env`) | — |
-| Nexo | 1.29-dev | paid | wcmmo-content | custom items, blocks, furniture, resource pack | — |
-| MythicMobs + MythicLib | 5.13.0 + 1.7.1-SNAPSHOT | paid | wcmmo-content | custom mobs, skills | — |
-| MMOCore / MMOItems / MMOProfiles | 1.13.1 / 6.10.1 (SNAPSHOTs) / not installed | paid | wcmmo-content | classes, levels, RPG items, profiles | — |
-| ModelEngine | R4.1.1 | paid | wcmmo-content | custom mob models | — |
+| Nexo | 1.29-dev | paid | wcmmo | custom items, blocks, furniture, resource pack | — |
+| MythicMobs + MythicLib | 5.13.0 + 1.7.1-SNAPSHOT | paid | wcmmo | custom mobs, skills | — |
+| MMOCore / MMOItems / MMOProfiles | 1.13.1 / 6.10.1 (SNAPSHOTs) / not installed | paid | wcmmo | classes, levels, RPG items, profiles | — |
+| ModelEngine | R4.1.1 | paid | wcmmo | custom mob models | — |
 | DiscordSRV | — owned | free | wcmmo | chat bridge (token in `.env`) | — |
-| MMOInventory | 2.0-SNAPSHOT | paid | wcmmo-content | accessory + Rune slots | 011, 022 |
+| MMOInventory | 2.0-SNAPSHOT | paid | wcmmo | accessory + Rune slots | 011, 022 |
 | PlaceholderAPI | 2.12.3 | free | wcmmo | placeholders for Mastery math in MythicMobs | 023 |
 | Triton | 4.1.0 | paid | wcmmo | per-player translations (D-27) | — |
 | UltimateUI | 1.4.0 | paid | wcmmo | shops, quest list, custom UI (D-39) | — |
@@ -102,10 +102,10 @@ Full per-plugin guide (docs, dependencies, setup, overlaps): [plugins.md](plugin
 | PacketEvents | 2.14.0 | free | wcmmo | library (ItemSkins) | — |
 | ProtocolLib | 5.5.0-SNAPSHOT | free | wcmmo | packet library (dependency for several plugins) | — |
 | Skript + SkBee + skript-reflect + skript-placeholders | 2.16.2 + 3.26.0 + 2.6.3 + 1.7.2 | free | wcmmo | custom scripting: prototypes, tutorial/quest glue, admin tools, and for now the custom mechanics too (D-25, D-47) | 024 |
-| BetonQuest | — proposed (D-15) | free | wcmmo-content | quests, dialogue | 016 |
-| MythicDungeons | — **to buy** (D-14, not owned) | paid | wcmmo-content | instanced bosses/dungeons | 016, 017 |
+| BetonQuest | — proposed (D-15) | free | wcmmo | quests, dialogue | 016 |
+| MythicDungeons | — **to buy** (D-14, not owned) | paid | wcmmo | instanced bosses/dungeons | 016, 017 |
 | wcmmo-core (ours) | — **deferred** (D-25): per-system review after Phase 0 | own | wcmmo-plugins | vitality, skillbar, combat, bloodline, enhance, zones, totem, loot, lifezone modules | 005, 007, 009, 013–015, 017, 018, 021 |
-| Velocity | — maybe (D-19) | free | wcmmo-infra | proxy for multi-server Lifezones | 018 |
+| Velocity | — maybe (D-19) | free | wcmmo | proxy for multi-server Lifezones | 018 |
 
 Plugin jars (paid included) are committed only in the private `wcmmo` repo under `plugins/*.jar` (owner, 2026-10-01), so every clone runs the same set. Never in a public repo.
 

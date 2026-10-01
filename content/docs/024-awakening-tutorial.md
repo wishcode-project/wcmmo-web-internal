@@ -1,6 +1,6 @@
 # 024 — The Awakening: tutorial & Bloodline Trial
 
-> Status: DRAFT · Target: wcmmo-plugins (`awakening` module), wcmmo-content (MythicMobs, LuxDialogues, UltimateUI, Nexo), wcmmo (WorldGuard, tutorial world) · FIRE mode: validate
+> Status: DRAFT · Target: wcmmo-plugins (`awakening` module), wcmmo (MythicMobs, LuxDialogues, UltimateUI, Nexo), wcmmo (WorldGuard, tutorial world) · FIRE mode: validate
 > Design: [Awakening tutorial](../gdd/awakening-tutorial.md) · [bloodlines.md](../gdd/bloodlines.md) · [GDD v2 §2](../gdd/wcmmo-gdd-v2.md#2-classless-system-bloodlines--runes) · Decisions: D-31, D-32, D-33, D-45, D-46, D-48
 
 ## Big picture
@@ -31,10 +31,10 @@ first join → tutorial instance (per player)
 | wcmmo | `plugins/Skript/scripts/wcmmo_awakening_*.sk` (optional first version) | trigger checks and cutscene steps can be prototyped in Skript for the trailer, then moved to Kotlin (D-47) |
 | wcmmo-plugins | instance support (D-45) | per-player copy of the tutorial world/region (shared with Lifezone code), or MythicDungeons if bought |
 | wcmmo | `wcmmo_tutorial` template world + WorldGuard regions below | built by the map team |
-| wcmmo-content | MythicMobs | trial mobs (attackers of the wounded NPC, hold-ring wave, the brute), Encounter/Reveal spirits for Fury / Ward / Pulse (ModelEngine models) |
-| wcmmo-content | LuxDialogues | Encounter arguments, Reveal, Accept/Reject dialogue |
-| wcmmo-content | UltimateUI | manual Bloodline selection GUI after Reject (D-39) |
-| wcmmo-content | MMOItems | tutorial kit: 1 melee weapon + ranged scrolls/bow |
+| wcmmo | MythicMobs | trial mobs (attackers of the wounded NPC, hold-ring wave, the brute), Encounter/Reveal spirits for Fury / Ward / Pulse (ModelEngine models) |
+| wcmmo | LuxDialogues | Encounter arguments, Reveal, Accept/Reject dialogue |
+| wcmmo | UltimateUI | manual Bloodline selection GUI after Reject (D-39) |
+| wcmmo | MMOItems | tutorial kit: 1 melee weapon + ranged scrolls/bow |
 
 ## Scoring rules
 

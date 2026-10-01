@@ -1,6 +1,6 @@
 # 005 — Vitality: HP, Mana, Stamina, food as consumables
 
-> Status: DRAFT · Target: wcmmo-content (MMOCore, MMOItems), wcmmo-plugins · FIRE mode: validate
+> Status: DRAFT · Target: wcmmo (MMOCore, MMOItems), wcmmo-plugins · FIRE mode: validate
 > Design: [GDD v2 §1](../gdd/wcmmo-gdd-v2.md#1-core-vitality--survival) · Decisions: D-01, D-02, D-03a, D-30
 
 ## Big picture
@@ -12,8 +12,8 @@
 
 | Repo | Plugin / file | What |
 |---|---|---|
-| wcmmo-content | MMOCore `config.yml` (classless: one default profile) | base/max/regen for mana & stamina |
-| wcmmo-content | MMOItems consumables | food items with heal-over-time + cooldown group |
+| wcmmo | MMOCore `config.yml` (classless: one default profile) | base/max/regen for mana & stamina |
+| wcmmo | MMOItems consumables | food items with heal-over-time + cooldown group |
 | wcmmo-plugins | `wcmmo-core` module `vitality` | freeze hunger (food level locked at 20 or drives stamina display per D-01); dash action |
 | wcmmo | `purpur.yml` | none expected — verify no hunger-related override needed |
 
