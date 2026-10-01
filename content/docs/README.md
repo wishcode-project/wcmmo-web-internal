@@ -193,6 +193,7 @@ Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:s
 | `wcmmo_item_stone_weapon`, `_armour`, `_accessory` | MMOItems | 013 | enhancement materials |
 | `wcmmo_item_totem_low`, `_mid`, `_high` | MMOItems | 015 | stationary farming cost |
 | `wcmmo_item_wings_1`, `_2`, `_3` | MMOItems | 034 | Wings I–III |
+| `WCMMO_TEST_SWORD`, `_HAMMER`, `_BOW`, `_STAFF` | MMOItems | 008 | PoC test weapons, admin `/mi give` only |
 | `wcmmo_cos_wings_feather`, `_fury`, `_ward`, `_pulse` | CosmeticsCore or ModelEngine | 034 | wing looks (feather = no Bloodline) |
 | `wcmmo_furn_starter_bed`, `_table`, `_chair`, `_lamp` | Nexo | 020 | |
 

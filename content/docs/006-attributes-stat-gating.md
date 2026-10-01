@@ -30,6 +30,7 @@
 |---|---|
 | Level cap (Phase 1) | 60 (Bloodline stage 4 = Lv. 60, spec 021) |
 | Points per level | 2 (118 total at 60) |
+| Max points per attribute | **80** (decided 2026-10-01: one attribute can reach the top gear tier, but not everything) |
 | Gate | stat requirements + soft level floor per tier (D-08b) |
 
 Utility bonuses per point (only if D-30 = "small utility"):
@@ -84,3 +85,9 @@ Changing points-per-level changes player data: DB backup before deploying to pro
 ## Open questions
 
 - MMOItems requirement key names for the installed version.
+
+## Implementation log
+
+| Date | Repo | FIRE run | PR | Notes |
+|---|---|---|---|---|
+| 2026-10-02 | wcmmo | `run-wcmmo-002` | branch `feat/mmo-core-setup` | Attributes `str agi int dex def`, **max 80 per attribute** (owner), 2 points / level via exp table, level cap 60. Utility: agi +1 stamina, int +2 mana, def +3 HP; str / dex gate only for now. |

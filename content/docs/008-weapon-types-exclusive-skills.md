@@ -187,3 +187,9 @@ Revert content. Weapon type and skill IDs must never change once players have th
 
 - [x] D-04, D-06d, D-52, D-55 decided.
 - [ ] Skills built as MMOCore skills → MythicMobs skills; tests 1–9 pass.
+
+## Implementation log
+
+| Date | Repo | FIRE run | PR | Notes |
+|---|---|---|---|---|
+| 2026-10-02 | wcmmo | `run-wcmmo-002` | branch `feat/mmo-core-setup` | MMOItems types `WCMMO_SWORD … TOME` created (custom types copy their parent's behaviour keys, they don't inherit them). Test items `WCMMO_TEST_SWORD / HAMMER / BOW / STAFF`. Bows use a non-bow material + `model` so no draw animation plays. |

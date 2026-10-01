@@ -75,3 +75,9 @@ Revert content + plugin module; no player data change beyond MMOCore resource va
 ## Open questions
 
 - none (D-01: MythicHUD bar; hunger locked full and hidden).
+
+## Implementation log
+
+| Date | Repo | FIRE run | PR | Notes |
+|---|---|---|---|---|
+| 2026-10-02 | wcmmo | `run-wcmmo-002` | branch `feat/mmo-core-setup` | MMOCore class `wcmmo`: HP 100 +5 / level, Mana 100 +2 (regen 2/s), Stamina 100 (regen 10/s); MythicLib health scale on (10 hearts). **Not done yet:** HP regen 1 %/s out of combat, stamina regen delay (kit). |

@@ -84,3 +84,9 @@ Remove `wcmmo_75_wings.sk` and the wings slot; wings items stay in inventories a
 
 - [x] D-66 decided.
 - [ ] Tests 1–8 pass.
+
+## Implementation log
+
+| Date | Repo | FIRE run | PR | Notes |
+|---|---|---|---|---|
+| 2026-10-02 | wcmmo | `run-wcmmo-002` | branch `feat/mmo-core-setup` | Wings items load (`damage-reduction`, not `defense-percent`); MMOInventory test slot `WINGS` with `mmoitemstype{type=WCMMO_WINGS}` + `mmoitemslevel{}`; opens with `/mmoinv open` for now. Region check goes through the WorldGuard API. Model PoC and safe-zone regions still to do. |

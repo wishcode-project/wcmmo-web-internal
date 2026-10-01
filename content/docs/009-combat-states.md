@@ -74,3 +74,9 @@ Disable module via config flag `combat.enabled: false`.
 ## Open questions
 
 - none. D-06c: arenas only now; later open-world PvP outside safe zones between players Lv 25+.
+
+## Implementation log
+
+| Date | Repo | FIRE run | PR | Notes |
+|---|---|---|---|---|
+| 2026-10-02 | wcmmo | `run-wcmmo-002` | branch `feat/mmo-core-setup` | MythicLib chance mitigation off (`roll: '0'` for block / dodge / parry). In-game: no Blocked / Dodged / Parried. |

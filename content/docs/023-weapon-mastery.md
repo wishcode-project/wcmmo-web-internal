@@ -71,3 +71,9 @@ Profession XP is player data: never rename `mastery_*` IDs.
 ## Acceptance criteria
 
 - [ ] D-36, D-36b decided; PlaceholderAPI registered; PoC of the formula PASS.
+
+## Implementation log
+
+| Date | Repo | FIRE run | PR | Notes |
+|---|---|---|---|---|
+| 2026-10-02 | wcmmo | `run-wcmmo-002` | branch `feat/mmo-core-setup` | 8 MMOCore professions `mastery_<weapon>`, cap 30 (test), XP curve `{level} * 65` (≈19,500 hits to Mastery 25), no MMOCore exp sources. Profession XP command order: `mmocore admin exp give <player> <profession> <amount>`. |

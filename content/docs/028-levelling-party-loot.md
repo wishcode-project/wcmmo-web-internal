@@ -119,3 +119,9 @@ Disable the script: MMOCore / MythicMobs default XP and vanilla drops.
 
 - [x] D-58, D-59 decided.
 - [ ] Tests 1–9 pass; time targets checked with 3 testers.
+
+## Implementation log
+
+| Date | Repo | FIRE run | PR | Notes |
+|---|---|---|---|---|
+| 2026-10-02 | wcmmo | `run-wcmmo-002` | branch `feat/mmo-core-setup` | Level curve in MMOCore: `50 * {level} * {level} + 100 * {level}`, cap 60; MMOCore kill XP off (kit gives XP). |
