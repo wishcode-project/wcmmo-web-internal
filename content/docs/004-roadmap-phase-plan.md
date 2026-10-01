@@ -58,7 +58,7 @@ Each PoC is one FIRE intent in its target repo, mode `validate`, with a `/spark 
 
 ## Performance
 
-**PoC-2 status 2026-10-02 (`run-wcmmo-003`): functional PASS with 1 player + MythicMobs** (mob Frontguard front 0.76 vs back 3.94 dealt; player block 0.5 instead of 2.5; heavy attack breaks the guard; Super Armour; dummy DPS meter). **Still open:** the player-vs-player rows of the 009 matrix (needs 2 players), boss stun phase confirmation, and the MSPT report below.
+**PoC-2 status 2026-10-02 (`run-wcmmo-003`): functional PASS with 1 player + MythicMobs** (mob Frontguard front 0.76 vs back 3.94 dealt; player block 0.5 instead of 2.5; heavy attack breaks the guard; Super Armour; dummy DPS meter). Boss stun phases (70 % / 40 %, yellow glow, 5 s) confirmed 2026-10-02. **Still open:** the player-vs-player rows of the 009 matrix (needs 2 players) and the MSPT report below.
 
 PoC-2 must report MSPT with 20 concurrent actions (bots or testers). PoC-2 and PoC-7 run Skript on every hit: their `/spark` numbers are the main input for the D-25 per-system review.
 

@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-01T17:46:26.534Z",
-  "head": "0cf1e12",
+  "syncedAt": "2026-10-01T17:58:30.693Z",
+  "head": "7088019",
   "branch": "main",
   "commits": [
+    {
+      "sha": "7088019",
+      "date": "2026-10-02T00:58:15+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(033): boss stun phases run in the Skript pipeline, confirmed in game",
+      "insertions": 4,
+      "deletions": 3,
+      "files": 2
+    },
     {
       "sha": "0cf1e12",
       "date": "2026-10-02T00:46:12+07:00",
@@ -441,7 +450,7 @@
     "docs/001-server-baseline.md": "2026-09-28T22:55:03+07:00",
     "docs/002-plugin-stack.md": "2026-10-01T22:23:49+07:00",
     "docs/003-void-overworld.md": "2026-10-01T22:35:01+07:00",
-    "docs/004-roadmap-phase-plan.md": "2026-10-02T00:45:45+07:00",
+    "docs/004-roadmap-phase-plan.md": "2026-10-02T00:58:15+07:00",
     "docs/005-vitality-resources.md": "2026-10-02T00:07:23+07:00",
     "docs/006-attributes-stat-gating.md": "2026-10-02T00:07:23+07:00",
     "docs/007-classes-skill-bars.md": "2026-10-02T00:02:14+07:00",
@@ -470,7 +479,7 @@
     "docs/030-languages.md": "2026-10-01T00:31:21+07:00",
     "docs/031-chat-channels.md": "2026-10-01T00:31:21+07:00",
     "docs/032-npcs-name-colours.md": "2026-10-01T00:39:32+07:00",
-    "docs/033-monster-ranks-combat.md": "2026-10-02T00:45:45+07:00",
+    "docs/033-monster-ranks-combat.md": "2026-10-02T00:58:15+07:00",
     "docs/034-wings.md": "2026-10-02T00:07:23+07:00",
     "docs/035-training-dummy.md": "2026-10-02T00:46:12+07:00",
     "docs/README.md": "2026-10-02T00:07:23+07:00",

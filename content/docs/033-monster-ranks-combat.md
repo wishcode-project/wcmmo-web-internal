@@ -92,7 +92,7 @@ Exact drop rates are written per zone in the zone / mob specs.
 | Repo | File | What |
 |---|---|---|
 | wcmmo | MythicMobs mobs | rank in the mob name (`&c` / `&5`), stats, Elite Frontguard tag `wcmmo_frontguard` or Super Armour via `wcmmostate`, boss tag `wcmmo_boss` |
-| wcmmo | MythicMobs skills | boss stun phase: `wcmmostate <caster.uuid> stunphase 100` at HP thresholds (`~onDamaged` + health condition, VERIFY) |
+| wcmmo | Skript `wcmmo_10_combat.sk` | boss stun phase: every mob tagged `wcmmo_boss` gets one phase per threshold in `cfg boss::stunAt` (70, 40): state `stunphase`, yellow glow, AI off for `stunTicks`; MythicMobs only plays `wcmmo_fx_boss_stun` (MythicMobs health conditions proved unreliable in PoC-2) |
 | wcmmo | Skript `wcmmo_10_combat.sk` | boss CC immunity (cancel knockback / slow / blindness / nausea unless `stunphase`); +30 % damage during `stunphase` |
 | wcmmo | MythicHUD | boss bar shows "STUNNED" during a stun phase |
 
@@ -126,4 +126,5 @@ Exact drop rates are written per zone in the zone / mob specs.
 
 | Date | Repo | FIRE run | PR | Notes |
 |---|---|---|---|---|
-| 2026-10-02 | wcmmo | `run-wcmmo-003` | branch `feat/009-combat-poc` | Test mobs: `wcmmo_test_grunt` (Normal), Shieldbearer (Guard Elite, blue glow), Brute (Armour Elite, orange glow, telegraphed guard-breaking smash), `wcmmo_test_boss` (stun phases; not confirmed in game yet). |
+| 2026-10-02 | wcmmo | `run-wcmmo-003` | branch `feat/009-combat-poc` | Test mobs: `wcmmo_test_grunt` (Normal), Shieldbearer (Guard Elite, blue glow), Brute (Armour Elite, orange glow, telegraphed guard-breaking smash), `wcmmo_test_boss`. |
+| 2026-10-02 | wcmmo | `run-wcmmo-003` | branch `fix/033-boss-stun` | Boss stun phases confirmed in game: opened by the Skript pipeline at 70 % / 40 %, yellow glow, 5 s, +30 % damage, CC works. |
