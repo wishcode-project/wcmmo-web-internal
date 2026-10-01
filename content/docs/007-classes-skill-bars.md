@@ -22,7 +22,7 @@
 | **Q** | **ultimate** of the held weapon, needs 100 Remnant (D-51, spec 025) | Q no longer drops items in the world; drop items from the inventory screen |
 | F in the inventory, hovering an item | next page of the item's details (D-54, spec 026) | a different event from F in the world: no clash |
 | **3-click combo** | cast slot 1–5 of the active set (D-60 revised 2026-10-02). Melee / Staff / Tome: `R-L-R`, `R-R-R`, `R-L-L`, `R-R-L`, `L-R-L`. Bow / Crossbow (mirrored): `L-R-L`, `L-L-L`, `L-R-R`, `L-L-R`, `R-L-R` | like MMOCore key combos, done by the kit; MMOCore casting is `NONE`. A combo may start with either click; clicks inside a combo don't attack / shoot |
-| **1–9** | plain hotbar: weapons, potions, food in any slot | switching to another weapon starts the weapon-swap cooldown |
+| **1–9** | plain hotbar: weapons, potions, food in any slot | switching to another weapon: no basic attacks for 5 s (skills still work) |
 
 ## Rules
 
@@ -32,7 +32,7 @@
 4. **Using a skill:** if it needs a weapon type and another one is held → "needs a <Weapon>", no cooldown or cost used. Skills with weapon `any` always work.
 5. **Ultimate slot:** the player puts one owned ultimate there; **Q** casts it at 100 Remnant **if the held weapon matches**, otherwise "needs a <Weapon>".
 6. **Combos:** 3 clicks, each within 1 s of the last. A combo that starts with the weapon's basic click (e.g. `L-R-L` for melee) needs its 2nd click within 0.35 s, so normal attacks followed by a skill aren't misread.
-7. **Weapon swap cooldown: 5 s** (owner's starting value). After switching to another weapon slot, the next switch to a different weapon waits 5 s. Potions / food and going back to the same weapon are free.
+7. **Weapon swap cooldown: 5 s** (owner's starting value). Switching to another weapon is always allowed, but the new weapon **can't make basic attacks** (hits, shots, bolts) for 5 s; **skills still work**. The action bar counts down ("attacks ready in 3.2 s") and shows "Weapon ready" at the end. Potions / food and going back to the same weapon slot don't start it.
 8. **Loadout screen `/skills`** (PoC: one 6-row window): row 1 = slots 1–5 + ultimate slot, row 2 = slots 6–10, row 3 = page buttons, rows 4–6 = owned skills (27 per page). Click a skill, then a slot; right click a slot to empty it; a skill sits in one slot at a time. Final screen (list in the inventory area) = UltimateUI.
 9. Loadout changes only out of combat (5 s since the last hit). *(not enforced in the PoC yet)*
 10. **Basic attack speed:** AGI raises basic attack / shot speed, **+0.5 % per point, capped at +30 %** (D-50). Skill cooldowns are not affected by AGI (Mastery owns them, spec 023).
@@ -52,7 +52,7 @@
 |---|---|
 | Active slots | 10 = set 1 (5) + set 2 (5), + 1 ultimate slot on Q |
 | Combo timeout / link window | 1 s between clicks / 0.35 s for combos starting with the basic click |
-| Weapon swap cooldown | **5 s** (starting value) |
+| Weapon swap cooldown | **5 s** without basic attacks (starting value) |
 | Global cooldown between casts | 0.5 s |
 | Swap cooldown | 0.5 s |
 | Out-of-combat timer for loadout edits | 5 s |

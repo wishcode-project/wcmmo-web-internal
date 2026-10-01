@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-01T18:34:23.582Z",
-  "head": "66fe228",
+  "syncedAt": "2026-10-01T18:44:40.757Z",
+  "head": "e4896d0",
   "branch": "main",
   "commits": [
+    {
+      "sha": "e4896d0",
+      "date": "2026-10-02T01:44:25+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(007): weapon swap locks basic attacks, not the switch",
+      "insertions": 4,
+      "deletions": 4,
+      "files": 2
+    },
     {
       "sha": "66fe228",
       "date": "2026-10-02T01:33:57+07:00",
@@ -480,7 +489,7 @@
     "docs/004-roadmap-phase-plan.md": "2026-10-02T00:58:15+07:00",
     "docs/005-vitality-resources.md": "2026-10-02T00:07:23+07:00",
     "docs/006-attributes-stat-gating.md": "2026-10-02T00:07:23+07:00",
-    "docs/007-classes-skill-bars.md": "2026-10-02T01:33:51+07:00",
+    "docs/007-classes-skill-bars.md": "2026-10-02T01:44:25+07:00",
     "docs/008-weapon-types-exclusive-skills.md": "2026-10-02T00:07:23+07:00",
     "docs/009-combat-states.md": "2026-10-02T00:45:45+07:00",
     "docs/010-fpv-animation-poc.md": "2026-10-01T22:23:49+07:00",

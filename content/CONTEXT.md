@@ -112,7 +112,7 @@ Only these 3 repos (D-38, decided 2026-10-01). No `wcmmo-content`.
 | Left click | basic attack (melee weapons, Staff / Tome magic bolt) |
 | Right click | Bow / Crossbow: **instant shot, no charging** (D-53) |
 | Shift (hold) | Guard (Frontguard) |
-| 3-click combo (holding a weapon) | cast slot 1–5 of the active skill set (D-60 revised 2026-10-02): melee `R-L-R`, `R-R-R`, `R-L-L`, `R-R-L`, `L-R-L`; bows mirrored. Keys 1–9 = plain hotbar. Skills belong to the player: any owned skill in any of the 10 slots + 1 ultimate slot (`/skills`); the weapon only decides whether it can be used. Weapon swap cooldown 5 s |
+| 3-click combo (holding a weapon) | cast slot 1–5 of the active skill set (D-60 revised 2026-10-02): melee `R-L-R`, `R-R-R`, `R-L-L`, `R-R-L`, `L-R-L`; bows mirrored. Keys 1–9 = plain hotbar. Skills belong to the player: any owned skill in any of the 10 slots + 1 ultimate slot (`/skills`); the weapon only decides whether it can be used. Weapon swap: no basic attacks for 5 s, skills still work |
 | F | swap skill bar 1 ↔ 2 (D-03 revised) |
 | Q | ultimate (100 Remnant) |
 | F in the inventory on an item | next page of item details: stats / upgrades / lore (D-54, spec 026) |
