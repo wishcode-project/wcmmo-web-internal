@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-01T17:59:53.659Z",
-  "head": "b12a29e",
+  "syncedAt": "2026-10-01T18:34:07.709Z",
+  "head": "2a3c390",
   "branch": "main",
   "commits": [
+    {
+      "sha": "2a3c390",
+      "date": "2026-10-02T01:33:51+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(007): free skill loadout, click combos, ultimate slot, weapon swap cooldown",
+      "insertions": 28,
+      "deletions": 17,
+      "files": 4
+    },
     {
       "sha": "b12a29e",
       "date": "2026-10-02T00:59:42+07:00",
@@ -462,7 +471,7 @@
     "docs/004-roadmap-phase-plan.md": "2026-10-02T00:58:15+07:00",
     "docs/005-vitality-resources.md": "2026-10-02T00:07:23+07:00",
     "docs/006-attributes-stat-gating.md": "2026-10-02T00:07:23+07:00",
-    "docs/007-classes-skill-bars.md": "2026-10-02T00:02:14+07:00",
+    "docs/007-classes-skill-bars.md": "2026-10-02T01:33:51+07:00",
     "docs/008-weapon-types-exclusive-skills.md": "2026-10-02T00:07:23+07:00",
     "docs/009-combat-states.md": "2026-10-02T00:45:45+07:00",
     "docs/010-fpv-animation-poc.md": "2026-10-01T22:23:49+07:00",
@@ -478,7 +487,7 @@
     "docs/020-furniture-nexo.md": "2026-10-01T22:23:49+07:00",
     "docs/021-bloodlines.md": "2026-09-30T23:45:25+07:00",
     "docs/022-runes.md": "2026-09-30T23:50:58+07:00",
-    "docs/023-weapon-mastery.md": "2026-10-02T00:07:23+07:00",
+    "docs/023-weapon-mastery.md": "2026-10-02T01:33:51+07:00",
     "docs/024-awakening-tutorial.md": "2026-10-01T22:23:49+07:00",
     "docs/025-remnant-ultimates.md": "2026-09-30T23:31:15+07:00",
     "docs/026-item-inspect-pages.md": "2026-09-30T23:31:15+07:00",
@@ -502,6 +511,6 @@
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
     "gdd/trailer.md": "2026-09-30T00:24:58+07:00",
     "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",
-    "gdd/wcmmo-gdd-v2.md": "2026-10-02T00:02:14+07:00"
+    "gdd/wcmmo-gdd-v2.md": "2026-10-02T01:33:51+07:00"
   }
 }

@@ -7,8 +7,8 @@
 
 ## Big picture
 
-- **Player story:** As a player, I slot 10 active skills in two bars of 5, swap bars with **F** mid-combat, attack with my weapon's normal input, guard by holding Shift, and unleash my weapon's ultimate with **Q** when my Remnant gauge is full.
-- **No classes:** any player can slot any general skill. Weapon skills (spec 008) can be slotted once unlocked by Mastery (spec 023), but only cast with that weapon in hand.
+- **Player story:** As a player, I arrange the skills I **own** in two sets of 5 and one ultimate slot, switch sets with **F** mid-combat, cast with quick **3-click combos**, attack with my weapon's normal input, guard by holding Shift, and unleash the ultimate I slotted with **Q** when my Remnant gauge is full.
+- **Skills belong to the player, not to the weapon (owner, 2026-10-02):** once a player has a skill (learned, bought as an orb and consumed, quest…), it can go in **any** slot. The weapon in hand only decides whether a skill can be **used right now**; some skills need no weapon at all.
 - **Done means:** the control scheme below works with every slice weapon, with no input clashes.
 
 ## Controls (decided 2026-09-30)
@@ -21,18 +21,23 @@
 | **F** | **swap skill bar 1 ↔ 2** (D-03 revised: was Shift + Right Click) | right click is taken by bows |
 | **Q** | **ultimate** of the held weapon, needs 100 Remnant (D-51, spec 025) | Q no longer drops items in the world; drop items from the inventory screen |
 | F in the inventory, hovering an item | next page of the item's details (D-54, spec 026) | a different event from F in the world: no clash |
-| **1–5 (holding a weapon)** | cast the matching skill of the active bar; the held item doesn't change (D-60) | MMOCore casting mode, PoC-3 confirms |
-| **6–9** | select item slots (potions, food, spare weapon) | |
+| **3-click combo** | cast slot 1–5 of the active set (D-60 revised 2026-10-02). Melee / Staff / Tome: `R-L-R`, `R-R-R`, `R-L-L`, `R-R-L`, `L-R-L`. Bow / Crossbow (mirrored): `L-R-L`, `L-L-L`, `L-R-R`, `L-L-R`, `R-L-R` | like MMOCore key combos, done by the kit; MMOCore casting is `NONE`. A combo may start with either click; clicks inside a combo don't attack / shoot |
+| **1–9** | plain hotbar: weapons, potions, food in any slot | switching to another weapon starts the weapon-swap cooldown |
 
 ## Rules
 
-1. **10 slots = bar 1 (5) + bar 2 (5).** The ultimate is on Q and doesn't take a slot.
-2. **Bar swap on F** (world only): cancel the vanilla hand swap, toggle bar, 0.5 s anti-spam, HUD shows `%wcmmo_skillbar%`. Cooldowns keep running across swaps.
-3. Casting a slotted **weapon skill** while holding a different weapon type → fails with "Requires <Weapon>", no cooldown or cost used.
-4. Loadout changes only out of combat (5 s since the last hit).
-5. **Basic attack speed:** AGI raises basic attack / shot speed, **+0.5 % per point, capped at +30 %** (D-50). Skill cooldowns are not affected by AGI (Mastery owns them, spec 023).
-6. **Bow / Crossbow basic shot:** right click fires an arrow at once with the weapon's damage; shot interval 0.75 s (Bow) / 1.0 s (Crossbow, heavier bolt), lowered by AGI down to the cap (Bow 0.55 s). **Natural arrow (owner, 2026-10-02):** launched with a velocity and normal gravity, no range limit, no aim assist; it disappears when it hits or shortly after it lands.
-7. ⚠️ FPV weapons: the Draconic pack uses F (off-hand) today. When FPV weapons are ported (D-44), F belongs to the bar swap.
+1. **10 slots = set 1 (slots 1–5) + set 2 (slots 6–10), plus 1 ultimate slot.** One loadout per player, used with every weapon.
+2. **Set switch on F** (world only): cancel the vanilla hand swap, toggle the set, 0.5 s anti-spam, HUD shows `%wcmmo_skillbar%`. Cooldowns keep running across switches.
+3. **Owning skills:** permission `wcmmo.skill.<id>` (or the kit's grant list). **Ultimates** are owned when that weapon's Mastery is at the cap (spec 023).
+4. **Using a skill:** if it needs a weapon type and another one is held → "needs a <Weapon>", no cooldown or cost used. Skills with weapon `any` always work.
+5. **Ultimate slot:** the player puts one owned ultimate there; **Q** casts it at 100 Remnant **if the held weapon matches**, otherwise "needs a <Weapon>".
+6. **Combos:** 3 clicks, each within 1 s of the last. A combo that starts with the weapon's basic click (e.g. `L-R-L` for melee) needs its 2nd click within 0.35 s, so normal attacks followed by a skill aren't misread.
+7. **Weapon swap cooldown: 5 s** (owner's starting value). After switching to another weapon slot, the next switch to a different weapon waits 5 s. Potions / food and going back to the same weapon are free.
+8. **Loadout screen `/skills`** (PoC: one 6-row window): row 1 = slots 1–5 + ultimate slot, row 2 = slots 6–10, row 3 = page buttons, rows 4–6 = owned skills (27 per page). Click a skill, then a slot; right click a slot to empty it; a skill sits in one slot at a time. Final screen (list in the inventory area) = UltimateUI.
+9. Loadout changes only out of combat (5 s since the last hit). *(not enforced in the PoC yet)*
+10. **Basic attack speed:** AGI raises basic attack / shot speed, **+0.5 % per point, capped at +30 %** (D-50). Skill cooldowns are not affected by AGI (Mastery owns them, spec 023).
+11. **Bow / Crossbow basic shot:** right click fires an arrow at once with the weapon's damage; shot interval 0.75 s (Bow) / 1.0 s (Crossbow, heavier bolt), lowered by AGI down to the cap (Bow 0.55 s). **Natural arrow (owner, 2026-10-02):** launched with a velocity and normal gravity, no range limit, no aim assist; it disappears when it hits or shortly after it lands.
+12. ⚠️ FPV weapons: the Draconic pack uses F (off-hand) today. When FPV weapons are ported (D-44), F belongs to the bar swap.
 
 ## Data & IDs
 
@@ -45,7 +50,10 @@
 
 | Setting | Value |
 |---|---|
-| Active slots | 10 = bar 1 (5) + bar 2 (5), + ultimate on Q |
+| Active slots | 10 = set 1 (5) + set 2 (5), + 1 ultimate slot on Q |
+| Combo timeout / link window | 1 s between clicks / 0.35 s for combos starting with the basic click |
+| Weapon swap cooldown | **5 s** (starting value) |
+| Global cooldown between casts | 0.5 s |
 | Swap cooldown | 0.5 s |
 | Out-of-combat timer for loadout edits | 5 s |
 | AGI basic attack speed | +0.5 %/point, cap +30 % |
@@ -57,12 +65,14 @@
 
 | Command | Permission | Groups | Behaviour |
 |---|---|---|---|
-| `/skills` | MMOCore default | default | open skill GUI to slot skills |
+| `/skills` | none | default | open the loadout screen (kit, `wcmmo_31_skills_gui.sk`) |
+| `/wcmmoskill give\|take <player> <skill\|all>` | `wcmmo.admin.skillbar` | admin | grant / remove skills |
+| `/wcmmomasteryset <player> <weapon> <level>` | `wcmmo.admin.skillbar` | admin | tests: set a Mastery level |
 | `/wcmmo skillbar reset <player>` | `wcmmo.admin.skillbar` | admin | reset bars |
 
 ## Performance
 
-Event-driven only (click, swap-hand, drop events); no repeating tasks.
+Event-driven only (click, arm-swing, swap-hand, drop, held-item events); no repeating tasks.
 
 ## Test plan (dev box)
 

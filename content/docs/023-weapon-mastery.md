@@ -43,7 +43,7 @@
 | Setting | Value |
 |---|---|
 | Mastery cap | **test build: 30** · final: 50 or 100 (to discuss, D-36) |
-| Weapon skill unlocks | **test build: 0 / 5 / 10 / 15 / 20, ultimate 25** (5 skills + 1 ultimate, D-52) · final values follow the final cap |
+| Weapon skill unlocks | **test build: 0 / 5 / 10 / 15 / 20** (5 skills, D-52) · **ultimate: owned when Mastery is at the cap** (30 in the test build; owner, 2026-10-02) |
 | CDR per level / cap | cap 20 %; per-level rate follows the final cap (0.4 % at cap 50) |
 | Time to Mastery 25 (target) | ~6 h of active fighting in level-appropriate zones |
 
