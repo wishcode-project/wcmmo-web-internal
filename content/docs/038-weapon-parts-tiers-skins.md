@@ -26,9 +26,10 @@ ModelEngine 4.1.1 has `changepart` (`mid`, `pid`, `nmid`, `npid`): the bone keep
 |---|---|---|---|
 | one-handed sword | one-handed sword | **dual swords** | Two Sword Style |
 | one-handed sword | shield | **sword & shield** | Castle Knight |
-| one-handed sword | empty | **single sword** | Castle Knight with `off_shield` hidden (`partvisibility`), to try in the PoC; a bought single-sword set later (M24) |
+| one-handed sword | empty (or anything that is not a sword / shield) | **single sword** | Castle Knight sword moves, own model without the shield. **2-hit combo** (the pack's 3rd hit is a shield bash), no Defend. On the back the blade hangs **diagonally like a dual blade** (owner, 2026-10-03); sword & shield keeps the upright sword behind the shield. A bought single-sword set later (M24) |
 | two-handed (Spear, Staff, Bow, Greatsword, Hammer, Crossbow, Tome: TBD per type) | must be empty | the type's own | its pack |
-| two-handed | not empty | — | basic attacks blocked, action bar "Two-handed: empty your off-hand" |
+| two-handed | one-handed sword or shield | **blocked** | no attacks or moves until the off-hand is emptied, action bar "Two-handed weapon: empty your off-hand first" (owner, 2026-10-03) |
+| shield | anything | — | a shield only works in the **off-hand**; in the main hand it is a bare fist |
 
 Rules:
 
@@ -75,13 +76,14 @@ n/a — looks only; tier stats belong to the gear spec, off-hand stats to M23.
 
 | Piece | Built as |
 |---|---|
-| Stance models | `wcmmo_stance_dual` + `_combat` (Two Sword Style; bones `main_blade` = right hand, `off_blade`), `wcmmo_stance_shield` + `_combat` (Castle Knight; `main_blade`, `off_shield`). Wood look by default. Single sword = shield stance with `off_shield` hidden (`partvisibility`) |
+| Stance models | `wcmmo_stance_dual` + `_combat` (Two Sword Style; bones `main_blade` = right hand, `off_blade`), `wcmmo_stance_shield` + `_combat` (Castle Knight; `main_blade`, `off_shield`), `wcmmo_stance_single` + `_combat` (Castle Knight without the shield bone; back pose = the dual main blade's pose, computed by the script). Wood look by default |
 | Part models | `ModelEngine/blueprints/wcmmo/parts/wcmmo_part_<key>`: swords have two bones, `xy` (Two Sword Style grip: flat of the blade faces z) and `yz` (Castle Knight grip: flat faces x); shields have `shield` |
-| Parts made | `sword_wood` (Two Sword Style black sword shape, wood) · `sword_iron` (Castle Knight sword shape, iron) · **`sword_draconic`** (Draconic pack sword, its own colours, **another vendor**: lies forward in its file and is ~6 px longer) · `shield_wood`, `shield_iron` (Castle Knight shield) |
+| Parts made | `sword_wood` (Two Sword Style purple sword shape, wood) · `sword_iron` (Castle Knight sword shape, iron) · **`sword_draconic`** (Draconic pack sword, its own colours, **another vendor**: lies forward in its file and is ~6 px longer) · `shield_wood`, `shield_iron` (Castle Knight shield) |
 | Script | `scripts/wood_weapons.py`: `STANCES`, `PARTS`; `rotate_element` turns a sword between grip conventions exactly (box, cube rotation, texture faces) so one sword fits every stance |
 | Items (COAL, Nexo icon) | `wcmmo_item_sword_wood` 6945 · `_sword_iron` 6946 · `_shield_wood` 6947 · `_shield_iron` 6948 · `_sword_draconic` 6949 |
 | Kit | `Skript/scripts/wcmmo_38_stance.sk`: every 10 ticks reads main + off-hand (`wcmmo_mythicType` in the bridge), acts only when a hand changed: `wcmmo_stance_clear` → `wcmmo_stance_main_<key>` / `_off_<key>` (set `<caster.var.wcmmo_main>` / `wcmmo_off`) → `wcmmo_stance_set_dual\|shield\|single` |
 | Skills | `MythicMobs/skills/wcmmo_stance.yml` (stance, parts, click forwarders `wcmmo_wpn_swing` / `wcmmo_wpn_use`), `wcmmo_stance_dual.yml`, `wcmmo_stance_shield.yml` (the spec 037 moves + `changepart` after every model attach), holders in `mobs/wcmmo_stance.yml` |
+| Two-handed block | the kit sets aura `wcmmo_twohand_blocked` (`wcmmo_stance_set_blocked`); `wcmmo_item_spear_wood`, `_bow_wood`, `_swords_wood`, `_sword_shield_wood` check it on every click |
 | Controls in the PoC | still the spec 037 ones (L slash, R dash / defend, Shift + L swing / rush); D-68 controls come with the kit rewrite |
 
 Grip findings: all three vendors put the bone pivot at the middle of the handle, so no offsets were needed, only a quarter turn (Two Sword Style ↔ Castle Knight) or laying the blade upright (Draconic).
@@ -92,7 +94,7 @@ Reload: `/meg reload` → `/nexo reload all` → `/mm reload` → `/sk reload al
 
 | # | Step | Expected |
 |---|---|---|
-| 1 | Wood sword main, nothing off-hand | single sword on the back (no shield); L = 3-hit combo, shield never shows; R does nothing |
+| 1 | Wood sword main, nothing off-hand | single sword **diagonal** on the back; L = **2-hit** combo, no shield anywhere; R does nothing |
 | 2 | Wood sword main + iron sword off-hand | dual stance: wood blade on one side of the back, iron on the other; L / R / Shift + L = dual-sword moves, **wood in the right hand, iron in the left**, grips inside the hands the whole time |
 | 3 | Swap them (iron main, wood off) | looks swap hands |
 | 4 | Wood sword + Draconic sword, then Draconic + iron | the longer Draconic blade sits in the hand at the handle; judge size / style clash between vendors |
@@ -100,9 +102,22 @@ Reload: `/meg reload` → `/nexo reload all` → `/mm reload` → `/sk reload al
 | 6 | Change the off-hand item in the inventory while holding the sword | stance / looks change within 0.5 s, nothing left over, no doubled models |
 | 7 | Stop fighting 5 s, walk, jump | blades go back on the back **with their own looks**, locked to the body (spec 037 format) |
 | 8 | Switch to another hotbar slot, relog, die | everything removed; comes back when the sword is held again |
+| 8b | Spear or bow in the main hand + shield (or one-handed sword) in the off-hand | "Two-handed weapon: empty your off-hand first", no attack; remove the off-hand item → works again within 0.5 s |
+| 8c | Shield in the main hand | plain fist, no model |
 | 9 | Wrong hand? | if the main-hand sword shows in the left hand, the packs' right hand is +x: swap `rename` in `STANCES` |
 
 Report per row: works / looks wrong (which hand, which move, screenshot).
+
+## PoC round 1 (owner, 2026-10-03): works, fixes
+
+| Finding | Cause | Fix |
+|---|---|---|
+| Mixing works, vendors fit together ("แจ๋ว") | — | T10 core confirmed: `changepart` on player models and holders |
+| Sword taken from the Two Sword Style black sword: texture looked wrong | that sword has an outline shell made of inside-out cubes; turning it for the other grip made them solid | `rotate_element` keeps inside-out cubes; the wood sword now uses the purple sword shape (no shell) |
+| Draconic sword: a second sword always stuck in the hand | its icon model is shown in the hand in third person (the Llama icons hide themselves) | every part icon: hand / head display scale 0 |
+| Single sword hit 3 times | 3rd hit of the Castle Knight combo is a shield bash | single stance: 2-hit combo, own skills `wcmmo_stance_single_*` |
+| Single sword upright on the back | reused the sword & shield pose | own back model, diagonal like the dual main blade |
+| Shield + two-handed weapon | not handled | blocked until the off-hand is emptied |
 
 ## Rollback
 
@@ -118,3 +133,4 @@ Delete the stance / part models and the kit's stance code; the spec 037 weapons 
 |---|---|---|---|---|
 | 2026-10-03 | wcmmo-specs | — | — | Draft from the owner's design (D-69, D-70, D-71). `changepart` / `linkitembone` checked in ModelEngine 4.1.1, not tested in game |
 | 2026-10-03 | wcmmo | — (PoC, no FIRE run) | `feat/038-weapon-parts` | PoC build above. Checked: part geometry = source (0 diff), rotations round-trip, models / skills / Skript load with no errors on a throwaway server, icons 6945–6949 in the pack. **Not tested in game** (changepart on a player model, hand sides, UV of turned faces) |
+| 2026-10-03 | wcmmo | — (PoC) | `feat/038-weapon-parts` | Round 1 fixes (table above). Loads clean on the throwaway server; round 2 in game pending |
