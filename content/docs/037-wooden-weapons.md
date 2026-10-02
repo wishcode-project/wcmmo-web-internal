@@ -148,3 +148,4 @@ Delete `ModelEngine/blueprints/wcmmo/{spear,swords,sword_shield}_wood/`, `Mythic
 | Date | Repo | Run | Branch | Notes |
 |---|---|---|---|---|
 | 2026-10-02 | wcmmo | — (no FIRE run, prototype) | `feat/037-wooden-weapons` @ `7b0a514` | Script + 3 weapons. Poses checked in a side / back render against the player box. Server load check on a throwaway copy. In-game test plan not run yet |
+| 2026-10-03 | wcmmo | — | merged into `develop` @ `eec0904` | Baked back pose (`c7b1411`), approved by the owner. Controls still the old ones until D-68 is built |

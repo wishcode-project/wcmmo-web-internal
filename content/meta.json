@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-02T17:49:30.731Z",
-  "head": "cc94c0d",
+  "syncedAt": "2026-10-02T17:51:59.571Z",
+  "head": "e8a61b8",
   "branch": "main",
   "commits": [
+    {
+      "sha": "e8a61b8",
+      "date": "2026-10-03T00:51:44+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(036, 037): merged into wcmmo develop",
+      "insertions": 2,
+      "deletions": 0,
+      "files": 2
+    },
     {
       "sha": "cc94c0d",
       "date": "2026-10-03T00:45:23+07:00",
@@ -662,8 +671,8 @@
     "docs/033-monster-ranks-combat.md": "2026-10-02T00:58:15+07:00",
     "docs/034-wings.md": "2026-10-02T00:07:23+07:00",
     "docs/035-training-dummy.md": "2026-10-02T22:08:43+07:00",
-    "docs/036-wooden-bow.md": "2026-10-03T00:28:37+07:00",
-    "docs/037-wooden-weapons.md": "2026-10-03T00:28:37+07:00",
+    "docs/036-wooden-bow.md": "2026-10-03T00:51:44+07:00",
+    "docs/037-wooden-weapons.md": "2026-10-03T00:51:44+07:00",
     "docs/038-weapon-parts-tiers-skins.md": "2026-10-03T00:45:23+07:00",
     "docs/README.md": "2026-10-03T00:45:23+07:00",
     "docs/plugins.md": "2026-10-01T22:07:29+07:00",

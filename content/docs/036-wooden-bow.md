@@ -91,3 +91,4 @@ Delete `ModelEngine/blueprints/wcmmo/bow_wood/`, `MythicMobs/{items,mobs,skills}
 | Date | Repo | Run | Branch | Notes |
 |---|---|---|---|---|
 | 2026-10-02 | wcmmo | — (no FIRE run, prototype) | `feat/036-wooden-bow` @ `8f76642`, back lock `78a3931` | Models recoloured, item + 3 skills. Server load check on a throwaway copy: no errors. Owner happy with the prototype; in-game test plan not run yet. Next: MMOItems port (D-44) |
+| 2026-10-03 | wcmmo | — | merged into `develop` @ `eec0904` (with 037) | Back lock + baked pose approved by the owner |
