@@ -12,6 +12,8 @@
 
 Owner bought **Draconic Dual Sword FPV** as the first test (kept outside git: `~/Downloads/draconic_dual_sword_FPV`, paid asset).
 
+All pack files are in `wcmmo` since 2026-10-02: the two ModelEngine blueprints below were missing until then (items and skills were already there, same content). The pack's `ModelEngine/internals/` copy is not installed because ModelEngine ships and rewrites it itself.
+
 | Part | File | What it does |
 |---|---|---|
 | Item | `MythicMobs/items/draconic_sword.yml` | STICK + custom model 107; skills on `~onSwing` (attacks 1–2), `~onUse` (attacks 3–5), `~onHold` / `~onUnHeld` (swap models), cancels `~onPressF` |
@@ -36,6 +38,34 @@ Owner bought **Draconic Dual Sword FPV** as the first test (kept outside git: `~
 | F8 | References model `tpv_solar_sword` that is not in the pack | leftover from another pack, harmless remove call | clean up in the port |
 | F9 | Item uses `Model: 107` (integer custom model data), item JSON format 1.21.11 | must still work on 26.2 and inside the **Nexo** merged pack (D-40) | import assets into Nexo pack, verify on 26.2 |
 | F10 | Paid asset with a licence hash in the files | must not land in a public repo | `wcmmo` is **private** (confirmed 2026-09-28), so paid assets may live there. Never copy them into a public repo |
+
+### More bought packs (2026-10-02)
+
+> **Owner, 2026-10-02:** these four packs are the **base for our weapons**. The Draconic pack is not part of the base; it stays installed only as a reference.
+
+Four **Llama Studio** (mcmodels) weapon packs, installed in `wcmmo` exactly as shipped (test / reference only, not wired into 007 / 009 / MMOItems; findings F1–F10 apply). Only the MythicMobs, ModelEngine and Nexo parts; ItemsAdder skipped. Changes from the shipped files: line endings CRLF → LF (yamllint), and the Green Bow colour typo `c=#28ff5dg` → `#28ff5d` (2 lines, otherwise `gb_bow_suppressive_fire_cast` and `gb_bow_big_shot_effect` fail to load).
+
+| Pack | Get it | Nexo item, material + model data |
+|---|---|---|
+| Basic Polearm v1.1 | `/mm items get basic_polearm` | `ls_sw_basic_polearm`, PAPER 6927 |
+| Two Sword Style | `/mm items get two_sword` | `ls_sw_two_sword`, COAL 6930 |
+| Green Bow | `/mm items get gb_bow` | `ls_sw_green_bow`, COAL 6931 |
+| Castle Knight | `/mm items get castle_knight_weapon` | `ls_sw_castle_knight`, COAL 6932 |
+
+Files: `MythicMobs/{items,mobs,skills}/ls_soul_*`, `ModelEngine/blueprints/{ls_sw_basic_polearm,ls_sw_two_sword_style,ls_soul_bow,ls_sw_castle_knight}/`, `Nexo/items/ls_sw_*.yml`, `Nexo/pack/assets/minecraft/{models,textures}/ls_sw_*`. The packs ask for `wcmmo: plugins/ModelEngine/config.yml > Model-Engine.Lower-Scale-Limit` 0.001 → **0.0** (VFX glitch otherwise). Rollback: delete those files, set the limit back to 0.001.
+
+## Weapon format (owner, 2026-10-03)
+
+Weapons made from the Llama packs follow the format of specs 036 / 037 (owner: "แบบนี้แหละ"):
+
+| Part | Rule |
+|---|---|
+| Build | `wcmmo/scripts/wood_weapons.py`: copy the pack blueprints as `wcmmo_<id>*`, recolour by brightness onto a ramp, unique texture names |
+| On the back | back model `wcmmo_<id>` = weapon bones only, pose flush on the back (0.2 px) **baked in as the rest pose, no animations**, attached with `model{mid=wcmmo_<id>;h=false;i=false;pv=true} @self` |
+| Attacking | combat model `wcmmo_<id>_combat` on a holder mob (pack style), back model removed; `combat_to_idle` ends on the back pose, then the back model returns |
+| Controls | spec 007 (left click basic attack, bows right click, F free) |
+
+Why: `pv=true` (ModelEngine `useBaseAsPivot`) makes the player the model's pivot, so it moves client-side with the body (no lag or bobbing on jumps). Baking removes ModelEngine's automatic idle / walk / jump switches, which blend through the rest pose (the in-hand pose) and made the weapon twitch.
 
 ## Candidates
 

@@ -19,6 +19,12 @@
 | Health | **never runs out**: damage is applied for real (so on-hit effects, statuses and Bloodline hooks work), then health is topped up to full the next tick |
 | Hit by | players only; guards and monsters ignore it (no faction targets) |
 
+### Bought model: yungwilder Target Dummy (2026-10-02)
+
+Installed in `wcmmo` as-is for reference: MythicMobs pack `plugins/MythicMobs/packs/yungwilder_targetdummy/` (mob `target_dummy`, item `TargetDummy`: `/mm items get TargetDummy`, right-click a block to place, shears to pick up), ModelEngine blueprint `yungwilder_targetdummy/target_dummy.bbmodel`, Nexo item `yungwilder_target_dummy` (PAPER model data 1) and damage-number font U+E000–E00F in `Nexo/pack/assets/minecraft/font/default.json`. Its own DPS meter needs PlaceholderAPI **Math** (`/papi ecloud download Math`) and **String** (jar in `PlaceholderAPI/expansions/`, unicode map in `PlaceholderAPI/config.yml`).
+
+It is a separate mob from `wcmmo_mob_dummy` above. Open question for the owner: use this model for our dummy instead of the skeleton (the rules above stay ours).
+
 ### Status line above the head
 
 A text display above the name, refreshed every 5 ticks:

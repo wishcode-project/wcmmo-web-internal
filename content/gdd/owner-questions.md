@@ -31,6 +31,8 @@
 | First Bloodline (D-32) | **The Awakening** tutorial (team design): hidden Pulse/Ward/Fury affinity, Encounter, one-time Reject | `awakening-tutorial.md`, spec 024 |
 | Base Bloodlines (D-31, D-48) | **Fury (Muscle) / Ward (Bone) / Pulse (Heart)**, A/B paths at stages 2/3/5, solo first, future Bloodlines as specialists | `bloodlines.md`, spec 021 |
 | FPV test (D-05) | start with the bought **Draconic Dual Sword FPV** pack (`~/Downloads/draconic_dual_sword_FPV`) | spec 010 |
+| Weapon base (2026-10-02) | build our weapons on the four **Llama Studio** packs (Basic Polearm, Two Sword Style, Green Bow, Castle Knight). **Draconic is not part of the base** (stays installed as a reference only) | spec 010 |
+| Weapon format (2026-10-03) | every weapon made from a pack follows the Wooden Bow / wooden weapons format: wooden recolour by script, **on the back = model ON the player with `pv=true` and the back pose baked in (no animations)**, attacks on a combat holder, back after 5 s, controls from spec 007 | specs 036, 037 |
 
 ## Pending: plugins (D-00)
 
@@ -63,6 +65,8 @@ Full list with docs and overlaps: [`../docs/plugins.md`](../docs/plugins.md). Ow
 | T4 | Mastery cooldown via PlaceholderAPI in MythicMobs, fallback: cooldown applied by our plugin. Agree? | D-36 | PoC-8 |
 | T5 | Identify via MMOItems unidentified items, fallback crafted/quest gear. Who tests it? | D-10 | PoC-4 |
 | T6 | Nexo furniture inside house schematics: if FAWE loses furniture data, fallback is re-spawning furniture from a saved list. OK? | D-19 | PoC-5 |
+| T9 | **F hold** (Frontguard): Minecraft sends F (swap hands) as a press only, no release. Test whether holding F repeats the event so the kit can keep the guard up; fallback: F press = guard for a short time / toggle, tap timing = parry | D-68 | PoC-3 rerun |
+| T10 | Part swap PoC (spec 038): two different swords on the dual-sword stance, sword + shield, single sword with the shield hidden; grips line up, animations look right | D-69, D-71 | spec 038 PoC |
 | ~~T7~~ | ~~Which plugin owns the final resource pack?~~ **Answered: Nexo** (D-40, 2026-09-28) | D-40 | — |
 
 ## Pending: missing design (owner will answer later)
@@ -76,6 +80,13 @@ Full list with docs and overlaps: [`../docs/plugins.md`](../docs/plugins.md). Ow
 | ~~M4~~ | ~~Rune list~~ **Answered 2026-09-30:** 17 runes, spec 022 | D-56 |
 | M16 | Final Mastery cap: 50 or 100 (test build uses 30) | D-36 |
 | M17 | Skill lists for Greatsword, Spear, Crossbow, Tome (5 + ultimate each) | D-52 |
+| M18 | Wooden Twin Swords and Sword & Shield (spec 037): both count as **Sword** (same Mastery), or new weapon types? | D-04, D-44 |
+| ~~M19~~ | ~~Combat style~~ **Answered 2026-10-03: C** (D-68): animated weapons + player skills, new controls in D-68 | D-68, D-44 |
+| M20 | Ultimate on Shift + Q is now a personal skill: still owned at a weapon's Mastery cap (D-60), or learned another way? Any weapon, or only the weapon it came from? | D-68, D-60 |
+| M21 | Q buffs: which ones, and how are they learned (skill list missing)? | D-68 |
+| M22 | Weapon skills: is each pack move a skill of that weapon type only (Spear: Shove, Hard Swing…), and do the D-52 / spec 008 skill lists merge with them? | D-68, D-52 |
+| M23 | Off-hand weapon stats (D-69): full, half, or none? Does the off-hand sword add its own damage to dual-sword hits? | D-69 |
+| M24 | Packs to buy next: Greatsword, Hammer, Crossbow, Staff, Tome (none yet); Spear / Bow need guard + twirl animations; a single-sword set would help (D-69) | D-04, D-70 |
 | M5 | World map: cities, regions, Low/Mid/High zones | — |
 | M6 | Chapter 1 story outline | D-15b |
 | ~~M7~~ | ~~Death penalty~~ **Answered 2026-10-01:** spec 027 | D-57 |

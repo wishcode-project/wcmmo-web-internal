@@ -1,8 +1,116 @@
 {
-  "syncedAt": "2026-10-01T18:59:39.649Z",
-  "head": "ca2778d",
+  "syncedAt": "2026-10-02T17:49:30.731Z",
+  "head": "cc94c0d",
   "branch": "main",
   "commits": [
+    {
+      "sha": "cc94c0d",
+      "date": "2026-10-03T00:45:23+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: weapon stances, tiers and skins (D-69, D-70, D-71, spec 038 draft)",
+      "insertions": 107,
+      "deletions": 0,
+      "files": 4
+    },
+    {
+      "sha": "379b046",
+      "date": "2026-10-03T00:33:32+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: rewrite specs 007 and 009 for combat style C (D-68)",
+      "insertions": 139,
+      "deletions": 80,
+      "files": 2
+    },
+    {
+      "sha": "3447dea",
+      "date": "2026-10-03T00:28:37+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: combat style C decided (D-68) - new controls, per-weapon combo slots",
+      "insertions": 14,
+      "deletions": 5,
+      "files": 6
+    },
+    {
+      "sha": "6cc8f41",
+      "date": "2026-10-03T00:08:20+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: combat style decision D-68 (open) + performance reminder in spec 037",
+      "insertions": 43,
+      "deletions": 1,
+      "files": 3
+    },
+    {
+      "sha": "acc7e18",
+      "date": "2026-10-03T00:00:21+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: weapon format decided (pv=true back model, baked pose, combat holder)",
+      "insertions": 14,
+      "deletions": 0,
+      "files": 2
+    },
+    {
+      "sha": "6c0c255",
+      "date": "2026-10-02T23:56:43+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(036, 037): back pose baked into the model, no animations",
+      "insertions": 3,
+      "deletions": 2,
+      "files": 2
+    },
+    {
+      "sha": "7bfd39b",
+      "date": "2026-10-02T23:50:06+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: owner question M18 (weapon type of twin swords / sword & shield)",
+      "insertions": 1,
+      "deletions": 0,
+      "files": 1
+    },
+    {
+      "sha": "cc4dcba",
+      "date": "2026-10-02T23:49:57+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: spec 037 wooden spear / twin swords / sword & shield, 036 back lock",
+      "insertions": 130,
+      "deletions": 3,
+      "files": 3
+    },
+    {
+      "sha": "9215e4d",
+      "date": "2026-10-02T22:51:03+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(036): Wooden Bow prototype spec, IDs registered",
+      "insertions": 81,
+      "deletions": 0,
+      "files": 2
+    },
+    {
+      "sha": "c16a472",
+      "date": "2026-10-02T22:20:50+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(010): the four Llama Studio packs are the weapon base, not Draconic",
+      "insertions": 3,
+      "deletions": 0,
+      "files": 2
+    },
+    {
+      "sha": "9c19de3",
+      "date": "2026-10-02T22:11:23+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(010): record the four Llama Studio weapon packs",
+      "insertions": 15,
+      "deletions": 0,
+      "files": 2
+    },
+    {
+      "sha": "18675d6",
+      "date": "2026-10-02T22:08:43+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: record Target Dummy pack (035) and Draconic blueprints (010)",
+      "insertions": 10,
+      "deletions": 0,
+      "files": 3
+    },
     {
       "sha": "ca2778d",
       "date": "2026-10-02T01:59:24+07:00",
@@ -525,10 +633,10 @@
     "docs/004-roadmap-phase-plan.md": "2026-10-02T01:59:24+07:00",
     "docs/005-vitality-resources.md": "2026-10-02T00:07:23+07:00",
     "docs/006-attributes-stat-gating.md": "2026-10-02T00:07:23+07:00",
-    "docs/007-classes-skill-bars.md": "2026-10-02T01:54:15+07:00",
+    "docs/007-classes-skill-bars.md": "2026-10-03T00:33:32+07:00",
     "docs/008-weapon-types-exclusive-skills.md": "2026-10-02T00:07:23+07:00",
-    "docs/009-combat-states.md": "2026-10-02T00:45:45+07:00",
-    "docs/010-fpv-animation-poc.md": "2026-10-01T22:23:49+07:00",
+    "docs/009-combat-states.md": "2026-10-03T00:33:32+07:00",
+    "docs/010-fpv-animation-poc.md": "2026-10-03T00:00:21+07:00",
     "docs/011-equipment-accessories.md": "2026-10-01T22:23:49+07:00",
     "docs/012-item-generation-identify-elements.md": "2026-10-01T22:23:49+07:00",
     "docs/013-enhancement.md": "2026-10-01T22:23:49+07:00",
@@ -553,18 +661,21 @@
     "docs/032-npcs-name-colours.md": "2026-10-01T00:39:32+07:00",
     "docs/033-monster-ranks-combat.md": "2026-10-02T00:58:15+07:00",
     "docs/034-wings.md": "2026-10-02T00:07:23+07:00",
-    "docs/035-training-dummy.md": "2026-10-02T00:46:12+07:00",
-    "docs/README.md": "2026-10-02T00:07:23+07:00",
+    "docs/035-training-dummy.md": "2026-10-02T22:08:43+07:00",
+    "docs/036-wooden-bow.md": "2026-10-03T00:28:37+07:00",
+    "docs/037-wooden-weapons.md": "2026-10-03T00:28:37+07:00",
+    "docs/038-weapon-parts-tiers-skins.md": "2026-10-03T00:45:23+07:00",
+    "docs/README.md": "2026-10-03T00:45:23+07:00",
     "docs/plugins.md": "2026-10-01T22:07:29+07:00",
     "docs/adr/0001-purpur-java25-zgc.md": "2026-09-25T00:46:05+07:00",
     "docs/adr/0002-spec-first-workflow.md": "2026-10-01T22:23:49+07:00",
     "gdd/awakening-tutorial.md": "2026-10-01T00:27:45+07:00",
     "gdd/bloodlines.md": "2026-09-30T23:45:25+07:00",
     "gdd/lore-bible.md": "2026-10-01T00:27:45+07:00",
-    "gdd/owner-questions.md": "2026-10-02T00:59:42+07:00",
+    "gdd/owner-questions.md": "2026-10-03T00:45:23+07:00",
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
     "gdd/trailer.md": "2026-09-30T00:24:58+07:00",
     "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",
-    "gdd/wcmmo-gdd-v2.md": "2026-10-02T01:33:51+07:00"
+    "gdd/wcmmo-gdd-v2.md": "2026-10-03T00:45:23+07:00"
   }
 }

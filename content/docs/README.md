@@ -44,6 +44,9 @@ as the spec that introduces it.** Specs link back here instead of redefining any
 | 033 | [Monster ranks & combat rules](033-monster-ranks-combat.md) | DRAFT | wcmmo | confirm |
 | 034 | [Wings](034-wings.md) | DRAFT | wcmmo | validate |
 | 035 | [Training dummy (DPS meter)](035-training-dummy.md) | DRAFT | wcmmo | confirm |
+| 036 | [Wooden Bow (tier 0 sample weapon)](036-wooden-bow.md) | IN-PROGRESS | wcmmo | confirm |
+| 037 | [Wooden Spear, Twin Swords, Sword & Shield (tier 0)](037-wooden-weapons.md) | IN-PROGRESS | wcmmo | confirm |
+| 038 | [Weapon parts: main / off-hand stances, tiers, skins](038-weapon-parts-tiers-skins.md) | DRAFT | wcmmo | confirm |
 
 Design intent lives in [`../gdd/wcmmo-gdd-v2.md`](../gdd/wcmmo-gdd-v2.md) (v1 is superseded); decisions `D-xx` are tracked there.
 Coming soon (GDD v2 §10–12, not specced): economy & trade, guild & node war, pets & mounts.
@@ -176,6 +179,8 @@ Rarity tiers (MMOItems): `common`, `uncommon`, `rare`, `epic`, `legendary` (012)
 | `wcmmo_skill_wraith_swarm`, `_hellburst`, `_ring_of_embers` | orb (magic family) | Staff / Tome | 008 |
 | `wcmmo_skill_fanfire` | orb (ranged family) | Bow / Crossbow | 008 |
 | `wcmmo_skill_blood_rage`, `wcmmo_skill_bone_bastion`, `wcmmo_skill_heartbeat_surge` | Bloodline active | Fury / Ward / Pulse stage 4 | 021 |
+| `wcmmo_bow_wood_shot`, `_rapid_shot`, `_power_shot` (+ helpers `wcmmo_bow_wood_*`, auras `wcmmo_bow_wood_held/_casting/_spawned/_combat`) | weapon (Crucible item) | Wooden Bow | 036 |
+| `wcmmo_spear_wood_slash`, `_shove`, `_hard_swing` · `wcmmo_swords_wood_slash`, `_dash`, `_swing` · `wcmmo_sword_shield_wood_slash`, `_defend`, `_rush` (+ helpers / auras `wcmmo_<id>_*`) | weapon (Crucible item) | Wooden Spear / Twin Swords / Sword & Shield | 037 |
 
 Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:superarmour`, `wcmmo:armourbreak` (009).
 
@@ -196,6 +201,10 @@ Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:s
 | `WCMMO_TEST_SWORD`, `_HAMMER`, `_BOW`, `_STAFF` | MMOItems | 008 | PoC test weapons, admin `/mi give` only |
 | `wcmmo_cos_wings_feather`, `_fury`, `_ward`, `_pulse` | CosmeticsCore or ModelEngine | 034 | wing looks (feather = no Bloodline) |
 | `wcmmo_furn_starter_bed`, `_table`, `_chair`, `_lamp` | Nexo | 020 | |
+| `wcmmo_item_bow_wood` (+ Nexo `wcmmo_bow_wood`, COAL 6941) | MythicMobs + Crucible + Nexo | 036 | tier 0 sample weapon from the Green Bow pack, admin give only |
+| `wcmmo_item_spear_wood`, `_swords_wood`, `_sword_shield_wood` (+ Nexo `wcmmo_spear_wood` 6942, `wcmmo_swords_wood` 6943, `wcmmo_sword_shield_wood` 6944, COAL) | MythicMobs + Crucible + Nexo | 037 | tier 0 sample weapons from the Basic Polearm / Two Sword Style / Castle Knight packs, admin give only |
+| vendor: `TargetDummy` (+ Nexo `yungwilder_target_dummy`) | MythicMobs + Nexo | 035 | bought yungwilder dummy, IDs kept as shipped |
+| vendor: `basic_polearm`, `two_sword`, `gb_bow`, `castle_knight_weapon` (+ Nexo `ls_sw_*`) | MythicMobs + Nexo | 010 | bought Llama Studio packs, test only, IDs kept as shipped |
 
 ### Mobs, bosses & dungeons
 
@@ -206,6 +215,10 @@ Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:s
 | `wcmmo_mob_guard_gate`, `wcmmo_mob_guard_patrol` | MythicMobs (faction `guards`, tag `wcmmo_guard`) | 032 | blue guards |
 | tags `wcmmo_boss`, `wcmmo_frontguard`; state `stunphase` | Skript / MythicMobs | 033 | boss CC immunity, Guard Elites, boss stun phase |
 | `wcmmo_mob_dummy` | MythicMobs (tag `wcmmo_dummy`) | 035 | training dummy, admin-placed |
+| `wcmmo_mob_bow_wood_incombat`, `_arrow`, `_fast_arrow`, `_big_arrow`, `_big_effect`, `_hit` | MythicMobs + ModelEngine | 036 | Wooden Bow model holders / projectiles / VFX |
+| `wcmmo_mob_spear_wood_combat`, `_hit` · `wcmmo_mob_swords_wood_combat`, `_circle_dash`, `_circle_swing`, `_dash`, `_hit` · `wcmmo_mob_sword_shield_wood_combat`, `_def`, `_rush`, `_hit` | MythicMobs + ModelEngine | 037 | wooden weapon combat holders / VFX |
+| vendor: `target_dummy` | MythicMobs + ModelEngine | 035 | bought yungwilder dummy, ID kept as shipped |
+| vendor: `basic_polearm_*`, `tss_*`, `gb_bow*`, `ck_*` VFX mobs | MythicMobs + ModelEngine | 010 | Llama Studio packs, IDs kept as shipped |
 | `wcmmo_mob_tutorial_raider`, `_wave`, `_brute` | MythicMobs | 024 | trial mobs |
 | `wcmmo_mob_spirit_pulse`, `_ward`, `_fury` | MythicMobs + ModelEngine | 024 | Encounter / Reveal entities |
 | `wcmmo_dungeon_solo_01`, `wcmmo_dungeon_party_01` | MythicDungeons | 017 | |
