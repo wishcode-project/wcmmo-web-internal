@@ -26,9 +26,9 @@ ModelEngine 4.1.1 has `changepart` (`mid`, `pid`, `nmid`, `npid`): the bone keep
 |---|---|---|---|
 | one-handed sword | one-handed sword | **dual swords** | Two Sword Style |
 | one-handed sword | shield | **sword & shield** | Castle Knight |
-| one-handed sword | empty (or anything that is not a sword / shield) | **single sword** | Castle Knight sword moves, own model without the shield. **2-hit combo** (the pack's 3rd hit is a shield bash), no Defend. On the back the blade hangs **diagonally like a dual blade** (owner, 2026-10-03); sword & shield keeps the upright sword behind the shield. A bought single-sword set later (M24) |
+| one-handed sword | empty (or anything that is not a sword / shield) | **single sword** | Castle Knight sword moves, own model without the shield. **2-hit combo** (the pack's 3rd hit is a shield bash), no Defend. On the back the blade hangs **diagonally, leaning like the dual stance's off blade** (owner, 2026-10-03); sword & shield keeps the upright sword behind the shield. A bought single-sword set later (M24) |
 | two-handed (Spear, Staff, Bow, Greatsword, Hammer, Crossbow, Tome: TBD per type) | must be empty | the type's own | its pack |
-| two-handed | one-handed sword or shield | **blocked** | no attacks or moves until the off-hand is emptied, action bar "Two-handed weapon: empty your off-hand first" (owner, 2026-10-03) |
+| two-handed | **anything** | **blocked** | no attacks or moves until the off-hand is emptied; every refused click shows a title "✖ Two-handed weapon: empty your off-hand" + a low note sound. While a two-handed weapon is held, **nothing can be put in the off-hand slot** (inventory click and swap-to-off-hand key are cancelled) (owner, 2026-10-03) |
 | shield | anything | — | a shield only works in the **off-hand**; in the main hand it is a bare fist |
 
 Rules:
@@ -102,7 +102,8 @@ Reload: `/meg reload` → `/nexo reload all` → `/mm reload` → `/sk reload al
 | 6 | Change the off-hand item in the inventory while holding the sword | stance / looks change within 0.5 s, nothing left over, no doubled models |
 | 7 | Stop fighting 5 s, walk, jump | blades go back on the back **with their own looks**, locked to the body (spec 037 format) |
 | 8 | Switch to another hotbar slot, relog, die | everything removed; comes back when the sword is held again |
-| 8b | Spear or bow in the main hand + shield (or one-handed sword) in the off-hand | "Two-handed weapon: empty your off-hand first", no attack; remove the off-hand item → works again within 0.5 s |
+| 8b | Spear or bow in the main hand + **any item** in the off-hand | every click: title "✖ Two-handed weapon: empty your off-hand" + note sound, no attack / shot; remove the off-hand item → works again within 0.5 s |
+| 8d | Holding a spear / bow, open the inventory, try to put an item in the off-hand slot (click, or the swap-to-off-hand key over a slot) | cancelled, same warning |
 | 8c | Shield in the main hand | plain fist, no model |
 | 9 | Wrong hand? | if the main-hand sword shows in the left hand, the packs' right hand is +x: swap `rename` in `STANCES` |
 
@@ -119,6 +120,15 @@ Report per row: works / looks wrong (which hand, which move, screenshot).
 | Single sword upright on the back | reused the sword & shield pose | own back model, diagonal like the dual main blade |
 | Shield + two-handed weapon | not handled | blocked until the off-hand is emptied |
 
+## PoC round 2 (owner, 2026-10-03)
+
+| Finding | Cause | Fix |
+|---|---|---|
+| Draconic no longer doubled in the hand | — | confirmed |
+| Single sword should lean the other way | pose taken from the dual main blade | pose from the dual **off** blade |
+| Single stance: attacking showed the default sword, not the held one | the part swap on the combat holder was conditioned on "holder not spawned yet", and the condition was checked after the 1-tick delay (already spawned) | swap runs on every draw (1 and 3 ticks after), all three stances |
+| Two-handed weapons still worked with other items in the off-hand; no warning shown | only swords / shields were blocked; action bar text didn't show | any off-hand item blocks; title + note sound on every refused click; off-hand slot closed while a two-handed weapon is held |
+
 ## Rollback
 
 Delete the stance / part models and the kit's stance code; the spec 037 weapons keep working as single items.
@@ -134,3 +144,4 @@ Delete the stance / part models and the kit's stance code; the spec 037 weapons 
 | 2026-10-03 | wcmmo-specs | — | — | Draft from the owner's design (D-69, D-70, D-71). `changepart` / `linkitembone` checked in ModelEngine 4.1.1, not tested in game |
 | 2026-10-03 | wcmmo | — (PoC, no FIRE run) | `feat/038-weapon-parts` | PoC build above. Checked: part geometry = source (0 diff), rotations round-trip, models / skills / Skript load with no errors on a throwaway server, icons 6945–6949 in the pack. **Not tested in game** (changepart on a player model, hand sides, UV of turned faces) |
 | 2026-10-03 | wcmmo | — (PoC) | `feat/038-weapon-parts` | Round 1 fixes (table above). Loads clean on the throwaway server; round 2 in game pending |
+| 2026-10-03 | wcmmo | — (PoC) | `feat/038-weapon-parts` | Round 2 fixes (table above). Loads clean; round 3 in game pending |
