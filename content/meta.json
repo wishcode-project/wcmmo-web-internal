@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-03T19:42:33.391Z",
-  "head": "9b551c1",
+  "syncedAt": "2026-10-03T20:01:58.193Z",
+  "head": "f1b284d",
   "branch": "main",
   "commits": [
+    {
+      "sha": "f1b284d",
+      "date": "2026-10-04T03:01:45+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(007, 009): kit controls rolled back (holder stopped following), design unchanged",
+      "insertions": 2,
+      "deletions": 0,
+      "files": 2
+    },
     {
       "sha": "9b551c1",
       "date": "2026-10-04T02:42:21+07:00",
@@ -741,9 +750,9 @@
     "docs/004-roadmap-phase-plan.md": "2026-10-02T01:59:24+07:00",
     "docs/005-vitality-resources.md": "2026-10-02T00:07:23+07:00",
     "docs/006-attributes-stat-gating.md": "2026-10-02T00:07:23+07:00",
-    "docs/007-classes-skill-bars.md": "2026-10-04T02:42:21+07:00",
+    "docs/007-classes-skill-bars.md": "2026-10-04T03:01:45+07:00",
     "docs/008-weapon-types-exclusive-skills.md": "2026-10-02T00:07:23+07:00",
-    "docs/009-combat-states.md": "2026-10-04T01:45:39+07:00",
+    "docs/009-combat-states.md": "2026-10-04T03:01:45+07:00",
     "docs/010-fpv-animation-poc.md": "2026-10-03T00:00:21+07:00",
     "docs/011-equipment-accessories.md": "2026-10-01T22:23:49+07:00",
     "docs/012-item-generation-identify-elements.md": "2026-10-01T22:23:49+07:00",
