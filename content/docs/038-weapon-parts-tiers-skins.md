@@ -30,6 +30,7 @@ ModelEngine 4.1.1 has `changepart` (`mid`, `pid`, `nmid`, `npid`): the bone keep
 | two-handed (Spear, Staff, Bow, Greatsword, Hammer, Crossbow, Tome: TBD per type) | must be empty | the type's own | its pack |
 | two-handed | **anything** | **blocked** | no attacks or moves until the off-hand is emptied; every refused click shows a title "✖ Two-handed weapon: empty your off-hand" + a low note sound. While a two-handed weapon is held, **nothing can be put in the off-hand slot** (inventory click and swap-to-off-hand key are cancelled) (owner, 2026-10-03) |
 | shield | anything | — | a shield only works in the **off-hand**; in the main hand it is a bare fist |
+| anything | two-handed weapon (spear, bow…) | — | **never allowed** (owner, 2026-10-03): the off-hand slot refuses it ("✖ Two-handed weapons can't go in the off-hand" + note sound); if one gets there anyway, its moves are blocked |
 
 Rules:
 
@@ -103,6 +104,7 @@ Reload: `/meg reload` → `/nexo reload all` → `/mm reload` → `/sk reload al
 | 7 | Stop fighting 5 s, walk, jump | blades go back on the back **with their own looks**, locked to the body (spec 037 format) |
 | 8 | Switch to another hotbar slot, relog, die | everything removed; comes back when the sword is held again |
 | 8b | Spear or bow in the main hand + **any item** in the off-hand | every click: title "✖ Two-handed weapon: empty your off-hand" + note sound, no attack / shot; remove the off-hand item → works again within 0.5 s |
+| 8e | Try to put a spear or bow in the off-hand slot (click or swap-to-off-hand key), whatever is in the main hand | refused: "✖ Two-handed weapons can't go in the off-hand" + note sound |
 | 8d | Holding a spear / bow, open the inventory, try to put an item in the off-hand slot (click, or the swap-to-off-hand key over a slot) | cancelled, same warning |
 | 8c | Shield in the main hand | plain fist, no model |
 | 9 | Wrong hand? | if the main-hand sword shows in the left hand, the packs' right hand is +x: swap `rename` in `STANCES` |
@@ -145,3 +147,4 @@ Delete the stance / part models and the kit's stance code; the spec 037 weapons 
 | 2026-10-03 | wcmmo | — (PoC, no FIRE run) | `feat/038-weapon-parts` | PoC build above. Checked: part geometry = source (0 diff), rotations round-trip, models / skills / Skript load with no errors on a throwaway server, icons 6945–6949 in the pack. **Not tested in game** (changepart on a player model, hand sides, UV of turned faces) |
 | 2026-10-03 | wcmmo | — (PoC) | `feat/038-weapon-parts` | Round 1 fixes (table above). Loads clean on the throwaway server; round 2 in game pending |
 | 2026-10-03 | wcmmo | — (PoC) | `feat/038-weapon-parts` | Round 2 fixes (table above). Loads clean; round 3 in game pending |
+| 2026-10-03 | wcmmo | — (PoC) | `feat/038-weapon-parts` | Spear / bow (all two-handed) can't go in the off-hand; blocked if they get there. Loads clean |
