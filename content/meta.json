@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-03T02:34:52.005Z",
-  "head": "6c49da5",
+  "syncedAt": "2026-10-03T18:45:50.590Z",
+  "head": "d3f6c77",
   "branch": "main",
   "commits": [
+    {
+      "sha": "d3f6c77",
+      "date": "2026-10-04T01:45:39+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(007, 009): controls C built in the kit (feat/007-stance-controls), how to test",
+      "insertions": 14,
+      "deletions": 1,
+      "files": 3
+    },
     {
       "sha": "6c49da5",
       "date": "2026-10-03T09:34:38+07:00",
@@ -714,9 +723,9 @@
     "docs/004-roadmap-phase-plan.md": "2026-10-02T01:59:24+07:00",
     "docs/005-vitality-resources.md": "2026-10-02T00:07:23+07:00",
     "docs/006-attributes-stat-gating.md": "2026-10-02T00:07:23+07:00",
-    "docs/007-classes-skill-bars.md": "2026-10-03T09:34:38+07:00",
+    "docs/007-classes-skill-bars.md": "2026-10-04T01:45:39+07:00",
     "docs/008-weapon-types-exclusive-skills.md": "2026-10-02T00:07:23+07:00",
-    "docs/009-combat-states.md": "2026-10-03T09:34:38+07:00",
+    "docs/009-combat-states.md": "2026-10-04T01:45:39+07:00",
     "docs/010-fpv-animation-poc.md": "2026-10-03T00:00:21+07:00",
     "docs/011-equipment-accessories.md": "2026-10-01T22:23:49+07:00",
     "docs/012-item-generation-identify-elements.md": "2026-10-01T22:23:49+07:00",
@@ -746,7 +755,7 @@
     "docs/036-wooden-bow.md": "2026-10-03T00:51:44+07:00",
     "docs/037-wooden-weapons.md": "2026-10-03T00:51:44+07:00",
     "docs/038-weapon-parts-tiers-skins.md": "2026-10-03T09:32:17+07:00",
-    "docs/README.md": "2026-10-03T01:30:44+07:00",
+    "docs/README.md": "2026-10-04T01:45:39+07:00",
     "docs/plugins.md": "2026-10-01T22:07:29+07:00",
     "docs/adr/0001-purpur-java25-zgc.md": "2026-09-25T00:46:05+07:00",
     "docs/adr/0002-spec-first-workflow.md": "2026-10-01T22:23:49+07:00",

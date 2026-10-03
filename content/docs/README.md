@@ -182,6 +182,8 @@ Rarity tiers (MMOItems): `common`, `uncommon`, `rare`, `epic`, `legendary` (012)
 | `wcmmo_bow_wood_shot`, `_rapid_shot`, `_power_shot` (+ helpers `wcmmo_bow_wood_*`, auras `wcmmo_bow_wood_held/_casting/_spawned/_combat`) | weapon (Crucible item) | Wooden Bow | 036 |
 | `wcmmo_spear_wood_slash`, `_shove`, `_hard_swing` · `wcmmo_swords_wood_slash`, `_dash`, `_swing` · `wcmmo_sword_shield_wood_slash`, `_defend`, `_rush` (+ helpers / auras `wcmmo_<id>_*`) | weapon (Crucible item) | Wooden Spear / Twin Swords / Sword & Shield | 037 |
 | `wcmmo_stance_*` (stance set / clear, parts), `wcmmo_stance_dual_*`, `wcmmo_stance_shield_*`, `wcmmo_stance_single_*`, aura `wcmmo_twohand_blocked`, `wcmmo_wpn_swing`, `wcmmo_wpn_use` | weapon stance (PoC) | one-handed sword + off-hand | 038 |
+| `wcmmo_stance_dual_guard_fx`, `wcmmo_stance_shield_guard_fx`, `wcmmo_stance_{single,dual,shield}_twirl`, `wcmmo_bow_wood_twirl` | guard / twirl visuals (kit-cast) | stances | 007, 009 |
+| `wcmmo_buff_war_cry` | buff (Q), test until M21 | any | 007 |
 
 Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:superarmour`, `wcmmo:armourbreak` (009).
 

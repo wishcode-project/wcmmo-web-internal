@@ -87,7 +87,7 @@
 | `/skills` | none | default | open the loadout screen |
 | `/wcmmoskill give\|take <player> <skill\|all>` | `wcmmo.admin.skillbar` | admin | grant / remove skills |
 | `/wcmmomasteryset <player> <weapon> <level>` | `wcmmo.admin.skillbar` | admin | tests: set a Mastery level |
-| `/wcmmo skillbar reset <player>` | `wcmmo.admin.skillbar` | admin | reset every loadout of the player |
+| `/wcmmoskillreset <player>` | `wcmmo.admin.skillbar` | admin | reset every loadout of the player |
 
 ## Performance
 
@@ -118,6 +118,15 @@ Restore the PoC-3 kit files from `develop` before this change (`run-wcmmo-004` v
 - [x] PoC-3 PASS (2026-10-02, `run-wcmmo-004`) for the old scheme (2 sets / F swap / Q ultimate / bow right click). **Superseded by D-68.**
 - [ ] PoC-3 rerun with the D-68 controls (test plan above), T9 answered.
 
+## How to test (dev box, 2026-10-04 build)
+
+1. `/mm reload` → `/sk reload all` (models unchanged).
+2. `/wcmmoskill give all <you>` → you own every skill and the test buff.
+3. `/skills` → pick a stance (e.g. Dual Swords) → click Dash Strike, then the `R-L-R` slot; Personal → put War Cry in the buff slot.
+4. Hold the matching weapons (spec 038 items) and run the test plan above.
+
+Stance skills registered: Dual Swords `Dash Strike`, `Spin Slash` · Sword & Shield `Shield Rush` · Single Sword `Charge` · Spear `Shove`, `Hard Swing` · Bow `Rapid Shot`, `Power Shot` · buff `War Cry` (test, M21).
+
 ## Open questions
 
 - M20 · ultimate ownership; M21 · Q buff list; M22 · which skills fit a weapon type (`gdd/owner-questions.md`). T9 · F hold detection (spec 009).
@@ -129,3 +138,4 @@ Restore the PoC-3 kit files from `develop` before this change (`run-wcmmo-004` v
 | 2026-10-02 | wcmmo | `run-wcmmo-004` | branch `feat/007-skillbar-poc` → `develop` | PoC-3 pass (old scheme). Kit files: `wcmmo_30_skillbar.sk` (loadout, combos, weapon swap), `wcmmo_31_skills_gui.sk` (`/skills`), `wcmmo_32_skill_hud.sk` (set display, text), `wcmmo_35_remnant.sk` (ultimate slot). Not built: out-of-combat loadout rule, icons (029), UltimateUI screen. |
 | 2026-10-03 | wcmmo-specs | — | — | Rewritten for D-68 (combat style C). Kit not changed yet. |
 | 2026-10-03 | wcmmo-specs | — | — | D-73: loadouts per stance; D-74: F hold = Block with a shield |
+| 2026-10-04 | wcmmo | — (no FIRE run) | `feat/007-stance-controls` @ `14d421a` | Kit rewritten for D-68 / D-73: stance loadouts, L basic for all, Q buff / Shift + Q ult, `/skills` per stance + Personal, HUD per stance. Loads clean; in game pending |
