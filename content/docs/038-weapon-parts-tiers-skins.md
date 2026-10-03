@@ -77,7 +77,7 @@ n/a — looks only; tier stats belong to the gear spec, off-hand stats to M23.
 
 | Piece | Built as |
 |---|---|
-| Stance models | `wcmmo_stance_dual` + `_combat` (Two Sword Style; bones `main_blade` = right hand, `off_blade`), `wcmmo_stance_shield` + `_combat` (Castle Knight; `main_blade`, `off_shield`), `wcmmo_stance_single` + `_combat` (Castle Knight without the shield bone; back pose = the dual main blade's pose, computed by the script). Wood look by default |
+| Stance models | `wcmmo_stance_dual` + `_combat` (Two Sword Style; bones `main_blade` = the black sword, +x = main hand; `off_blade` = the purple sword), `wcmmo_stance_shield` + `_combat` (Castle Knight; `main_blade`, `off_shield`), `wcmmo_stance_single` + `_combat` (Castle Knight without the shield bone; back pose = the dual main blade's pose, computed by the script). Wood look by default |
 | Part models | `ModelEngine/blueprints/wcmmo/parts/wcmmo_part_<key>`: swords have two bones, `xy` (Two Sword Style grip: flat of the blade faces z) and `yz` (Castle Knight grip: flat faces x); shields have `shield` |
 | Parts made | `sword_wood` (Two Sword Style purple sword shape, wood) · `sword_iron` (Castle Knight sword shape, iron) · **`sword_draconic`** (Draconic pack sword, its own colours, **another vendor**: lies forward in its file and is ~6 px longer) · `shield_wood`, `shield_iron` (Castle Knight shield) |
 | Script | `scripts/wood_weapons.py`: `STANCES`, `PARTS`; `rotate_element` turns a sword between grip conventions exactly (box, cube rotation, texture faces) so one sword fits every stance |
@@ -148,3 +148,4 @@ Delete the stance / part models and the kit's stance code; the spec 037 weapons 
 | 2026-10-03 | wcmmo | — (PoC) | `feat/038-weapon-parts` | Round 1 fixes (table above). Loads clean on the throwaway server; round 2 in game pending |
 | 2026-10-03 | wcmmo | — (PoC) | `feat/038-weapon-parts` | Round 2 fixes (table above). Loads clean; round 3 in game pending |
 | 2026-10-03 | wcmmo | — (PoC) | `feat/038-weapon-parts` | Spear / bow (all two-handed) can't go in the off-hand; blocked if they get there. Loads clean |
+| 2026-10-03 | wcmmo | — (PoC) | `feat/038-weapon-parts` | Dual swords: main-hand sword showed in the off hand (my guess −x = right was wrong for Two Sword Style); bones swapped. Single back pose unchanged |
