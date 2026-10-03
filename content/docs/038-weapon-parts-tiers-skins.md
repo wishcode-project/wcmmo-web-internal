@@ -1,8 +1,8 @@
 # 038 — Weapon parts: main / off-hand stances, tiers, skins
 
-> Status: DRAFT · Target: wcmmo (ModelEngine blueprints, MythicMobs skills, Skript kit, MMOItems, `scripts/wood_weapons.py`) · FIRE mode: confirm
+> Status: IN-PROGRESS (PoC T10 **PASS**, owner 2026-10-03) · Target: wcmmo (ModelEngine blueprints, MythicMobs skills, Skript kit, MMOItems, `scripts/wood_weapons.py`) · FIRE mode: confirm
 > Design: GDD v2 §3 / §4 · Decisions: **D-69** (main + off-hand), **D-70** (3 tiers), **D-71** (skins), D-68 (controls), D-44 (OPEN), D-04
-> Open before READY: T10 (PoC below), M23 (off-hand stats), M24 (packs to buy)
+> Open before READY: M23 (off-hand stats), M24 (packs to buy), M25 (staff animations). T10 passed
 
 ## Big picture
 
@@ -133,6 +133,20 @@ Report per row: works / looks wrong (which hand, which move, screenshot).
 | Single stance: attacking showed the default sword, not the held one | the part swap on the combat holder was conditioned on "holder not spawned yet", and the condition was checked after the 1-tick delay (already spawned) | swap runs on every draw (1 and 3 ticks after), all three stances |
 | Two-handed weapons still worked with other items in the off-hand; no warning shown | only swords / shields were blocked; action bar text didn't show | any off-hand item blocks; title + note sound on every refused click; off-hand slot closed while a two-handed weapon is held |
 
+## PoC result (owner, 2026-10-03): PASS
+
+"เบื้องต้นโอเคหมด": mixing swords from three vendors (Llama Two Sword Style, Castle Knight, Draconic) on the dual / sword & shield / single stances works, sizes fit, back lock works, two-handed rules and the shield swap work. Kept as the format for one-handed weapons.
+
+## Next
+
+| # | What | Where |
+|---|---|---|
+| 1 | **Staff stances** (owner, 2026-10-03), same rules as the sword: one-handed staff, dual staves, staff + shield, two-handed staff. Needs staff models + animations (bought or made by the team, M24 / M25) | D-72 |
+| 2 | **Skills into the stances:** the kit owns the clicks (spec 007, D-44); the packs' moves become weapon skills slotted per weapon type in `/skills`; L = the stance's basic attack | spec 007 |
+| 3 | **Guard:** F hold = Frontguard / block, F tap = parry, with the stances' Defend / shield-raise animations | spec 009 |
+| 4 | Port to MMOItems (stats, Mastery) and remove the Crucible test items | D-44 |
+| 5 | Tidy: the 037 Wooden Twin Swords / Sword & Shield items are replaced by the stances | 037 |
+
 ## Rollback
 
 Delete the stance / part models and the kit's stance code; the spec 037 weapons keep working as single items.
@@ -152,3 +166,4 @@ Delete the stance / part models and the kit's stance code; the spec 037 weapons 
 | 2026-10-03 | wcmmo | — (PoC) | `feat/038-weapon-parts` | Spear / bow (all two-handed) can't go in the off-hand; blocked if they get there. Loads clean |
 | 2026-10-03 | wcmmo | — (PoC) | `feat/038-weapon-parts` | Dual swords: main-hand sword showed in the off hand (my guess −x = right was wrong for Two Sword Style); bones swapped. Single back pose unchanged |
 | 2026-10-03 | wcmmo | — (PoC) | `feat/038-weapon-parts` | Shield in main + sword in off-hand swap automatically. Loads clean |
+| 2026-10-03 | wcmmo | — (PoC) | `feat/038-weapon-parts` | **PoC T10 PASS** (owner). Next steps above |

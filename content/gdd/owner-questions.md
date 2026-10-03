@@ -66,7 +66,7 @@ Full list with docs and overlaps: [`../docs/plugins.md`](../docs/plugins.md). Ow
 | T5 | Identify via MMOItems unidentified items, fallback crafted/quest gear. Who tests it? | D-10 | PoC-4 |
 | T6 | Nexo furniture inside house schematics: if FAWE loses furniture data, fallback is re-spawning furniture from a saved list. OK? | D-19 | PoC-5 |
 | T9 | **F hold** (Frontguard): Minecraft sends F (swap hands) as a press only, no release. Test whether holding F repeats the event so the kit can keep the guard up; fallback: F press = guard for a short time / toggle, tap timing = parry | D-68 | PoC-3 rerun |
-| T10 | Part swap PoC (spec 038): two different swords on the dual-sword stance, sword + shield, single sword with the shield hidden; grips line up, animations look right | D-69, D-71 | spec 038 PoC |
+| ~~T10~~ | ~~Part swap PoC~~ **Passed 2026-10-03** (owner: "เบื้องต้นโอเคหมด"): three vendors' swords mix on the dual / shield / single stances | D-69, D-71 | done |
 | ~~T7~~ | ~~Which plugin owns the final resource pack?~~ **Answered: Nexo** (D-40, 2026-09-28) | D-40 | — |
 
 ## Pending: missing design (owner will answer later)
@@ -87,6 +87,7 @@ Full list with docs and overlaps: [`../docs/plugins.md`](../docs/plugins.md). Ow
 | M22 | Weapon skills: is each pack move a skill of that weapon type only (Spear: Shove, Hard Swing…), and do the D-52 / spec 008 skill lists merge with them? | D-68, D-52 |
 | M23 | Off-hand weapon stats (D-69): full, half, or none? Does the off-hand sword add its own damage to dual-sword hits? | D-69 |
 | M24 | Packs to buy next: Greatsword, Hammer, Crossbow, Staff, Tome (none yet); Spear / Bow need guard + twirl animations; a single-sword set would help (D-69) | D-04, D-70 |
+| M25 | Staff stances (D-72): one-handed staff, dual staves, staff + shield, two-handed staff. Which animations (buy / make with the team), and does a one-handed staff cast the same bolts as the two-handed one? | D-72, D-04 |
 | M5 | World map: cities, regions, Low/Mid/High zones | — |
 | M6 | Chapter 1 story outline | D-15b |
 | ~~M7~~ | ~~Death penalty~~ **Answered 2026-10-01:** spec 027 | D-57 |
