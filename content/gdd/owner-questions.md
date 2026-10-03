@@ -88,6 +88,7 @@ Full list with docs and overlaps: [`../docs/plugins.md`](../docs/plugins.md). Ow
 | M23 | Off-hand weapon stats (D-69): full, half, or none? Does the off-hand sword add its own damage to dual-sword hits? | D-69 |
 | M24 | Packs to buy next: Greatsword, Hammer, Crossbow, Staff, Tome (none yet); Spear / Bow need guard + twirl animations; a single-sword set would help (D-69) | D-04, D-70 |
 | M25 | Staff stances (D-72): one-handed staff, dual staves, staff + shield, two-handed staff. Which animations (buy / make with the team), and does a one-handed staff cast the same bolts as the two-handed one? | D-72, D-04 |
+| M26 | How does the equipment screen open (D-77)? **Not with E**: Minecraft doesn't tell the server when a player opens their own inventory (only when it closes). Options: a button item in the E screen (MMOInventory has it), `/equip`, a free key combo, or a client mod. Owner: decide later | D-77 |
 | M5 | World map: cities, regions, Low/Mid/High zones | — |
 | M6 | Chapter 1 story outline | D-15b |
 | ~~M7~~ | ~~Death penalty~~ **Answered 2026-10-01:** spec 027 | D-57 |
