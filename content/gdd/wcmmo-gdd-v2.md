@@ -208,6 +208,8 @@ To prevent stat bloat, progression is strictly split. Each system has one job:
 | D-70 | Weapon tiers | — | 3 tiers | **Owner, 2026-10-03:** 3 tiers: **Wood → Iron → pack colours** (the bought packs' own colours are the tier 3 defaults for now). Wood / Iron made by recolour script (`wood_weapons.py`, spec 036 / 037 format). Spec 038 | DECIDED |
 | D-71 | Weapon skins | none / per item | **Yes, if it works:** the tier look is the default skin, a skin swaps the same parts | **Owner, 2026-10-03: yes** (confirmed possible: ModelEngine 4.1.1 `changepart`, PoC in spec 038). A skin = one part model + icon per weapon type; MMOItems skin items apply it. One code path for tiers and skins, no per-tick cost. Spec 038 | DECIDED |
 | D-72 | Staff stances | two-handed only / like the sword | like the sword | **Owner, 2026-10-03:** staves follow D-69 like swords: **one-handed staff, dual staves, staff + shield, two-handed staff**. Same part swap (spec 038). Models / animations still to get (M24, M25) | DECIDED |
+| D-73 | Combo loadout per … | weapon type / **stance** / mixed | per stance | **Owner, 2026-10-03: per stance.** `/skills` has a page per stance (single sword, dual swords, sword & shield, spear, bow, … and the staff stances, D-72), 5 combos each. A page only takes skills that have an animation in that stance (the packs' moves live in one stance's model). Revises the "per weapon type" part of D-68 / D-60. Spec 007 | DECIDED |
+| D-74 | Block vs Frontguard | — | Block = with a shield | **Owner, 2026-10-03:** **sword & shield stance: F hold = Block** (front, 0 % chip, less stamina per hit, deflects projectiles; the pack's Defend / shield-raise animation). **Every other stance: F hold = Frontguard** (20 % chip). **F tap in time = parry** in every stance. Spec 009 | DECIDED |
 | D-36b | Weapon swap exploit | — | Mastery CDR applies only to that weapon's skills. General skills use the held weapon's Mastery | Mastery CDR = that weapon's skills + general skills based on the weapon held | DECIDED |
 
 ---
@@ -375,6 +377,7 @@ Placeholder. To decide: ModelEngine mounts, pet buffs vs cosmetic, loot pickup.
 | 2026-09-28 | D-05 | FPV testing starts with the bought Draconic Dual Sword FPV pack | owner |
 | 2026-09-28 | D-39 | MythicHUD = always-on HUD; UltimateUI = shops, quest list, other custom UI | owner |
 | 2026-09-29 | D-01, D-02, D-03a, D-04, D-04c, D-06b, D-06c, D-06d, D-07, D-07b, D-08b, D-11, D-12, D-12c, D-12d, D-15b, D-16, D-17b, D-18, D-26, D-30, D-33, D-34, D-35, D-35b, D-36b, D-41, D-42, D-46 | Decision session: 29 decided, D-36 partly (test values), D-17 loot refined | owner |
+| 2026-10-03 | D-73, D-74 | Combo loadout per stance; Block = shield stance (0 % chip), Frontguard elsewhere, parry everywhere | owner |
 | 2026-10-03 | D-72, D-69 | Staves get the sword's stances (1H, dual, + shield, 2H); main + off-hand PoC passed | owner |
 | 2026-10-03 | D-69, D-70, D-71 | Dual / shield from main hand + off-hand (no crafting merge), 3 tiers Wood → Iron → pack colours, weapon skins via part swap | owner |
 | 2026-10-03 | D-68, D-03, D-53, D-60 | Combat style C: animated weapons + player skills. L = basic attack (bows too), 5 combo slots per weapon type, F hold Frontguard / tap parry, Shift + F weapon twirl, Q buff, Shift + Q ultimate | owner |

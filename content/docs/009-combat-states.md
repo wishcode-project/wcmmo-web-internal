@@ -1,12 +1,12 @@
 # 009 — Combat states: Frontguard, parry, Super Armour
 
 > Status: DRAFT (input revised 2026-10-03 for D-68) · Target: wcmmo (Skript `wcmmo_10_combat.sk`, `wcmmo_00_config.sk`; MythicMobs skill flags) · FIRE mode: validate
-> Design: [GDD v2 §4](../gdd/wcmmo-gdd-v2.md#4-combat--mechanics) · Decisions: **D-68** (F = guard / parry), D-06b, D-06c, D-06d, D-25, D-47, D-49
+> Design: [GDD v2 §4](../gdd/wcmmo-gdd-v2.md#4-combat--mechanics) · Decisions: **D-68** (F = guard / parry), **D-74** (Block with a shield), D-06b, D-06c, D-06d, D-25, D-47, D-49
 > Open before READY: T9 (F hold detection, below)
 
 ## Big picture
 
-- **Player story:** As a player, I **hold F** to block from the front (Frontguard), **tap F just in time** to parry (perfect guard: the attacker is staggered), and power through CC with Super Armour. Heavy Hammer / Greatsword skills break guard and Super Armour (D-06d). **I-frame is deferred (D-49):** not built in Phase 0.
+- **Player story:** As a player, I **hold F** to guard from the front (**Block** with a shield, **Frontguard** otherwise), **tap F just in time** to parry (perfect guard: the attacker is staggered), and power through CC with Super Armour. Heavy Hammer / Greatsword skills break guard and Super Armour (D-06d). **I-frame is deferred (D-49):** not built in Phase 0.
 - **Bloodlines** plug in: Fury *Unstoppable* → Super Armour, *Death Defying* → 3 s Super Armour at 1 HP; Ward is built on Frontguard and perfect guards (Counterweight, Retribution, spec 021).
 - **What changed (D-68, owner 2026-10-03):** the guard input moves from **Shift (hold)** to **F**; Shift is a plain sneak again. The parry is the existing perfect guard, not a new system. The packs' Defend / shield-raise animations become the guard and parry visuals.
 - **Done means:** every damage / CC event between players and MythicMobs is resolved by the matrix below, with the F input, for players and mobs.
@@ -27,7 +27,7 @@ Skript-first (D-25 / D-47, owner 2026-09-29): the PoC kit is the implementation;
 | Input | What the kit does |
 |---|---|
 | **F pressed** (swap-hand event, world only, weapon in hand, not sneaking) | cancel the vanilla hand swap; guard **up**; remember the press time (parry window) |
-| **F held** | guard stays up (detection: T9) |
+| **F held** | guard stays up (detection: T9): **Block** in the sword & shield stance (spec 038), **Frontguard** in every other stance (D-74) |
 | **F released** | guard down |
 | **F tapped** | guard up for the minimum guard time, then down; a hit inside the parry window = perfect guard |
 | Shift + F | weapon twirl (spec 007), **no** guard |
@@ -41,11 +41,12 @@ Skript-first (D-25 / D-47, owner 2026-09-29): the PoC kit is the implementation;
 
 ## Rules
 
-| Attacker ↓ / Defender → | Normal | Frontguard (front 120° cone) | Super Armour | I-frame |
-|---|---|---|---|---|
-| Normal hit | damage | chip damage (D-06b) + stamina drain | damage, no CC | deferred (D-49) |
-| CC hit | damage + CC | blocked | damage, no CC | deferred |
-| Armour-break hit | damage + CC | guard broken + damage | damage + CC | deferred |
+| Attacker ↓ / Defender → | Normal | Frontguard (front 120° cone) | **Block** (shield, front 120° cone) | Super Armour | I-frame |
+|---|---|---|---|---|---|
+| Normal hit | damage | chip damage (D-06b) + stamina drain | **no damage**, smaller stamina drain | damage, no CC | deferred (D-49) |
+| Projectile | damage | chip + drain | **deflected** (the pack's Defend `deflect`) | damage, no CC | deferred |
+| CC hit | damage + CC | blocked | blocked | damage, no CC | deferred |
+| Armour-break hit | damage + CC | guard broken + damage | guard broken + damage | damage + CC | deferred |
 
 - **Perfect guard = parry:** a front hit that lands within `perfectTicks` of the F press → no damage, attacker **staggered** `stagger::ticks`, "PERFECT GUARD" feedback, Ward Bloodline hooks (spec 021). An armour-break hit can't be parried (it breaks the guard).
 - **Parry spam:** a new parry window opens only if the last F press was at least `parryRearmTicks` ago; spamming F still guards but can't parry.
@@ -64,6 +65,7 @@ State keys: `wcmmo:frontguard`, `wcmmo:superarmour`, `wcmmo:armourbreak` (skill 
 | Frontguard chip damage | 20 % (D-06b) |
 | Front cone | 120° (`frontDot` 0.5) |
 | Frontguard stamina drain per blocked hit | 10 |
+| **Block** chip damage / stamina per blocked hit | 0 % / 6 (D-74, proposed) |
 | Stamina drain while guarding | 5 / s |
 | Hammer / Greatsword normal hit vs guard | stamina drain ×2 (D-06d) |
 | Guard-break skill per weapon | 1, long cooldown (D-06d) |
@@ -90,6 +92,7 @@ Resolver runs only inside damage events; F handling is event-driven (swap-hand).
 | # | Step | Expected |
 |---|---|---|
 | 1 | Hold a weapon, hold F, mob hits from the front / behind | chip / full damage; blue glow while guarding; no item moves to the off-hand |
+| 1b | Sword + shield (spec 038), hold F, mob hits / shoots from the front | no damage, 6 stamina per hit, arrows deflected, shield-raise animation |
 | 2 | Release F | guard drops within 0.2 s |
 | 3 | Tap F just before a mob hit | PERFECT GUARD, no damage, mob staggered 1 s |
 | 4 | Tap F twice within 1 s, hit lands after the 2nd | guard, no parry (re-arm) |
@@ -121,3 +124,4 @@ Restore `wcmmo_10_combat.sk` from `develop` before this change (guard on sneak, 
 | 2026-10-02 | wcmmo | `run-wcmmo-002` | branch `feat/mmo-core-setup` | MythicLib chance mitigation off (`roll: '0'` for block / dodge / parry). In-game: no Blocked / Dodged / Parried. |
 | 2026-10-02 | wcmmo | `run-wcmmo-003` | branch `feat/009-combat-poc` | PoC-2 functional pass (1 player): Frontguard chip 20 % from the front only, stamina drain, guard break (stamina / heavy attack), perfect guard, Super Armour. Placeholder feedback: action bar texts + glow (blue Frontguard, orange Super Armour, yellow stun). `/wcmmodebug` prints the pipeline. PvP rows and MSPT report still open. |
 | 2026-10-03 | wcmmo-specs | — | — | Input moved to F (D-68): hold = Frontguard, tap = parry, re-arm, min guard, release timer. Kit not changed yet. |
+| 2026-10-03 | wcmmo-specs | — | — | D-74: Block (shield stance: 0 % chip, less stamina, deflects projectiles) vs Frontguard elsewhere, parry everywhere |

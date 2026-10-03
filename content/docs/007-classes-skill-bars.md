@@ -1,8 +1,9 @@
 # 007 — Controls & skill loadouts (classless)
 
 > Status: DRAFT (rewritten 2026-10-03 for D-68) · Target: wcmmo (Skript `wcmmo_30_skillbar.sk`, `wcmmo_31_skills_gui.sk`, `wcmmo_32_skill_hud.sk`, `wcmmo_35_remnant.sk`, `wcmmo_36_basic_attacks.sk`, `wcmmo_10_combat.sk`) · FIRE mode: validate
-> Design: [GDD v2 §3](../gdd/wcmmo-gdd-v2.md#3-weapon-freedom--compartmentalised-progression) · Decisions: **D-68** (combat style C), D-60 (revised), D-53 (revised), D-04c, D-44 (OPEN), D-50, D-51 · D-03 superseded
-> Open before READY: M20 (how the ultimate is owned), M21 (Q buff list), M22 (which skills fit a weapon type's slots), T9 (F hold, see spec 009)
+> Design: [GDD v2 §3](../gdd/wcmmo-gdd-v2.md#3-weapon-freedom--compartmentalised-progression) · Decisions: **D-68** (combat style C), **D-73** (loadout per stance), D-69 / D-72 (stances, spec 038), D-74 (guard), D-60 (revised), D-53 (revised), D-04c, D-44 (OPEN), D-50, D-51 · D-03 superseded
+> Open before READY: M20 (how the ultimate is owned), M21 (Q buff list), M22 (skill list per stance), T9 (F hold, see spec 009)
+> **2026-10-03, D-73:** loadouts are **per stance** (single sword, dual swords, sword & shield, spear, bow, … staff stances), not per weapon type. Read "weapon type" below as "stance".
 
 > Filename kept for history: the spec was "classes & skill bars" before GDD v2 removed classes, then "skill bars" before D-68 removed the bar swap.
 
@@ -18,9 +19,9 @@
 | Input | Action | Notes |
 |---|---|---|
 | **Left click** | **basic attack of the held weapon: every weapon, bows and crossbows too** | fixed, not a slot. Melee: the weapon's hit / 3-hit combo animation; Staff / Tome: short magic bolt; Bow / Crossbow: instant natural arrow (rule 9) |
-| **3-click combo** | cast slot 1–5 of the **held weapon type's** loadout | `R-L-R`, `R-R-R`, `R-L-L`, `R-R-L`, `L-R-L`; same table for every weapon (bows no longer mirrored) |
+| **3-click combo** | cast slot 1–5 of the **current stance's** loadout (D-73; the stance comes from main + off-hand, spec 038) | `R-L-R`, `R-R-R`, `R-L-L`, `R-R-L`, `L-R-L`; same table for every weapon (bows no longer mirrored) |
 | Right click alone | nothing (starts a combo) | vanilla bow draw / shield / eat with a weapon in hand is cancelled |
-| **F (hold)** | **Frontguard** (spec 009) | moved from Shift. Pressing F also opens the **parry** window (perfect guard, spec 009) |
+| **F (hold)** | **Block** in the sword & shield stance, **Frontguard** in every other stance (D-74, spec 009) | moved from Shift. Pressing F also opens the **parry** window (perfect guard, spec 009) |
 | **F (tap in time)** | **parry** = perfect guard: hit within 0.3 s of the press → attacker staggered | same input as the guard, no extra key |
 | **Shift + F** | **weapon twirl**: a show-off animation of the held weapon | rule 7. Does **not** start the guard |
 | **Q** | **buff**: the player's own buff skill (M21) | personal skill, works with any weapon |
@@ -32,15 +33,15 @@
 ## Rules
 
 1. **The kit owns every input.** Clicks, F, Shift + F, Q and Shift + Q are read by the kit only. A weapon item never casts skills from its own click triggers: it only shows its model (back model on hold, combat model while attacking, spec 036 / 037 format). The kit calls the weapon's MythicMobs skills (basic attack animation, weapon skills, twirl). Needs D-44: MMOItems weapon (stats, type, Mastery) + the kit's trigger layer. Until then the Crucible wooden weapons keep their own controls as test items.
-2. **Loadout per weapon type:** each of the 8 types (D-04: Sword, Greatsword, Hammer, Spear, Bow, Crossbow, Staff, Tome) has **5 combo slots**. Holding a weapon uses its type's 5 slots. No set swap.
-3. **What fits a slot (until M22):** any owned skill the type can use: that type's weapon skills (the packs' moves become these, e.g. Spear: Shove, Hard Swing), family orb skills that include the type, and skills with weapon `any` (spec 008). The same skill may sit in several types' loadouts; its cooldown is shared.
+2. **Loadout per stance (D-73):** each stance has **5 combo slots**: single sword, dual swords, sword & shield (spec 038), spear, bow, the staff stances (D-72) and the other types as they arrive. Holding a weapon uses its current stance's 5 slots. No set swap.
+3. **What fits a slot:** owned skills that have an **animation in that stance** (the packs' moves live in one stance's model, e.g. Dash = dual swords, Rush = sword & shield, Shove = spear), plus skills that need no weapon animation (weapon `any`, spec 008). The full list per stance is M22. The same skill may sit in several stances' loadouts; its cooldown is shared.
 4. **Personal skills:** one **buff slot (Q)** and one **ultimate slot (Shift + Q)**, the same with every weapon. Buffs: list missing (M21). Ultimate: owned as today (Mastery cap of a weapon, spec 023) until M20 says otherwise; until then it also needs the weapon it came from.
 5. **Owning skills:** permission `wcmmo.skill.<id>` (or the kit's grant list).
 6. **Combos:** 3 clicks, each within 1 s of the last. `L-R-L` starts with the basic click, so it needs its 2nd click within 0.35 s, else the first L is a plain attack. Clicks inside a combo don't attack.
 7. **Weapon twirl (Shift + F, owner 2026-10-03):** plays the held weapon's twirl animation (the packs' emotes). Show-off first. Later: unlocked by that weapon type's Mastery (level TBD), and may carry a small buff; while testing a buff can be attached. **Own cooldown, separate from Q.** The `/skills` screen has the twirl slot from the start; at launch it is locked until the Mastery unlock.
 8. **Weapon swap cooldown: 5 s.** Switching to another weapon is always allowed, but the new weapon **can't make basic attacks** for 5 s; **skills still work**. The action bar counts down ("attacks ready in 3.2 s") and shows "Weapon ready" at the end. Potions / food and going back to the same weapon slot don't start it.
 9. **Bow / Crossbow basic shot (D-53 revised):** **left click** fires an arrow at once with the weapon's damage; shot interval 0.75 s (Bow) / 1.0 s (Crossbow), lowered by AGI down to the cap (Bow 0.55 s). Natural arrow: launched with a velocity and normal gravity, no range limit, no aim assist; it disappears when it hits or shortly after it lands.
-10. **Loadout screen `/skills`:** page 1 = the 8 weapon types (types the player has no skill for are greyed) + **Personal** (buff slot, ultimate slot, twirl slot). Click a type → its 5 combo slots (each shows its combo, e.g. `R-L-R`) + the owned skills that fit (rule 3), 27 per page. Click a skill, then a slot; right click a slot to empty it. Loadout changes only out of combat (5 s since the last hit). Final screen = UltimateUI.
+10. **Loadout screen `/skills`:** page 1 = the stances (stances the player has no skill for are greyed) + **Personal** (buff slot, ultimate slot, twirl slot). Click a stance → its 5 combo slots (each shows its combo, e.g. `R-L-R`) + the owned skills that fit (rule 3), 27 per page. Click a skill, then a slot; right click a slot to empty it. Loadout changes only out of combat (5 s since the last hit). Final screen = UltimateUI.
 11. **HUD:** while a weapon is held: the **held type's 5 slots** with their combo and cooldown (ready / seconds left / empty), plus buff (Q), ultimate (Shift + Q) and Remnant. PoC: text boss bar (`wcmmo_32_skill_hud.sk`); final: MythicHUD icons (spec 029).
 12. **Basic attack speed:** AGI raises basic attack / shot speed, **+0.5 % per point, capped at +30 %** (D-50). Skill cooldowns are not affected by AGI (Mastery owns them, spec 023).
 
@@ -127,3 +128,4 @@ Restore the PoC-3 kit files from `develop` before this change (`run-wcmmo-004` v
 |---|---|---|---|---|
 | 2026-10-02 | wcmmo | `run-wcmmo-004` | branch `feat/007-skillbar-poc` → `develop` | PoC-3 pass (old scheme). Kit files: `wcmmo_30_skillbar.sk` (loadout, combos, weapon swap), `wcmmo_31_skills_gui.sk` (`/skills`), `wcmmo_32_skill_hud.sk` (set display, text), `wcmmo_35_remnant.sk` (ultimate slot). Not built: out-of-combat loadout rule, icons (029), UltimateUI screen. |
 | 2026-10-03 | wcmmo-specs | — | — | Rewritten for D-68 (combat style C). Kit not changed yet. |
+| 2026-10-03 | wcmmo-specs | — | — | D-73: loadouts per stance; D-74: F hold = Block with a shield |

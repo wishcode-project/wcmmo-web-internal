@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-03T02:32:29.779Z",
-  "head": "a078585",
+  "syncedAt": "2026-10-03T02:34:52.005Z",
+  "head": "6c49da5",
   "branch": "main",
   "commits": [
+    {
+      "sha": "6c49da5",
+      "date": "2026-10-03T09:34:38+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: loadouts per stance (D-73), Block with a shield vs Frontguard (D-74)",
+      "insertions": 24,
+      "deletions": 15,
+      "files": 3
+    },
     {
       "sha": "a078585",
       "date": "2026-10-03T09:32:17+07:00",
@@ -705,9 +714,9 @@
     "docs/004-roadmap-phase-plan.md": "2026-10-02T01:59:24+07:00",
     "docs/005-vitality-resources.md": "2026-10-02T00:07:23+07:00",
     "docs/006-attributes-stat-gating.md": "2026-10-02T00:07:23+07:00",
-    "docs/007-classes-skill-bars.md": "2026-10-03T00:33:32+07:00",
+    "docs/007-classes-skill-bars.md": "2026-10-03T09:34:38+07:00",
     "docs/008-weapon-types-exclusive-skills.md": "2026-10-02T00:07:23+07:00",
-    "docs/009-combat-states.md": "2026-10-03T00:33:32+07:00",
+    "docs/009-combat-states.md": "2026-10-03T09:34:38+07:00",
     "docs/010-fpv-animation-poc.md": "2026-10-03T00:00:21+07:00",
     "docs/011-equipment-accessories.md": "2026-10-01T22:23:49+07:00",
     "docs/012-item-generation-identify-elements.md": "2026-10-01T22:23:49+07:00",
@@ -748,6 +757,6 @@
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
     "gdd/trailer.md": "2026-09-30T00:24:58+07:00",
     "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",
-    "gdd/wcmmo-gdd-v2.md": "2026-10-03T09:32:17+07:00"
+    "gdd/wcmmo-gdd-v2.md": "2026-10-03T09:34:38+07:00"
   }
 }
