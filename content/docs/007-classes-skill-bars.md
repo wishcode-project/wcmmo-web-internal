@@ -3,7 +3,12 @@
 > Status: DRAFT (rewritten 2026-10-03 for D-68) · Target: wcmmo (Skript `wcmmo_30_skillbar.sk`, `wcmmo_31_skills_gui.sk`, `wcmmo_32_skill_hud.sk`, `wcmmo_35_remnant.sk`, `wcmmo_36_basic_attacks.sk`, `wcmmo_10_combat.sk`) · FIRE mode: validate
 > Design: [GDD v2 §3](../gdd/wcmmo-gdd-v2.md#3-weapon-freedom--compartmentalised-progression) · Decisions: **D-68** (combat style C), **D-73** (loadout per stance), D-69 / D-72 (stances, spec 038), D-74 (guard), D-60 (revised), D-53 (revised), D-04c, D-44 (OPEN), D-50, D-51 · D-03 superseded
 > Open before READY: M20 (how the ultimate is owned), M21 (Q buff list), M22 (skill list per stance), T9 (F hold, see spec 009)
-> **2026-10-03, D-73:** loadouts are **per stance** (single sword, dual swords, sword & shield, spear, bow, … staff stances), not per weapon type. Read "weapon type" below as "stance".
+> **2026-10-04, D-75 / D-76 (owner) — read this first, it overrides the tables below where they differ:**
+> - Hotbar **slots 1–5 = skill icons, always** (never items: nothing can be lost). Slots 6–9 free. **Keys 1–5 cast** the active set while a weapon is held and **drawn**; holding something else, the key goes back to the last weapon.
+> - **One loadout of 10 skills** for every weapon (set 1 = 1–5, set 2 = 6–10). **Shift + right click** switches the set. Skills that need another stance show greyed out. D-73 (per-stance loadouts) is superseded.
+> - **Tap Shift** = draw / sheathe. Left click, a skill or a guard also draws. Sheathed: the icons are grey panes.
+> - 3-click combos stay as a bonus (cast the active set). Q buff, Shift + Q ultimate, F guard / parry, Shift + F twirl unchanged.
+> - Built in `wcmmo_33_hotbar.sk` (2026-10-04). Known limit: scrolling onto slots 1–5 counts as a key press.
 
 > Filename kept for history: the spec was "classes & skill bars" before GDD v2 removed classes, then "skill bars" before D-68 removed the bar swap.
 
@@ -139,3 +144,4 @@ Stance skills registered: Dual Swords `Dash Strike`, `Spin Slash` · Sword & Shi
 | 2026-10-03 | wcmmo-specs | — | — | Rewritten for D-68 (combat style C). Kit not changed yet. |
 | 2026-10-03 | wcmmo-specs | — | — | D-73: loadouts per stance; D-74: F hold = Block with a shield |
 | 2026-10-04 | wcmmo | — (no FIRE run) | `feat/007-stance-controls` @ `14d421a` | Kit rewritten for D-68 / D-73: stance loadouts, L basic for all, Q buff / Shift + Q ult, `/skills` per stance + Personal, HUD per stance. Loads clean; in game pending |
+| 2026-10-04 | wcmmo | — (no FIRE run) | `feat/007-stance-controls` | D-75 / D-76: skill hotbar (slots 1–5 locked icons, keys cast, 2 sets, Shift + right click), tap Shift draw / sheathe, `/skills` one page (10 + buff + ultimate). Loads clean; in game pending |
