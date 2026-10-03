@@ -29,7 +29,8 @@ ModelEngine 4.1.1 has `changepart` (`mid`, `pid`, `nmid`, `npid`): the bone keep
 | one-handed sword | empty (or anything that is not a sword / shield) | **single sword** | Castle Knight sword moves, own model without the shield. **2-hit combo** (the pack's 3rd hit is a shield bash), no Defend. On the back the blade hangs **diagonally, leaning like the dual stance's off blade** (owner, 2026-10-03); sword & shield keeps the upright sword behind the shield. A bought single-sword set later (M24) |
 | two-handed (Spear, Staff, Bow, Greatsword, Hammer, Crossbow, Tome: TBD per type) | must be empty | the type's own | its pack |
 | two-handed | **anything** | **blocked** | no attacks or moves until the off-hand is emptied; every refused click shows a title "✖ Two-handed weapon: empty your off-hand" + a low note sound. While a two-handed weapon is held, **nothing can be put in the off-hand slot** (inventory click and swap-to-off-hand key are cancelled) (owner, 2026-10-03) |
-| shield | anything | — | a shield only works in the **off-hand**; in the main hand it is a bare fist |
+| shield | one-handed sword | → sword & shield | the two **swap places by themselves** (owner, 2026-10-03): sword to the main hand, shield to the off-hand, action bar "⇄ Sword to the main hand, shield to the off-hand" |
+| shield | anything else | — | a shield only works in the **off-hand**; in the main hand it is a bare fist |
 | anything | two-handed weapon (spear, bow…) | — | **never allowed** (owner, 2026-10-03): the off-hand slot refuses it ("✖ Two-handed weapons can't go in the off-hand" + note sound); if one gets there anyway, its moves are blocked |
 
 Rules:
@@ -105,6 +106,7 @@ Reload: `/meg reload` → `/nexo reload all` → `/mm reload` → `/sk reload al
 | 8 | Switch to another hotbar slot, relog, die | everything removed; comes back when the sword is held again |
 | 8b | Spear or bow in the main hand + **any item** in the off-hand | every click: title "✖ Two-handed weapon: empty your off-hand" + note sound, no attack / shot; remove the off-hand item → works again within 0.5 s |
 | 8e | Try to put a spear or bow in the off-hand slot (click or swap-to-off-hand key), whatever is in the main hand | refused: "✖ Two-handed weapons can't go in the off-hand" + note sound |
+| 8f | Sword in the off-hand, then pick a shield into the main hand (hotbar or inventory) | within 0.5 s they swap: sword in the main hand, shield in the off-hand, sword & shield stance; no item lost or doubled |
 | 8d | Holding a spear / bow, open the inventory, try to put an item in the off-hand slot (click, or the swap-to-off-hand key over a slot) | cancelled, same warning |
 | 8c | Shield in the main hand | plain fist, no model |
 | 9 | Wrong hand? | if the main-hand sword shows in the left hand, the packs' right hand is +x: swap `rename` in `STANCES` |
@@ -149,3 +151,4 @@ Delete the stance / part models and the kit's stance code; the spec 037 weapons 
 | 2026-10-03 | wcmmo | — (PoC) | `feat/038-weapon-parts` | Round 2 fixes (table above). Loads clean; round 3 in game pending |
 | 2026-10-03 | wcmmo | — (PoC) | `feat/038-weapon-parts` | Spear / bow (all two-handed) can't go in the off-hand; blocked if they get there. Loads clean |
 | 2026-10-03 | wcmmo | — (PoC) | `feat/038-weapon-parts` | Dual swords: main-hand sword showed in the off hand (my guess −x = right was wrong for Two Sword Style); bones swapped. Single back pose unchanged |
+| 2026-10-03 | wcmmo | — (PoC) | `feat/038-weapon-parts` | Shield in main + sword in off-hand swap automatically. Loads clean |
