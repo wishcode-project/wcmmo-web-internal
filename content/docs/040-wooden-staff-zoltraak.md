@@ -1,6 +1,6 @@
 # 040 — Wooden Staff (two-handed) from the Zoltraak pack
 
-> Status: IN-PROGRESS · Target: wcmmo (ModelEngine, MythicMobs, Nexo, Skript kit) · FIRE mode: confirm
+> Status: IN-PROGRESS (prototype **PASS**, owner 2026-10-05) · Target: wcmmo (ModelEngine, MythicMobs, Nexo, Skript kit) · FIRE mode: confirm
 > Design: GDD v2 §3 · Decisions: D-72 (staff stances: this is the **two-handed staff** first), D-69 (two-handed rule), D-70 (tiers), D-75 / D-78 (skills on keys 1–5, right click guard), D-77 (worn weapons, spec 039)
 > Answers: M24 (a Staff pack: Llama Studio **Zoltraak**, owner 2026-10-04), M25 partly (2H staff poses borrowed from the spear)
 
@@ -44,6 +44,13 @@
 4. Put Zoltraak Barrage and Double Jump in `/skills`, cast with keys 1–5 in combat mode; Barrage with no enemy hits the spot ahead.
 5. The pack's own `zoltraak_staff` still works as the pack made it (held).
 
+## Known issues
+
+| # | Issue | Status |
+|---|---|---|
+| 1 | **The pack's own `zoltraak_staff` can kick the player** ("Invalid move player packet received"): its Double Jump `lunge{v=0;vy=0.8} @forward{f=0;lockpitch=true}` (`zoltraak_skills.yml`) aims at the player's own spot, the direction is zero, the velocity NaN. Its air cast uses `stun`, also risky. Our Wooden Staff is fixed (aims 2 blocks ahead, hovers by velocity) | **Noted, not fixed** (owner, 2026-10-05): the pack stays as it is. Fix = those two lines, if the pack item is ever used |
+| 2 | Real staff animations (the pack has none): the back pose is the spear's | M25, later |
+
 ## Implementation log
 
 | Date | Repo | FIRE run | PR / branch | Notes |
@@ -51,3 +58,4 @@
 | 2026-10-04 | wcmmo | — | `feat/040-staff-zoltraak` | Pack installed as is; Wooden Staff models, skills, stance `staff2h` |
 | 2026-10-05 | wcmmo | — | `feat/040-staff-zoltraak` | Hotbar shows the combat grip's cross like every weapon (item model `wcmmo:staff_wood_held`: cross in the GUI, staff in the hand); owner: prototype OK |
 | 2026-10-05 | wcmmo | — | `feat/040-staff-zoltraak` | Kick fixed (`0887db2`: the pack's `lunge{v=0} @forward{f=0}` = NaN velocity; air hover by velocity, not stun); staff held as the pack's item in combat mode (`05d24e1`) |
+| 2026-10-05 | wcmmo-specs | — | — | Owner: prototype OK; the pack's kick noted (Known issues 1), not fixed |
