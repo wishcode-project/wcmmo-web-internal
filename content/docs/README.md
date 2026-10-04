@@ -48,6 +48,7 @@ as the spec that introduces it.** Specs link back here instead of redefining any
 | 037 | [Wooden Spear, Twin Swords, Sword & Shield (tier 0)](037-wooden-weapons.md) | IN-PROGRESS | wcmmo | confirm |
 | 038 | [Weapon parts: main / off-hand stances, tiers, skins](038-weapon-parts-tiers-skins.md) | DRAFT | wcmmo | confirm |
 | 039 | [Equipment screen, worn weapons, combat mode](039-equipment-screen-worn-weapons.md) | DRAFT | wcmmo | confirm |
+| 040 | [Wooden Staff (two-handed) from the Zoltraak pack](040-wooden-staff-zoltraak.md) | IN-PROGRESS | wcmmo | confirm |
 
 Design intent lives in [`../gdd/wcmmo-gdd-v2.md`](../gdd/wcmmo-gdd-v2.md) (v1 is superseded); decisions `D-xx` are tracked there.
 Coming soon (GDD v2 §10–12, not specced): economy & trade, guild & node war, pets & mounts.

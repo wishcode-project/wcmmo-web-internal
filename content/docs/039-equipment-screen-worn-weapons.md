@@ -33,7 +33,7 @@ Restrictions use MMOInventory slot `restrictions` (`mmoitemstype{type=…}`) plu
 |---|---|---|
 | Weapon look | stance back model on the player (spec 037 / 038 format) | combat model in the hands |
 | Clicks | normal (eat, place, use items) | the kit: L = basic attack, combos, F guard / parry, skills 1–5 (D-75) |
-| Hand item | used normally | **not moved**, just not used (left / right click go to the weapon) |
+| Hand item | used normally | put aside while fighting: the kit's invisible **combat grip** takes the held slot (no bare arm or held item next to the weapon models), the item comes back on another slot / combat off / quit / death (owner, 2026-10-04; saved, so a crash gives it back on the next join) |
 | Enter / leave | tap Shift (or hit: left click enters) | tap Shift again; 5 s idle optional (decide in the PoC) |
 
 Nothing is ever moved between slots or into the hand, so no item can be lost.

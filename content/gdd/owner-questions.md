@@ -86,8 +86,8 @@ Full list with docs and overlaps: [`../docs/plugins.md`](../docs/plugins.md). Ow
 | M21 | Q buffs: which ones, and how are they learned (skill list missing)? | D-68 |
 | M22 | Weapon skills: is each pack move a skill of that weapon type only (Spear: Shove, Hard Swing…), and do the D-52 / spec 008 skill lists merge with them? | D-68, D-52 |
 | M23 | Off-hand weapon stats (D-69): full, half, or none? Does the off-hand sword add its own damage to dual-sword hits? | D-69 |
-| M24 | Packs to buy next: Greatsword, Hammer, Crossbow, Staff, Tome (none yet); Spear / Bow need guard + twirl animations; a single-sword set would help (D-69) | D-04, D-70 |
-| M25 | Staff stances (D-72): one-handed staff, dual staves, staff + shield, two-handed staff. Which animations (buy / make with the team), and does a one-handed staff cast the same bolts as the two-handed one? | D-72, D-04 |
+| M24 | Packs to buy next: Greatsword, Hammer, Crossbow, Staff, Tome (Staff: **Zoltraak**, 2026-10-04, spec 040); Spear / Bow need guard + twirl animations; a single-sword set would help (D-69) | D-04, D-70 |
+| M25 | Staff stances (D-72): one-handed staff, dual staves, staff + shield, two-handed staff. Which animations (buy / make with the team), and does a one-handed staff cast the same bolts as the two-handed one? **2026-10-04:** the two-handed staff borrows the spear's poses for now (spec 040) | D-72, D-04 |
 | M26 | How does the equipment screen open (D-77)? **Not with E**: Minecraft doesn't tell the server when a player opens their own inventory (only when it closes). Options: a button item in the E screen (MMOInventory has it), `/equip`, a free key combo, or a client mod. Owner: decide later | D-77 |
 | M5 | World map: cities, regions, Low/Mid/High zones | — |
 | M6 | Chapter 1 story outline | D-15b |
