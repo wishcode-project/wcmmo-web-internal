@@ -53,6 +53,13 @@ The kit has to cast the weapon moves (the weapon is not in the hand, so item tri
 | 5 | Tap Shift = combat mode, hand item untouched | weapons to the hands, clicks fight, Shift again = back |
 | 6 | Skill hotbar (D-75) on top | keys 1–5 cast in combat mode |
 
+## PoC progress
+
+| Step | Result (owner) | Notes |
+|---|---|---|
+| 1 | **Pass** 2026-10-04: follows, no twitch | Every weapon's combat model is on the player (`pv=true`); holders gone (they froze on the owner's server even with item-driven controls; cause unknown). The combat models' `idle` is renamed (`back_idle`, bow `held_idle`) so ModelEngine switches no state by itself. **Known issue (accepted for now):** the swords **flicker briefly when drawn**: the stance's own blades are transparent and the held item's part is swapped in 1 / 4 / 10 ticks after the model appears. Possible fix later: separate stance models per look (no swap), or keep the combat model on the player all the time and only hide / show it |
+| 2 | built, to test | the kit sends the swords' left click (`wcmmo_39_kit_input.sk`), right click still from the item |
+
 ## Data & IDs (proposed)
 
 | ID | Kind |
@@ -82,3 +89,4 @@ Disable the custom inventory, remove the kit's combat-mode code; spec 038 stance
 | Date | Repo | Run | Branch | Notes |
 |---|---|---|---|---|
 | 2026-10-04 | wcmmo-specs | — | — | Draft from the owner's idea (D-77) |
+| 2026-10-04 | wcmmo | — (PoC) | `feat/039-worn-weapons` | Step 1 pass (`1e209ac`), draw flicker noted; step 2 built |

@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-03T20:19:40.710Z",
-  "head": "19a4161",
+  "syncedAt": "2026-10-04T07:01:09.165Z",
+  "head": "dbf64b3",
   "branch": "main",
   "commits": [
+    {
+      "sha": "dbf64b3",
+      "date": "2026-10-04T14:00:55+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs(039): step 1 passed, draw flicker noted, step 2 built",
+      "insertions": 8,
+      "deletions": 0,
+      "files": 1
+    },
     {
       "sha": "19a4161",
       "date": "2026-10-04T03:19:28+07:00",
@@ -800,7 +809,7 @@
     "docs/036-wooden-bow.md": "2026-10-03T00:51:44+07:00",
     "docs/037-wooden-weapons.md": "2026-10-03T00:51:44+07:00",
     "docs/038-weapon-parts-tiers-skins.md": "2026-10-03T09:32:17+07:00",
-    "docs/039-equipment-screen-worn-weapons.md": "2026-10-04T03:19:28+07:00",
+    "docs/039-equipment-screen-worn-weapons.md": "2026-10-04T14:00:55+07:00",
     "docs/README.md": "2026-10-04T03:19:28+07:00",
     "docs/plugins.md": "2026-10-01T22:07:29+07:00",
     "docs/adr/0001-purpur-java25-zgc.md": "2026-09-25T00:46:05+07:00",
