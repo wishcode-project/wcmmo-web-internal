@@ -94,3 +94,5 @@ Disable the custom inventory, remove the kit's combat-mode code; spec 038 stance
 | 2026-10-04 | wcmmo | — (PoC) | `feat/039-worn-weapons` | Step 1 pass (`1e209ac`), draw flicker noted; step 2 built |
 | 2026-10-04 | wcmmo | — (PoC) | `feat/039-worn-weapons` | Step 2b built (D-78) |
 | 2026-10-04 | wcmmo | — (PoC) | `feat/039-worn-weapons` | Steps 3–5 built |
+| 2026-10-04 | wcmmo | — (PoC) | `feat/039-worn-weapons` | Worn-slot detection fixed (`6896d4c` ignore slot restrictions, `4952f51` slot id `weapon-right`); owner: weapons show on the back |
+| 2026-10-04 | wcmmo | — (PoC) | `feat/039-worn-weapons` | Combat grip (owner request): in combat mode the held slot shows the kit's invisible Nexo item `wcmmo_combat_grip` (no bare arm, no held item); a held item is stashed in a saved variable and comes back on another slot / combat off / quit / death / next join (`6e25552`, `8301373`); fix: never stashes a skill icon while fast scrolling (`a673a06`). Owner: pass |
