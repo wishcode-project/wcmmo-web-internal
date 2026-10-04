@@ -1,6 +1,6 @@
 # 039 — Equipment screen, worn weapons, combat mode
 
-> Status: DRAFT (PoC-gated) · Target: wcmmo (MMOInventory `inventory/`, Skript kit, MythicMobs, ModelEngine) · FIRE mode: confirm
+> Status: IN-PROGRESS (prototype PoC **PASS**, owner 2026-10-05) · Target: wcmmo (MMOInventory `inventory/`, Skript kit, MythicMobs, ModelEngine) · FIRE mode: confirm
 > Design: GDD v2 §3 / §4 · Decisions: **D-77** (this), D-69 / D-72 (stances, spec 038), D-75 (skill hotbar), D-68 / D-74 (controls, guard), D-66 (wings slot), D-44 (OPEN)
 > Open before READY: M26 (how the screen opens), the PoC below
 
@@ -58,9 +58,9 @@ The kit has to cast the weapon moves (the weapon is not in the hand, so item tri
 | Step | Result (owner) | Notes |
 |---|---|---|
 | 1 | **Pass** 2026-10-04: follows, no twitch | Every weapon's combat model is on the player (`pv=true`); holders gone (they froze on the owner's server even with item-driven controls; cause unknown). The combat models' `idle` is renamed (`back_idle`, bow `held_idle`) so ModelEngine switches no state by itself. **Known issue (accepted for now):** the swords **flicker briefly when drawn**: the stance's own blades are transparent and the held item's part is swapped in 1 / 4 / 10 ticks after the model appears. Possible fix later: separate stance models per look (no swap), or keep the combat model on the player all the time and only hide / show it |
-| 2 | built, to test | the kit sends the swords' left click (`wcmmo_39_kit_input.sk`), right click still from the item |
-| 2b | built, to test | D-78: the kit sends every click of the stance weapons (swords, shields, spear, bow): left click basic attack, right click tap parry / hold guard (Block with a shield), Shift + right click set swap; skills on hotbar keys 1–5 (10 skills); no combos; F free |
-| 3–5 | built, to test | `/equip` = the reworked MMOInventory screen (MU layout, slot ids `weapon_right` / `weapon_left`, lore tags "Main hand" / "Off-hand"); stance from the worn slots; **tap Shift = combat mode** (weapons to the hands, tap again = back); clicks / skills only in combat mode; hand item untouched. Owner choices 2026-10-04: weapons only work when worn; keys 1–5 only in combat mode; leave combat only by tapping Shift; all equipment slots now |
+| 2 | **Pass** 2026-10-05 | the kit sends the swords' left click (`wcmmo_39_kit_input.sk`), right click still from the item |
+| 2b | **Pass** 2026-10-05 | D-78: the kit sends every click of the stance weapons (swords, shields, spear, bow): left click basic attack, right click tap parry / hold guard (Block with a shield), Shift + right click set swap; skills on hotbar keys 1–5 (10 skills); no combos; F free |
+| 3–5 | **Pass** 2026-10-05 (owner: "OK for the prototype"; more later) | `/equip` = the reworked MMOInventory screen (MU layout, slot ids `weapon_right` / `weapon_left`, lore tags "Main hand" / "Off-hand"); stance from the worn slots; **tap Shift = combat mode** (weapons to the hands, tap again = back); clicks / skills only in combat mode; hand item untouched. Owner choices 2026-10-04: weapons only work when worn; keys 1–5 only in combat mode; leave combat only by tapping Shift; all equipment slots now |
 
 ## Data & IDs (proposed)
 
@@ -84,6 +84,8 @@ Disable the custom inventory, remove the kit's combat-mode code; spec 038 stance
 
 ## Open questions
 
+- Follow-ups after the PoC: slot restriction by lore tag doesn't block wrong items (the kit ignores them); draw flicker; Q / ultimate for worn weapons; vanilla hand damage; staff stances other than 2H (D-72).
+
 - M26 · how the screen opens. Combat mode: leave by Shift only, or also after 5 s idle (PoC step 5).
 
 ## Implementation log
@@ -95,4 +97,5 @@ Disable the custom inventory, remove the kit's combat-mode code; spec 038 stance
 | 2026-10-04 | wcmmo | — (PoC) | `feat/039-worn-weapons` | Step 2b built (D-78) |
 | 2026-10-04 | wcmmo | — (PoC) | `feat/039-worn-weapons` | Steps 3–5 built |
 | 2026-10-04 | wcmmo | — (PoC) | `feat/039-worn-weapons` | Worn-slot detection fixed (`6896d4c` ignore slot restrictions, `4952f51` slot id `weapon-right`); owner: weapons show on the back |
+| 2026-10-05 | wcmmo | — (PoC) | `develop` | **PoC pass** (owner): weapons PoC done for the prototype; follow-ups below stay open |
 | 2026-10-04 | wcmmo | — (PoC) | `feat/039-worn-weapons` | Combat grip (owner request): in combat mode the held slot shows the kit's invisible Nexo item `wcmmo_combat_grip` (no bare arm, no held item); a held item is stashed in a saved variable and comes back on another slot / combat off / quit / death / next join (`6e25552`, `8301373`); fix: never stashes a skill icon while fast scrolling (`a673a06`). Owner: pass |
