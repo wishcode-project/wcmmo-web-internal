@@ -30,7 +30,7 @@ export type IconName =
   | 'blood' | 'rune' | 'sword' | 'shield' | 'gem' | 'skull' | 'scroll' | 'house' | 'pickaxe'
   | 'fury' | 'ward' | 'pulse' | 'hammer' | 'bow' | 'staff' | 'orb'
   | 'rune-defence' | 'rune-offence' | 'rune-sustain' | 'rune-utility'
-  | 'ring' | 'totem' | 'wings'
+  | 'ring' | 'totem' | 'wings' | 'spear'
 
 interface FeatureText {
   title: string
@@ -103,13 +103,13 @@ export const features: Feature[] = [
       en: {
         title: 'Action combat',
         short: 'Dodge, guard and power through. Timing beats stats.',
-        body: 'Dash out of danger, block hits from the front, and push through crowd control with super armour. Cast skills with quick three-click combos, switch between two skill sets mid-fight, and when your Remnant gauge fills, unleash your weapon\'s ultimate. We are also experimenting with first-person weapon animations.',
+        body: 'Dash out of danger, block hits from the front, and push through crowd control with super armour. Tap Shift and your weapons come off your back, parry or guard with right click, cast skills from keys 1 to 5, and when your Remnant gauge fills, unleash your weapon\'s ultimate. We are also experimenting with first-person weapon animations.',
         tag: 'In prototyping',
       },
       th: {
         title: 'ระบบต่อสู้แบบแอคชัน',
         short: 'หลบ กัน และฝ่าไปข้างหน้า จังหวะสำคัญกว่าสเตตัส',
-        body: 'พุ่งหลบออกจากอันตราย ป้องกันการโจมตีจากด้านหน้า และฝ่าการควบคุมด้วย Super Armour ใช้สกิลด้วยคอมโบ 3 คลิก สลับชุดสกิลสองชุดกลางการต่อสู้ และเมื่อเกจ Remnant เต็ม ก็ปล่อยท่าไม้ตายของอาวุธได้ทันที นอกจากนี้เรากำลังทดลองแอนิเมชันอาวุธมุมมองบุคคลที่หนึ่งด้วย',
+        body: 'พุ่งหลบออกจากอันตราย ป้องกันการโจมตีจากด้านหน้า และฝ่าการควบคุมด้วย Super Armour แตะ Shift แล้วอาวุธจากหลังก็มาอยู่ในมือ ปัดป้องหรือการ์ดด้วยคลิกขวา ใช้สกิลจากปุ่ม 1 ถึง 5 และเมื่อเกจ Remnant เต็ม ก็ปล่อยท่าไม้ตายของอาวุธได้ทันที นอกจากนี้เรากำลังทดลองแอนิเมชันอาวุธมุมมองบุคคลที่หนึ่งด้วย',
         tag: 'กำลังทดสอบต้นแบบ',
       },
     },

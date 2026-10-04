@@ -44,11 +44,15 @@ export const guideUi: Dict<{
     usableWith: string
     slotsTitle: string
     slotsText: string
-    combosTitle: string
-    combosText: string
-    slot: (n: number) => string
-    comboMelee: string
-    comboBow: string
+    hotbarTitle: string
+    hotbarText: string
+    skillSlot: string
+    freeSlot: string
+    stancesTitle: string
+    stancesText: string
+    tiersTitle: string
+    tiersText: string
+    tiers: string[]
   }
   rn: {
     slots: string
@@ -146,19 +150,23 @@ export const guideUi: Dict<{
       mastery: (n) => `Mastery ${n}`,
       tags: { 'guard-break': 'Breaks guard', heavy: 'Heavy', charge: 'Charge', ultimate: 'Ultimate' },
       remnantTitle: 'The Remnant gauge',
-      remnantText: 'Ultimates have no cooldown. They use the Remnant, a gauge that fills while you fight: hits, skills that land, and blows you take all push it up, and it never drains while you wait. At 100, press Q. You cannot be knocked around while an ultimate plays out.',
+      remnantText: 'Ultimates have no cooldown. They use the Remnant, a gauge that fills while you fight: hits, skills that land, and blows you take all push it up, and it never drains while you wait. At 100, press Shift + Q. You cannot be knocked around while an ultimate plays out.',
       general: 'General skills',
       generalText: 'Work with any weapon. Learned in the tutorial, from level-ups and from trainers in the cities.',
       orbs: 'Orb skills',
       orbsText: 'Use a Skill Orb, bought from the Orb Merchant or dropped by monsters, to learn an extra skill. About as strong as a mid-tier weapon skill, never stronger than a weapon’s best.',
       usableWith: 'Usable with',
       slotsTitle: 'Your skills, your loadout',
-      slotsText: 'Skills belong to you, not to the weapon. Any skill you own goes in any of ten slots (two sets of five), plus one ultimate slot. The weapon in your hand only decides whether a skill can be used right now. Switch weapons whenever you like: the new weapon can’t make basic attacks for 5 seconds, but skills still work.',
-      combosTitle: 'Casting with 3-click combos',
-      combosText: 'Skills are cast with three quick clicks, so the number keys stay a normal hotbar. Bows and crossbows use the same combos mirrored.',
-      slot: (n) => `Slot ${n}`,
-      comboMelee: 'Melee & magic',
-      comboBow: 'Bow & crossbow',
+      slotsText: 'Skills belong to you, not to the weapon. Pick ten of the skills you own: set 1 sits on keys 1–5, set 2 swaps in with Shift + right click. A skill that needs another weapon’s moves shows greyed out until you wear that weapon.',
+      hotbarTitle: 'The hotbar',
+      hotbarText: 'Slots 1–5 always hold your skill icons, never items, so nothing of yours can get lost. Slots 6–9 are yours for potions and food. Weapons aren’t held at all: you wear them.',
+      skillSlot: 'skill',
+      freeSlot: 'free',
+      stancesTitle: 'Weapons you wear',
+      stancesText: 'Weapons go in two slots on your equipment screen, a right hand and a left hand, and hang on your back until you tap Shift. What you wear in the two slots decides your stance and its moves. Two-handed weapons need the left hand empty.',
+      tiersTitle: 'Tiers and skins',
+      tiersText: 'Every weapon comes in three looks as it gets better. A skin swaps the look and nothing else.',
+      tiers: ['Wood', 'Iron', 'Master-crafted'],
     },
     rn: {
       slots: 'Rune slots',
@@ -269,19 +277,23 @@ export const guideUi: Dict<{
       mastery: (n) => `ความชำนาญ ${n}`,
       tags: { 'guard-break': 'ทำลายการป้องกัน', heavy: 'หนัก', charge: 'พุ่งชน', ultimate: 'ท่าไม้ตาย' },
       remnantTitle: 'เกจ Remnant',
-      remnantText: 'ท่าไม้ตายไม่มีคูลดาวน์ แต่ใช้ Remnant เกจที่เต็มขึ้นระหว่างต่อสู้ ทั้งการโจมตีที่โดน สกิลที่เข้าเป้า และการโดนตี จะเพิ่มเกจขึ้น และเกจไม่ลดลงเองระหว่างรอ พอเต็ม 100 กด Q ระหว่างใช้ท่าไม้ตายคุณจะไม่ถูกผลักหรือสตัน',
+      remnantText: 'ท่าไม้ตายไม่มีคูลดาวน์ แต่ใช้ Remnant เกจที่เต็มขึ้นระหว่างต่อสู้ ทั้งการโจมตีที่โดน สกิลที่เข้าเป้า และการโดนตี จะเพิ่มเกจขึ้น และเกจไม่ลดลงเองระหว่างรอ พอเต็ม 100 กด Shift + Q ระหว่างใช้ท่าไม้ตายคุณจะไม่ถูกผลักหรือสตัน',
       general: 'สกิลทั่วไป',
       generalText: 'ใช้ได้กับทุกอาวุธ เรียนได้จาก tutorial การเลเวลอัป และครูฝึกในเมือง',
       orbs: 'สกิลจาก Orb',
       orbsText: 'ใช้ Skill Orb ที่ซื้อจาก Orb Merchant หรือดรอปจากมอนสเตอร์ เพื่อเรียนสกิลเพิ่ม ความแรงประมาณสกิลอาวุธระดับกลาง และไม่มีทางแรงกว่าสกิลที่ดีที่สุดของอาวุธ',
       usableWith: 'ใช้ได้กับ',
       slotsTitle: 'สกิลของคุณ จัดชุดเองได้',
-      slotsText: 'สกิลเป็นของคุณ ไม่ได้ผูกกับอาวุธ สกิลไหนที่คุณมีก็ใส่ได้ในทั้ง 10 ช่อง (สองชุด ชุดละ 5) และมีช่องท่าไม้ตายอีก 1 ช่อง อาวุธที่ถืออยู่กำหนดแค่ว่าตอนนี้ใช้สกิลนั้นได้ไหม เปลี่ยนอาวุธได้ตลอด แต่อาวุธใหม่จะโจมตีพื้นฐานไม่ได้ 5 วินาที ส่วนสกิลยังใช้ได้',
-      combosTitle: 'ใช้สกิลด้วยคอมโบ 3 คลิก',
-      combosText: 'สกิลใช้ด้วยการคลิกเร็ว 3 ครั้ง ปุ่มตัวเลขจึงยังเป็น hotbar ปกติ ธนูและหน้าไม้ใช้คอมโบเดียวกันแบบกลับด้าน',
-      slot: (n) => `ช่อง ${n}`,
-      comboMelee: 'ประชิดและเวท',
-      comboBow: 'ธนูและหน้าไม้',
+      slotsText: 'สกิลเป็นของคุณ ไม่ได้ผูกกับอาวุธ เลือกสกิลที่มีได้ 10 ตัว ชุดที่ 1 อยู่ที่ปุ่ม 1–5 ชุดที่ 2 สลับเข้ามาด้วย Shift + คลิกขวา สกิลที่ต้องใช้ท่าของอาวุธอื่นจะเป็นสีเทาจนกว่าคุณจะสวมอาวุธนั้น',
+      hotbarTitle: 'Hotbar',
+      hotbarText: 'ช่อง 1–5 เป็นไอคอนสกิลเสมอ ไม่ใช่ไอเทม ของของคุณจึงไม่มีทางหาย ช่อง 6–9 ใช้ใส่ยาและอาหารได้ตามใจ ส่วนอาวุธไม่ต้องถือ เพราะคุณสวมมันไว้',
+      skillSlot: 'สกิล',
+      freeSlot: 'ว่าง',
+      stancesTitle: 'อาวุธที่สวมใส่',
+      stancesText: 'อาวุธใส่ไว้ในสองช่องบนหน้าจออุปกรณ์ คือมือขวาและมือซ้าย และสะพายอยู่บนหลังจนกว่าคุณจะแตะ Shift อาวุธที่สวมในสองช่องนี้กำหนดท่าทางการต่อสู้และท่าที่ใช้ได้ อาวุธสองมือต้องเว้นมือซ้ายให้ว่าง',
+      tiersTitle: 'ระดับและสกิน',
+      tiersText: 'อาวุธทุกชิ้นมี 3 หน้าตาตามความดีขึ้นของมัน สกินเปลี่ยนแค่หน้าตา ไม่เปลี่ยนอย่างอื่น',
+      tiers: ['ไม้', 'เหล็ก', 'ช่างฝีมือ'],
     },
     rn: {
       slots: 'ช่องรูน',

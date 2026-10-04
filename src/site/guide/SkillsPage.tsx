@@ -1,9 +1,11 @@
 import { useSearchParams } from 'react-router-dom'
 import { useDict, useLang } from '../../shared/i18n'
 import { PixelIcon } from '../PixelIcon'
-import { combos, controls, generalSkills, laterWeapons, orbSkills, weapons, type Skill } from './data'
+import { controls, stances, generalSkills, laterWeapons, orbSkills, weapons, type Skill } from './data'
 import { GuideTitle, Stone, Tooltip } from './parts'
 import { guideUi } from './ui'
+
+const tierColor = ['#b07a4a', '#c9d1d9', '#ffc94b']
 
 const tagColor: Record<string, string> = { 'guard-break': '#ffc94b', heavy: '#e0604c', charge: '#f08a3a', ultimate: '#c77dd9' }
 
@@ -52,28 +54,49 @@ export function SkillsPage() {
             <p className="mt-1 text-sm text-paper-muted">{t.slotsText}</p>
           </div>
           <div>
-            <h3 className="font-display text-bark-dark">{t.combosTitle}</h3>
-            <p className="mt-1 text-sm text-paper-muted">{t.combosText}</p>
-            <table className="mt-2 w-full text-sm">
-              <thead>
-                <tr className="bg-bark text-left font-display text-cream">
-                  <th className="px-3 py-1.5 font-normal" />
-                  <th className="px-3 py-1.5 font-normal">{t.comboMelee}</th>
-                  <th className="px-3 py-1.5 font-normal">{t.comboBow}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {combos.map((c) => (
-                  <tr key={c.slot} className="border-b border-bark/25">
-                    <td className="px-3 py-1.5 text-paper-muted">{t.slot(c.slot)}</td>
-                    <td className="px-3 py-1.5 font-mono font-bold text-bark-dark">{c.melee}</td>
-                    <td className="px-3 py-1.5 font-mono font-bold text-bark-dark">{c.bow}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <h3 className="font-display text-bark-dark">{t.hotbarTitle}</h3>
+            <p className="mt-1 text-sm text-paper-muted">{t.hotbarText}</p>
+            <ol className="mt-3 grid grid-cols-9 gap-1" aria-label={t.hotbarTitle}>
+              {Array.from({ length: 9 }, (_, i) => (
+                <li
+                  key={i}
+                  className={`flex aspect-square flex-col items-center justify-center text-center shadow-[inset_0_0_0_2px_var(--color-bark)] ${i < 5 ? 'bg-bark-dark text-gold' : 'bg-paper-light/60 text-paper-muted'}`}
+                >
+                  <span className="font-display text-sm leading-none">{i + 1}</span>
+                  <span className="mt-0.5 text-[9px] leading-none sm:text-[10px]">{i < 5 ? t.skillSlot : t.freeSlot}</span>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
+      </section>
+
+      <section className="paper p-5">
+        <GuideTitle>{t.stancesTitle}</GuideTitle>
+        <p className="mb-4 text-sm text-paper-muted">{t.stancesText}</p>
+        <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          {stances.map((x) => (
+            <li key={x.name.en} className="flex items-center gap-3 bg-paper-light/60 px-3 py-2 shadow-[inset_0_0_0_1px_rgb(96_76_57_/_0.3)]">
+              <PixelIcon name={x.icon} className="size-8 shrink-0" />
+              <span className="min-w-0">
+                <span className="block font-display text-bark-dark">{x.name[lang]}</span>
+                <span className="block text-xs text-paper-muted">{x.how[lang]}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+        <h3 className="mt-5 font-display text-bark-dark">{t.tiersTitle}</h3>
+        <p className="mt-1 text-sm text-paper-muted">{t.tiersText}</p>
+        <ol className="mt-2 flex flex-wrap items-center gap-2 text-sm">
+          {t.tiers.map((name, i) => (
+            <li key={name} className="flex items-center gap-2">
+              {i > 0 && <span className="text-paper-muted">→</span>}
+              <span className="bg-[#120812] px-2 py-0.5 font-display" style={{ color: tierColor[i] }}>
+                {i + 1} · {name}
+              </span>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section>
@@ -127,7 +150,7 @@ export function SkillsPage() {
 
       <section className="paper grid gap-4 p-5 md:grid-cols-[auto_minmax(0,1fr)] md:items-center">
         <div className="grid size-24 place-items-center justify-self-center rounded-full bg-bark-dark shadow-[0_0_0_4px_#c77dd9,0_0_24px_rgb(199_125_217_/_0.6)]">
-          <span className="font-display text-3xl text-[#f3d6ff]">Q</span>
+          <span className="font-display text-2xl text-[#f3d6ff]">⇧ Q</span>
         </div>
         <div>
           <GuideTitle>{t.remnantTitle}</GuideTitle>

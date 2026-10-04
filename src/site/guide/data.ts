@@ -241,22 +241,24 @@ export const orbSkills: (Skill & { who: T })[] = [
 ]
 
 export const controls: { key: string; text: T }[] = [
-  { key: 'LMB', text: { en: 'basic attack (melee, magic bolt)', th: 'โจมตีพื้นฐาน (ประชิด, ลูกเวท)' } },
-  { key: 'RMB', text: { en: 'basic shot: bows fire instantly', th: 'ยิงพื้นฐาน: ธนูยิงออกทันที' } },
-  { key: 'R-L-R', text: { en: '3-click combo: casts a slot of the active set', th: 'คอมโบ 3 คลิก: ใช้สกิลในช่องของชุดที่เลือกอยู่' } },
-  { key: 'F', text: { en: 'switch skill set 1 ↔ 2', th: 'สลับชุดสกิล 1 ↔ 2' } },
-  { key: 'Shift', text: { en: 'guard (hold)', th: 'ป้องกัน (กดค้าง)' } },
-  { key: 'Q', text: { en: 'ultimate, when the Remnant gauge is full', th: 'ท่าไม้ตาย เมื่อเกจ Remnant เต็ม' } },
-  { key: '1–9', text: { en: 'plain hotbar: weapons, potions, food', th: 'hotbar ปกติ: อาวุธ ยา อาหาร' } },
+  { key: 'Shift', text: { en: 'tap: combat mode, your weapons come from your back to your hands (tap again to put them away)', th: 'แตะ: เข้าโหมดต่อสู้ อาวุธจากหลังมาอยู่ในมือ (แตะอีกครั้งเพื่อเก็บ)' } },
+  { key: 'LMB', text: { en: 'basic attack: every weapon, bows too', th: 'โจมตีพื้นฐาน: ทุกอาวุธ รวมถึงธนู' } },
+  { key: 'RMB', text: { en: 'tap in time: parry · hold: guard (block with a shield)', th: 'แตะให้ทันจังหวะ: ปัดป้อง · กดค้าง: การ์ด (ถ้ามีโล่คือบล็อก)' } },
+  { key: '1–5', text: { en: 'cast the skills of your active set', th: 'ใช้สกิลในชุดที่เลือกอยู่' } },
+  { key: '⇧ + RMB', text: { en: 'switch skill set 1 ↔ 2', th: 'สลับชุดสกิล 1 ↔ 2' } },
+  { key: 'Q', text: { en: 'your buff skill', th: 'สกิลบัฟของคุณ' } },
+  { key: '⇧ + Q', text: { en: 'ultimate, when the Remnant gauge is full', th: 'ท่าไม้ตาย เมื่อเกจ Remnant เต็ม' } },
+  { key: '6–9', text: { en: 'free slots: potions, food, anything', th: 'ช่องว่าง: ยา อาหาร หรืออะไรก็ได้' } },
 ]
 
-/** The five 3-click combos (spec 007). Bows mirror them: left and right swapped. */
-export const combos: { slot: number; melee: string; bow: string }[] = [
-  { slot: 1, melee: 'R-L-R', bow: 'L-R-L' },
-  { slot: 2, melee: 'R-R-R', bow: 'L-L-L' },
-  { slot: 3, melee: 'R-L-L', bow: 'L-R-R' },
-  { slot: 4, melee: 'R-R-L', bow: 'L-L-R' },
-  { slot: 5, melee: 'L-R-L', bow: 'R-L-R' },
+/** Weapon stances (spec 038, D-69 / D-72): the pair of worn weapons picks the stance. */
+export const stances: { name: T; how: T; icon: IconName }[] = [
+  { name: { en: 'Single sword', th: 'ดาบเดี่ยว' }, how: { en: 'one sword, other hand empty', th: 'ดาบ 1 เล่ม อีกมือว่าง' }, icon: 'sword' },
+  { name: { en: 'Dual swords', th: 'ดาบคู่' }, how: { en: 'a sword in each hand', th: 'ดาบมือละเล่ม' }, icon: 'sword' },
+  { name: { en: 'Sword & shield', th: 'ดาบและโล่' }, how: { en: 'guarding becomes a full block', th: 'การ์ดกลายเป็นบล็อกเต็มรูปแบบ' }, icon: 'shield' },
+  { name: { en: 'Spear', th: 'หอก' }, how: { en: 'two-handed, long reach', th: 'สองมือ ระยะยาว' }, icon: 'spear' },
+  { name: { en: 'Bow', th: 'ธนู' }, how: { en: 'two-handed, left click shoots', th: 'สองมือ คลิกซ้ายยิง' }, icon: 'bow' },
+  { name: { en: 'Staff', th: 'คทา' }, how: { en: 'two-handed now; one-handed, dual and staff & shield later', th: 'ตอนนี้แบบสองมือ ต่อไปจะมีมือเดียว คู่ และคทากับโล่' }, icon: 'staff' },
 ]
 
 // ── Runes ───────────────────────────────────────────────────────────────────
