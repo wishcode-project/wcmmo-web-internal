@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-04T07:01:09.165Z",
-  "head": "dbf64b3",
+  "syncedAt": "2026-10-04T07:31:00.676Z",
+  "head": "5dd1217",
   "branch": "main",
   "commits": [
+    {
+      "sha": "5dd1217",
+      "date": "2026-10-04T14:30:48+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: D-78 right click guard / parry, skills on keys 1-5, no combos, F free (spec 039 step 2b)",
+      "insertions": 4,
+      "deletions": 0,
+      "files": 2
+    },
     {
       "sha": "dbf64b3",
       "date": "2026-10-04T14:00:55+07:00",
@@ -809,7 +818,7 @@
     "docs/036-wooden-bow.md": "2026-10-03T00:51:44+07:00",
     "docs/037-wooden-weapons.md": "2026-10-03T00:51:44+07:00",
     "docs/038-weapon-parts-tiers-skins.md": "2026-10-03T09:32:17+07:00",
-    "docs/039-equipment-screen-worn-weapons.md": "2026-10-04T14:00:55+07:00",
+    "docs/039-equipment-screen-worn-weapons.md": "2026-10-04T14:30:48+07:00",
     "docs/README.md": "2026-10-04T03:19:28+07:00",
     "docs/plugins.md": "2026-10-01T22:07:29+07:00",
     "docs/adr/0001-purpur-java25-zgc.md": "2026-09-25T00:46:05+07:00",
@@ -821,6 +830,6 @@
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
     "gdd/trailer.md": "2026-09-30T00:24:58+07:00",
     "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",
-    "gdd/wcmmo-gdd-v2.md": "2026-10-04T03:19:28+07:00"
+    "gdd/wcmmo-gdd-v2.md": "2026-10-04T14:30:48+07:00"
   }
 }
