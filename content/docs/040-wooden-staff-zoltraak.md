@@ -6,8 +6,8 @@
 
 ## Big picture
 
-- **Player story:** I wear a Wooden Staff in the right weapon slot (left empty). It hangs on my back; tap Shift and I hold it in both hands, left click fires a Zoltraak beam, keys 1–5 cast Zoltraak Barrage and Double Jump.
-- **Owner, 2026-10-04:** two-handed staff first; tier 1 **wood** look like the other packs (the pack's purple = a later tier); ModelEngine models like the other weapons; Barrage and Double Jump are **skills on keys 1–5** (F stays free); the pack itself is installed **as it is, apart from ours**.
+- **Player story:** I wear a Wooden Staff in the right weapon slot (left empty). It hangs on my back; tap Shift and I hold it like the pack's staff, left click fires a Zoltraak beam, keys 1–5 cast Zoltraak Barrage and Double Jump.
+- **Owner, 2026-10-04:** two-handed staff first; tier 1 **wood** look like the other packs (the pack's purple = a later tier); on the back our ModelEngine model; **2026-10-05: in the hands it is held like the pack's own staff (the item), not a ModelEngine model**; Barrage and Double Jump are **skills on keys 1–5** (F stays free); the pack itself is installed **as it is, apart from ours**.
 - **Done means:** the test plan below passes in game.
 
 ## What is installed
@@ -16,19 +16,16 @@
 |---|---|---|
 | **The pack as it is** | `MythicMobs/{items,skills,mobs}/zoltraak_*.yml`, `ModelEngine/blueprints/zoltraak/`, `Nexo/items/zoltraak.yml`, Nexo `zoltraak_model` / `zoltraak_textures` | Untouched; item `zoltraak_staff` (held, the pack's own controls) |
 | Wooden Staff item | MythicMobs `wcmmo_item_staff_wood` (COAL, Model 6951), Nexo `wcmmo_staff_wood` | Lore `Main hand · two-handed` (equipment screen restriction, spec 039) |
-| Models | `ModelEngine/blueprints/wcmmo/staff_wood/`: `wcmmo_staff_wood` (back), `_combat` (hands), `_beam` | Built by `scripts/staff_wood.py` |
+| Models | `ModelEngine/blueprints/wcmmo/staff_wood/`: `wcmmo_staff_wood` (back), `_beam` | Built by `scripts/staff_wood.py` |
+| Staff in the hand | Nexo `wcmmo_staff_wood_held` (IRON_SPEAR like the pack, CMD 6952) | The kit's combat grip for `staff2h` (spec 039): put in the held slot in combat mode, the held item put aside; spear charge / pierce and attack damage removed, the stab swing kept |
 | Skills | `MythicMobs/skills/wcmmo_staff_wood.yml`, mob `wcmmo_mob_staff_wood_beam` | |
 | Kit | stance `staff2h` (`wcmmo_38_stance.sk`), skills in `wcmmo_00_config.sk` | two-handed: left slot must be empty |
 
 ## Models
 
-The pack's staff is only a Nexo item: **no player animations**. `scripts/staff_wood.py` takes the Wooden Spear's (spec 037) back and combat models and puts the staff mesh on the spear bone, so the staff uses the spear's two-handed poses:
-
-- back: the spear's baked back pose (diagonal, `pv=true`, no animations)
-- combat: `combat_idle`, `combat_to_idle`, **`cast`** (the spear's thrust at 0.4× length, for the beam), **`barrage`** (the thrust)
-- texture: wood ramp; the purple crystal / inlays become pale wood. The beam keeps the pack's purple.
-
-Real staff animations are still wanted (M25); swapping them in later only changes the model files.
+- **Back:** `scripts/staff_wood.py` puts the staff mesh on the Wooden Spear's (spec 037) baked back pose (diagonal, `pv=true`, no animations).
+- **Hands (combat mode):** no ModelEngine model. The pack's staff is an item held in the hand with its own look (IRON_SPEAR: stab swing on left click), so the kit's combat grip shows the wood staff item there (owner, 2026-10-05). First tried: the spear's two-handed poses with the staff mesh (dropped).
+- Texture: wood ramp; the purple crystal / inlays become pale wood. The beam keeps the pack's purple.
 
 ## Controls (combat mode, spec 039)
 
@@ -42,7 +39,7 @@ Real staff animations are still wanted (M25); swapping them in later only change
 ## Test plan
 
 1. `/mm items give <you> wcmmo_item_staff_wood`, put it in **Weapon right** in `/equip`: the staff shows on the back. Something in **Weapon left** → "two-handed" warning, no fighting.
-2. Tap Shift: the staff comes to both hands; tap again: back on the back.
+2. Tap Shift: the staff leaves the back and is in the hand like the pack's staff (the held item comes back after); tap again: back on the back. Right click hold does not charge like a spear.
 3. L: beam, hits and slows a dummy; in the air: hang, then slow fall.
 4. Put Zoltraak Barrage and Double Jump in `/skills`, cast with keys 1–5 in combat mode; Barrage with no enemy hits the spot ahead.
 5. The pack's own `zoltraak_staff` still works as the pack made it (held).
@@ -52,3 +49,4 @@ Real staff animations are still wanted (M25); swapping them in later only change
 | Date | Repo | FIRE run | PR / branch | Notes |
 |---|---|---|---|---|
 | 2026-10-04 | wcmmo | — | `feat/040-staff-zoltraak` | Pack installed as is; Wooden Staff models, skills, stance `staff2h` |
+| 2026-10-05 | wcmmo | — | `feat/040-staff-zoltraak` | Kick fixed (`0887db2`: the pack's `lunge{v=0} @forward{f=0}` = NaN velocity; air hover by velocity, not stun); staff held as the pack's item in combat mode (`05d24e1`) |
