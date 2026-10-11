@@ -8,6 +8,7 @@
 > - **One loadout of 10 skills** for every weapon (set 1 = 1–5, set 2 = 6–10). **Shift + right click** switches the set. Skills that need another stance show greyed out. D-73 (per-stance loadouts) is superseded.
 > - ~~Tap Shift = draw / sheathe~~ (D-76) **tried and dropped the same day**: attacking draws the weapon, 5 s after the last hit it goes back on the back; keys 1–5 cast whenever a weapon is held.
 > - 3-click combos stay as a bonus (cast the active set). Q buff, Shift + Q ultimate, F guard / parry, Shift + F twirl unchanged.
+> - **Owner, 2026-10-12:** the skill slots are up **only while a weapon is worn** (equipment screen, D-77). Without one, hotbar slots 1–5 are normal item slots. Putting a weapon on puts the items in slots 1–5 aside (saved per slot) and shows the skill icons; taking the weapon off gives every item back to its own slot. Death drops them like the rest (kept with keepInventory); on quit they go back into the slots (spec 039).
 > - Built in `wcmmo_33_hotbar.sk` (2026-10-04). Known limit: scrolling onto slots 1–5 counts as a key press.
 
 > Filename kept for history: the spec was "classes & skill bars" before GDD v2 removed classes, then "skill bars" before D-68 removed the bar swap.

@@ -36,7 +36,17 @@ Restrictions use MMOInventory slot `restrictions` (`mmoitemstype{type=…}`) plu
 | Hand item | used normally | put aside while fighting: the kit's invisible **combat grip** takes the held slot (no bare arm or held item next to the weapon models), the item comes back on another slot / combat off / quit / death (owner, 2026-10-04; saved, so a crash gives it back on the next join) |
 | Enter / leave | tap Shift (or hit: left click enters) | tap Shift again; 5 s idle optional (decide in the PoC) |
 
-Nothing is ever moved between slots or into the hand, so no item can be lost.
+### Hotbar while a weapon is worn (owner, 2026-10-12)
+
+| | No weapon worn | Weapon worn |
+|---|---|---|
+| Slots 1–5 | the player's items, as in vanilla | **skill icons** (grey panes out of combat mode); the items that were there are **put aside, one per slot** |
+| Slots 6–9 | the player's | the player's; the held one shows the combat grip in combat mode (above) |
+| Weapon taken off | — | every item comes back to **its own slot** |
+
+- The items put aside are saved variables (`{wcmmo::hotbar::stash::<player>::<1..5>}`); on quit they go back into the slots, so the save file holds real items; they are put aside again on the next join.
+- Death: they drop like the rest of the inventory (kept with keepInventory).
+- Revises "nothing is ever moved": weapons are still never moved; hotbar items are put aside and given back by the kit.
 
 ## Prerequisite: no combat holder
 
@@ -99,3 +109,4 @@ Disable the custom inventory, remove the kit's combat-mode code; spec 038 stance
 | 2026-10-04 | wcmmo | — (PoC) | `feat/039-worn-weapons` | Worn-slot detection fixed (`6896d4c` ignore slot restrictions, `4952f51` slot id `weapon-right`); owner: weapons show on the back |
 | 2026-10-04 | wcmmo | — (PoC) | `feat/039-worn-weapons` | Combat grip (owner request): in combat mode the held slot shows the kit's invisible Nexo item `wcmmo_combat_grip` (no bare arm, no held item); a held item is stashed in a saved variable and comes back on another slot / combat off / quit / death / next join (`6e25552`, `8301373`); fix: never stashes a skill icon while fast scrolling (`a673a06`). Owner: pass |
 | 2026-10-05 | wcmmo | — (PoC) | `develop` | **PoC pass** (owner): weapons PoC done for the prototype; follow-ups in Open questions stay open |
+| 2026-10-12 | wcmmo | — | `feat/040-staff-zoltraak` | Skill slots 1–5 only while a weapon is worn; items there put aside and given back per slot (D-75 revised, `wcmmo_33_hotbar.sk`) |
