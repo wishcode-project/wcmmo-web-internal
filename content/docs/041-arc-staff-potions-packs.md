@@ -30,8 +30,9 @@
 | Arc Staff R | Thunder Impact: 1 s charge, projectile, 15 damage + slow in 2.5 blocks, cd 3 s |
 | Arc Grimoire Shift + L | Teleport |
 | Red potion S / L | heal 20 % / 40 % HP, cd 3 s |
-| Yellow | Resistance + Fire Resistance 8 s / 16 s |
-| Purple, Blue, Green | see `lsi_potion_skills_crucible.yml` |
+| Purple S / L | Resistance + Fire Resistance 8 s / 16 s |
+| Yellow S / L | Regeneration 1.5 s + Health Boost 10 s / 20 s |
+| **Blue, Green** | **no effect in the pack** (drink animation and VFX only; the pack leaves the effect to us) |
 | EXP S / L | +100 / +200 vanilla XP points |
 
 ## Test plan
@@ -42,7 +43,7 @@
 ## Open questions
 
 - **Arc Staff in our system:** a second worn two-handed staff (wood tier look like spec 040, or the pack's purple as a higher tier)? Energy Orb / Thunder Impact / Teleport as **skills on keys 1–5** for the staff stance? The Grimoire as an off-hand item (D-72 staff + off-hand) or only its Teleport as a skill?
-- **Potions in our system:** which effects map to ours (HP / Mana / Stamina, spec 005); the EXP potion gives vanilla XP, not ours (spec 028); hotbar slots 6–9 use; MMOItems version when D-44 is decided.
+- **Potions in our system:** which effects map to ours (HP / Mana / Stamina, spec 005); blue and green are empty in the pack, so blue = Mana and green = Stamina would fit; the EXP potion gives vanilla XP, not ours (spec 028); hotbar slots 6–9 use; MMOItems version when D-44 is decided.
 
 ## Implementation log
 
