@@ -59,3 +59,4 @@
 | 2026-10-05 | wcmmo | — | `feat/040-staff-zoltraak` | Hotbar shows the combat grip's cross like every weapon (item model `wcmmo:staff_wood_held`: cross in the GUI, staff in the hand); owner: prototype OK |
 | 2026-10-05 | wcmmo | — | `feat/040-staff-zoltraak` | Kick fixed (`0887db2`: the pack's `lunge{v=0} @forward{f=0}` = NaN velocity; air hover by velocity, not stun); staff held as the pack's item in combat mode (`05d24e1`) |
 | 2026-10-05 | wcmmo-specs | — | — | Owner: prototype OK; the pack's kick noted (Known issues 1), not fixed |
+| 2026-10-13 | wcmmo | — | `develop` | Merged (`e97ea66`) |

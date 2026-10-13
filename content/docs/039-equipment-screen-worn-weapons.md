@@ -110,3 +110,4 @@ Disable the custom inventory, remove the kit's combat-mode code; spec 038 stance
 | 2026-10-04 | wcmmo | — (PoC) | `feat/039-worn-weapons` | Combat grip (owner request): in combat mode the held slot shows the kit's invisible Nexo item `wcmmo_combat_grip` (no bare arm, no held item); a held item is stashed in a saved variable and comes back on another slot / combat off / quit / death / next join (`6e25552`, `8301373`); fix: never stashes a skill icon while fast scrolling (`a673a06`). Owner: pass |
 | 2026-10-05 | wcmmo | — (PoC) | `develop` | **PoC pass** (owner): weapons PoC done for the prototype; follow-ups in Open questions stay open |
 | 2026-10-12 | wcmmo | — | `feat/040-staff-zoltraak` | Skill slots 1–5 only while a weapon is worn; items there put aside and given back per slot (D-75 revised, `wcmmo_33_hotbar.sk`) |
+| 2026-10-13 | wcmmo | — | `develop` | D-75 revision (skill slots only while a weapon is worn) merged (`e97ea66`) |

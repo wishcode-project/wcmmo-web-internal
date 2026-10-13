@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-13T07:16:31.801Z",
-  "head": "7896071",
+  "syncedAt": "2026-10-13T07:18:20.242Z",
+  "head": "42cb3b5",
   "branch": "main",
   "commits": [
+    {
+      "sha": "42cb3b5",
+      "date": "2026-10-13T14:18:04+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: 040 / 039 / 003 merged into develop",
+      "insertions": 3,
+      "deletions": 0,
+      "files": 3
+    },
     {
       "sha": "7896071",
       "date": "2026-10-13T14:16:19+07:00",
@@ -863,7 +872,7 @@
     "docs/000-template.md": "2026-09-25T00:46:05+07:00",
     "docs/001-server-baseline.md": "2026-09-28T22:55:03+07:00",
     "docs/002-plugin-stack.md": "2026-10-01T22:23:49+07:00",
-    "docs/003-void-overworld.md": "2026-10-13T14:16:19+07:00",
+    "docs/003-void-overworld.md": "2026-10-13T14:18:04+07:00",
     "docs/004-roadmap-phase-plan.md": "2026-10-02T01:59:24+07:00",
     "docs/005-vitality-resources.md": "2026-10-02T00:07:23+07:00",
     "docs/006-attributes-stat-gating.md": "2026-10-02T00:07:23+07:00",
@@ -899,8 +908,8 @@
     "docs/036-wooden-bow.md": "2026-10-03T00:51:44+07:00",
     "docs/037-wooden-weapons.md": "2026-10-03T00:51:44+07:00",
     "docs/038-weapon-parts-tiers-skins.md": "2026-10-03T09:32:17+07:00",
-    "docs/039-equipment-screen-worn-weapons.md": "2026-10-12T01:05:09+07:00",
-    "docs/040-wooden-staff-zoltraak.md": "2026-10-05T01:32:05+07:00",
+    "docs/039-equipment-screen-worn-weapons.md": "2026-10-13T14:18:04+07:00",
+    "docs/040-wooden-staff-zoltraak.md": "2026-10-13T14:18:04+07:00",
     "docs/README.md": "2026-10-13T14:16:19+07:00",
     "docs/plugins.md": "2026-10-01T22:07:29+07:00",
     "docs/adr/0001-purpur-java25-zgc.md": "2026-09-25T00:46:05+07:00",

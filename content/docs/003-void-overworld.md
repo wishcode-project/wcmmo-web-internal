@@ -66,3 +66,4 @@ Void world: near-zero chunk gen cost. Mob spawning is still on (`spawning.monste
 | 2026-09-23 | wcmmo | — (pre-FIRE) | — | `f18c219` |
 | 2026-10-01 | wcmmo | `run-wcmmo-001` (autopilot) | branch `fix/003-void-world-example` | `846f3d3`: example matches the spec; `.yamllint` ignores vendor UltimateUI editor files. The Mac dev box world was made from the old example (normal terrain): regenerate it |
 | 2026-10-13 | wcmmo | — | branch `feat/040-staff-zoltraak` | `81fc179`: hub map `spawn` is the default world and tracked (owner); `766046d` / `b8278ec` earlier steps |
+| 2026-10-13 | wcmmo | — | `develop` | Merged (`e97ea66`) |
