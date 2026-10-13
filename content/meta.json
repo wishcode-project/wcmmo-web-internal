@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-13T07:48:09.156Z",
-  "head": "1dc67a4",
+  "syncedAt": "2026-10-13T08:09:52.802Z",
+  "head": "998e733",
   "branch": "main",
   "commits": [
+    {
+      "sha": "998e733",
+      "date": "2026-10-13T15:09:41+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: D-79 staff + grimoire, spec 041 Arc Staff worn",
+      "insertions": 44,
+      "deletions": 3,
+      "files": 3
+    },
     {
       "sha": "1dc67a4",
       "date": "2026-10-13T14:47:54+07:00",
@@ -927,8 +936,8 @@
     "docs/037-wooden-weapons.md": "2026-10-03T00:51:44+07:00",
     "docs/038-weapon-parts-tiers-skins.md": "2026-10-03T09:32:17+07:00",
     "docs/039-equipment-screen-worn-weapons.md": "2026-10-13T14:18:04+07:00",
-    "docs/040-wooden-staff-zoltraak.md": "2026-10-13T14:47:41+07:00",
-    "docs/041-arc-staff-potions-packs.md": "2026-10-13T14:47:54+07:00",
+    "docs/040-wooden-staff-zoltraak.md": "2026-10-13T15:09:41+07:00",
+    "docs/041-arc-staff-potions-packs.md": "2026-10-13T15:09:41+07:00",
     "docs/README.md": "2026-10-13T14:47:41+07:00",
     "docs/plugins.md": "2026-10-01T22:07:29+07:00",
     "docs/adr/0001-purpur-java25-zgc.md": "2026-09-25T00:46:05+07:00",
@@ -940,6 +949,6 @@
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
     "gdd/trailer.md": "2026-09-30T00:24:58+07:00",
     "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",
-    "gdd/wcmmo-gdd-v2.md": "2026-10-12T01:05:09+07:00"
+    "gdd/wcmmo-gdd-v2.md": "2026-10-13T15:09:41+07:00"
   }
 }
