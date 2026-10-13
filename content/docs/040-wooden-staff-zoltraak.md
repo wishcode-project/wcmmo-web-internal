@@ -61,4 +61,4 @@
 | 2026-10-05 | wcmmo-specs | — | — | Owner: prototype OK; the pack's kick noted (Known issues 1), not fixed |
 | 2026-10-13 | wcmmo | — | `develop` | Merged (`e97ea66`) |
 | 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Barrage did nothing with no enemy ahead (`dbfd006`): a `skill{}` line runs even with no target, so the fallback never ran. Fixed and checked on the test server with a mob caster: enemy ahead = 5 beams + damage, nobody = 5 beams ahead |
-| 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | D-79: the staff is no longer two-handed, a grimoire may go in the left slot; stance `staff2h` → `staff` / `staffbook`, settings per weapon (spec 041) |
+| 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | D-79 (corrected the same day): the Wooden Staff **stays two-handed** (`staff2h`); the grimoire belongs to the one-handed Arc Staff (spec 041). Settings are now per weapon (`cfg::weapon`) |

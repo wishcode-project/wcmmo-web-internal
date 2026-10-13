@@ -42,19 +42,20 @@
 
 ## Arc Staff and grimoire in our system (D-79, owner 2026-10-13)
 
-"Arc Staff = main hand like the first staff; both staves can hold a book in the left hand, like a sword has a second sword or a shield; the book adds stats and gives the warp."
+"Arc Staff = main hand; a staff with a book in the left hand, like a sword has a second sword or a shield; the book adds stats and gives the warp." **Corrected the same day:** the first staff (Wooden Staff, spec 040) is the **two-handed** one and stays so; the grimoire pairs with a **one-handed** staff: "staff 1, book 1" = the Arc Staff.
 
 | Left slot → | empty | grimoire | anything else |
 |---|---|---|---|
-| **Staff in the right slot** | stance `staff` | stance `staffbook` (Teleport usable) | blocked: no fighting, warning |
+| **One-handed staff** (Arc Staff) in the right slot | stance `staff` | stance `staffbook` (Teleport usable) | blocked: no fighting, warning |
+| **Two-handed staff** (Wooden Staff) | stance `staff2h` | blocked | blocked |
 
 | Thing | Id | Notes |
 |---|---|---|
-| Arc Staff | MythicMobs `wcmmo_item_staff_arc` (COAL 6953), lore `Main hand` | the pack's colours = tier 3 (D-70); the Wooden Staff stays tier 1 |
+| Arc Staff | MythicMobs `wcmmo_item_staff_arc` (COAL 6953), lore `Main hand · one-handed` | the pack's colours = tier 3 (D-70); the Wooden Staff stays tier 1 |
 | Arc Grimoire | `wcmmo_item_grimoire_arc` (COAL 6955), lore `Off-hand only` | stats: with D-44 |
 | On the body | ModelEngine `wcmmo_staff_arc` (back, the spear's back pose like spec 040), `wcmmo_book_arc` (0.6 ×, lower back left) | `scripts/staff_arc.py`; first frame of the pack's animated texture |
 | In the hands (combat mode) | Nexo `wcmmo_staff_arc_held` (IRON_SPEAR 6954; hotbar shows the cross: item model `wcmmo:staff_arc_held`), `wcmmo_book_arc_held` (PAPER 6860) in the **left hand** | combat grips (spec 039): the held item and the off-hand item are put aside and given back |
-| Kit | `wcmmo_38_stance.sk`: `cfg::part::staff` / `::book`, per-weapon settings `cfg::weapon::<item>::prefix / basic / grip / gripModel` (win over the stance's), `cfg::book::<item>::prefix / grip`; `wcmmo_39_kit_input.sk`: `wcmmo_offGripSync` | replaces the stance `staff2h` |
+| Kit | `wcmmo_38_stance.sk`: `cfg::part::staff` / `::book`, per-weapon settings `cfg::weapon::<item>::prefix / basic / grip / gripModel` (win over the stance's), `cfg::book::<item>::prefix / grip`; `wcmmo_39_kit_input.sk`: `wcmmo_offGripSync` | `staff2h` keeps the Wooden Staff (`cfg::part::twohand`) |
 
 ### Controls (combat mode)
 
@@ -62,9 +63,9 @@
 |---|---|---|
 | L with the Arc Staff | **Energy Orb**: projectile, 20 blocks | 2 damage, every 0.5 s |
 | L with the Wooden Staff | Zoltraak beam (spec 040) | 2.5, every 0.7 s |
-| skill (any staff) | **Thunder Impact**: 1 s charge, then a ball that bursts on hit | 6 damage + 2 s slow in 2.5 blocks, cd 8 s, 25 mana |
-| skill (any staff) | Zoltraak Barrage, Double Jump (spec 040) | |
-| skill (**staff + grimoire**) | **Teleport**: up to 10 blocks ahead | cd 6 s, 15 mana |
+| skill (any staff, one- or two-handed) | **Thunder Impact**: 1 s charge, then a ball that bursts on hit | 6 damage + 2 s slow in 2.5 blocks, cd 8 s, 25 mana |
+| skill (any staff, one- or two-handed) | Zoltraak Barrage, Double Jump (spec 040) | |
+| skill (**one-handed staff + grimoire**) | **Teleport**: up to 10 blocks ahead | cd 6 s, 15 mana |
 | R tap / hold | parry / Frontguard | |
 
 Effects use the pack's models and mobs (`ls_w_arc_staff_*`, `ars_*`); damage numbers are ours (`wcmmo_staff_arc.yml`). Skills belong to the player (D-75): Thunder Impact works with either staff.
@@ -73,7 +74,7 @@ Effects use the pack's models and mobs (`ls_w_arc_staff_*`, `ars_*`); damage num
 
 1. `/mm items give <you> wcmmo_item_staff_arc`, wear it right: staff on the back. Tap Shift: staff in the hand, hotbar shows the cross; L = Energy Orb.
 2. `/mm items give <you> wcmmo_item_grimoire_arc`, wear it left: book on the lower back. Tap Shift: book in the left hand (an off-hand item comes back after); tap again: both back on the body.
-3. Same with the Wooden Staff + grimoire. A sword / shield on the left next to a staff: warning, no fighting.
+3. Wooden Staff + grimoire, or a sword / shield on the left next to the Arc Staff: warning, no fighting.
 4. `/skills`: Thunder Impact (any staff), Teleport (only listed as usable with staff + grimoire); cast with keys 1–5.
 
 ## Open questions
@@ -88,3 +89,4 @@ Effects use the pack's models and mobs (`ls_w_arc_staff_*`, `ars_*`); damage num
 |---|---|---|---|---|
 | 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Packs installed as shipped (`efa2b23`); loaded on the test server without new errors |
 | 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Arc Staff worn + grimoire in the left slot (D-79, `7b3cd0c`). Checked on the test server with a mob caster: Energy Orb hits (20 → 18.08), Thunder Impact bursts (20 → 14.1), Teleport moves the caster, Barrage still fine. Stance / off-hand grip code loads; not yet tried by a player |
+| 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Owner's correction (`4f8ad35`): the Wooden Staff stays two-handed (`staff2h`), only the one-handed Arc Staff takes the grimoire |
