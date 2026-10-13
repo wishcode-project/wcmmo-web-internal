@@ -310,13 +310,13 @@ Our own commands and any CMI alias we add. Stock plugin commands are not listed.
 
 | Level / dimension | Generator | Purpose | Spec |
 |---|---|---|---|
-| `wcmmo` → `minecraft:overworld` | vanilla flat, void preset | main hub / build world | 003 |
-| `wcmmo` → `minecraft:the_nether` | vanilla | unused so far | 003 |
-| `wcmmo` → `minecraft:the_end` | vanilla | unused so far | 003 |
+| `spawn` → `minecraft:overworld` | vanilla flat, void (tracked hub map, since 2026-10-13) | main hub / default world | 003 |
+| `spawn` → `minecraft:the_nether` | vanilla | unused so far | 003 |
+| `spawn` → `minecraft:the_end` | vanilla | unused so far | 003 |
 | `wcmmo_lifezone_<n>` | template copy | Lifezone instance, 20 plots | 018 |
 | `wcmmo_tutorial` | template copy per player | The Awakening tutorial instance | 024 |
 
-Minecraft 26.x keeps every dimension inside the level folder (`wcmmo/dimensions/<namespace>/<key>/`).
+Minecraft 26.x keeps every dimension inside the level folder (`spawn/dimensions/<namespace>/<key>/`). The old level `wcmmo` (empty void build world) is no longer the default.
 
 ## Regions
 
