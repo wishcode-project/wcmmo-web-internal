@@ -75,6 +75,23 @@ F stays the skill bar swap (spec 007), so nothing on F. Shift + L clashes with G
 
 Crit chance 10 % everywhere (pack).
 
+## Every pack move is a skill (owner, 2026-10-13)
+
+The first build ported only some of the packs' moves. The rest are now player skills too (keys 1–5, D-75), with the pack's animations and effects and the pack's numbers halved like the others:
+
+| Skill | Stance | Does | Numbers |
+|---|---|---|---|
+| **Starburst Stream** | dual swords | 4 fast strikes around (r 5.5), then a slam that throws enemies up | 1.5 × 4 + 5, cd 14 s, 20 mana |
+| **Domain Declaration** | sword & shield | a 3-block area for 11 s: enemies hit once and pushed out, Resistance II for the caster inside | 3, cd 20 s, 20 mana |
+| **Battle Declaration** | sword & shield | a shout: enemies in 6.5 blocks hit and slowed 4 s, MythicMobs in 20 blocks taunted, Resistance I for 10 s. No self-stun (the pack roots the caster by teleports) | 2.5, cd 15 s, 20 stamina |
+| **Tornado Shot** | bow | a slow tornado that pulls enemies in and hits while it passes (follows the ground) | 0.5 per hit, cd 8 s, 15 mana |
+| **Suppressive Fire** | bow | 10 s rooted: every left click is a fast shot | 1 per arrow, cd 20 s, 25 mana |
+| **Double Jump** | bow (and staves) | the staff's skill (spec 040), now also with the bow | cd 4 s, 15 stamina |
+
+- The bow's left click is `wcmmo_bow_wood_basic` (a normal shot, or a fast one while Suppressive Fire is up).
+- Not ported: the packs' **emotes**; Defend is the kit's right-click guard (D-78). The Castle Knight declarations need the shield stance (the single-sword stance has no skills of its own for them yet).
+- Every skill has a picture (spec 041, `scripts/skill_icons.py`).
+
 ## Combat style: still open (D-68) ⏰ reminder
 
 **Owner, 2026-10-03:** deciding which combat to use. This format (animated weapons) feels more fun than plain hits + casting skills back and forth. Options in GDD D-68 / owner question M19:
@@ -149,3 +166,4 @@ Delete `ModelEngine/blueprints/wcmmo/{spear,swords,sword_shield}_wood/`, `Mythic
 |---|---|---|---|---|
 | 2026-10-02 | wcmmo | — (no FIRE run, prototype) | `feat/037-wooden-weapons` @ `7b0a514` | Script + 3 weapons. Poses checked in a side / back render against the player box. Server load check on a throwaway copy. In-game test plan not run yet |
 | 2026-10-03 | wcmmo | — | merged into `develop` @ `eec0904` | Baked back pose (`c7b1411`), approved by the owner. Controls still the old ones until D-68 is built |
+| 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Owner: skills of the Castle Knight, Two Sword Style and Green Bow packs were missing. Ported the remaining moves as skills (`80712c6`). Checked on the test server with a mob caster: Starburst Stream 20 → 7.21, Domain Declaration 20 → 17.06, Battle Declaration 20 → 17.58, Tornado Shot (on a floor) 20 → 18.6, Suppressive Fire fast shots 20 → 13.88, normal shot 20 → 18.08. Animations on a player not yet seen |

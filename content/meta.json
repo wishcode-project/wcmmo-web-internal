@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-13T14:25:57.705Z",
-  "head": "652cfa0",
+  "syncedAt": "2026-10-13T14:45:46.348Z",
+  "head": "fbf9355",
   "branch": "main",
   "commits": [
+    {
+      "sha": "fbf9355",
+      "date": "2026-10-13T21:45:32+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: spec 037 every pack move is a skill, 041 icons",
+      "insertions": 19,
+      "deletions": 0,
+      "files": 2
+    },
     {
       "sha": "652cfa0",
       "date": "2026-10-13T21:25:41+07:00",
@@ -987,11 +996,11 @@
     "docs/034-wings.md": "2026-10-02T00:07:23+07:00",
     "docs/035-training-dummy.md": "2026-10-02T22:08:43+07:00",
     "docs/036-wooden-bow.md": "2026-10-03T00:51:44+07:00",
-    "docs/037-wooden-weapons.md": "2026-10-03T00:51:44+07:00",
+    "docs/037-wooden-weapons.md": "2026-10-13T21:45:32+07:00",
     "docs/038-weapon-parts-tiers-skins.md": "2026-10-03T09:32:17+07:00",
     "docs/039-equipment-screen-worn-weapons.md": "2026-10-13T14:18:04+07:00",
     "docs/040-wooden-staff-zoltraak.md": "2026-10-13T15:11:32+07:00",
-    "docs/041-arc-staff-potions-packs.md": "2026-10-13T21:25:41+07:00",
+    "docs/041-arc-staff-potions-packs.md": "2026-10-13T21:45:32+07:00",
     "docs/README.md": "2026-10-13T14:47:41+07:00",
     "docs/plugins.md": "2026-10-01T22:07:29+07:00",
     "docs/adr/0001-purpur-java25-zgc.md": "2026-09-25T00:46:05+07:00",
