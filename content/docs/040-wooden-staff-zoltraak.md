@@ -32,7 +32,7 @@
 | Input | Does | Numbers (tier 1) |
 |---|---|---|
 | L | **Zoltraak**: beam forward (31 blocks), slows what it hits; casting in the air hangs 0.5 s then slow fall | 2.5 damage, every 0.7 s |
-| skill | **Zoltraak Barrage**: 5 beams on the nearest enemy within 20 blocks in front (nobody there: the spot 12 blocks ahead, so the cooldown is never wasted) | 1.5 × 4 hits around the target (r 2), cd 8 s, 20 mana |
+| skill | **Zoltraak Barrage**: 5 beams on the nearest enemy within 20 blocks in front (nobody there: five beams straight ahead that hit the spot 12 blocks away, so the cooldown is never wasted) | 1.5 × 4 hits around the target (r 2), cd 8 s, 20 mana |
 | skill | **Double Jump**: jump up (on the ground: a high jump; in the air: a second jump), no fall damage | cd 4 s, 15 stamina |
 | R tap / hold | parry / Frontguard (D-74, D-78) | |
 
@@ -60,3 +60,4 @@
 | 2026-10-05 | wcmmo | — | `feat/040-staff-zoltraak` | Kick fixed (`0887db2`: the pack's `lunge{v=0} @forward{f=0}` = NaN velocity; air hover by velocity, not stun); staff held as the pack's item in combat mode (`05d24e1`) |
 | 2026-10-05 | wcmmo-specs | — | — | Owner: prototype OK; the pack's kick noted (Known issues 1), not fixed |
 | 2026-10-13 | wcmmo | — | `develop` | Merged (`e97ea66`) |
+| 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Barrage did nothing with no enemy ahead (`dbfd006`): a `skill{}` line runs even with no target, so the fallback never ran. Fixed and checked on the test server with a mob caster: enemy ahead = 5 beams + damage, nobody = 5 beams ahead |
