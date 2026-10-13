@@ -65,7 +65,8 @@
 | L with the Wooden Staff | Zoltraak beam (spec 040) | 2.5, every 0.7 s |
 | skill (any staff, one- or two-handed) | **Thunder Impact**: 1 s charge, then a ball that bursts on hit | 6 damage + 2 s slow in 2.5 blocks, cd 8 s, 25 mana |
 | skill (any staff, one- or two-handed) | Zoltraak Barrage, Double Jump (spec 040) | |
-| skill (**one-handed staff + grimoire**) | **Teleport**: up to 10 blocks along the crosshair, **never through a block** (the kit ray-traces from the eyes and the feet and stops in front of the first block; it lands only where there is room to stand) | cd 6 s, 15 mana |
+| skill (**one-handed staff + grimoire**) | **Teleport** (purple): 10 blocks along the crosshair, **through walls** (owner, 2026-10-13: the pack's Teleport crossed objects and that is kept, now on purpose); lands on the nearest spot with room to stand | cd 6 s, 15 mana |
+| skill (**one-handed staff + grimoire**) | **Blink** (green, new): up to 10 blocks along the crosshair, **stops in front of the first block** (ray trace from the eyes and the feet) | cd 4 s, 10 mana |
 | R tap / hold | parry / Frontguard | |
 
 Effects use the pack's models and mobs (`ls_w_arc_staff_*`, `ars_*`); damage numbers are ours (`wcmmo_staff_arc.yml`). Skills belong to the player (D-75): Thunder Impact works with either staff.
@@ -75,7 +76,7 @@ Effects use the pack's models and mobs (`ls_w_arc_staff_*`, `ars_*`); damage num
 1. `/mm items give <you> wcmmo_item_staff_arc`, wear it right: staff on the back. Tap Shift: staff in the hand, hotbar shows the cross; L = Energy Orb.
 2. `/mm items give <you> wcmmo_item_grimoire_arc`, wear it left: book on the lower back. Tap Shift: book in the left hand (an off-hand item comes back after); tap again: both back on the body.
 3. Wooden Staff + grimoire, or a sword / shield on the left next to the Arc Staff: warning, no fighting.
-4. `/skills`: Thunder Impact (any staff), Teleport (only listed as usable with staff + grimoire); cast with keys 1–5.
+4. `/skills`: Thunder Impact (any staff), Teleport and Blink (staff + grimoire); cast with keys 1–5. Teleport crosses a wall, Blink stops in front of it; neither lands inside a block.
 
 ## Open questions
 
@@ -92,3 +93,4 @@ Effects use the pack's models and mobs (`ls_w_arc_staff_*`, `ars_*`); damage num
 | 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Owner's correction (`4f8ad35`): the Wooden Staff stays two-handed (`staff2h`), only the one-handed Arc Staff takes the grimoire |
 | 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Thunder Impact and Teleport show the pack's own skill pictures in `/skills` and the hotbar (`cfg::skill::<id>::nexoIcon`, Nexo `wcmmo_icon_arc_*` on PAPER). Energy Orb is the Arc Staff's basic attack (L), so it has no skill slot to show its picture in |
 | 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Teleport went through walls (owner): the pack's projectile moves 3 blocks a tick. The kit now does the move with a ray trace (`wcmmo_blink`, `cfg::skill::<id>::blink`), `2c22698`. Ray check on the test server: wall 5.5 away = 5.5, open = 10; the move itself not yet tried by a player |
+| 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Owner: purple Teleport keeps crossing walls; new green skill **Blink** has the block-safe move. Blink = the pack's Teleport effect + skill picture hue-shifted to green (`wcmmo_blink_fx`, `wcmmo_icon_blink`). Loaded on the test server, green effect spawns; the moves not yet tried by a player |
