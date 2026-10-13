@@ -65,7 +65,7 @@
 | L with the Wooden Staff | Zoltraak beam (spec 040) | 2.5, every 0.7 s |
 | skill (any staff, one- or two-handed) | **Thunder Impact**: 1 s charge, then a ball that bursts on hit | 6 damage + 2 s slow in 2.5 blocks, cd 8 s, 25 mana |
 | skill (any staff, one- or two-handed) | Zoltraak Barrage, Double Jump (spec 040) | |
-| skill (**one-handed staff + grimoire**) | **Teleport**: up to 10 blocks ahead | cd 6 s, 15 mana |
+| skill (**one-handed staff + grimoire**) | **Teleport**: up to 10 blocks along the crosshair, **never through a block** (the kit ray-traces from the eyes and the feet and stops in front of the first block; it lands only where there is room to stand) | cd 6 s, 15 mana |
 | R tap / hold | parry / Frontguard | |
 
 Effects use the pack's models and mobs (`ls_w_arc_staff_*`, `ars_*`); damage numbers are ours (`wcmmo_staff_arc.yml`). Skills belong to the player (D-75): Thunder Impact works with either staff.
@@ -91,3 +91,4 @@ Effects use the pack's models and mobs (`ls_w_arc_staff_*`, `ars_*`); damage num
 | 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Arc Staff worn + grimoire in the left slot (D-79, `7b3cd0c`). Checked on the test server with a mob caster: Energy Orb hits (20 → 18.08), Thunder Impact bursts (20 → 14.1), Teleport moves the caster, Barrage still fine. Stance / off-hand grip code loads; not yet tried by a player |
 | 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Owner's correction (`4f8ad35`): the Wooden Staff stays two-handed (`staff2h`), only the one-handed Arc Staff takes the grimoire |
 | 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Thunder Impact and Teleport show the pack's own skill pictures in `/skills` and the hotbar (`cfg::skill::<id>::nexoIcon`, Nexo `wcmmo_icon_arc_*` on PAPER). Energy Orb is the Arc Staff's basic attack (L), so it has no skill slot to show its picture in |
+| 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Teleport went through walls (owner): the pack's projectile moves 3 blocks a tick. The kit now does the move with a ray trace (`wcmmo_blink`, `cfg::skill::<id>::blink`), `2c22698`. Ray check on the test server: wall 5.5 away = 5.5, open = 10; the move itself not yet tried by a player |
