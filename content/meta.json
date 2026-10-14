@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-14T18:24:10.203Z",
-  "head": "96ec1bc",
+  "syncedAt": "2026-10-14T18:30:59.475Z",
+  "head": "276ce3c",
   "branch": "main",
   "commits": [
+    {
+      "sha": "276ce3c",
+      "date": "2026-10-15T01:30:46+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: 021 finisher lock shrinks with attack speed",
+      "insertions": 3,
+      "deletions": 0,
+      "files": 1
+    },
     {
       "sha": "96ec1bc",
       "date": "2026-10-15T01:23:58+07:00",
@@ -1223,7 +1232,7 @@
     "docs/018-lifezone-housing.md": "2026-10-01T22:23:49+07:00",
     "docs/019-lifeskills-resources.md": "2026-10-01T22:23:49+07:00",
     "docs/020-furniture-nexo.md": "2026-10-01T22:23:49+07:00",
-    "docs/021-bloodlines.md": "2026-10-15T01:23:58+07:00",
+    "docs/021-bloodlines.md": "2026-10-15T01:30:46+07:00",
     "docs/022-runes.md": "2026-09-30T23:50:58+07:00",
     "docs/023-weapon-mastery.md": "2026-10-02T01:33:51+07:00",
     "docs/024-awakening-tutorial.md": "2026-10-01T22:23:49+07:00",

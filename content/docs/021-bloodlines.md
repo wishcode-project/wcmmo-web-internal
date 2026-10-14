@@ -147,6 +147,8 @@ PoC-7 pass = stage 1 + one path each for Fury, Ward and Pulse, plus `/spark` num
 
 The swing animations play faster by the same factor. The kit writes the speed to the MythicMobs variable `wcmmo_atkspd`, and the 13 basic-attack ModelEngine states use `speed=<caster.var.wcmmo_atkspd>`. The staves have no swing animation (the staff is a held item). The bow's arrow still leaves 5 ticks after the draw.
 
+The lock after the combo's last hit (dual 20, spear 25, shield 15 ticks) also shrinks by the same factor: `aura duration=<caster.var.wcmmo_lock<base>>`. Owner, 2026-10-15: with fixed locks Adrenaline gave only about +9 % hits per second (DPS meter 1.46 → 1.59 hits/s), not +20 %.
+
 P1 also checks: under 30 % HP, spam left click: the attacks come visibly faster.
 
 ## Rollback
@@ -171,3 +173,4 @@ Bloodline data is player data: DB backup before any prod change; never rename Bl
 | 2026-10-15 | wcmmo | — | `feat/021-poc7-bloodlines` (`3208d34`) | PoC-7: the kit's Bloodline code (written 2026-10-02, never run) checked and connected. The actives became skill-bar skills, cooldown resets use the kit's cooldowns, damage uses AP. Loads with no errors; in-game tests P1–P10 pending (owner) |
 | 2026-10-15 | wcmmo | — | `feat/021-poc7-bloodlines` | Owner: Adrenaline must really attack faster. The kit now sets the basic-attack pace in combat mode (AGI and Adrenaline); MythicMobs cooldowns lowered to a 0.25 s floor |
 | 2026-10-15 | wcmmo | — | `feat/021-poc7-bloodlines` | Owner: the faster pace wasn't visible, so the swing animations now speed up too (`speed=` on the ModelEngine states) |
+| 2026-10-15 | wcmmo | — | `feat/021-poc7-bloodlines` | Combo finisher lock shrinks with attack speed. Fallback commit before it: `3ed15cf` |
