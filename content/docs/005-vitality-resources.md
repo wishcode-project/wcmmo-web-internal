@@ -91,3 +91,4 @@ Revert content + plugin module; no player data change beyond MMOCore resource va
 | 2026-10-14 | wcmmo | — | `feat/029-mmohud` | Stamina is shown by the MythicHUD layout (spec 029); the kit's stamina boss bar stays as a fallback, off by default |
 | 2026-10-14 | wcmmo | — | `feat/029-mmohud` | Owner: no sprinting at 10 stamina or less (`a3f5f04`, `cfg::sprint::minStamina`), back at 20 |
 | 2026-10-14 | wcmmo | — | `feat/029-mmohud` | Vanilla HP regeneration off (game rule), out-of-combat regeneration 1 % / s after 5 s built (`a84943a`). Test server: the rule reads false in all three dimensions; the heal rule needs a player to try |
+| 2026-10-14 | wcmmo | — | `develop` | Stamina / HP regeneration rules, sprint limit, potions. Merged (`2cf2f45`) |
