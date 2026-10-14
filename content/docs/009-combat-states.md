@@ -117,6 +117,10 @@ Restore `wcmmo_10_combat.sk` from `develop` before this change (guard on sneak, 
 
 - T9 · F hold detection (above). D-06c: arenas only now; later open-world PvP outside safe zones between players Lv 25+.
 
+## Damage numbers (owner, 2026-10-14)
+
+**MythicLib is the only source of floating damage numbers** (`MythicLib/indicators.yml`: an icon per damage type, bold on a crit; `group_by: single` = one number per hit). Found and turned off: **CMI** `ShowDamageNumbers` (on players and on mobs, `CMI/Settings/Combat.yml`). Still showing their own numbers: the yungwilder **TargetDummy** pack (numbers + DPS) and our dummy's one-line DPS label + action bar (spec 035): open (owner to decide).
+
 ## Implementation log
 
 | Date | Repo | FIRE run | PR | Notes |
@@ -127,3 +131,4 @@ Restore `wcmmo_10_combat.sk` from `develop` before this change (guard on sneak, 
 | 2026-10-03 | wcmmo-specs | — | — | D-74: Block (shield stance: 0 % chip, less stamina, deflects projectiles) vs Frontguard elsewhere, parry everywhere |
 | 2026-10-04 | wcmmo | — (no FIRE run) | `feat/007-stance-controls` @ `14d421a` | Guard moved to F: press / hold with min guard 0.6 s and release 0.2 s (T9 plan 1), parry on a fresh press with 1 s re-arm, Block in the sword & shield stance (0 % chip, 6 stamina, projectiles cancelled), stance guard animations. Loads clean; in game pending |
 | 2026-10-04 | wcmmo | — | `feat/007-stance-controls` @ `657546c` | **Rolled back** to `adc58e6` (owner): since the kit took over the clicks (`14d421a`) the combat holder stopped following the player. `/wcmmoholders` showed the holder alive with the right owner, but not teleporting. Cause unknown; the D-68 / D-75 controls are still the design, the build must be redone once the holder issue is understood |
+| 2026-10-14 | wcmmo | — | `fix/009-damage-numbers` | CMI damage numbers off, MythicLib one number per hit (`c3ebc76`) |

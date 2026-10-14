@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-14T09:11:57.004Z",
-  "head": "f0d793f",
+  "syncedAt": "2026-10-14T12:17:26.873Z",
+  "head": "20e2333",
   "branch": "main",
   "commits": [
+    {
+      "sha": "20e2333",
+      "date": "2026-10-14T19:17:14+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: spec 009 MythicLib is the only damage-number source",
+      "insertions": 5,
+      "deletions": 0,
+      "files": 1
+    },
     {
       "sha": "f0d793f",
       "date": "2026-10-14T16:11:42+07:00",
@@ -1076,7 +1085,7 @@
     "docs/006-attributes-stat-gating.md": "2026-10-02T00:07:23+07:00",
     "docs/007-classes-skill-bars.md": "2026-10-14T16:11:42+07:00",
     "docs/008-weapon-types-exclusive-skills.md": "2026-10-02T00:07:23+07:00",
-    "docs/009-combat-states.md": "2026-10-04T03:01:45+07:00",
+    "docs/009-combat-states.md": "2026-10-14T19:17:14+07:00",
     "docs/010-fpv-animation-poc.md": "2026-10-03T00:00:21+07:00",
     "docs/011-equipment-accessories.md": "2026-10-01T22:23:49+07:00",
     "docs/012-item-generation-identify-elements.md": "2026-10-01T22:23:49+07:00",
