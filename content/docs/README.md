@@ -175,6 +175,7 @@ Rarity tiers (MMOItems): `common`, `uncommon`, `rare`, `epic`, `legendary` (012)
 |---|---|---|---|
 | `wcmmo_skill_dash`, `_backstep`, `_sidestep`, `_kick`, `_shoulder_charge`, `_leap`, `_second_wind`, `_battle_cry`, `_iron_skin`, `_focus` | general (10) | any weapon | 008 |
 | `wcmmo_skill_blade_flurry`, `_piercing_thrust`, `_rising_slash`, `_riposte`, `_thousand_cuts` | weapon | Sword (Mastery 0/5/10/15/20) | 008, 023 |
+| **Built (skill list v2, 2026-10-15):** `wcmmo_skill_blade_flurry`, `_rising_slash`, `_piercing_thrust`, `_riposte`, `_thousand_cuts`, `_unmovable`, `_gale_lance`, `_snare_arrow`, `_frost_nova`, `_chain_lightning` | weapon fill-ins on the stances (single / dual / shield / spear / bow / staves) | MythicMobs `wcmmo_skills_v2.yml` | 008 |
 | `wcmmo_skill_ground_smash`, `_wide_swing`, `_quake`, `_unmovable`, `_titan_fall` | weapon | Hammer | 008, 023 |
 | `wcmmo_skill_rapid_volley`, `_tumble_shot`, `_arrow_rain`, `_snare_arrow`, `_piercing_gale` | weapon | Bow | 008, 023 |
 | `wcmmo_skill_fireball`, `_frost_nova`, `_chain_lightning`, `_blink`, `_meteor` | weapon | Staff | 008, 023 |
