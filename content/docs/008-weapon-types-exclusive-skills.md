@@ -1,12 +1,97 @@
 # 008 — Weapon types, weapon skills, ultimates & general skills
 
-> Status: DRAFT · Target: wcmmo (MMOItems types, MMOCore skills → MythicMobs skills, Skript) · FIRE mode: confirm
+> Status: IN-PROGRESS · Target: wcmmo (MMOItems types, MMOCore skills → MythicMobs skills, Skript) · FIRE mode: confirm
 > Design: [GDD v2 §3](../gdd/wcmmo-gdd-v2.md#3-weapon-freedom--compartmentalised-progression) · Decisions: D-04, D-04b, D-04c, D-06d, D-36, D-50, D-51, D-52, D-53, D-55
 
 ## Big picture
 
 - **Player story:** As any player, I pick up any weapon I have the stats for. Each weapon has **5 skills + 1 ultimate**, unlocked through Mastery (spec 023). I also carry **general skills** that work with any weapon, and I can learn extra **orb skills** from Skill Orbs that I buy from NPCs or loot from monsters.
 - **Done means:** weapon types exist and are stat-gated (006); weapon skills only cast with that weapon in hand (007); ultimates spend the Remnant gauge (025); every weapon is fully playable solo.
+
+## Skill list v2: the packs' moves + fill-ins (M22, owner 2026-10-15)
+
+**M22 answered:** the packs' moves are each weapon's main skills. Missing slots are filled from the lists below (sections "Weapon skills", "General skills"), picking what fits the weapon. They are built as MythicMobs effects on the animations the packs already have. The rest of the old lists become orb / general skills. The owner adds that **more skills are needed later**; this set is enough for the first tests.
+
+Weapons are now **stances** (spec 038 / 039), not the old types: single sword, dual swords, sword & shield, spear, bow, staff (two-handed, one-handed, staff + grimoire). Greatsword, Hammer, Crossbow and Tome have no weapon yet.
+
+### Measured damage today (M30 review)
+
+How measured: 2026-10-15 on the throwaway test server. A MythicMobs caster with AP 10 hits a husk 2.5 blocks in front (the husk has 2 armour, about −4 %). The number is the total over 10 s from one cast, as **% of AP**. Cost and cooldown come from `wcmmo_00_config.sk`. "Per cd s" = % AP ÷ cooldown.
+
+**Reference — basic attack:** 19 % AP per hit, about 1.5 hits/s. That is **≈ 29 % AP per second**, before Adrenaline / AGI.
+
+| Stance | Skill (pack) | % AP per cast | CD s | Cost | Per cd s | Note |
+|---|---|---|---|---|---|---|
+| any | Dash | — | 1 | 20 st | — | movement |
+| sword (any) | Whirl Cut (orb) | 39 | 6 | 10 mana | 6.5 | 008 says 100 %, CD 2 s, 10 st |
+| single | Charge | 82 | 10 | 20 st | 8.2 | |
+| dual | Dash Strike | 49 | 6 | 15 st | 8.2 | |
+| dual | Spin Slash | 49 | 8 | 10 mana | 6.1 | |
+| dual | Starburst Stream | 199 | 14 | 20 mana | 14.2 | |
+| shield | Shield Rush | 82 | 10 | 20 st | 8.2 | |
+| shield | Domain Declaration | 108 | 20 | 20 mana | 5.4 | also a zone effect |
+| shield | Battle Declaration | 24 | 15 | 20 st | 1.6 | mostly a buff |
+| spear | Shove | 39 | 6 | 10 st | 6.5 | |
+| spear | Hard Swing | 113 | 10 | 15 mana | 11.3 | |
+| bow | Rapid Shot | 43 | 6 | 10 mana | 7.1 | |
+| bow | Power Shot | 79 | 8 | 15 mana | 9.8 | |
+| bow | Tornado Shot | not measured | 8 | 15 mana | | the slow tornado missed the fixed husk; check in game |
+| bow | Suppressive Fire | — | 20 | 25 mana | — | mode: fast basic shots for 10 s |
+| bow, staves | Double Jump | — | 1 | 15 st | — | movement |
+| staves | Zoltraak Barrage | 71 | 8 | 20 mana | 8.9 | |
+| staves | Thunder Impact | 59 | 8 | 25 mana | 7.4 | |
+| staff + book | Teleport / Blink | — | 1 / 0.5 | 5 mana 25 st / 3 mana 15 st | — | movement |
+| ult (sword) | Blade Storm | 236 | — | 100 Remnant | | |
+| ult (hammer) | Earthbreaker | 276 | — | 100 Remnant | | no hammer weapon |
+| ult (bow) | Heaven's Barrage | 176 | — | 100 Remnant | | |
+| ult (staff) | Cataclysm | 39 | — | 100 Remnant | | meteors land around the aim, mostly missed the husk; check in game |
+
+**What the numbers say:**
+- **Skills are weak next to basic attacks.** A skill adds about 5–14 % AP per second of its cooldown, while basic attacks give about 29 % per second. Spending mana or stamina on a skill is barely worth it.
+- The packs' own damage was halved when they were ported (M30), and the % AP ratios kept that. Spec 008's target was 150–450 % per cast.
+- No pack skill breaks guard (rule 2, ★) yet.
+
+### Proposal for review (not built)
+
+- **Damage:** per cast ≈ **60 % + 15 % × cooldown (s)** of AP. CD 6 → 150 %, CD 8 → 180 %, CD 10 → 210 %, CD 14 → 270 %, CD 20 → 360 %. A skill is then worth about 2–3 basic hits per second of its cooldown.
+- **Ultimates:** ≈ 800 % per cast.
+- **Movement and buff skills** keep their numbers.
+
+| Stance | Skill | Proposed % AP | Change |
+|---|---|---|---|
+| sword | Whirl Cut | 100 | CD 6 → 3, cost 10 mana → 10 st (008) |
+| single | Charge | 210 | ★ guard break |
+| dual | Dash Strike | 150 | |
+| dual | Spin Slash | 180 | |
+| dual | Starburst Stream | 270 | |
+| shield | Shield Rush | 210 | ★ guard break |
+| shield | Domain Declaration | 200 | zone stays |
+| shield | Battle Declaration | 24 + its buff | buff, unchanged |
+| spear | Shove | 150 | |
+| spear | Hard Swing | 210 | ★ guard break |
+| bow | Rapid Shot | 150 | |
+| bow | Power Shot | 180 | ★ guard break |
+| bow | Tornado Shot | 180 (total) | |
+| staves | Zoltraak Barrage | 180 | |
+| staves | Thunder Impact | 180 | ★ guard break |
+| ults | Blade Storm / Heaven's Barrage / Cataclysm / Earthbreaker | 800 | ults tied to stances: question below |
+
+**Fill-ins (M22), first tests only.** Each uses animations the stance already has.
+
+| Stance | Has | Proposed new (from the old lists) |
+|---|---|---|
+| single sword | 1 | Blade Flurry, Piercing Thrust, Rising Slash, Riposte |
+| dual swords | 3 | Thousand Cuts, Rising Slash |
+| sword & shield | 3 | Riposte, Unmovable |
+| spear | 2 | Piercing Thrust, Gale Lance, Rising Slash |
+| bow | 4 | Snare Arrow |
+| staves | 2 | Frost Nova, Chain Lightning |
+
+**Open for the owner:**
+1. Damage formula: OK, or a different target?
+2. Which ★ skill per stance (proposed above)?
+3. Ultimates by stance: sword stances share Blade Storm, spear gets Earthbreaker, bow Heaven's Barrage, staves Cataclysm?
+4. Mastery unlock order (0 / 5 / 10 / 15 / 20, ultimate at 25): pack moves first, fill-ins after?
 
 ## Design rules
 
@@ -193,3 +278,4 @@ Revert content. Weapon type and skill IDs must never change once players have th
 | Date | Repo | FIRE run | PR | Notes |
 |---|---|---|---|---|
 | 2026-10-02 | wcmmo | `run-wcmmo-002` | branch `feat/mmo-core-setup` | MMOItems types `WCMMO_SWORD … TOME` created (custom types copy their parent's behaviour keys, they don't inherit them). Test items `WCMMO_TEST_SWORD / HAMMER / BOW / STAFF`. Bows use a non-bow material + `model` so no draw animation plays. |
+| 2026-10-15 | wcmmo-specs | — | — | M22 answered (packs' moves + fill-ins). Skill damage measured on the test server (AP 10); proposal and fill-ins written for review (M30) |

@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-14T19:43:04.030Z",
-  "head": "2ea213f",
+  "syncedAt": "2026-10-14T19:58:25.022Z",
+  "head": "6106297",
   "branch": "main",
   "commits": [
+    {
+      "sha": "6106297",
+      "date": "2026-10-15T02:58:09+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: 008 skill list v2: M22 answered, measured skill damage, proposal for review (M30)",
+      "insertions": 89,
+      "deletions": 3,
+      "files": 2
+    },
     {
       "sha": "2ea213f",
       "date": "2026-10-15T02:42:51+07:00",
@@ -1336,7 +1345,7 @@
     "docs/005-vitality-resources.md": "2026-10-14T16:11:42+07:00",
     "docs/006-attributes-stat-gating.md": "2026-10-02T00:07:23+07:00",
     "docs/007-classes-skill-bars.md": "2026-10-14T16:11:42+07:00",
-    "docs/008-weapon-types-exclusive-skills.md": "2026-10-02T00:07:23+07:00",
+    "docs/008-weapon-types-exclusive-skills.md": "2026-10-15T02:58:09+07:00",
     "docs/009-combat-states.md": "2026-10-15T00:25:01+07:00",
     "docs/010-fpv-animation-poc.md": "2026-10-03T00:00:21+07:00",
     "docs/011-equipment-accessories.md": "2026-10-01T22:23:49+07:00",
@@ -1378,7 +1387,7 @@
     "gdd/awakening-tutorial.md": "2026-10-01T00:27:45+07:00",
     "gdd/bloodlines.md": "2026-09-30T23:45:25+07:00",
     "gdd/lore-bible.md": "2026-10-01T00:27:45+07:00",
-    "gdd/owner-questions.md": "2026-10-15T00:32:50+07:00",
+    "gdd/owner-questions.md": "2026-10-15T02:58:09+07:00",
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
     "gdd/trailer.md": "2026-09-30T00:24:58+07:00",
     "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",
