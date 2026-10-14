@@ -322,7 +322,7 @@ Our own commands and any CMI alias we add. Stock plugin commands are not listed.
 | `/wcmmobladmin <player> set <fury\|ward\|pulse> <stage> [paths]` · `path <2\|3\|5> <A\|B>` · `extract <keep\|reset>` | `wcmmo.admin.bloodline` | Skript `wcmmo_50_bloodline_core.sk` (tests, PoC-7) | 021 |
 | `/runes` | MMOInventory default | MMOInventory | 022 |
 | `/mastery` | MMOCore default | CMI alias → MMOCore professions | 023 |
-| `/dummy spawn [name\|mobile]\|item\|list\|tp\|remove\|info\|respawn\|stats` | `wcmmo.admin.dummy` (`stats`: `wcmmo.dummy.stats`) | Skript `wcmmo_80_dummy.sk` | 035 |
+| `/dummy spawn [name\|mobile\|attacker]\|item\|list\|tp\|remove\|info\|respawn\|stats` | `wcmmo.admin.dummy` (`stats`: `wcmmo.dummy.stats`) | Skript `wcmmo_80_dummy.sk` | 035 |
 | `/wcmmostats [player]` | — (another player: `wcmmo.admin.stats`) | Skript `wcmmo_42_stats.sk` (status screen) | 042 |
 | `/mmohud` | DeluxeMenus default | DeluxeMenus `gui_menus/mmohud_menu.yml` (HUD options, vendor) | 029 |
 | `/equip` (aliases of the MMOInventory default inventory) | MMOInventory default | MMOInventory `inventory/default_mmoinventory.yml` | 039 |

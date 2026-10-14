@@ -134,6 +134,19 @@ A handful of dummies (target ≤ 10, all in cities). The head line updates every
 
 Both: never die (healed back), only players can hit them, same records (field `type`: `still` / `mobile`), DPS meter, head label (on the mobile one it follows the dummy, 2.15 above its feet: `cfg::dummy::mobileLabelLift`), auto-repair. Settings: `cfg::dummy::homeDelayTicks` 100, `homeSpeed` 2, `homeStuckTicks` 60, `homeMaxRun` 48.
 
+## Sparring dummy (owner, 2026-10-15)
+
+`/dummy spawn attacker` places `wcmmo_mob_dummy_attacker`: a still dummy (skeleton, iron sword and helmet, no AI, label "I hit back") that **hits back**. It is used for guard, perfect guard and low-HP tests (Bloodlines, spec 021).
+
+| Setting (`cfg::dummy::*`) | Value |
+|---|---|
+| Attack every | 40 ticks (the `every 40 ticks` loop in `wcmmo_80_dummy.sk`) |
+| `attackWindup` | 12 ticks of warning (sound + red particles, `wcmmo_dummy_attack_windup`), then the hit |
+| `attackRange` | 3.5 blocks, nearest survival / adventure player; the hit lands only if the player is still within 4 blocks |
+| `attackPct` | 10 % of the player's max HP per hit (it can kill) |
+
+The hit is a real attack from the dummy (`Player.damage(amount, dummy)`), so guard, perfect guard and the Bloodline hooks see it like a monster's. A perfect guard staggers it, and it skips its attacks while staggered. Otherwise it behaves like the other dummies: never dies, only players can hit it, same records (`type` `attacker`).
+
 ## Implementation log
 
 | Date | Repo | FIRE run | PR | Notes |
@@ -143,3 +156,4 @@ Both: never die (healed back), only players can hit them, same records (field `t
 | 2026-10-14 | wcmmo | — | `feat/035-mobile-dummy` | Mobile dummy (`a03c529`). Test server: placed (silverfish + model, label riding on it), item ok; knocked 8 blocks, stayed 4 s, ran home by 8 s, exactly on its spot by 11 s; from 20 blocks away back home within 10 s. Placing / picking up by hand needs a player to try |
 | 2026-10-14 | wcmmo | — | `feat/035-mobile-dummy` | Owner: the mobile dummy's name stayed behind and floated too high. The label now follows it 2.15 above its feet (`532acf0`). Test server: label at +2.15, followed a knock-back (8.77 = 8.77) and the run home from 20 blocks |
 | 2026-10-15 | wcmmo | — | `develop` | Owner tested in game: mobile dummy (place / knock-back / run home / label / pick up) pass. Merged (`44d7ddf`) |
+| 2026-10-15 | wcmmo | — | `feat/021-poc7-bloodlines` | Sparring dummy (`7adbf04`). Loads with no errors; attacking a player needs a player to try |
