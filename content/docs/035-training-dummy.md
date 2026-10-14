@@ -122,9 +122,22 @@ A handful of dummies (target ≤ 10, all in cities). The head line updates every
 - [x] D-67 decided.
 - [ ] Tests 1–9 pass.
 
+## Two kinds of dummy (owner, 2026-10-14)
+
+| | **Still** (`wcmmo_mob_dummy`) | **Mobile** (`wcmmo_mob_dummy_mobile`) |
+|---|---|---|
+| For | pure damage / DPS tests | testing knockback, stun, moves that push or pull |
+| Look | skeleton with a head, raised arms | the bought **yungwilder Target Dummy model** and its hurt animations (ModelEngine `target_dummy`, kept when the pack was removed, D-80) |
+| Moves? | never (no AI) | knocked back and stunned like a monster; **5 s after the last hit it runs back to its spot** (pathfinder, speed x2); teleports home if it makes no progress for 3 s, is more than 48 blocks away or in another world |
+| Placed with | `/dummy spawn [name]` | its item `wcmmo_item_dummy_mobile` (right click a block; `/dummy item` gives one) or `/dummy spawn mobile` |
+| Removed with | `/dummy remove [id]` | **shears + Shift right click** on it (the item comes back), or `/dummy remove` |
+
+Both: never die (healed back), only players can hit them, same records (field `type`: `still` / `mobile`), DPS meter, head label (it rides on the mobile one), auto-repair. Settings: `cfg::dummy::homeDelayTicks` 100, `homeSpeed` 2, `homeStuckTicks` 60, `homeMaxRun` 48.
+
 ## Implementation log
 
 | Date | Repo | FIRE run | PR | Notes |
 |---|---|---|---|---|
 | 2026-10-02 | wcmmo | `run-wcmmo-003` | branch `feat/009-combat-poc` | Dummy works in game: spawn / list / tp / remove / info / respawn, never dies, head line DPS · Last · Max · Total, chat summary, hit line on the action bar. Finding: never set MythicMobs `MaxCombatDistance: 0` (it cancels every attack). |
 | 2026-10-14 | wcmmo | — | `fix/009-damage-numbers` | D-80: the bought yungwilder TargetDummy pack is removed (our `/dummy` replaces it; `/wcmmoremovevendordummy` still clears old ones); no per-hit action bar, MythicLib shows each hit (`d3693fd`) |
+| 2026-10-14 | wcmmo | — | `feat/035-mobile-dummy` | Mobile dummy (`a03c529`). Test server: placed (silverfish + model, label riding on it), item ok; knocked 8 blocks, stayed 4 s, ran home by 8 s, exactly on its spot by 11 s; from 20 blocks away back home within 10 s. Placing / picking up by hand needs a player to try |
