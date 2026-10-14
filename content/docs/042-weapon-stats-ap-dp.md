@@ -34,7 +34,7 @@ The kit reads the worn weapons' MMOItems stats and puts them on the player as My
 | **DP** | defence | MythicLib `DEFENSE` total (armour, shield, accessories) |
 | Crit | chance and power, weapon and skill | MythicLib `CRITICAL_STRIKE_*` / `SKILL_CRITICAL_STRIKE_*` |
 
-- **Every skill and basic attack deals a % of AP**: `damage = ratio × AP`, dealt as MythicLib damage (`mmodamage`), so crits, damage-type bonuses (skill %, physical / magic %) and the damage numbers (D-80) apply by themselves.
+- **Every skill and basic attack deals a % of AP**: `damage{a=<caster.var.wcmmo_ap>*ratio}` (the kit writes AP to the player's MythicMobs variable `wcmmo_ap`). **MythicLib's `mmodamage` is broken on MythicMobs 5.13** (`NoSuchMethodError`, test server 2026-10-15), so the kit's combat pipeline adds skill / basic-attack %, physical / magic % and the **crit roll** (`wcmmo_hitMultiplier`; crit plays `wcmmo_fx_crit`; the number is not bold, MythicLib doesn't know it was a crit). The packs' own 10 % random crits are removed.
 - Ratios replace today's fixed numbers 1:1 against a **wooden-tier AP of 10**: a skill that dealt 2 now deals 20 % of AP (= 2 with a wooden weapon, more with better ones). The tables in specs 036–041 read as "% of AP × 10".
 - **DP:** MythicLib's defence formula (`MythicLib/config.yml`, `defense-application`) for now; the zone soft cap (spec 014) multiplies on top later.
 - Stats, Runes, Mastery and Bloodlines never add AP / DP (spec 013 compartment rule) — enforced by item design, not code.
@@ -59,11 +59,27 @@ Mastery XP and the Mastery cooldown reduction follow the **worn stance**, not th
 
 | # | Work | Status |
 |---|---|---|
-| 1 | MMOItems items for every worn weapon (same ids in lower case, same models); the kit reads MMOItems ids too | |
-| 2 | Worn weapon stats → player modifiers (right 100 %, left AP 50 %) | |
-| 3 | Skills and basic attacks: fixed numbers → `mmodamage` % of AP | |
-| 4 | Mastery per worn stance, new professions (M18) | |
-| 5 | `/stats` screen; HUD panel | |
+| 1 | MMOItems items for every worn weapon (same ids in lower case, same models); the kit reads MMOItems ids too | built |
+| 2 | Worn weapon stats → player modifiers (right 100 %, left AP 50 %) | built |
+| 3 | Skills and basic attacks: fixed numbers → % of AP (+ kit crit / bonuses) | built |
+| 4 | Mastery per worn stance, new professions (M18) | built |
+| 5 | `/stats` screen; HUD panel | `/stats` built; HUD panel = Volya's (toggle in `/mmohud`) |
+
+## First item stats (test values, tier per D-70)
+
+| Item (`/mi give <TYPE> <ID>`) | Type | AP | Other |
+|---|---|---|---|
+| `WCMMO_ITEM_SWORD_WOOD` | WCMMO_SWORD | 10 | |
+| `WCMMO_ITEM_SWORD_IRON` | WCMMO_SWORD | 14 | crit 3 % |
+| `WCMMO_ITEM_SWORD_DRACONIC` | WCMMO_SWORD | 18 | crit 6 %, crit damage +10 % |
+| `WCMMO_ITEM_SHIELD_WOOD` / `_IRON` | WCMMO_SHIELD (new) | 2 / 3 | DP 4 / 7 |
+| `WCMMO_ITEM_SPEAR_WOOD` | WCMMO_SPEAR | 12 | two-handed |
+| `WCMMO_ITEM_BOW_WOOD` | WCMMO_BOW | 11 | two-handed |
+| `WCMMO_ITEM_STAFF_WOOD` | WCMMO_STAFF | 12 | Mana +20, two-handed |
+| `WCMMO_ITEM_STAFF_ARC` | WCMMO_STAFF | 14 | skill crit 5 %, Mana +20 |
+| `WCMMO_ITEM_GRIMOIRE_ARC` | WCMMO_TOME | 4 (2 in the left slot) | skill damage +5 %, Mana +30 |
+
+Old Crucible weapons (`/mm items give … wcmmo_item_…`) still work and count as **AP 10** (`cfg::stats::legacyAp`) until they are replaced.
 
 ## Open questions
 
@@ -75,3 +91,4 @@ Mastery XP and the Mastery cooldown reduction follow the **worn stance**, not th
 | Date | Repo | FIRE run | PR / branch | Notes |
 |---|---|---|---|---|
 | 2026-10-15 | wcmmo-specs | — | — | Spec written from the owner's answers (D-44, M18, M23) |
+| 2026-10-15 | wcmmo | — | `feat/042-weapon-stats` | Phases 1–5 built (`7da2556`). Test server: the 9 MMOItems items load (id, stats, models ok); a converted skill scales with AP (spear / dual slash: AP 10 → 1.9, AP 20 → 3.9 on a husk); `mmodamage` found broken. Player-side (stat modifiers, crit, /stats, Mastery) needs a player to try |
