@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-14T18:57:55.051Z",
-  "head": "90b30ed",
+  "syncedAt": "2026-10-14T18:59:40.467Z",
+  "head": "90e3093",
   "branch": "main",
   "commits": [
+    {
+      "sha": "90e3093",
+      "date": "2026-10-15T01:59:11+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: PoC-7 functional pass; perf numbers and the D-25 call deferred to before launch (owner)",
+      "insertions": 6,
+      "deletions": 2,
+      "files": 2
+    },
     {
       "sha": "90b30ed",
       "date": "2026-10-15T01:56:37+07:00",
@@ -1233,7 +1242,7 @@
     "docs/001-server-baseline.md": "2026-09-28T22:55:03+07:00",
     "docs/002-plugin-stack.md": "2026-10-01T22:23:49+07:00",
     "docs/003-void-overworld.md": "2026-10-13T14:18:04+07:00",
-    "docs/004-roadmap-phase-plan.md": "2026-10-15T01:07:37+07:00",
+    "docs/004-roadmap-phase-plan.md": "2026-10-15T01:59:11+07:00",
     "docs/005-vitality-resources.md": "2026-10-14T16:11:42+07:00",
     "docs/006-attributes-stat-gating.md": "2026-10-02T00:07:23+07:00",
     "docs/007-classes-skill-bars.md": "2026-10-14T16:11:42+07:00",
@@ -1283,6 +1292,6 @@
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
     "gdd/trailer.md": "2026-09-30T00:24:58+07:00",
     "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",
-    "gdd/wcmmo-gdd-v2.md": "2026-10-15T00:32:50+07:00"
+    "gdd/wcmmo-gdd-v2.md": "2026-10-15T01:59:11+07:00"
   }
 }

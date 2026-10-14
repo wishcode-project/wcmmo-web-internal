@@ -104,12 +104,16 @@ PoCs run on `develop` only, on branches `poc/NNN-slug`. Nothing ships to `main` 
 | # | Item | Notes |
 |---|---|---|
 | 0 | **Weapon stats from the worn weapons (D-44)**: damage is still fixed numbers inside the MythicMobs skills; tiers, enhancement (013), stat gating (006), Mastery (023), drops (012) and the grimoire's stats (D-79) all wait on it | **DONE 2026-10-15** (spec 042, merged into `develop` `eb7673d`, owner tested) |
-| 1 | PoC-7 Bloodlines (Fury / Ward / Pulse) with the dummy | code written, never run |
+| 1 | PoC-7 Bloodlines (Fury / Ward / Pulse) with the dummy | **Functional PASS 2026-10-15** (spec 021 P1–P9, owner). `/spark` skipped: see the performance note below |
 | 2 | HUD (spec 029): MythicHUD layout, skill icons, replace the action-bar / boss-bar placeholders | **2026-10-14:** Volya's MMORPG HUD installed as the base (HP / Mana / Stamina / food / EXP). Left: skill slots with pictures in the HUD, our art |
 | 3 | Skill lists (spec 008): 10 general + 5 per weapon | only Dash, Whirl Cut, Ground Smash + 4 ultimates have effects |
 | 4 | PoC-1 FPV (Draconic pack files are in `wcmmo`), PoC-4 Identify, PoC-6 vitality | |
 | 5 | Equipment GUI (011 / 022 / 034): slots inside the E inventory, final wings position, wing model PoC | wings equip through `/mmoinv open` today |
 | 6 | LuckPerms groups + permissions | owner: last |
+
+### Performance numbers deferred (owner, 2026-10-15)
+
+Focus stays on Skript. PoC-2 (combat) and PoC-7 (Bloodlines) are functional passes without `/spark` numbers. Measuring alone says little about the 200-player target. **Before the real launch**, the owner measures the whole combat stack under load (testers or bots, `/spark profiler`) and then decides D-25 per system: keep it in Skript, or move it to our own plugin (`wcmmo-plugins`).
 
 ### Known issues carried over
 
