@@ -103,7 +103,7 @@ PoCs run on `develop` only, on branches `poc/NNN-slug`. Nothing ships to `main` 
 
 | # | Item | Notes |
 |---|---|---|
-| 0 | **Weapon stats from the worn weapons (D-44)**: damage is still fixed numbers inside the MythicMobs skills; tiers, enhancement (013), stat gating (006), Mastery (023), drops (012) and the grimoire's stats (D-79) all wait on it | proposed 2026-10-13, owner to confirm |
+| 0 | **Weapon stats from the worn weapons (D-44)**: damage is still fixed numbers inside the MythicMobs skills; tiers, enhancement (013), stat gating (006), Mastery (023), drops (012) and the grimoire's stats (D-79) all wait on it | **DONE 2026-10-15** (spec 042, merged into `develop` `eb7673d`, owner tested) |
 | 1 | PoC-7 Bloodlines (Fury / Ward / Pulse) with the dummy | code written, never run |
 | 2 | HUD (spec 029): MythicHUD layout, skill icons, replace the action-bar / boss-bar placeholders | **2026-10-14:** Volya's MMORPG HUD installed as the base (HP / Mana / Stamina / food / EXP). Left: skill slots with pictures in the HUD, our art |
 | 3 | Skill lists (spec 008): 10 general + 5 per weapon | only Dash, Whirl Cut, Ground Smash + 4 ultimates have effects |
