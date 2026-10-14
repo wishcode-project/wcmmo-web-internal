@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-14T18:19:10.984Z",
-  "head": "f5e3a00",
+  "syncedAt": "2026-10-14T18:24:10.203Z",
+  "head": "96ec1bc",
   "branch": "main",
   "commits": [
+    {
+      "sha": "96ec1bc",
+      "date": "2026-10-15T01:23:58+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: 021 faster swing animations with attack speed",
+      "insertions": 3,
+      "deletions": 0,
+      "files": 1
+    },
     {
       "sha": "f5e3a00",
       "date": "2026-10-15T01:18:59+07:00",
@@ -1214,7 +1223,7 @@
     "docs/018-lifezone-housing.md": "2026-10-01T22:23:49+07:00",
     "docs/019-lifeskills-resources.md": "2026-10-01T22:23:49+07:00",
     "docs/020-furniture-nexo.md": "2026-10-01T22:23:49+07:00",
-    "docs/021-bloodlines.md": "2026-10-15T01:15:18+07:00",
+    "docs/021-bloodlines.md": "2026-10-15T01:23:58+07:00",
     "docs/022-runes.md": "2026-09-30T23:50:58+07:00",
     "docs/023-weapon-mastery.md": "2026-10-02T01:33:51+07:00",
     "docs/024-awakening-tutorial.md": "2026-10-01T22:23:49+07:00",
