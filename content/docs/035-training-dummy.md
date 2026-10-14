@@ -127,3 +127,4 @@ A handful of dummies (target ≤ 10, all in cities). The head line updates every
 | Date | Repo | FIRE run | PR | Notes |
 |---|---|---|---|---|
 | 2026-10-02 | wcmmo | `run-wcmmo-003` | branch `feat/009-combat-poc` | Dummy works in game: spawn / list / tp / remove / info / respawn, never dies, head line DPS · Last · Max · Total, chat summary, hit line on the action bar. Finding: never set MythicMobs `MaxCombatDistance: 0` (it cancels every attack). |
+| 2026-10-14 | wcmmo | — | `fix/009-damage-numbers` | D-80: the bought yungwilder TargetDummy pack is removed (our `/dummy` replaces it; `/wcmmoremovevendordummy` still clears old ones); no per-hit action bar, MythicLib shows each hit (`d3693fd`) |

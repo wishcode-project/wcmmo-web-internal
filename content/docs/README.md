@@ -225,7 +225,7 @@ Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:s
 | Nexo `wcmmo_combat_grip` (FLINT 6950) and the `*_held` items above | Nexo (kit items) | 039 | combat grips: what the hands show in combat mode; never real items (locked, taken back by the kit) |
 | Nexo `wcmmo_icon_<key>` (PAPER 6861–6863 pack pictures, 6870–6891 drawn by `scripts/skill_icons.py`) | Nexo (kit items) | 041 | skill pictures for `/skills` and the skill hotbar |
 | vendor: `zoltraak_staff` · `LS_W_ARC_STAFF`, `LS_W_ARC_GRIMOIRE` (+ 3 skill icon items) · `<colour>_potion_small` / `_large` (red, yellow, purple, blue, green, exp) | MythicMobs + Nexo | 040, 041 | bought Llama Studio packs as shipped. `zoltraak_staff` can kick the player (spec 040 Known issues) |
-| vendor: `TargetDummy` (+ Nexo `yungwilder_target_dummy`) | MythicMobs + Nexo | 035 | bought yungwilder dummy, IDs kept as shipped |
+| ~~vendor: `TargetDummy`~~ | — | 035 | bought yungwilder dummy, **removed 2026-10-14 (D-80)** |
 | vendor: `basic_polearm`, `two_sword`, `gb_bow`, `castle_knight_weapon` (+ Nexo `ls_sw_*`) | MythicMobs + Nexo | 010 | bought Llama Studio packs, test only, IDs kept as shipped |
 
 ### Mobs, bosses & dungeons
