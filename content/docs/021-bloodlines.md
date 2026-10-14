@@ -1,6 +1,6 @@
 # 021 — Bloodlines (Fury, Ward, Pulse: stages, paths, extraction)
 
-> Status: DRAFT · Target: wcmmo (Skript scripts, MythicMobs effect skills, MMOItems items, MythicHUD) · FIRE mode: validate
+> Status: IN-PROGRESS · Target: wcmmo (Skript scripts, MythicMobs effect skills, MMOItems items, MythicHUD) · FIRE mode: validate
 > Design: [bloodlines.md](../gdd/bloodlines.md) · [GDD v2 §2](../gdd/wcmmo-gdd-v2.md#2-classless-system-bloodlines--runes) · Decisions: D-31, D-32, D-33, D-34, D-37, D-48
 
 ## Big picture
@@ -110,6 +110,35 @@ Pulse rhythm and Ward guard checks run on every cast / hit; HP thresholds only i
 | 17 | In-game extractor, bind another, extract, re-bind the first | stage and paths restored · store extractor: back to stage 1 |
 | 18 | Benchmark A/B/C for all three | each leads its own test, combined within ±15 % |
 
+## PoC-7 (spec 004): what is built and how to test it
+
+Built in `wcmmo` (branch `feat/021-poc7-bloodlines`). The real files are `wcmmo_50_bloodline_core.sk`, `wcmmo_51_fury.sk`, `wcmmo_52_ward.sk` and `wcmmo_53_pulse.sk`; numbers are in `wcmmo_00_config.sk` (`cfg::fury::*`, `cfg::ward::*`, `cfg::pulse::*`). Effects are in `plugins/MythicMobs/skills/wcmmo/wcmmo_fx.yml`.
+
+| Topic | How it works |
+|---|---|
+| Stage-4 actives | Kit skills (`/skills`, kind `bloodline`), owned while that Bloodline is at stage 4+. Cooldown / mana: Blood Rage 90 s / 0, Bone Bastion 45 s / 15, Heartbeat Surge 60 s / 20. The MythicMobs skill calls `wcmmobl active <uuid>` |
+| Blood Rage | Refused below 10 % HP before anything is paid. Resets the kit's skill-bar cooldowns, except the Bloodline actives |
+| Cast hook | Every kit skill and ultimate cast calls `wcmmo_bl_onCast`, which drives Pulse Rhythm, Fury 3A and Ward 3B |
+| Damage hooks | Inside the one damage pipeline (`wcmmo_10_combat.sk` step 2): attacker side first, then the defender side |
+| Pulse / Retribution damage | % of AP (spec 042) |
+
+PoC-7 pass = stage 1 + one path each for Fury, Ward and Pulse, plus `/spark` numbers.
+
+| # | Setup (admin) | Do | Expected |
+|---|---|---|---|
+| P1 | `/wcmmobladmin <me> set fury 4 BA` | get hit below 30 % HP | red Adrenaline effect on, off above 30 % |
+| P2 | (same) | kill a mob | 5 % max HP healed (2B) |
+| P3 | (same) | slot Blood Rage in `/skills`, use other skills, then cast it at > 10 % HP / at < 10 % HP | HP −25 %, other cooldowns cleared / refused, nothing paid |
+| P4 | `/wcmmobladmin <me> set ward 4 AA` | hold guard and take 5 hits from the front | Bulwark builds (−3 % damage per stack), −1 stack every 4 s without blocks |
+| P5 | (same) | perfect guard (raise guard just before the hit) | attacker staggered, +15 stamina, +2 stacks (2A) |
+| P6 | (same) | cast Bone Bastion and let mobs hit you | shield of 30 % max HP; attackers take damage back and slow; max HP +10 % for 10 s |
+| P7 | `/wcmmobladmin <me> set pulse 4 BB` | cast 3 different skills / the same skill twice | Pulse (heal 4 %, damage around you) / Rhythm resets |
+| P8 | (same) | Pulse, then hit | +5 % damage per Pulse within 5 s (2B); second Pulse at 50 % after 1 s (3B) |
+| P9 | (same) | cast Heartbeat Surge, then skills | 6 s: every skill Pulses |
+| P10 | 1 player | `/spark profiler --timeout 60` while doing P4 / P7 against a group of mobs | Bloodline scripts < 0.2 ms/tick |
+
+Known limit: in combat mode, basic attacks are the kit's stance moves, so `ATTACK_SPEED` (Fury Adrenaline +20 %, and AGI) doesn't change their pace yet.
+
 ## Rollback
 
 Bloodline data is player data: DB backup before any prod change; never rename Bloodline IDs once players have them.
@@ -124,3 +153,9 @@ Bloodline data is player data: DB backup before any prod change; never rename Bl
 
 - Stage unlock materials per Bloodline (bloodlines.md B1); path respec price (B2).
 - The stage-4 active takes one of the 10 skill slots (recommended).
+
+## Implementation log
+
+| Date | Repo | FIRE run | PR / branch | Notes |
+|---|---|---|---|---|
+| 2026-10-15 | wcmmo | — | `feat/021-poc7-bloodlines` (`3208d34`) | PoC-7: the kit's Bloodline code (written 2026-10-02, never run) checked and connected. The actives became skill-bar skills, cooldown resets use the kit's cooldowns, damage uses AP. Loads with no errors; in-game tests P1–P10 pending (owner) |

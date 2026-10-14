@@ -29,7 +29,7 @@ as the spec that introduces it.** Specs link back here instead of redefining any
 | 018 | [Lifezone instances & housing](018-lifezone-housing.md) | DRAFT | plugins, wcmmo, infra | validate |
 | 019 | [Lifeskills & resource tiers](019-lifeskills-resources.md) | DRAFT | content | confirm |
 | 020 | [Furniture (Nexo) & lifeskill NPCs](020-furniture-nexo.md) | DRAFT | content | confirm |
-| 021 | [Bloodlines](021-bloodlines.md) | DRAFT | plugins, content | validate |
+| 021 | [Bloodlines](021-bloodlines.md) | IN-PROGRESS | plugins, content | validate |
 | 022 | [Passive Runes](022-runes.md) | DRAFT | content | validate |
 | 023 | [Weapon Mastery](023-weapon-mastery.md) | DRAFT | content, wcmmo | validate |
 | 024 | [The Awakening: tutorial & Bloodline Trial](024-awakening-tutorial.md) | DRAFT | plugins, content, wcmmo | validate |
@@ -319,6 +319,7 @@ Our own commands and any CMI alias we add. Stock plugin commands are not listed.
 | `/apdp` | `wcmmo.player.apdp` | wcmmo-core | 014 |
 | `/lifezone [list]` | `wcmmo.lifezone.use` | wcmmo-core | 018 |
 | `/bloodline` | `wcmmo.bloodline.use` | wcmmo-core | 021 |
+| `/wcmmobladmin <player> set <fury\|ward\|pulse> <stage> [paths]` · `path <2\|3\|5> <A\|B>` · `extract <keep\|reset>` | `wcmmo.admin.bloodline` | Skript `wcmmo_50_bloodline_core.sk` (tests, PoC-7) | 021 |
 | `/runes` | MMOInventory default | MMOInventory | 022 |
 | `/mastery` | MMOCore default | CMI alias → MMOCore professions | 023 |
 | `/dummy spawn [name\|mobile]\|item\|list\|tp\|remove\|info\|respawn\|stats` | `wcmmo.admin.dummy` (`stats`: `wcmmo.dummy.stats`) | Skript `wcmmo_80_dummy.sk` | 035 |
