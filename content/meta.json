@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-14T19:07:35.851Z",
-  "head": "277271c",
+  "syncedAt": "2026-10-14T19:13:31.705Z",
+  "head": "05358b4",
   "branch": "main",
   "commits": [
+    {
+      "sha": "05358b4",
+      "date": "2026-10-15T02:13:17+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: 029 HUD second build (Volya bars, baked stamina hex)",
+      "insertions": 10,
+      "deletions": 5,
+      "files": 1
+    },
     {
       "sha": "277271c",
       "date": "2026-10-15T02:07:23+07:00",
@@ -1285,7 +1294,7 @@
     "docs/026-item-inspect-pages.md": "2026-09-30T23:31:15+07:00",
     "docs/027-death-respawn.md": "2026-10-01T00:01:28+07:00",
     "docs/028-levelling-party-loot.md": "2026-10-02T00:07:23+07:00",
-    "docs/029-hud.md": "2026-10-15T02:07:23+07:00",
+    "docs/029-hud.md": "2026-10-15T02:13:17+07:00",
     "docs/030-languages.md": "2026-10-01T00:31:21+07:00",
     "docs/031-chat-channels.md": "2026-10-01T00:31:21+07:00",
     "docs/032-npcs-name-colours.md": "2026-10-01T00:39:32+07:00",
