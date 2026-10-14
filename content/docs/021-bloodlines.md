@@ -126,7 +126,7 @@ PoC-7 pass = stage 1 + one path each for Fury, Ward and Pulse, plus `/spark` num
 
 | # | Setup (admin) | Do | Expected |
 |---|---|---|---|
-| P1 | `/wcmmobladmin <me> set fury 4 BA` | get hit below 30 % HP | red Adrenaline effect on, off above 30 % |
+| P1 | `/wcmmobladmin <me> set fury 4 BA` | get hit below 30 % HP, spam left click | red Adrenaline effect on and basic attacks faster (10 → 8 ticks); off above 30 % |
 | P2 | (same) | kill a mob | 5 % max HP healed (2B) |
 | P3 | (same) | slot Blood Rage in `/skills`, use other skills, then cast it at > 10 % HP / at < 10 % HP | HP −25 %, other cooldowns cleared / refused, nothing paid |
 | P4 | `/wcmmobladmin <me> set ward 4 AA` | hold guard and take 5 hits from the front | Bulwark builds (−3 % damage per stack), −1 stack every 4 s without blocks |
@@ -137,7 +137,15 @@ PoC-7 pass = stage 1 + one path each for Fury, Ward and Pulse, plus `/spark` num
 | P9 | (same) | cast Heartbeat Surge, then skills | 6 s: every skill Pulses |
 | P10 | 1 player | `/spark profiler --timeout 60` while doing P4 / P7 against a group of mobs | Bloodline scripts < 0.2 ms/tick |
 
-Known limit: in combat mode, basic attacks are the kit's stance moves, so `ATTACK_SPEED` (Fury Adrenaline +20 %, and AGI) doesn't change their pace yet.
+**Attack speed (owner, 2026-10-15):** in combat mode the kit sets the pace of basic attacks (`wcmmo_basicTicks` in `wcmmo_36_basic_attacks.sk`). Pace = base ticks ÷ (1 + AGI bonus + Adrenaline 0.20). The MythicMobs basic skills keep only a 0.25 s floor, so attacks can be at most twice as fast.
+
+| Weapon | Base ticks between basic attacks | With Adrenaline |
+|---|---|---|
+| Swords (single / dual / shield), spear, Arc Staff | 10 | 8 |
+| Bow | 15 (Suppressive Fire: 2) | 13 (2) |
+| Wooden Staff | 14 | 12 |
+
+P1 also checks: under 30 % HP, spam left click: the attacks come visibly faster.
 
 ## Rollback
 
@@ -159,3 +167,4 @@ Bloodline data is player data: DB backup before any prod change; never rename Bl
 | Date | Repo | FIRE run | PR / branch | Notes |
 |---|---|---|---|---|
 | 2026-10-15 | wcmmo | — | `feat/021-poc7-bloodlines` (`3208d34`) | PoC-7: the kit's Bloodline code (written 2026-10-02, never run) checked and connected. The actives became skill-bar skills, cooldown resets use the kit's cooldowns, damage uses AP. Loads with no errors; in-game tests P1–P10 pending (owner) |
+| 2026-10-15 | wcmmo | — | `feat/021-poc7-bloodlines` | Owner: Adrenaline must really attack faster. The kit now sets the basic-attack pace in combat mode (AGI and Adrenaline); MythicMobs cooldowns lowered to a 0.25 s floor |
