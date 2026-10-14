@@ -37,7 +37,7 @@ as the spec that introduces it.** Specs link back here instead of redefining any
 | 026 | [Item detail pages (F in the inventory)](026-item-inspect-pages.md) | DRAFT | wcmmo | confirm |
 | 027 | [Death & respawn](027-death-respawn.md) | DRAFT | wcmmo | validate |
 | 028 | [Levelling, party XP & loot](028-levelling-party-loot.md) | DRAFT | wcmmo | validate |
-| 029 | [HUD layout](029-hud.md) | DRAFT | wcmmo | confirm |
+| 029 | [HUD layout](029-hud.md) | IN-PROGRESS | wcmmo | confirm |
 | 030 | [Languages & translation](030-languages.md) | DRAFT | wcmmo | confirm |
 | 031 | [Chat channels](031-chat-channels.md) | DRAFT | wcmmo | confirm |
 | 032 | [NPCs, guards & name colours](032-npcs-name-colours.md) | DRAFT | wcmmo | confirm |
@@ -92,10 +92,11 @@ Full per-plugin guide (docs, dependencies, setup, overlaps): [plugins.md](plugin
 | ModelEngine | R4.1.1 | paid | wcmmo | custom mob models | — |
 | DiscordSRV | — owned | free | wcmmo | chat bridge (token in `.env`) | — |
 | MMOInventory | 2.0-SNAPSHOT | paid | wcmmo | equipment screen `/equip` (worn weapons, D-77), accessory + Rune slots | 011, 022, 039 |
-| PlaceholderAPI | 2.12.3 | free | wcmmo | placeholders for Mastery math in MythicMobs | 023 |
+| PlaceholderAPI | 2.12.3 (+ expansions Math, String, Player) | free | wcmmo | placeholders for Mastery math in MythicMobs and for the HUD | 023, 029 |
 | Triton | 4.1.0 | paid | wcmmo | per-player translations (D-27) | — |
 | UltimateUI | 1.4.0 | paid | wcmmo | shops, quest list, custom UI (D-39) | — |
-| MythicHUD | 1.3.5 | paid | wcmmo | always-on HUD (D-39) | 005, 007 |
+| MythicHUD | 1.3.5 | paid | wcmmo | always-on HUD (D-39): Volya's MMORPG HUD layout `mmohud-layout` | 005, 007, 029 |
+| DeluxeMenus | 1.14.1 | free | wcmmo | the HUD pack's `/mmohud` menu | 029 |
 | MythicCrucible | 5.13.0 | paid | wcmmo | FPV weapon item triggers for the test (D-44); not the pack owner | 010 |
 | CosmeticsCore | 1.3.13 ⚠️ licence log | paid | wcmmo | wearable cosmetics (D-41) | — |
 | ItemSkins | 2.1.0 owned | paid | wcmmo | weapon skins (D-41), needs PacketEvents | — |
@@ -319,6 +320,7 @@ Our own commands and any CMI alias we add. Stock plugin commands are not listed.
 | `/runes` | MMOInventory default | MMOInventory | 022 |
 | `/mastery` | MMOCore default | CMI alias → MMOCore professions | 023 |
 | `/dummy spawn\|list\|tp\|remove\|info\|respawn\|stats` | `wcmmo.admin.dummy` (`stats`: `wcmmo.dummy.stats`) | Skript `wcmmo_80_dummy.sk` | 035 |
+| `/mmohud` | DeluxeMenus default | DeluxeMenus `gui_menus/mmohud_menu.yml` (HUD options, vendor) | 029 |
 | `/equip` (aliases of the MMOInventory default inventory) | MMOInventory default | MMOInventory `inventory/default_mmoinventory.yml` | 039 |
 | `/skills` (`/skill`) | — | Skript `wcmmo_31_skills_gui.sk` | 007 |
 | `/wcmmoskill give\|take <player> <skill id\|all>` | `wcmmo.admin.skillbar` | Skript `wcmmo_30_skillbar.sk` | 007 |
