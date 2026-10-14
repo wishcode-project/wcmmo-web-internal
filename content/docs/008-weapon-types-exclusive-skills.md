@@ -87,11 +87,16 @@ How measured: 2026-10-15 on the throwaway test server. A MythicMobs caster with 
 | bow | 4 | Snare Arrow |
 | staves | 2 | Frost Nova, Chain Lightning |
 
-**Open for the owner:**
-1. Damage formula: OK, or a different target?
-2. Which ★ skill per stance (proposed above)?
-3. Ultimates by stance: sword stances share Blade Storm, spear gets Earthbreaker, bow Heaven's Barrage, staves Cataclysm?
-4. Mastery unlock order (0 / 5 / 10 / 15 / 20, ultimate at 25): pack moves first, fill-ins after?
+**Decided (owner, 2026-10-15, following the recommendation):**
+
+| # | Topic | Decision |
+|---|---|---|
+| 1 | Damage | per cast ≈ 60 % + 15 % × cooldown s of AP; ultimates ≈ 800 %. A starting point: tune with the Sparring Dummy |
+| 2 | ★ guard break, 1 per stance | single **Charge**, dual **Dash Strike**, shield **Shield Rush**, spear **Hard Swing**, bow **Power Shot**, staves **Thunder Impact**. Not Starburst: it is already the big move |
+| 3 | Ultimates by stance | single + dual **Blade Storm**; shield **Earthbreaker**; spear **Earthbreaker** for now (its own thrust ultimate later); bow **Heaven's Barrage**; staves **Cataclysm** (meteors must land closer to the aim) |
+| 4 | Mastery unlocks | light pack moves at 0; fill-ins and mid moves at 5–10; big pack moves (Starburst, Domain, Suppressive Fire) at 15–20; ultimate at 25. Movement skills (Dash, Double Jump, Teleport, Blink) are general skills, not Mastery-locked |
+
+**Guard break (★, D-06d), as built in the kit:** the skill's hit gives the caster the state `armourbreak` for a few ticks (`command{c="wcmmostate <caster.uuid> armourbreak N"}`). While a target guards, the damage pipeline (`wcmmo_10_combat.sk` step 1) then skips the Frontguard reduction, and a guarding player's guard breaks.
 
 ## Design rules
 
