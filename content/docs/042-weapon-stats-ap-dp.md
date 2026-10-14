@@ -1,6 +1,6 @@
 # 042 — Weapon stats from worn equipment: AP, DP, crit, status screen
 
-> Status: IN-PROGRESS · Target: wcmmo (MMOItems, MythicLib, MythicMobs skills, Skript kit, MythicHUD) · FIRE mode: confirm
+> Status: DONE · Target: wcmmo (MMOItems, MythicLib, MythicMobs skills, Skript kit, MythicHUD) · FIRE mode: confirm
 > Design: GDD v2 §3 / §4 · Decisions: **D-44** (decided here), D-69 / D-79 (off-hand), D-77 (worn weapons), D-80 (damage numbers), D-13b (AP / DP)
 > Answers: M18 (dual swords / sword & shield = their own weapon types for Mastery), M23 (off-hand: half its AP, the rest in full) — owner, 2026-10-15
 
@@ -83,7 +83,7 @@ Old Crucible weapons (`/mm items give … wcmmo_item_…`) still work and count 
 
 ## Open questions
 
-- Does MMOItems also count a weapon worn in an MMOInventory accessory slot? If yes, the kit must not add it again (checked in game with `/wcmmostats`).
+- ~~Does MMOItems also count a weapon worn in an accessory slot?~~ No double count (owner checked in game, 2026-10-15).
 - Item stat values per tier (wood / iron / pack colours, D-70): first numbers in phase 1, real balance with the item lists.
 
 ## Implementation log
@@ -93,3 +93,4 @@ Old Crucible weapons (`/mm items give … wcmmo_item_…`) still work and count 
 | 2026-10-15 | wcmmo-specs | — | — | Spec written from the owner's answers (D-44, M18, M23) |
 | 2026-10-15 | wcmmo | — | `feat/042-weapon-stats` | Phases 1–5 built (`7da2556`). Test server: the 9 MMOItems items load (id, stats, models ok); a converted skill scales with AP (spear / dual slash: AP 10 → 1.9, AP 20 → 3.9 on a husk); `mmodamage` found broken. Player-side (stat modifiers, crit, /stats, Mastery) needs a player to try |
 | 2026-10-15 | wcmmo | — | `feat/042-weapon-stats` | Owner: `/stats` / `/status` clash with CMI: the screen is **`/wcmmostats`** |
+| 2026-10-15 | wcmmo | — | `develop` (`eb7673d`) | Owner tested in game (AP, crit, off-hand half, Mastery, `/wcmmostats`): pass. Merged into develop |
