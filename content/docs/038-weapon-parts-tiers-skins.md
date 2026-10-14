@@ -45,7 +45,7 @@ Rules:
 
 | Tier | Look | Made by |
 |---|---|---|
-| 1 Wood | wood / leather / straw (specs 036 / 037) | `wood_weapons.py`, ramps `WOOD`, `LEATHER`, `STRAW` |
+| 1 Wood | wood / leather for the weapon (specs 036 / 037). **Effects: the pack's own colours for every tier for now** (owner, 2026-10-14); effect dyes per tier later | `wood_weapons.py`, ramps `WOOD`, `LEATHER` (`STRAW` only on staff accents) |
 | 2 Iron | iron / dark leather / steel-white effects | same script, new ramps (iron `#3a3f45` → `#d9dde2`, accents leather, effects `#8e98a3` → `#f4f8fb`) |
 | 3 Pack colours | the bought packs as shipped | copy without recolour |
 

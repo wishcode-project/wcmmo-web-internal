@@ -19,7 +19,7 @@ This is a **sample**: the first weapon made from a pack instead of installed fro
 | Part | Source in the pack | Ours |
 |---|---|---|
 | Models | `ls_sw_bow`, `_incombat`, `_arrow`, `_big_shot_arrow`, `_big_shot_effect`, `_hit` | `wcmmo_bow_wood`, `_incombat`, `_arrow`, `_big_arrow`, `_big_effect`, `_hit` in `ModelEngine/blueprints/wcmmo/bow_wood/`. Same geometry and animations; textures recoloured |
-| Recolour | green + white | bow: wood ramp `#3b2414` → `#e2bd84`, green accents → leather `#2e1c10` → `#8a6038`; effects: straw ramp `#5a3b1e` → `#fff4dc`. Recolour maps each pixel's brightness onto the ramp, so shading stays |
+| Recolour | green + white | bow: wood ramp `#3b2414` → `#e2bd84`, green accents → leather `#2e1c10` → `#8a6038`; effects: straw ramp `#5a3b1e` → `#fff4dc`. Recolour maps each pixel's brightness onto the ramp, so shading stays **Effects keep the pack's own colours (owner, 2026-10-14):** the straw recolour of effects was removed; only the weapon itself is recoloured. Dyeing effects per tier comes when tiers are real (D-70). Arrows (projectiles) and particle rings are the pack's green again |
 | Icon | `ls_sw_bow_item` | Nexo `wcmmo_bow_wood`, COAL model data **6941**, texture `wcmmo/bow_wood/wcmmo_bow_wood_item.png` |
 | Item | `gb_bow` | MythicMobs item `wcmmo_item_bow_wood` |
 | Mobs | `gb_bow*` holders and projectiles | `wcmmo_mob_bow_wood_*` (no stowed holder, see below) |
@@ -70,10 +70,10 @@ The pose was checked against the player box (body z −2…2, head z −4…4) i
 ## Test plan (dev box)
 
 1. `/meg reload`, `/mm reload` (or restart), then `/mm items get wcmmo_item_bow_wood` → wooden icon in hand, wooden bow on the back.
-2. Right click → bow comes to the hands, wooden arrow with a straw trail, hit effect on the dummy (`/dummy spawn`), 2 damage (3 on crit).
+2. Right click → bow comes to the hands, the pack's green arrow and trail, hit effect on the dummy (`/dummy spawn`), 2 damage (3 on crit).
 3. Spam right click → max one shot per 0.75 s.
 4. Left click → back-step + 3 arrows; again within 6 s → action bar shows the cooldown.
-5. Shift + right click → slowed 1 s, straw rings, back-step, heavy arrow 8 damage; cooldown 8 s.
+5. Shift + right click → slowed 1 s, green rings, back-step, heavy arrow 8 damage; cooldown 8 s.
 6. Stop fighting for 5 s → bow goes back to the back. Switch hotbar slot → nothing left on the player.
 6b. Stowed: walk, sprint, jump, turn only the camera, turn the body → the bow stays flat on the back, no gap, no lag, does not swing with the head.
 7. Press F while holding it → skill bar swaps (not swallowed).
@@ -92,3 +92,4 @@ Delete `ModelEngine/blueprints/wcmmo/bow_wood/`, `MythicMobs/{items,mobs,skills}
 |---|---|---|---|---|
 | 2026-10-02 | wcmmo | — (no FIRE run, prototype) | `feat/036-wooden-bow` @ `8f76642`, back lock `78a3931` | Models recoloured, item + 3 skills. Server load check on a throwaway copy: no errors. Owner happy with the prototype; in-game test plan not run yet. Next: MMOItems port (D-44) |
 | 2026-10-03 | wcmmo | — | merged into `develop` @ `eec0904` (with 037) | Back lock + baked pose approved by the owner |
+| 2026-10-14 | wcmmo | — | `feat/041-arc-staff-potions` | Effects, arrows and particle rings back to the pack's colours (`5e5a967`, `restore_bow_fx` in `scripts/wood_weapons.py`); the bow stays wood |

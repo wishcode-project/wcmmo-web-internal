@@ -29,7 +29,7 @@ Same status as the bow: MythicMobs + Crucible items (D-44 still OPEN), no MMOIte
 | Step | What |
 |---|---|
 | Copy | pack blueprints → `ModelEngine/blueprints/wcmmo/<id>/`, renamed `wcmmo_<id>*` |
-| Recolour | each embedded texture, pixel brightness → colour ramp (shading stays). Weapon parts: wood `#3b2414` → `#e2bd84` (second twin sword: dark wood `#22140a` → `#9a6c42`); accents (red wrap, cyan gems) → leather `#2e1c10` → `#8a6038`; slash / hit effects: straw `#5a3b1e` → `#fff4dc` by absolute brightness (they glow) |
+| Recolour | each embedded texture, pixel brightness → colour ramp (shading stays). Weapon parts: wood `#3b2414` → `#e2bd84` (second twin sword: dark wood `#22140a` → `#9a6c42`); accents (red wrap, cyan gems) → leather `#2e1c10` → `#8a6038`; slash / hit effects: straw `#5a3b1e` → `#fff4dc` by absolute brightness (they glow) **Effects keep the pack's own colours (owner, 2026-10-14):** the straw recolour of effects was removed; only the weapon itself is recoloured. Dyeing effects per tier comes when tiers are real (D-70). |
 | Unique names | every texture renamed `wcmmo_<model>_<part>` (ModelEngine warns on duplicates) |
 | Split | the pack has **one** model for back + combat. We make a **back model** `wcmmo_<id>` (weapon bones only, the back pose **baked in as the rest pose, no animations**) and a **combat model** `wcmmo_<id>_combat` (full pack model) |
 | Back pose | static (pack bobs), moved onto the back: gap to the body **0.2 px** like the bow. Also the end of `combat_to_idle`, so the swap back is seamless |
@@ -144,7 +144,7 @@ Reload order: `/meg reload` → `/nexo reload all` → `/mm reload`.
 
 1. Get each item → wooden icon in hand, wooden weapon on the back (spear diagonal, two swords crossed, shield with the sword behind it).
 2. Walk, sprint, jump, sprint-jump, turn only the camera → the weapon stays flat on the back, no gap, no bobbing, turns with the body.
-3. L three times → 3-hit combo on the dummy (`/dummy spawn`), straw slash / hit effects, 2 damage (3 on crit).
+3. L three times → 3-hit combo on the dummy (`/dummy spawn`), the pack's slash / hit effect colours, 2 damage (3 on crit).
 4. R / Shift + L → the move from the table; again during cooldown → action bar countdown.
 5. Stop for 5 s (spear 6 s) → weapon swings back onto the back, no jump between holder and back model.
 6. Switch hotbar slot or drop → nothing left on the player.
@@ -167,3 +167,4 @@ Delete `ModelEngine/blueprints/wcmmo/{spear,swords,sword_shield}_wood/`, `Mythic
 | 2026-10-02 | wcmmo | — (no FIRE run, prototype) | `feat/037-wooden-weapons` @ `7b0a514` | Script + 3 weapons. Poses checked in a side / back render against the player box. Server load check on a throwaway copy. In-game test plan not run yet |
 | 2026-10-03 | wcmmo | — | merged into `develop` @ `eec0904` | Baked back pose (`c7b1411`), approved by the owner. Controls still the old ones until D-68 is built |
 | 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Owner: skills of the Castle Knight, Two Sword Style and Green Bow packs were missing. Ported the remaining moves as skills (`80712c6`). Checked on the test server with a mob caster: Starburst Stream 20 → 7.21, Domain Declaration 20 → 17.06, Battle Declaration 20 → 17.58, Tornado Shot (on a floor) 20 → 18.6, Suppressive Fire fast shots 20 → 13.88, normal shot 20 → 18.08. Animations on a player not yet seen |
+| 2026-10-14 | wcmmo | — | `feat/041-arc-staff-potions` | Owner: effects in the packs' original colours by default (`5e5a967`): `FX = keep` in `scripts/wood_weapons.py`, 18 models re-generated, structure identical, only effect textures changed (spear red, swords blue, knight gold, bow green). Weapons stay wood |

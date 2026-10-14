@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-14T01:07:05.345Z",
-  "head": "f2c2bee",
+  "syncedAt": "2026-10-14T01:13:43.154Z",
+  "head": "07d5cf2",
   "branch": "main",
   "commits": [
+    {
+      "sha": "07d5cf2",
+      "date": "2026-10-14T08:13:20+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: effects keep the packs' colours by default (D-70, 036-038)",
+      "insertions": 10,
+      "deletions": 7,
+      "files": 4
+    },
     {
       "sha": "f2c2bee",
       "date": "2026-10-14T08:06:51+07:00",
@@ -1004,9 +1013,9 @@
     "docs/033-monster-ranks-combat.md": "2026-10-02T00:58:15+07:00",
     "docs/034-wings.md": "2026-10-02T00:07:23+07:00",
     "docs/035-training-dummy.md": "2026-10-02T22:08:43+07:00",
-    "docs/036-wooden-bow.md": "2026-10-03T00:51:44+07:00",
-    "docs/037-wooden-weapons.md": "2026-10-13T21:45:32+07:00",
-    "docs/038-weapon-parts-tiers-skins.md": "2026-10-03T09:32:17+07:00",
+    "docs/036-wooden-bow.md": "2026-10-14T08:13:20+07:00",
+    "docs/037-wooden-weapons.md": "2026-10-14T08:13:20+07:00",
+    "docs/038-weapon-parts-tiers-skins.md": "2026-10-14T08:13:20+07:00",
     "docs/039-equipment-screen-worn-weapons.md": "2026-10-14T08:06:51+07:00",
     "docs/040-wooden-staff-zoltraak.md": "2026-10-13T15:11:32+07:00",
     "docs/041-arc-staff-potions-packs.md": "2026-10-13T21:45:32+07:00",
@@ -1021,6 +1030,6 @@
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
     "gdd/trailer.md": "2026-09-30T00:24:58+07:00",
     "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",
-    "gdd/wcmmo-gdd-v2.md": "2026-10-13T15:11:32+07:00"
+    "gdd/wcmmo-gdd-v2.md": "2026-10-14T08:13:20+07:00"
   }
 }
