@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-14T13:12:22.996Z",
-  "head": "c40c753",
+  "syncedAt": "2026-10-14T13:25:19.697Z",
+  "head": "9e6f576",
   "branch": "main",
   "commits": [
+    {
+      "sha": "9e6f576",
+      "date": "2026-10-14T20:25:04+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: D-80 no knock-back from a player's own melee hit",
+      "insertions": 2,
+      "deletions": 1,
+      "files": 2
+    },
     {
       "sha": "c40c753",
       "date": "2026-10-14T20:12:05+07:00",
@@ -1112,7 +1121,7 @@
     "docs/006-attributes-stat-gating.md": "2026-10-02T00:07:23+07:00",
     "docs/007-classes-skill-bars.md": "2026-10-14T16:11:42+07:00",
     "docs/008-weapon-types-exclusive-skills.md": "2026-10-02T00:07:23+07:00",
-    "docs/009-combat-states.md": "2026-10-14T19:22:42+07:00",
+    "docs/009-combat-states.md": "2026-10-14T20:25:04+07:00",
     "docs/010-fpv-animation-poc.md": "2026-10-03T00:00:21+07:00",
     "docs/011-equipment-accessories.md": "2026-10-01T22:23:49+07:00",
     "docs/012-item-generation-identify-elements.md": "2026-10-01T22:23:49+07:00",
@@ -1156,6 +1165,6 @@
     "gdd/team-brief-2026-09-29.md": "2026-09-29T21:11:15+07:00",
     "gdd/trailer.md": "2026-09-30T00:24:58+07:00",
     "gdd/wcmmo-gdd-v1.md": "2026-09-28T21:19:03+07:00",
-    "gdd/wcmmo-gdd-v2.md": "2026-10-14T19:22:42+07:00"
+    "gdd/wcmmo-gdd-v2.md": "2026-10-14T20:25:04+07:00"
   }
 }
