@@ -105,7 +105,7 @@ PoCs run on `develop` only, on branches `poc/NNN-slug`. Nothing ships to `main` 
 |---|---|---|
 | 0 | **Weapon stats from the worn weapons (D-44)**: damage is still fixed numbers inside the MythicMobs skills; tiers, enhancement (013), stat gating (006), Mastery (023), drops (012) and the grimoire's stats (D-79) all wait on it | **DONE 2026-10-15** (spec 042, merged into `develop` `eb7673d`, owner tested) |
 | 1 | PoC-7 Bloodlines (Fury / Ward / Pulse) with the dummy | **Functional PASS 2026-10-15** (spec 021 P1–P9, owner). `/spark` skipped: see the performance note below |
-| 2 | HUD (spec 029): MythicHUD layout, skill icons, replace the action-bar / boss-bar placeholders | **2026-10-14:** Volya's MMORPG HUD installed as the base (HP / Mana / Stamina / food / EXP). Left: skill slots with pictures in the HUD, our art |
+| 2 | HUD (spec 029): MythicHUD layout, skill icons, replace the action-bar / boss-bar placeholders | **2026-10-15: functional first version passes in game** (`feat/029-wcmmo-hud`): our layout with Volya's HP / Mana bars, level hex filled by stamina, runner, EXP bar, Bloodline badge; skill boss bar off. **A redesign may follow later** (owner) |
 | 3 | Skill lists (spec 008): 10 general + 5 per weapon | only Dash, Whirl Cut, Ground Smash + 4 ultimates have effects |
 | 4 | PoC-1 FPV (Draconic pack files are in `wcmmo`), PoC-4 Identify, PoC-6 vitality | |
 | 5 | Equipment GUI (011 / 022 / 034): slots inside the E inventory, final wings position, wing model PoC | wings equip through `/mmoinv open` today |
