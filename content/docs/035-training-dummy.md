@@ -157,3 +157,4 @@ The hit is a real attack from the dummy (`Player.damage(amount, dummy)`), so gua
 | 2026-10-14 | wcmmo | — | `feat/035-mobile-dummy` | Owner: the mobile dummy's name stayed behind and floated too high. The label now follows it 2.15 above its feet (`532acf0`). Test server: label at +2.15, followed a knock-back (8.77 = 8.77) and the run home from 20 blocks |
 | 2026-10-15 | wcmmo | — | `develop` | Owner tested in game: mobile dummy (place / knock-back / run home / label / pick up) pass. Merged (`44d7ddf`) |
 | 2026-10-15 | wcmmo | — | `feat/021-poc7-bloodlines` | Sparring dummy (`7adbf04`). Loads with no errors; attacking a player needs a player to try |
+| 2026-10-15 | wcmmo | — | `develop` (`6e81924`) | Sparring dummy used by the owner for PoC-7 tests; merged |

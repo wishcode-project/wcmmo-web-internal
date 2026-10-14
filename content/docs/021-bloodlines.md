@@ -158,7 +158,8 @@ Bloodline data is player data: DB backup before any prod change; never rename Bl
 ## Acceptance criteria
 
 - [x] D-31, D-48 decided (2026-09-30): Fury / Ward / Pulse.
-- [ ] D-37 decided; PoC-7 PASS (hooks + `/spark` numbers).
+- [x] PoC-7 functional PASS (2026-10-15, merged into `develop` `6e81924`); `/spark` numbers deferred to before launch (owner, D-25).
+- [ ] D-37 decided.
 - [ ] Tests 1–18 pass on the dev box.
 
 ## Open questions
@@ -176,3 +177,4 @@ Bloodline data is player data: DB backup before any prod change; never rename Bl
 | 2026-10-15 | wcmmo | — | `feat/021-poc7-bloodlines` | Combo finisher lock shrinks with attack speed. Fallback commit before it: `3ed15cf` |
 | 2026-10-15 | wcmmo | — | `feat/021-poc7-bloodlines` | Owner test: **server crash** while testing Pulse. MythicLib on-hit effects fire `PlayerCastSkillEvent` on every hit, so Pulse damage → cast → Pulse looped forever (StackOverflowError, watchdog). Fixed (`b08e29a`): casts only from the kit, plus a same-tick guard. Also fixed: shields (Bone Bastion, Pulse overheal) were always 0 because absorption is capped by `max_absorption` (0 by default since 1.20.5) |
 | 2026-10-15 | wcmmo | — | `feat/021-poc7-bloodlines` | Owner tested in game after `b08e29a`: P1–P9 pass (Adrenaline pace +20 % measured: 1.58 → 1.90 hits/s). P10 `/spark` still to do: the first profiler run was lost in the crash |
+| 2026-10-15 | wcmmo | — | `develop` (`6e81924`) | Merged into develop (owner) |
