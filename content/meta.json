@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-14T19:28:42.421Z",
-  "head": "de2e7d2",
+  "syncedAt": "2026-10-14T19:32:49.154Z",
+  "head": "9a00977",
   "branch": "main",
   "commits": [
+    {
+      "sha": "9a00977",
+      "date": "2026-10-15T02:32:35+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: 029 runner icon, skill boss bar off",
+      "insertions": 6,
+      "deletions": 0,
+      "files": 1
+    },
     {
       "sha": "de2e7d2",
       "date": "2026-10-15T02:28:28+07:00",
@@ -1321,7 +1330,7 @@
     "docs/026-item-inspect-pages.md": "2026-09-30T23:31:15+07:00",
     "docs/027-death-respawn.md": "2026-10-01T00:01:28+07:00",
     "docs/028-levelling-party-loot.md": "2026-10-02T00:07:23+07:00",
-    "docs/029-hud.md": "2026-10-15T02:28:28+07:00",
+    "docs/029-hud.md": "2026-10-15T02:32:35+07:00",
     "docs/030-languages.md": "2026-10-01T00:31:21+07:00",
     "docs/031-chat-channels.md": "2026-10-01T00:31:21+07:00",
     "docs/032-npcs-name-colours.md": "2026-10-01T00:39:32+07:00",
