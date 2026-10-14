@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-14T18:30:59.475Z",
-  "head": "276ce3c",
+  "syncedAt": "2026-10-14T18:52:25.172Z",
+  "head": "ac0edfe",
   "branch": "main",
   "commits": [
+    {
+      "sha": "ac0edfe",
+      "date": "2026-10-15T01:52:11+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: 021 Pulse loop crash and shield fix",
+      "insertions": 2,
+      "deletions": 1,
+      "files": 1
+    },
     {
       "sha": "276ce3c",
       "date": "2026-10-15T01:30:46+07:00",
@@ -1232,7 +1241,7 @@
     "docs/018-lifezone-housing.md": "2026-10-01T22:23:49+07:00",
     "docs/019-lifeskills-resources.md": "2026-10-01T22:23:49+07:00",
     "docs/020-furniture-nexo.md": "2026-10-01T22:23:49+07:00",
-    "docs/021-bloodlines.md": "2026-10-15T01:30:46+07:00",
+    "docs/021-bloodlines.md": "2026-10-15T01:52:11+07:00",
     "docs/022-runes.md": "2026-09-30T23:50:58+07:00",
     "docs/023-weapon-mastery.md": "2026-10-02T01:33:51+07:00",
     "docs/024-awakening-tutorial.md": "2026-10-01T22:23:49+07:00",

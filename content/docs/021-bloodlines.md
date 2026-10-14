@@ -47,7 +47,7 @@ Skript-first (D-25, D-47). Heavy parts may move to our own plugin after the Phas
 | `on_damaged`, `on_kill` | player takes damage / kills | Fury |
 | `on_fatal` | damage would kill; effect may cancel it | Fury 5A |
 | `on_block`, `on_perfect_guard` | Frontguard blocks a hit / blocks within 0.3 s of raising guard (spec 009) | Ward |
-| `on_skill_cast:<id>` | any skill cast (id + tags such as `charge`, `heavy`) | Fury 3A, Pulse rhythm |
+| `on_skill_cast:<id>` | a skill cast **from the kit** (skill bar, ultimates). Never MythicLib's `PlayerCastSkillEvent`: its on-hit effects fire it on every hit | Fury 3A, Pulse rhythm |
 | `active` | the stage-4 active skill is cast | all |
 
 ## Data & IDs
@@ -174,3 +174,4 @@ Bloodline data is player data: DB backup before any prod change; never rename Bl
 | 2026-10-15 | wcmmo | — | `feat/021-poc7-bloodlines` | Owner: Adrenaline must really attack faster. The kit now sets the basic-attack pace in combat mode (AGI and Adrenaline); MythicMobs cooldowns lowered to a 0.25 s floor |
 | 2026-10-15 | wcmmo | — | `feat/021-poc7-bloodlines` | Owner: the faster pace wasn't visible, so the swing animations now speed up too (`speed=` on the ModelEngine states) |
 | 2026-10-15 | wcmmo | — | `feat/021-poc7-bloodlines` | Combo finisher lock shrinks with attack speed. Fallback commit before it: `3ed15cf` |
+| 2026-10-15 | wcmmo | — | `feat/021-poc7-bloodlines` | Owner test: **server crash** while testing Pulse. MythicLib on-hit effects fire `PlayerCastSkillEvent` on every hit, so Pulse damage → cast → Pulse looped forever (StackOverflowError, watchdog). Fixed (`b08e29a`): casts only from the kit, plus a same-tick guard. Also fixed: shields (Bone Bastion, Pulse overheal) were always 0 because absorption is capped by `max_absorption` (0 by default since 1.20.5) |
