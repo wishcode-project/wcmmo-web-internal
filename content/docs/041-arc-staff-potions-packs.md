@@ -99,7 +99,7 @@ What exists: Stamina is an MMOCore resource (max 100, regeneration 10 / s). Skil
 | Gap | Status |
 |---|---|
 | Running never stops (regeneration 10 / s was higher than the sprint drain 3 / s) | **Fixed 2026-10-14:** the kit regenerates stamina, starting 1 s after the last spending; out of stamina = no sprinting until it is back to 20 (spec 005) |
-| No stamina bar | open: MythicHUD bar (D-01, spec 029). Today the vanilla food bar is locked full and drops to 3 only while out of stamina |
+| No stamina bar | **Interim 2026-10-14:** a yellow boss bar shows stamina while it is not full (spec 005). The MythicHUD bar (D-01, spec 029) is still to do |
 
 ## Open questions
 
