@@ -1,6 +1,6 @@
 # 041 — Arc Staff and Potions packs
 
-> Status: IN-PROGRESS · Target: wcmmo (MythicMobs, ModelEngine, Nexo) · FIRE mode: confirm
+> Status: IN-PROGRESS (prototype **PASS**, owner 2026-10-14) · Target: wcmmo (MythicMobs, ModelEngine, Nexo) · FIRE mode: confirm
 > Design: GDD v2 §3 · Decisions: D-72 (staff stances), D-70 (tiers), D-75 / D-78 (skills on keys 1–5), D-44 (OPEN)
 > Answers: M24 (another Staff pack + a Tome: Llama Studio **Arc Staff**; consumables: **Potions v1.1**, owner 2026-10-13)
 
@@ -97,3 +97,4 @@ Effects use the pack's models and mobs (`ls_w_arc_staff_*`, `ars_*`); damage num
 | 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | "No room to teleport there" (owner): looking a little down, the feet ray hit the floor and Teleport's target was under the ground (`fa7b710`). Looking down now counts as level; the spot is put on a block top. Target maths checked on the test server (`wcmmo_blinkTo`): open floor level / 10° / 45° / 90° down = 10 blocks; wall at 5.5 = Blink stops at 4.9, Teleport lands behind it; window at eye height = Blink stops; 20° up = lands in the air 3.4 up. The teleport itself still to be tried by a player |
 | 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Owner: every skill gets a picture. `scripts/skill_icons.py` draws 17 icons in the pack's icon style (the pack's frame hue-shifted, one colour per weapon: sword blue, sword & shield / single gold, spear red, bow green, staff purple, hammer orange, general teal); Nexo `wcmmo_icon_<key>` (PAPER 6870–6886), `cfg::skill::<id>::nexoIcon`. All 20 skills resolve to a Nexo icon on the test server. Preview in `wcmmo/docs/kit/skill_icons_preview.png` |
 | 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Five more skill pictures for the skills added in spec 037 (Starburst Stream, Domain / Battle Declaration, Tornado Shot, Suppressive Fire): 25 skills, 25 pictures (PAPER 6870–6891) |
+| 2026-10-14 | wcmmo | — | `develop` | **Owner tested in game: all pass** (Arc Staff + grimoire on the back / in the hands, Teleport through walls, Blink stops at blocks, skill pictures, effect colours). Merged (`94bbfc5`). Potions still as shipped (M27) |

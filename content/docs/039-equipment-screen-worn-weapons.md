@@ -113,3 +113,4 @@ Disable the custom inventory, remove the kit's combat-mode code; spec 038 stance
 | 2026-10-05 | wcmmo | — (PoC) | `develop` | **PoC pass** (owner): weapons PoC done for the prototype; follow-ups in Open questions stay open |
 | 2026-10-12 | wcmmo | — | `feat/040-staff-zoltraak` | Skill slots 1–5 only while a weapon is worn; items there put aside and given back per slot (D-75 revised, `wcmmo_33_hotbar.sk`) |
 | 2026-10-13 | wcmmo | — | `develop` | D-75 revision (skill slots only while a weapon is worn) merged (`e97ea66`) |
+| 2026-10-14 | wcmmo | — | `develop` | Owner tested in game: skill slots 1–5 only while a weapon is worn (items put aside / given back) pass; off-hand grip (grimoire) pass. Merged (`94bbfc5`) |
