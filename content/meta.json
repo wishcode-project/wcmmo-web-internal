@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-14T01:57:56.406Z",
-  "head": "db2f8d2",
+  "syncedAt": "2026-10-14T08:45:42.059Z",
+  "head": "b20bd12",
   "branch": "main",
   "commits": [
+    {
+      "sha": "b20bd12",
+      "date": "2026-10-14T15:45:26+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: spec 007 skill buffer (combo), kit owns cooldowns",
+      "insertions": 2,
+      "deletions": 0,
+      "files": 1
+    },
     {
       "sha": "db2f8d2",
       "date": "2026-10-14T08:57:44+07:00",
@@ -1056,7 +1065,7 @@
     "docs/004-roadmap-phase-plan.md": "2026-10-14T08:37:49+07:00",
     "docs/005-vitality-resources.md": "2026-10-14T08:57:44+07:00",
     "docs/006-attributes-stat-gating.md": "2026-10-02T00:07:23+07:00",
-    "docs/007-classes-skill-bars.md": "2026-10-14T08:27:06+07:00",
+    "docs/007-classes-skill-bars.md": "2026-10-14T15:45:26+07:00",
     "docs/008-weapon-types-exclusive-skills.md": "2026-10-02T00:07:23+07:00",
     "docs/009-combat-states.md": "2026-10-04T03:01:45+07:00",
     "docs/010-fpv-animation-poc.md": "2026-10-03T00:00:21+07:00",
