@@ -41,7 +41,7 @@
 | Double Jump | 15 (cd 1 s) |
 | Blink | 15 + 3 mana (cd 0.5 s) |
 | Teleport | 25 + 5 mana (cd 1 s) |
-| Sprint | 3/s (D-03a). At 0 while sprinting: **out of stamina**, the vanilla food bar drops to 3 (vanilla: no sprinting) until stamina is back to 20 |
+| Sprint | 3/s (D-03a). **At 10 stamina or less you can't sprint** (owner, 2026-10-14; it doesn't matter what spent the stamina): the food bar drops to 3 (vanilla: no sprinting) until stamina is back to 20 |
 | Frontguard hold | 5/s + per-block drain (009) |
 
 | Consumable | Effect | Duration | Cooldown group | Cooldown |
@@ -89,3 +89,4 @@ Revert content + plugin module; no player data change beyond MMOCore resource va
 | 2026-10-14 | wcmmo | — | `feat/041-our-potions` | Stamina regeneration moved to the kit (1 s delay after spending), sprint can run out (`93382cf`); movement skills priced in stamina; potions (spec 041). **Still missing: a stamina bar** (MythicHUD, spec 029): the food bar is vanilla, locked full, and only shows "out of stamina" |
 | 2026-10-14 | wcmmo | — | `feat/041-our-potions` | Owner: stamina was not shown anywhere. Interim **stamina boss bar** (`861f94d`, `wcmmo_staminaBar`): yellow, fills with stamina, red while out of stamina, hides 3 s after it is full. The MythicHUD bar (spec 029) replaces it later |
 | 2026-10-14 | wcmmo | — | `feat/029-mmohud` | Stamina is shown by the MythicHUD layout (spec 029); the kit's stamina boss bar stays as a fallback, off by default |
+| 2026-10-14 | wcmmo | — | `feat/029-mmohud` | Owner: no sprinting at 10 stamina or less (`a3f5f04`, `cfg::sprint::minStamina`), back at 20 |
