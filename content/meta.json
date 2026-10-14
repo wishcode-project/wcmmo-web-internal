@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-14T13:25:19.697Z",
-  "head": "9e6f576",
+  "syncedAt": "2026-10-14T17:25:16.140Z",
+  "head": "fae9800",
   "branch": "main",
   "commits": [
+    {
+      "sha": "fae9800",
+      "date": "2026-10-15T00:25:01+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: D-80 and mobile dummy passed, merged into develop (009, 035)",
+      "insertions": 2,
+      "deletions": 0,
+      "files": 2
+    },
     {
       "sha": "9e6f576",
       "date": "2026-10-14T20:25:04+07:00",
@@ -1121,7 +1130,7 @@
     "docs/006-attributes-stat-gating.md": "2026-10-02T00:07:23+07:00",
     "docs/007-classes-skill-bars.md": "2026-10-14T16:11:42+07:00",
     "docs/008-weapon-types-exclusive-skills.md": "2026-10-02T00:07:23+07:00",
-    "docs/009-combat-states.md": "2026-10-14T20:25:04+07:00",
+    "docs/009-combat-states.md": "2026-10-15T00:25:01+07:00",
     "docs/010-fpv-animation-poc.md": "2026-10-03T00:00:21+07:00",
     "docs/011-equipment-accessories.md": "2026-10-01T22:23:49+07:00",
     "docs/012-item-generation-identify-elements.md": "2026-10-01T22:23:49+07:00",
@@ -1147,7 +1156,7 @@
     "docs/032-npcs-name-colours.md": "2026-10-01T00:39:32+07:00",
     "docs/033-monster-ranks-combat.md": "2026-10-02T00:58:15+07:00",
     "docs/034-wings.md": "2026-10-02T00:07:23+07:00",
-    "docs/035-training-dummy.md": "2026-10-14T20:12:05+07:00",
+    "docs/035-training-dummy.md": "2026-10-15T00:25:01+07:00",
     "docs/036-wooden-bow.md": "2026-10-14T08:13:20+07:00",
     "docs/037-wooden-weapons.md": "2026-10-14T08:16:50+07:00",
     "docs/038-weapon-parts-tiers-skins.md": "2026-10-14T08:13:20+07:00",
