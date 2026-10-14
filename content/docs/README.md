@@ -46,10 +46,10 @@ as the spec that introduces it.** Specs link back here instead of redefining any
 | 035 | [Training dummy (DPS meter)](035-training-dummy.md) | DRAFT | wcmmo | confirm |
 | 036 | [Wooden Bow (tier 0 sample weapon)](036-wooden-bow.md) | IN-PROGRESS | wcmmo | confirm |
 | 037 | [Wooden Spear, Twin Swords, Sword & Shield (tier 0)](037-wooden-weapons.md) | IN-PROGRESS | wcmmo | confirm |
-| 038 | [Weapon parts: main / off-hand stances, tiers, skins](038-weapon-parts-tiers-skins.md) | DRAFT | wcmmo | confirm |
-| 039 | [Equipment screen, worn weapons, combat mode](039-equipment-screen-worn-weapons.md) | DRAFT | wcmmo | confirm |
+| 038 | [Weapon parts: main / off-hand stances, tiers, skins](038-weapon-parts-tiers-skins.md) | IN-PROGRESS | wcmmo | confirm |
+| 039 | [Equipment screen, worn weapons, combat mode](039-equipment-screen-worn-weapons.md) | IN-PROGRESS | wcmmo | confirm |
 | 040 | [Wooden Staff (two-handed) from the Zoltraak pack](040-wooden-staff-zoltraak.md) | IN-PROGRESS | wcmmo | confirm |
-| 041 | [Arc Staff and Potions packs](041-arc-staff-potions-packs.md) | IN-PROGRESS | wcmmo | confirm |
+| 041 | [Arc Staff (one-handed) + grimoire, Potions packs, skill pictures](041-arc-staff-potions-packs.md) | IN-PROGRESS | wcmmo | confirm |
 
 Design intent lives in [`../gdd/wcmmo-gdd-v2.md`](../gdd/wcmmo-gdd-v2.md) (v1 is superseded); decisions `D-xx` are tracked there.
 Coming soon (GDD v2 §10–12, not specced): economy & trade, guild & node war, pets & mounts.
@@ -91,7 +91,7 @@ Full per-plugin guide (docs, dependencies, setup, overlaps): [plugins.md](plugin
 | MMOCore / MMOItems / MMOProfiles | 1.13.1 / 6.10.1 (SNAPSHOTs) / not installed | paid | wcmmo | classes, levels, RPG items, profiles | — |
 | ModelEngine | R4.1.1 | paid | wcmmo | custom mob models | — |
 | DiscordSRV | — owned | free | wcmmo | chat bridge (token in `.env`) | — |
-| MMOInventory | 2.0-SNAPSHOT | paid | wcmmo | accessory + Rune slots | 011, 022 |
+| MMOInventory | 2.0-SNAPSHOT | paid | wcmmo | equipment screen `/equip` (worn weapons, D-77), accessory + Rune slots | 011, 022, 039 |
 | PlaceholderAPI | 2.12.3 | free | wcmmo | placeholders for Mastery math in MythicMobs | 023 |
 | Triton | 4.1.0 | paid | wcmmo | per-player translations (D-27) | — |
 | UltimateUI | 1.4.0 | paid | wcmmo | shops, quest list, custom UI (D-39) | — |
@@ -187,6 +187,15 @@ Rarity tiers (MMOItems): `common`, `uncommon`, `rare`, `epic`, `legendary` (012)
 | `wcmmo_stance_*` (stance set / clear, parts), `wcmmo_stance_dual_*`, `wcmmo_stance_shield_*`, `wcmmo_stance_single_*`, aura `wcmmo_twohand_blocked`, `wcmmo_wpn_swing`, `wcmmo_wpn_use` | weapon stance (PoC) | one-handed sword + off-hand | 038 |
 | `wcmmo_stance_dual_guard_fx`, `wcmmo_stance_shield_guard_fx`, `wcmmo_stance_{single,dual,shield}_twirl`, `wcmmo_bow_wood_twirl` | guard / twirl visuals (kit-cast) | stances | 007, 009 |
 | `wcmmo_buff_war_cry` | buff (Q), test until M21 | any | 007 |
+| **Player skills in the kit today** (keys 1–5, `/skills`; id = the MythicMobs `_cast` skill; every one has a picture `wcmmo_icon_<key>`): | | | |
+| `wcmmo_stance_dual_dash_cast` (Dash Strike), `_swing_cast` (Spin Slash), `_starburst_cast` (Starburst Stream) | skill | stance `dual` | 037 |
+| `wcmmo_stance_shield_rush_cast` (Shield Rush), `_domain_cast` (Domain Declaration), `_battle_cast` (Battle Declaration) · `wcmmo_stance_single_rush_cast` (Charge) | skill | stance `shield` · `single` | 037 |
+| `wcmmo_spear_wood_shove_cast` (Shove), `_hard_swing_cast` (Hard Swing) | skill | stance `spear` | 037 |
+| `wcmmo_bow_wood_rapid_shot_cast`, `_power_shot_cast`, `_tornado_cast` (Tornado Shot), `_suppressive_cast` (Suppressive Fire); basic `wcmmo_bow_wood_basic` | skill | stance `bow` | 036, 037 |
+| `wcmmo_staff_wood_barrage_cast` (Zoltraak Barrage), `wcmmo_staff_arc_thunder_cast` (Thunder Impact) · `wcmmo_staff_wood_double_jump_cast` (Double Jump: staves + bow) | skill | stances `staff2h`, `staff`, `staffbook` | 040, 041 |
+| `wcmmo_book_arc_teleport_cast` (Teleport, through walls), `wcmmo_staff_blink_cast` (Blink, stops at blocks) | skill, moved by the kit (`wcmmo_blink`) | stance `staffbook` | 041 |
+| basic attacks `wcmmo_staff_wood_bolt` (Zoltraak), `wcmmo_staff_arc_orb` (Energy Orb) · wear / draw helpers `wcmmo_staff_wood_*`, `wcmmo_staff_arc_*`, `wcmmo_book_arc_*`; aura `wcmmo_staff_wood_casting` (any staff busy) | weapon (kit-cast) | staves, grimoire | 040, 041 |
+| vendor: `zoltraak_*`, `ars_*`, `ls_po_*` | pack skills as shipped | Zoltraak staff, Arc Staff, Potions | 040, 041 |
 
 Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:superarmour`, `wcmmo:armourbreak` (009).
 
@@ -210,6 +219,11 @@ Combat state keys (skill metadata): `wcmmo:iframe`, `wcmmo:frontguard`, `wcmmo:s
 | `wcmmo_item_bow_wood` (+ Nexo `wcmmo_bow_wood`, COAL 6941) | MythicMobs + Crucible + Nexo | 036 | tier 0 sample weapon from the Green Bow pack, admin give only |
 | `wcmmo_item_spear_wood`, `_swords_wood`, `_sword_shield_wood` (+ Nexo `wcmmo_spear_wood` 6942, `wcmmo_swords_wood` 6943, `wcmmo_sword_shield_wood` 6944, COAL) | MythicMobs + Crucible + Nexo | 037 | tier 0 sample weapons from the Basic Polearm / Two Sword Style / Castle Knight packs, admin give only |
 | `wcmmo_item_sword_wood` 6945, `_sword_iron` 6946, `_shield_wood` 6947, `_shield_iron` 6948, `_sword_draconic` 6949 (+ Nexo `wcmmo_<key>`, COAL) | MythicMobs + Crucible + Nexo | 038 | PoC T10: one-handed swords / shields that combine by main + off-hand, admin give only |
+| `wcmmo_item_staff_wood` (COAL 6951; Nexo `wcmmo_staff_wood`, in the hand `wcmmo_staff_wood_held` IRON_SPEAR 6952) | MythicMobs + Crucible + Nexo | 040 | two-handed Wooden Staff (Zoltraak pack, wood tier), worn right, left slot empty |
+| `wcmmo_item_staff_arc` (COAL 6953; in the hand `wcmmo_staff_arc_held` IRON_SPEAR 6954) · `wcmmo_item_grimoire_arc` (COAL 6955; in the left hand `wcmmo_book_arc_held` PAPER 6860) | MythicMobs + Crucible + Nexo | 041 | one-handed Arc Staff + its grimoire (D-79), pack colours |
+| Nexo `wcmmo_combat_grip` (FLINT 6950) and the `*_held` items above | Nexo (kit items) | 039 | combat grips: what the hands show in combat mode; never real items (locked, taken back by the kit) |
+| Nexo `wcmmo_icon_<key>` (PAPER 6861–6863 pack pictures, 6870–6891 drawn by `scripts/skill_icons.py`) | Nexo (kit items) | 041 | skill pictures for `/skills` and the skill hotbar |
+| vendor: `zoltraak_staff` · `LS_W_ARC_STAFF`, `LS_W_ARC_GRIMOIRE` (+ 3 skill icon items) · `<colour>_potion_small` / `_large` (red, yellow, purple, blue, green, exp) | MythicMobs + Nexo | 040, 041 | bought Llama Studio packs as shipped. `zoltraak_staff` can kick the player (spec 040 Known issues) |
 | vendor: `TargetDummy` (+ Nexo `yungwilder_target_dummy`) | MythicMobs + Nexo | 035 | bought yungwilder dummy, IDs kept as shipped |
 | vendor: `basic_polearm`, `two_sword`, `gb_bow`, `castle_knight_weapon` (+ Nexo `ls_sw_*`) | MythicMobs + Nexo | 010 | bought Llama Studio packs, test only, IDs kept as shipped |
 
@@ -305,6 +319,10 @@ Our own commands and any CMI alias we add. Stock plugin commands are not listed.
 | `/runes` | MMOInventory default | MMOInventory | 022 |
 | `/mastery` | MMOCore default | CMI alias → MMOCore professions | 023 |
 | `/dummy spawn\|list\|tp\|remove\|info\|respawn\|stats` | `wcmmo.admin.dummy` (`stats`: `wcmmo.dummy.stats`) | Skript `wcmmo_80_dummy.sk` | 035 |
+| `/equip` (aliases of the MMOInventory default inventory) | MMOInventory default | MMOInventory `inventory/default_mmoinventory.yml` | 039 |
+| `/skills` (`/skill`) | — | Skript `wcmmo_31_skills_gui.sk` | 007 |
+| `/wcmmoskill give\|take <player> <skill id\|all>` | `wcmmo.admin.skillbar` | Skript `wcmmo_30_skillbar.sk` | 007 |
+| `/wcmmoworn` | op | Skript `wcmmo_38_stance.sk` (debug: what the kit sees in the weapon slots) | 039 |
 | `/wcmmo <module> …` | `wcmmo.admin.<module>` | wcmmo-core | 007, 009, 013, 015, 017, 018 |
 
 ## Worlds

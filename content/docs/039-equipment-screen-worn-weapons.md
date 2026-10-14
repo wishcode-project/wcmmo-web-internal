@@ -47,6 +47,8 @@ Restrictions use MMOInventory slot `restrictions` (`mmoitemstype{type=…}`) plu
 - The items put aside are saved variables (`{wcmmo::hotbar::stash::<player>::<1..5>}`); on quit they go back into the slots, so the save file holds real items; they are put aside again on the next join.
 - Death: they drop like the rest of the inventory (kept with keepInventory).
 - Revises "nothing is ever moved": weapons are still never moved; hotbar items are put aside and given back by the kit.
+- **Off-hand (spec 041, D-79):** with a one-handed staff + grimoire, combat mode shows the book in the **left hand** (`wcmmo_offGripSync`): the off-hand item is put aside the same way and comes back on combat off / quit / death / next join.
+- A weapon can bring its own grip (the staves show themselves in the hand, the hotbar still shows the cross): `cfg::weapon::<item>::grip` / `gripModel`.
 
 ## Prerequisite: no combat holder
 

@@ -86,9 +86,13 @@ Full list with docs and overlaps: [`../docs/plugins.md`](../docs/plugins.md). Ow
 | M21 | Q buffs: which ones, and how are they learned (skill list missing)? | D-68 |
 | M22 | Weapon skills: is each pack move a skill of that weapon type only (Spear: Shove, Hard Swing…), and do the D-52 / spec 008 skill lists merge with them? | D-68, D-52 |
 | M23 | Off-hand weapon stats (D-69): full, half, or none? Does the off-hand sword add its own damage to dual-sword hits? | D-69 |
-| M24 | Packs to buy next: Greatsword, Hammer, Crossbow, Staff, Tome (Staff: **Zoltraak**, 2026-10-04, spec 040); Spear / Bow need guard + twirl animations; a single-sword set would help (D-69) | D-04, D-70 |
-| M25 | Staff stances (D-72): one-handed staff, dual staves, staff + shield, two-handed staff. Which animations (buy / make with the team), and does a one-handed staff cast the same bolts as the two-handed one? **2026-10-04:** the two-handed staff borrows the spear's poses for now (spec 040) | D-72, D-04 |
+| M24 | Packs to buy next: Greatsword, Hammer, Crossbow, Staff, Tome (Staff: **Zoltraak** 2026-10-04, spec 040; **Arc Staff + Arc Grimoire** and a **Potions** pack 2026-10-13, spec 041); Spear / Bow need guard + twirl animations; a single-sword set would help (D-69) | D-04, D-70 |
+| M25 | Staff stances (D-72): one-handed staff, dual staves, staff + shield, two-handed staff. Which animations (buy / make with the team), and does a one-handed staff cast the same bolts as the two-handed one? **2026-10-04:** the two-handed staff borrows the spear's back pose (spec 040). **2026-10-13 (D-79):** a **one-handed staff + grimoire** exists (Arc Staff, spec 041): it is held as the pack's item, no stance animations; dual staves / staff + shield not built | D-72, D-04 |
 | M26 | How does the equipment screen open (D-77)? **Not with E**: Minecraft doesn't tell the server when a player opens their own inventory (only when it closes). Options: a button item in the E screen (MMOInventory has it), `/equip`, a free key combo, or a client mod. Owner: decide later | D-77 |
+| M27 | Potions pack (spec 041, installed as shipped): which effects are ours? Proposed: red = HP (as shipped), **blue = Mana, green = Stamina** (both empty in the pack), purple / yellow as shipped for now; the EXP potion gives vanilla XP, not ours (028). Cooldowns, stack sizes, which hotbar slots | D-01, D-59 |
+| M28 | Emotes of the Castle Knight / Two Sword Style / Green Bow packs: wanted? Where are they triggered (a command, a wheel, Shift + F)? | D-68 |
+| M29 | Castle Knight declarations (Domain / Battle) with a **single sword** (no shield): allow, or shield stance only as built? | D-69 |
+| M30 | Skill numbers of the ported pack moves (cooldown, mana / stamina, damage = half the pack's) were set by the kit author: review with the skill lists (M22) | D-75 |
 | M5 | World map: cities, regions, Low/Mid/High zones | — |
 | M6 | Chapter 1 story outline | D-15b |
 | ~~M7~~ | ~~Death penalty~~ **Answered 2026-10-01:** spec 027 | D-57 |
