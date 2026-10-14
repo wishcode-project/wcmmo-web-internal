@@ -33,7 +33,7 @@
 |---|---|---|
 | L | **Zoltraak**: beam forward (31 blocks), slows what it hits; casting in the air hangs 0.5 s then slow fall | 2.5 damage, every 0.7 s |
 | skill | **Zoltraak Barrage**: 5 beams on the nearest enemy within 20 blocks in front (nobody there: five beams straight ahead that hit the spot 12 blocks away, so the cooldown is never wasted) | 1.5 × 4 hits around the target (r 2), cd 8 s, 20 mana |
-| skill | **Double Jump**: jump up (on the ground: a high jump; in the air: a second jump), no fall damage | cd 4 s, 15 stamina |
+| skill | **Double Jump**: jump up (on the ground: a high jump; in the air: a second jump), no fall damage | cd 1 s, 15 stamina (2026-10-14) |
 | R tap / hold | parry / Frontguard (D-74, D-78) | |
 
 ## Test plan

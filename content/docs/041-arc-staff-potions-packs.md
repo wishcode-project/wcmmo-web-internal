@@ -65,8 +65,8 @@
 | L with the Wooden Staff | Zoltraak beam (spec 040) | 2.5, every 0.7 s |
 | skill (any staff, one- or two-handed) | **Thunder Impact**: 1 s charge, then a ball that bursts on hit | 6 damage + 2 s slow in 2.5 blocks, cd 8 s, 25 mana |
 | skill (any staff, one- or two-handed) | Zoltraak Barrage, Double Jump (spec 040) | |
-| skill (**one-handed staff + grimoire**) | **Teleport** (purple): 10 blocks along the crosshair, **through walls** (owner, 2026-10-13: the pack's Teleport crossed objects and that is kept, now on purpose); lands on the nearest spot with room to stand | cd 6 s, 15 mana |
-| skill (**one-handed staff + grimoire**) | **Blink** (green, new): up to 10 blocks along the crosshair, **stops in front of the first block** (ray trace from the eyes and the feet) | cd 4 s, 10 mana |
+| skill (**one-handed staff + grimoire**) | **Teleport** (purple): 10 blocks along the crosshair, **through walls** (owner, 2026-10-13: the pack's Teleport crossed objects and that is kept, now on purpose); lands on the nearest spot with room to stand | cd 1 s, 25 stamina + 5 mana (owner, 2026-10-14) |
+| skill (**one-handed staff + grimoire**) | **Blink** (green, new): up to 10 blocks along the crosshair, **stops in front of the first block** (ray trace from the eyes and the feet) | cd 0.5 s, 15 stamina + 3 mana (owner, 2026-10-14) |
 | R tap / hold | parry / Frontguard | |
 
 Effects use the pack's models and mobs (`ls_w_arc_staff_*`, `ars_*`); damage numbers are ours (`wcmmo_staff_arc.yml`). Skills belong to the player (D-75): Thunder Impact works with either staff.
@@ -96,15 +96,15 @@ Effects use the pack's models and mobs (`ls_w_arc_staff_*`, `ars_*`); damage num
 
 What exists: Stamina is an MMOCore resource (max 100, regeneration 10 / s). Skills and guarding spend it; sprinting drains 3 / s (`wcmmo_20_vitality.sk`). What is missing (spec 005 / PoC-6, never finished):
 
-| Gap | Why |
+| Gap | Status |
 |---|---|
-| Running never stops | regeneration (10 / s) is higher than the sprint drain (3 / s), so stamina never falls; the "no regeneration for 1 s after spending" rule is not built |
-| No stamina bar | the food bar is vanilla, locked at half; the MythicHUD bar (D-01, spec 029) is not set up |
+| Running never stops (regeneration 10 / s was higher than the sprint drain 3 / s) | **Fixed 2026-10-14:** the kit regenerates stamina, starting 1 s after the last spending; out of stamina = no sprinting until it is back to 20 (spec 005) |
+| No stamina bar | open: MythicHUD bar (D-01, spec 029). Today the vanilla food bar is locked full and drops to 3 only while out of stamina |
 
 ## Open questions
 
 - Potions: drinking in combat mode (quick-use keys?); purple / green / EXP potions of the pack have no role of ours yet (the EXP potion gives vanilla XP, spec 028); MMOItems version when D-44 is decided.
-- **Stamina system (PoC-6):** stop regeneration while sprinting / for 1 s after spending, and show stamina (MythicHUD bar, or the vanilla food bar as an interim).
+- **Stamina bar** (spec 029): the regeneration rule is built (spec 005); nothing shows stamina yet.
 - Grimoire stats (D-44). One-handed staff / dual staves / staff + shield (D-72) are not built.
 - The Thunder Impact charge effects follow the caster by teleporting a holder every tick (the pack's way): on the owner's server such holders froze before (spec 039 step 1); watch it in the test.
 
@@ -123,3 +123,4 @@ What exists: Stamina is an MMOCore resource (max 100, regeneration 10 / s). Skil
 | 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Five more skill pictures for the skills added in spec 037 (Starburst Stream, Domain / Battle Declaration, Tornado Shot, Suppressive Fire): 25 skills, 25 pictures (PAPER 6870–6891) |
 | 2026-10-14 | wcmmo | — | `develop` | **Owner tested in game: all pass** (Arc Staff + grimoire on the back / in the hands, Teleport through walls, Blink stops at blocks, skill pictures, effect colours). Merged (`94bbfc5`). Potions still as shipped (M27) |
 | 2026-10-14 | wcmmo | — | `feat/041-our-potions` | Our potions: red HP, blue Mana, yellow Stamina (owner). Checked on the test server with a mob: HP 8 → 12 (small), blocked on cooldown, → 20 (large); the 6 items load. Mana / Stamina path (`/wcmmorestore`) needs a player to try |
+| 2026-10-14 | wcmmo | — | `feat/041-our-potions` | Owner: movement skills cost stamina, little mana, cooldown 0.5–1 s (Dash, Blink, Teleport, Double Jump; `93382cf`); stamina regeneration rule built with it (spec 005). Loads on the test server; needs a player to try |
