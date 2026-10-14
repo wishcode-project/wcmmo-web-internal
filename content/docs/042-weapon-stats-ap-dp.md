@@ -8,7 +8,7 @@
 
 - **Player story:** the weapons, shield, grimoire, necklace and rings I wear all add up to my stats. My skills hit harder with a better weapon, can crit, and the enemy's defence lowers them. I can see my totals on the HUD and in a status screen, and where each number comes from.
 - **Owner, 2026-10-15:** "weapons are MMOItems with stats; when worn in /equip compute damage as AP / DP with crit, and show an overall status: necklace, weapons, plus skill bonuses."
-- **Done means:** a worn MMOItems weapon changes the damage of every skill and basic attack; `/stats` and the HUD panel show the totals.
+- **Done means:** a worn MMOItems weapon changes the damage of every skill and basic attack; `/wcmmostats` and the HUD panel show the totals.
 
 ## D-44 decided
 
@@ -53,7 +53,7 @@ Mastery XP and the Mastery cooldown reduction follow the **worn stance**, not th
 ## Status display
 
 - **HUD (spec 029):** Volya's stats panel (toggle in `/mmohud`) shows AP, crit, DP and more from MMOCore placeholders.
-- **`/stats`:** a screen with every total (AP, DP, crit chance / power, skill crit, attack speed, HP / Mana / Stamina, skill damage %, cooldown reduction) and, per item worn, what it adds.
+- **`/wcmmostats`:** a screen with every total (AP, DP, crit chance / power, skill crit, attack speed, HP / Mana / Stamina, skill damage %, cooldown reduction) and, per item worn, what it adds.
 
 ## Phases
 
@@ -63,7 +63,7 @@ Mastery XP and the Mastery cooldown reduction follow the **worn stance**, not th
 | 2 | Worn weapon stats → player modifiers (right 100 %, left AP 50 %) | built |
 | 3 | Skills and basic attacks: fixed numbers → % of AP (+ kit crit / bonuses) | built |
 | 4 | Mastery per worn stance, new professions (M18) | built |
-| 5 | `/stats` screen; HUD panel | `/stats` built; HUD panel = Volya's (toggle in `/mmohud`) |
+| 5 | `/wcmmostats` screen; HUD panel | `/wcmmostats` built; HUD panel = Volya's (toggle in `/mmohud`) |
 
 ## First item stats (test values, tier per D-70)
 
@@ -83,7 +83,7 @@ Old Crucible weapons (`/mm items give … wcmmo_item_…`) still work and count 
 
 ## Open questions
 
-- Does MMOItems also count a weapon worn in an MMOInventory accessory slot? If yes, the kit must not add it again (checked in game with `/stats`).
+- Does MMOItems also count a weapon worn in an MMOInventory accessory slot? If yes, the kit must not add it again (checked in game with `/wcmmostats`).
 - Item stat values per tier (wood / iron / pack colours, D-70): first numbers in phase 1, real balance with the item lists.
 
 ## Implementation log
@@ -92,3 +92,4 @@ Old Crucible weapons (`/mm items give … wcmmo_item_…`) still work and count 
 |---|---|---|---|---|
 | 2026-10-15 | wcmmo-specs | — | — | Spec written from the owner's answers (D-44, M18, M23) |
 | 2026-10-15 | wcmmo | — | `feat/042-weapon-stats` | Phases 1–5 built (`7da2556`). Test server: the 9 MMOItems items load (id, stats, models ok); a converted skill scales with AP (spear / dual slash: AP 10 → 1.9, AP 20 → 3.9 on a husk); `mmodamage` found broken. Player-side (stat modifiers, crit, /stats, Mastery) needs a player to try |
+| 2026-10-15 | wcmmo | — | `feat/042-weapon-stats` | Owner: `/stats` / `/status` clash with CMI: the screen is **`/wcmmostats`** |
