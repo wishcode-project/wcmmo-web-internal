@@ -78,9 +78,33 @@ Effects use the pack's models and mobs (`ls_w_arc_staff_*`, `ars_*`); damage num
 3. Wooden Staff + grimoire, or a sword / shield on the left next to the Arc Staff: warning, no fighting.
 4. `/skills`: Thunder Impact (any staff), Teleport and Blink (staff + grimoire); cast with keys 1–5. Teleport crosses a wall, Blink stops in front of it; neither lands inside a block.
 
+## Our potions (owner, 2026-10-14)
+
+"Blue = Mana, red = HP, yellow = Stamina."
+
+| Item | Model (pack) | Effect | Cooldown |
+|---|---|---|---|
+| `wcmmo_item_potion_hp_s` / `_l` | red S / L (PAPER 6847 / 6848) | heal **20 % / 40 %** of max HP | 3 s, shared by the colour |
+| `wcmmo_item_potion_mana_s` / `_l` | blue S / L (6841 / 6842) | **20 % / 40 %** of max Mana | 3 s |
+| `wcmmo_item_potion_stamina_s` / `_l` | yellow S / L (6849 / 6850) | **20 % / 40 %** of max Stamina | 3 s |
+
+- Right click to drink (Crucible `~onUse`); the pack's drink effect and sound. Skills `wcmmo_potion_<kind>_<s|l>` (`wcmmo_potions.yml`); Mana / Stamina are MMOCore resources, given by the kit: console command `/wcmmorestore <player> mana|stamina <percent>` (`wcmmo_20_vitality.sk`).
+- The pack's own potions stay as shipped (its yellow = Regeneration + Health Boost, purple = Resistance, blue / green empty, EXP = vanilla XP).
+- **Limits today:** a potion can't be drunk **in combat mode** (the held slot shows the combat grip and the kit takes the right click): leave combat mode first, or we add quick-use keys later. Stamina has no bar yet (below).
+
+### Stamina today (owner, 2026-10-14: "we have no stamina system: running never stops, the UI only has the food bar")
+
+What exists: Stamina is an MMOCore resource (max 100, regeneration 10 / s). Skills and guarding spend it; sprinting drains 3 / s (`wcmmo_20_vitality.sk`). What is missing (spec 005 / PoC-6, never finished):
+
+| Gap | Why |
+|---|---|
+| Running never stops | regeneration (10 / s) is higher than the sprint drain (3 / s), so stamina never falls; the "no regeneration for 1 s after spending" rule is not built |
+| No stamina bar | the food bar is vanilla, locked at half; the MythicHUD bar (D-01, spec 029) is not set up |
+
 ## Open questions
 
-- **Potions in our system** (not started): which effects map to ours (HP / Mana / Stamina, spec 005); blue and green are empty in the pack, so blue = Mana and green = Stamina would fit; the EXP potion gives vanilla XP, not ours (spec 028); MMOItems version when D-44 is decided.
+- Potions: drinking in combat mode (quick-use keys?); purple / green / EXP potions of the pack have no role of ours yet (the EXP potion gives vanilla XP, spec 028); MMOItems version when D-44 is decided.
+- **Stamina system (PoC-6):** stop regeneration while sprinting / for 1 s after spending, and show stamina (MythicHUD bar, or the vanilla food bar as an interim).
 - Grimoire stats (D-44). One-handed staff / dual staves / staff + shield (D-72) are not built.
 - The Thunder Impact charge effects follow the caster by teleporting a holder every tick (the pack's way): on the owner's server such holders froze before (spec 039 step 1); watch it in the test.
 
@@ -98,3 +122,4 @@ Effects use the pack's models and mobs (`ls_w_arc_staff_*`, `ars_*`); damage num
 | 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Owner: every skill gets a picture. `scripts/skill_icons.py` draws 17 icons in the pack's icon style (the pack's frame hue-shifted, one colour per weapon: sword blue, sword & shield / single gold, spear red, bow green, staff purple, hammer orange, general teal); Nexo `wcmmo_icon_<key>` (PAPER 6870–6886), `cfg::skill::<id>::nexoIcon`. All 20 skills resolve to a Nexo icon on the test server. Preview in `wcmmo/docs/kit/skill_icons_preview.png` |
 | 2026-10-13 | wcmmo | — | `feat/041-arc-staff-potions` | Five more skill pictures for the skills added in spec 037 (Starburst Stream, Domain / Battle Declaration, Tornado Shot, Suppressive Fire): 25 skills, 25 pictures (PAPER 6870–6891) |
 | 2026-10-14 | wcmmo | — | `develop` | **Owner tested in game: all pass** (Arc Staff + grimoire on the back / in the hands, Teleport through walls, Blink stops at blocks, skill pictures, effect colours). Merged (`94bbfc5`). Potions still as shipped (M27) |
+| 2026-10-14 | wcmmo | — | `feat/041-our-potions` | Our potions: red HP, blue Mana, yellow Stamina (owner). Checked on the test server with a mob: HP 8 → 12 (small), blocked on cooldown, → 20 (large); the 6 items load. Mana / Stamina path (`/wcmmorestore`) needs a player to try |
