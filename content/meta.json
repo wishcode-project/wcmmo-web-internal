@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-14T12:35:31.336Z",
-  "head": "c8d92bc",
+  "syncedAt": "2026-10-14T13:12:22.996Z",
+  "head": "c40c753",
   "branch": "main",
   "commits": [
+    {
+      "sha": "c40c753",
+      "date": "2026-10-14T20:12:05+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: spec 035 mobile dummy label follows it",
+      "insertions": 2,
+      "deletions": 1,
+      "files": 1
+    },
     {
       "sha": "c8d92bc",
       "date": "2026-10-14T19:35:20+07:00",
@@ -1129,7 +1138,7 @@
     "docs/032-npcs-name-colours.md": "2026-10-01T00:39:32+07:00",
     "docs/033-monster-ranks-combat.md": "2026-10-02T00:58:15+07:00",
     "docs/034-wings.md": "2026-10-02T00:07:23+07:00",
-    "docs/035-training-dummy.md": "2026-10-14T19:35:20+07:00",
+    "docs/035-training-dummy.md": "2026-10-14T20:12:05+07:00",
     "docs/036-wooden-bow.md": "2026-10-14T08:13:20+07:00",
     "docs/037-wooden-weapons.md": "2026-10-14T08:16:50+07:00",
     "docs/038-weapon-parts-tiers-skins.md": "2026-10-14T08:13:20+07:00",

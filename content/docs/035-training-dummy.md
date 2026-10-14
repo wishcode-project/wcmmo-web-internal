@@ -132,7 +132,7 @@ A handful of dummies (target ≤ 10, all in cities). The head line updates every
 | Placed with | `/dummy spawn [name]` | its item `wcmmo_item_dummy_mobile` (right click a block; `/dummy item` gives one) or `/dummy spawn mobile` |
 | Removed with | `/dummy remove [id]` | **shears + Shift right click** on it (the item comes back), or `/dummy remove` |
 
-Both: never die (healed back), only players can hit them, same records (field `type`: `still` / `mobile`), DPS meter, head label (it rides on the mobile one), auto-repair. Settings: `cfg::dummy::homeDelayTicks` 100, `homeSpeed` 2, `homeStuckTicks` 60, `homeMaxRun` 48.
+Both: never die (healed back), only players can hit them, same records (field `type`: `still` / `mobile`), DPS meter, head label (on the mobile one it follows the dummy, 2.15 above its feet: `cfg::dummy::mobileLabelLift`), auto-repair. Settings: `cfg::dummy::homeDelayTicks` 100, `homeSpeed` 2, `homeStuckTicks` 60, `homeMaxRun` 48.
 
 ## Implementation log
 
@@ -141,3 +141,4 @@ Both: never die (healed back), only players can hit them, same records (field `t
 | 2026-10-02 | wcmmo | `run-wcmmo-003` | branch `feat/009-combat-poc` | Dummy works in game: spawn / list / tp / remove / info / respawn, never dies, head line DPS · Last · Max · Total, chat summary, hit line on the action bar. Finding: never set MythicMobs `MaxCombatDistance: 0` (it cancels every attack). |
 | 2026-10-14 | wcmmo | — | `fix/009-damage-numbers` | D-80: the bought yungwilder TargetDummy pack is removed (our `/dummy` replaces it; `/wcmmoremovevendordummy` still clears old ones); no per-hit action bar, MythicLib shows each hit (`d3693fd`) |
 | 2026-10-14 | wcmmo | — | `feat/035-mobile-dummy` | Mobile dummy (`a03c529`). Test server: placed (silverfish + model, label riding on it), item ok; knocked 8 blocks, stayed 4 s, ran home by 8 s, exactly on its spot by 11 s; from 20 blocks away back home within 10 s. Placing / picking up by hand needs a player to try |
+| 2026-10-14 | wcmmo | — | `feat/035-mobile-dummy` | Owner: the mobile dummy's name stayed behind and floated too high. The label now follows it 2.15 above its feet (`532acf0`). Test server: label at +2.15, followed a knock-back (8.77 = 8.77) and the run home from 20 blocks |
