@@ -236,7 +236,7 @@ Bloodlines plug into this: Fury *Unstoppable* and *Death Defying* grant Super Ar
 | ID | Decision | Options | Recommendation | Your call | Status |
 |---|---|---|---|---|---|
 | D-05 | FPV animation approach | ModelEngine view model / animated item models / display entities | **ModelEngine view model** (`pv=true`), proven possible by the bought Draconic Dual Sword FPV pack (spec 010). Test it first; other approaches only if it fails | start with Draconic pack | OPEN (testing) |
-| D-44 | Weapon trigger layer for FPV weapons | MythicCrucible items (as the pack does) / MMOItems + our plugin | PoC with Crucible as shipped. Long-term: **MMOItems weapon + our plugin** handles hold/unheld/click triggers and calls the same MythicMobs skills, so one item has both MMOItems stats and FPV animation | | OPEN |
+| D-44 | Weapon trigger layer & stats | MythicCrucible items / MMOItems + kit | **MMOItems + kit** | **Decided 2026-10-15 (owner):** weapons are **MMOItems** items; the kit owns every input (D-68) and reads the stats of the weapons **worn** in the equipment screen (D-77), putting them on the player (off-hand AP at 50 %, M23). Every skill and basic attack deals a **% of AP** as MythicLib damage (crit, damage types, D-80 numbers); DP = MythicLib defence. `/stats` + HUD panel show the totals. Spec 042 | DECIDED |
 | D-06b | Frontguard on hit | 0 / chip / stamina drain | Chip 20 % + stamina drain; guard breaks at 0 stamina | Chip 20 % + stamina drain per blocked hit; guard breaks at 0 stamina (1 s stagger) | DECIDED |
 | D-06c | PvP in v2 | none / arenas / open world | Arenas only until guild design (§11) | **Now:** arenas only. **Later (after guild design):** open-world PvP outside safe zones, only between players **Lv 25+** | DECIDED |
 | D-06d | Which weapons break guard / Super Armour | — | Hammer and Greatsword heavy skills break both | **Hybrid:** every weapon has 1 guard-break skill (breaks Frontguard only, long cooldown). **Hammer + Greatsword**: all heavy skills break Frontguard **and** Super Armour, and their normal hits drain guard stamina ×2 | DECIDED |
@@ -383,6 +383,7 @@ Placeholder. To decide: ModelEngine mounts, pet buffs vs cosmetic, loot pickup.
 | 2026-09-28 | D-05 | FPV testing starts with the bought Draconic Dual Sword FPV pack | owner |
 | 2026-09-28 | D-39 | MythicHUD = always-on HUD; UltimateUI = shops, quest list, other custom UI | owner |
 | 2026-09-29 | D-01, D-02, D-03a, D-04, D-04c, D-06b, D-06c, D-06d, D-07, D-07b, D-08b, D-11, D-12, D-12c, D-12d, D-15b, D-16, D-17b, D-18, D-26, D-30, D-33, D-34, D-35, D-35b, D-36b, D-41, D-42, D-46 | Decision session: 29 decided, D-36 partly (test values), D-17 loot refined | owner |
+| 2026-10-15 | D-44 | Weapons become MMOItems; worn weapon stats, skills = % of AP, AP / DP / crit, /stats (spec 042); M18 dual / sword & shield get their own Mastery; M23 off-hand AP 50 % | owner |
 | 2026-10-14 | D-80 | Damage numbers only from MythicLib; CMI numbers and the vendor dummy removed; no vanilla punch in combat mode | owner |
 | 2026-10-14 | D-70 | Effects keep the packs' original colours by default; tier dyes later | owner |
 | 2026-10-13 | D-79, D-72 | One-handed staff (Arc Staff) + grimoire in the left slot (stat item + Teleport); the Wooden Staff stays two-handed | owner |

@@ -80,12 +80,12 @@ Full list with docs and overlaps: [`../docs/plugins.md`](../docs/plugins.md). Ow
 | ~~M4~~ | ~~Rune list~~ **Answered 2026-09-30:** 17 runes, spec 022 | D-56 |
 | M16 | Final Mastery cap: 50 or 100 (test build uses 30) | D-36 |
 | M17 | Skill lists for Greatsword, Spear, Crossbow, Tome (5 + ultimate each) | D-52 |
-| M18 | Wooden Twin Swords and Sword & Shield (spec 037): both count as **Sword** (same Mastery), or new weapon types? | D-04, D-44 |
+| M18 | **Answered 2026-10-15: their own weapon types for Mastery** (`mastery_dual_sword`, `mastery_sword_shield`; skills still fit as Sword), spec 042. Wooden Twin Swords and Sword & Shield (spec 037): both count as **Sword** (same Mastery), or new weapon types? | D-04, D-44 |
 | ~~M19~~ | ~~Combat style~~ **Answered 2026-10-03: C** (D-68): animated weapons + player skills, new controls in D-68 | D-68, D-44 |
 | M20 | Ultimate on Shift + Q is now a personal skill: still owned at a weapon's Mastery cap (D-60), or learned another way? Any weapon, or only the weapon it came from? | D-68, D-60 |
 | M21 | Q buffs: which ones, and how are they learned (skill list missing)? | D-68 |
 | M22 | Weapon skills: is each pack move a skill of that weapon type only (Spear: Shove, Hard Swing…), and do the D-52 / spec 008 skill lists merge with them? | D-68, D-52 |
-| M23 | Off-hand weapon stats (D-69): full, half, or none? Does the off-hand sword add its own damage to dual-sword hits? | D-69 |
+| M23 | **Answered 2026-10-15: off-hand AP counts 50 %, every other stat in full**, spec 042. Off-hand weapon stats (D-69): full, half, or none? Does the off-hand sword add its own damage to dual-sword hits? | D-69 |
 | M24 | Packs to buy next: Greatsword, Hammer, Crossbow, Staff, Tome (Staff: **Zoltraak** 2026-10-04, spec 040; **Arc Staff + Arc Grimoire** and a **Potions** pack 2026-10-13, spec 041); Spear / Bow need guard + twirl animations; a single-sword set would help (D-69) | D-04, D-70 |
 | M25 | Staff stances (D-72): one-handed staff, dual staves, staff + shield, two-handed staff. Which animations (buy / make with the team), and does a one-handed staff cast the same bolts as the two-handed one? **2026-10-04:** the two-handed staff borrows the spear's back pose (spec 040). **2026-10-13 (D-79):** a **one-handed staff + grimoire** exists (Arc Staff, spec 041): it is held as the pack's item, no stance animations; dual staves / staff + shield not built | D-72, D-04 |
 | M26 | How does the equipment screen open (D-77)? **Not with E**: Minecraft doesn't tell the server when a player opens their own inventory (only when it closes). Options: a button item in the E screen (MMOInventory has it), `/equip`, a free key combo, or a client mod. Owner: decide later | D-77 |

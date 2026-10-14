@@ -50,6 +50,7 @@ as the spec that introduces it.** Specs link back here instead of redefining any
 | 039 | [Equipment screen, worn weapons, combat mode](039-equipment-screen-worn-weapons.md) | IN-PROGRESS | wcmmo | confirm |
 | 040 | [Wooden Staff (two-handed) from the Zoltraak pack](040-wooden-staff-zoltraak.md) | IN-PROGRESS | wcmmo | confirm |
 | 041 | [Arc Staff (one-handed) + grimoire, Potions packs, skill pictures](041-arc-staff-potions-packs.md) | IN-PROGRESS | wcmmo | confirm |
+| 042 | [Weapon stats from worn equipment: AP, DP, crit, status screen](042-weapon-stats-ap-dp.md) | IN-PROGRESS | wcmmo | confirm |
 
 Design intent lives in [`../gdd/wcmmo-gdd-v2.md`](../gdd/wcmmo-gdd-v2.md) (v1 is superseded); decisions `D-xx` are tracked there.
 Coming soon (GDD v2 §10–12, not specced): economy & trade, guild & node war, pets & mounts.
