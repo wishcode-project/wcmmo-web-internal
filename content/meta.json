@@ -1,8 +1,17 @@
 {
-  "syncedAt": "2026-10-14T01:45:15.825Z",
-  "head": "b708eac",
+  "syncedAt": "2026-10-14T01:57:56.406Z",
+  "head": "db2f8d2",
   "branch": "main",
   "commits": [
+    {
+      "sha": "db2f8d2",
+      "date": "2026-10-14T08:57:44+07:00",
+      "author": "Zoeytothemoon",
+      "subject": "docs: spec 005 HP regeneration rule built",
+      "insertions": 2,
+      "deletions": 1,
+      "files": 1
+    },
     {
       "sha": "b708eac",
       "date": "2026-10-14T08:45:05+07:00",
@@ -1045,7 +1054,7 @@
     "docs/002-plugin-stack.md": "2026-10-01T22:23:49+07:00",
     "docs/003-void-overworld.md": "2026-10-13T14:18:04+07:00",
     "docs/004-roadmap-phase-plan.md": "2026-10-14T08:37:49+07:00",
-    "docs/005-vitality-resources.md": "2026-10-14T08:39:26+07:00",
+    "docs/005-vitality-resources.md": "2026-10-14T08:57:44+07:00",
     "docs/006-attributes-stat-gating.md": "2026-10-02T00:07:23+07:00",
     "docs/007-classes-skill-bars.md": "2026-10-14T08:27:06+07:00",
     "docs/008-weapon-types-exclusive-skills.md": "2026-10-02T00:07:23+07:00",

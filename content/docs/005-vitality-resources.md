@@ -30,7 +30,7 @@
 
 | Resource | Base | Per level | Regen | Notes |
 |---|---|---|---|---|
-| HP | 100 | +5, +DEF utility (006, D-30) | 1 %/s out of combat (5 s) | |
+| HP | 100 | +5, +DEF utility (006, D-30) | 1 %/s out of combat (5 s) | **Built 2026-10-14:** the food bar is locked full, so vanilla healed non-stop (owner). Vanilla's natural regeneration is off by game rule (`natural_health_regeneration false`, set by the kit in every world on load; the owner's other idea, food locked at 16 / 20, would do the same but the HUD's food bar would never look full). The kit heals 1 % / s after 5 s without dealing or taking damage (`cfg::hp::regenPct` / `regenDelayTicks`) |
 | Mana | 100 | +2, +INT utility (D-30) | 2/s | |
 | Stamina | 100 | +0, +AGI utility (D-30); Fury stage 2A restores on hit (021) | 10/s after 1 s without spending | **Built 2026-10-14:** the kit regenerates it (`wcmmo_20_vitality.sk`, `cfg::stamina::regenPerSec` / `regenDelayTicks`); MMOCore's own stamina regeneration is 0. Before this MMOCore refilled 10/s all the time, so sprinting (3/s) never ran out |
 
@@ -90,3 +90,4 @@ Revert content + plugin module; no player data change beyond MMOCore resource va
 | 2026-10-14 | wcmmo | — | `feat/041-our-potions` | Owner: stamina was not shown anywhere. Interim **stamina boss bar** (`861f94d`, `wcmmo_staminaBar`): yellow, fills with stamina, red while out of stamina, hides 3 s after it is full. The MythicHUD bar (spec 029) replaces it later |
 | 2026-10-14 | wcmmo | — | `feat/029-mmohud` | Stamina is shown by the MythicHUD layout (spec 029); the kit's stamina boss bar stays as a fallback, off by default |
 | 2026-10-14 | wcmmo | — | `feat/029-mmohud` | Owner: no sprinting at 10 stamina or less (`a3f5f04`, `cfg::sprint::minStamina`), back at 20 |
+| 2026-10-14 | wcmmo | — | `feat/029-mmohud` | Vanilla HP regeneration off (game rule), out-of-combat regeneration 1 % / s after 5 s built (`a84943a`). Test server: the rule reads false in all three dimensions; the heal rule needs a player to try |
